@@ -181,11 +181,62 @@ def bulk_edit(request):
 @require_POST
 @login_required
 def delete(request, node_value_id):
-    pass
+    results = {}
+    try:
+        results[SUCCESS_KEY], exam_node_value_id = delete_node_value(node_value_id)
+        if results[SUCCESS_KEY]:
+            results[MESSAGE_KEY] = _('Node value %s successfully deleted.' % exam_node_value_id)
+            results[DATA_KEY] = {'node_value_id': exam_node_value_id}
+        else:
+            results[ERRORS_KEY] = _('Unable to delete node value %s.' % exam_node_value_id)
+    except Exception, e:
+        results[SUCCESS_KEY] = False
+        results[ERRORS_KEY] = e
+    return HttpResponse(json.dumps(results), content_type='application/json; charset=utf8')
 
 
 @csrf_exempt
 @require_POST
 @login_required
 def bulk_delete(request):
-    pass
+    # request_body = json :: lista di id di node_value da eliminare
+    results = {}
+    try:
+        results[DATA_KEY], results[ERRORS_KEY] = bulk_delete_node_value(json.loads(request.body))
+        if not results[ERRORS_KEY]:
+            results[SUCCESS_KEY] = True
+            results[MESSAGE_KEY] = _('Node values successfully deleted.')
+        else:
+            results[ERRORS_KEY] = _('Unable to delete node values.')
+    except Exception, e:
+        results[SUCCESS_KEY] = False
+        results[ERRORS_KEY] = e
+    return HttpResponse(json.dumps(results), content_type='application/json; charset=utf8')
+
+
+@login_required
+def get_info(request, node_value_id):
+    results = {}
+    try:
+        node_value = NodeValue.objects.get(pk=node_value_id)
+        results[SUCCESS_KEY] = True
+        results[MESSAGE_KEY] = _('Node value %s found.' % node_value_id)
+        results[DATA_KEY] = node_value.to_dictionary()
+    except Exception, e:
+        results[SUCCESS_KEY] = False
+        results[ERRORS_KEY] = e
+    return HttpResponse(json.dumps(results), content_type='application/json; charset=utf8')
+
+
+@login_required
+def get_label_value(request, node_value_id):
+    results = {}
+    try:
+        node_value = NodeValue.objects.get(pk=node_value_id)
+        results[SUCCESS_KEY] = True
+        results[MESSAGE_KEY] = _('Node value %s found.' % node_value_id)
+        results[DATA_KEY] = node_value.to_label_value()
+    except Exception, e:
+        results[SUCCESS_KEY] = False
+        results[ERRORS_KEY] = e
+    return HttpResponse(json.dumps(results), content_type='application/json; charset=utf8')

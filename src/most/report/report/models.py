@@ -147,3 +147,9 @@ class NodeValue(models.Model):
             u'clinician': u'%s' % self.clinician.to_dictionary(),
             u'node_report': u'%s' % self.node_report.to_dictionary(),
         }
+
+    def to_label_value(self):
+        return {u'label': u'%s' % self.node_report.exam_node.name, u'value': u'%s' % self.value}
+
+    def get_label(self):
+        return u'%s' % self.node_report.exam_node.name
