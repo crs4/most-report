@@ -1,7 +1,7 @@
 .. MostVisualization API documentation
 
-Android Most Visualization API
-==============================
+Android Most Report API
+=======================
 
 Contents:
 

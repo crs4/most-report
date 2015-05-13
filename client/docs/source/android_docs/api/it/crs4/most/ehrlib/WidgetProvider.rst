@@ -60,9 +60,7 @@ WidgetProvider
 
 .. java:type:: public class WidgetProvider
 
-   The Class WidgetProvider.
-
-   :author: smonni A WidgetProvider is a utility class that builds a set of visual and iteractive widgets corresponding to a specific Archetype. The Archetype description is specified by a set of json structures, to be provided to the class constructor.
+   A WidgetProvider is a utility class that builds a set of visual and iteractive widgets corresponding to a specific Archetype. The Archetype description is specified by a set of json structures, to be provided to the class constructor.
 
 Fields
 ------

@@ -32,12 +32,9 @@ import it.crs4.most.ehrlib.parser.AdlParser;
 import it.crs4.most.ehrlib.parser.AdlStructure;
 import it.crs4.most.ehrlib.widgets.*;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class WidgetProvider.
  *
- * @author smonni
- * 
  * A WidgetProvider is a utility class that builds a set of visual and iteractive widgets corresponding to a specific Archetype.
  * The Archetype description is specified by a set of json structures, to be provided to the class constructor. 
  */

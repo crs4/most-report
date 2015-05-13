@@ -11,8 +11,8 @@ The MOST project aims to achieve an open, modular and scalable solution for the 
 
 The project consists of a set of frameworks that deal with different aspects and technologies useful for the creation of telemedicine applications.
 
-Visualization Framework
-~~~~~~~~~~~~~~~~~~~~~~~
+Most Report Framework
+~~~~~~~~~~~~~~~~~~~~~
 
 The Report Framework [TODO]
 

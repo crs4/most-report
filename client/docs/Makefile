@@ -53,7 +53,7 @@ html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo  Building Android Documentation 
-	javasphinx-apidoc -fo source/android_docs/api/ ../android/EhrLib/src/it/crs4/most/ehrlib/
+	javasphinx-apidoc -fo source/android_docs/api/ ../android/src/EhrLib/src/it/crs4/most/ehrlib/
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
 dirhtml:
