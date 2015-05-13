@@ -1,0 +1,50 @@
+{
+	"archetype_class": "openEHR-EHR-OBSERVATION.blood_pressure.v1",
+    "archetype_details": 
+   {
+	"data":{
+		"at0001":[
+			{
+				"events":[
+					{
+						"at0006":{
+							"data":{
+								"at0003":[
+									{
+										"items":{
+											"at0005":{
+												"value":{
+													"units":"mm[Hg]",
+													"magnitude":65
+												}
+											},
+											"at1006":{
+												"value":{
+													"units":"mm[Hg]",
+													"magnitude":720
+												}
+											},
+											"at1007":{
+												"value":{
+													"units":"mm[Hg]",
+													"magnitude":119
+												}
+											},
+											"at0004":{
+												"value":{
+													"units":"mm[Hg]",
+													"magnitude":119
+												}
+											}
+										}
+									}
+								]
+							}
+						}
+					}
+				]
+			}
+		]
+	}
+}
+}
