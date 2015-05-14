@@ -4,6 +4,8 @@
 
 .. java:import:: android.view ViewGroup
 
+.. java:import:: it.crs4.most.ehrlib R.id
+
 .. java:import:: it.crs4.most.ehrlib.datatypes EhrDatatype
 
 .. java:import:: it.crs4.most.ehrlib.exceptions InvalidDatatypeException
@@ -18,7 +20,7 @@ FormContainer
 
 .. java:type:: public class FormContainer
 
-   The Class FormContainer.
+   A Form Container contains the list of \ :java:ref:`DatatypeWidget`\  widgets included in a Form along with the visual layout containing them.
 
 Fields
 ------
@@ -54,11 +56,11 @@ FormContainer
 .. java:constructor:: public FormContainer(ViewGroup layout, List<DatatypeWidget<EhrDatatype>> widgets, int index)
    :outertype: FormContainer
 
-   This class represents a Form Container. It contains the list of \ :java:ref:`DatatypeWidget`\  widgets included in a Form along with the layout that you can use for rendering them.
+   Creates a new Form Container
 
-   :param layout: the layout
-   :param widgets: the widgets
-   :param index: the index
+   :param layout: the layout the layout containing all the \ :java:ref:`DatatypeWidget`\
+   :param widgets: the list of the \ :java:ref:`DatatypeWidget`\
+   :param index: the index of this form
 
 Methods
 -------
@@ -68,7 +70,7 @@ getIndex
 .. java:method:: public int getIndex()
    :outertype: FormContainer
 
-   Gets the index.
+   Get the index of this form container
 
    :return: the index
 
@@ -78,7 +80,7 @@ getLayout
 .. java:method:: public ViewGroup getLayout()
    :outertype: FormContainer
 
-   Gets the layout.
+   Gets the layout of this form
 
    :return: the layout
 
@@ -88,7 +90,7 @@ getWidgets
 .. java:method:: public List<DatatypeWidget<EhrDatatype>> getWidgets()
    :outertype: FormContainer
 
-   Gets the widgets.
+   Get the widgets of this form container.
 
    :return: the widgets
 
@@ -118,7 +120,7 @@ submitAllWidgets
 
    Submit all widgets.
 
-   :throws InvalidDatatypeException: the invalid datatype exception
+   :throws InvalidDatatypeException: if any of the widgets contains invalid data
 
 submitWidget
 ^^^^^^^^^^^^

@@ -9,7 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * helper class for sorting widgets by priority.
+ * Helper class for sorting widgets by priority.
  */
 public class PriorityComparison implements Comparator< DatatypeWidget<EhrDatatype>>
 {
@@ -27,9 +27,7 @@ public class PriorityComparison implements Comparator< DatatypeWidget<EhrDatatyp
 		this.schema = layoutSchema;
 	}
 	
-	/* (non-Javadoc)
-	 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
-	 */
+	
 	public int compare(  DatatypeWidget<EhrDatatype>item1, DatatypeWidget<EhrDatatype> item2 ) {
 		
 		if (this.schema==null) return 1;

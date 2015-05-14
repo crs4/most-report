@@ -1,16 +1,25 @@
-package it.crs4.ehrlib.test;
+/*!
+ * Project MOST - Moving Outcomes to Standard Telemedicine Practice
+ * http://most.crs4.it/
+ *
+ * Copyright 2014-15, CRS4 srl. (http://www.crs4.it/)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * See license-GPLv2.txt or license-MIT.txt
+ */
 
 
-import org.json.JSONException;
-import org.json.JSONObject;
+package it.crs4.most.ehrlib.test;
 
 import it.crs4.most.ehrlib.WidgetProvider;
 import it.crs4.most.ehrlib.parser.AdlParser;
 import it.crs4.most.ehrlib.parser.AdlStructure;
-import it.crs4.most.ehrlib.widgets.DatatypeWidget;
+
 import android.content.Context;
 import android.test.InstrumentationTestCase;
 import android.util.Log;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class TestAdlParser extends InstrumentationTestCase {
 	

@@ -16,7 +16,7 @@ PriorityComparison
 
 .. java:type:: public class PriorityComparison implements Comparator<DatatypeWidget<EhrDatatype>>
 
-   helper class for sorting widgets by priority.
+   Helper class for sorting widgets by priority.
 
 Constructors
 ------------

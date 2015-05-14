@@ -16,7 +16,7 @@ Utils
 
 .. java:type:: public class Utils
 
-   The Class Utils.
+   This class contains utility methods internally used by the framework.
 
 Methods
 -------

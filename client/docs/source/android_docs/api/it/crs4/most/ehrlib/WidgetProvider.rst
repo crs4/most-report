@@ -60,7 +60,7 @@ WidgetProvider
 
 .. java:type:: public class WidgetProvider
 
-   A WidgetProvider is a utility class that builds a set of visual and iteractive widgets corresponding to a specific Archetype. The Archetype description is specified by a set of json structures, to be provided to the class constructor.
+   A WidgetProvider is a utility class that builds a set of visual and iteractive widgets corresponding to a specific OpenEHR Archetype. The Archetype description is specified by a set of json structures (to be provided to the class constructor).
 
 Fields
 ------
@@ -143,11 +143,19 @@ getContext
 .. java:method:: public Context getContext()
    :outertype: WidgetProvider
 
+   Get the application context
+
+   :return: the application context
+
 getOntology
 ^^^^^^^^^^^
 
 .. java:method:: public JSONObject getOntology()
    :outertype: WidgetProvider
+
+   Get the json schema containing the ontology of this archetype
+
+   :return: the ontology json schema
 
 getOntology
 ^^^^^^^^^^^
@@ -205,9 +213,9 @@ updateOntologyLanguage
 .. java:method:: public void updateOntologyLanguage(String lang)
    :outertype: WidgetProvider
 
-   Update the ontology on all datatype widgets.
+   Update the ontology of all datatype widgets.
 
-   :param lang: the language code
+   :param lang: the language code (ISO 639-1:2002)
 
 updateSectionsJsonContent
 ^^^^^^^^^^^^^^^^^^^^^^^^^

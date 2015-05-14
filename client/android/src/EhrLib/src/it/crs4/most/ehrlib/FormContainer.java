@@ -5,13 +5,14 @@ import java.util.List;
 import android.util.Log;
 import android.view.ViewGroup;
 
+import it.crs4.most.ehrlib.R.id;
 import it.crs4.most.ehrlib.datatypes.EhrDatatype;
 import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
 import it.crs4.most.ehrlib.widgets.DatatypeWidget;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class FormContainer.
+ * A Form Container contains the list of {@link DatatypeWidget} widgets included in a Form along with the visual layout containing them.
  */
 public class FormContainer {
 	
@@ -28,11 +29,11 @@ public class FormContainer {
 	private String TAG="FormContainer";
     
     /**
-     * This class represents a Form Container. It contains the list of {@link DatatypeWidget} widgets included in a Form along with the layout that you can use for rendering them.
-     *
-     * @param layout the layout
-     * @param widgets the widgets
-     * @param index the index
+     * Creates a new Form Container
+     * 
+     * @param layout the layout the layout containing all the {@link DatatypeWidget}
+     * @param widgets the list of the {@link DatatypeWidget}
+     * @param index the index of this form
      */
 	public FormContainer(ViewGroup layout, List<DatatypeWidget<EhrDatatype>> widgets, int index)
 	{
@@ -75,7 +76,7 @@ public class FormContainer {
     /**
      * Submit all widgets.
      *
-     * @throws InvalidDatatypeException the invalid datatype exception
+     * @throws InvalidDatatypeException if any of the widgets contains invalid data
      */
     public void submitAllWidgets() throws InvalidDatatypeException
 	{
@@ -84,18 +85,18 @@ public class FormContainer {
 	}
     
 	/**
-	 * Gets the layout.
+	 * Gets the layout of this form
 	 *
 	 * @return the layout
 	 */
 	public ViewGroup getLayout() {
-		return layout;
+		return this.layout;
 	}
 
 
 
 	/**
-	 * Gets the widgets.
+	 * Get the widgets of this form container.
 	 *
 	 * @return the widgets
 	 */
@@ -105,7 +106,7 @@ public class FormContainer {
 
 
 	/**
-	 * Gets the index.
+	 * Get the index of this form container
 	 *
 	 * @return the index
 	 */

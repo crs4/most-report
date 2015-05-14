@@ -34,9 +34,8 @@ import it.crs4.most.ehrlib.widgets.*;
 
 
 /**
- *
- * A WidgetProvider is a utility class that builds a set of visual and iteractive widgets corresponding to a specific Archetype.
- * The Archetype description is specified by a set of json structures, to be provided to the class constructor. 
+ * A WidgetProvider is a utility class that builds a set of visual and iteractive widgets corresponding to a specific OpenEHR Archetype.
+ * The Archetype description is specified by a set of json structures (to be provided to the class constructor). 
  */
 public class WidgetProvider {
 	
@@ -47,9 +46,7 @@ public class WidgetProvider {
 	private static Map<String,String[]> ehrWidgetsMap = new HashMap<String, String[]>()
 	
 {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	{
@@ -141,19 +138,27 @@ private TextView titleView;
 			this.buildSectionWidgetsMap(null);
 	}
 	
+	/**
+	 * Get the application context
+	 * @return the application context
+	 */
 	public Context getContext() {
 		return context;
 	}
 
+	/**
+	 * Get the json schema containing the ontology of this archetype
+	 * @return the ontology json schema
+	 */
 	public JSONObject getOntology()
 	{
 		return this.ontology;
 	}
 	
 	/**
-	 * Update the ontology on all datatype widgets.
+	 * Update the ontology of all {@link DatatypeWidget} widgets.
 	 *
-	 * @param lang the language code
+	 * @param lang the language code (ISO 639-1:2002)
 	 */
 	public void updateOntologyLanguage(String lang)
 	{
@@ -172,12 +177,12 @@ private TextView titleView;
 	}
 
 	/**
-	 * Get a widget mapped to a specific openEHR datatype.
+	 * Get a widget mapped to a specific openEHR datatype, or null if no widget was found for the specified datatype
 	 *
 	 * @param context the context where the widget will be rendered (e.g the activity)
 	 * @param datatype the name of the datatype
-	 * @param path the unique path
-	 * @param title the title
+	 * @param path the unique path of the datatype
+	 * @param title the title 
 	 * @param attributes the attributes
 	 * @param parentIndex the parent index
 	 * @return the widget or null if no widget was found for the specified datatype
@@ -282,15 +287,13 @@ private TextView titleView;
  
 	
 	/**
-	 * build a view containing all widgets according to the json archetype structure, layout and ontology, All widgets are rendered  in a vertical layout, 
+	 * build a view containing all widgets according to the json archetype structure, layout and ontology, All widgets are rendered in a vertical layout, 
 	 * optionally ordered by section and/or item priority (if specified in the layout json schema) 
-	 * (This method first  calls the {@link #buildSectionWidgetsMap(String[])} methods on all archetype sections (or on the sections provided by the layout schema , if provided).
 	 *
-	 * @param index the index
+	 * @param index the index of this Form Container
 	 * @return the FormContainer containing all widgets, ordered by section and item priority in a vertical layout
-	 * @throws InvalidDatatypeException the invalid datatype exception
 	 */
-	public FormContainer buildFormView(int index) throws InvalidDatatypeException {
+	public FormContainer buildFormView(int index) {
 		
 		/*
 		
@@ -341,8 +344,6 @@ private TextView titleView;
 		
 		if (sections==null)
 			sections = getSections();
-		
-		
 		
 		Log.d(TAG, "Generating form....");
 		String formTitle = "Unknown Form";

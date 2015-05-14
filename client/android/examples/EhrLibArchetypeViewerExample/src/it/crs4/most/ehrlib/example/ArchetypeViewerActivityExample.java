@@ -1,7 +1,18 @@
-package it.crs4.ehrlib.example;
+/*!
+ * Project MOST - Moving Outcomes to Standard Telemedicine Practice
+ * http://most.crs4.it/
+ *
+ * Copyright 2014-15, CRS4 srl. (http://www.crs4.it/)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * See license-GPLv2.txt or license-MIT.txt
+ */
+
+
+package it.crs4.most.ehrlib.example;
 
 import org.json.JSONException;
 
+import it.crs4.ehrlib.example.R;
 import it.crs4.most.ehrlib.FormContainer;
 import it.crs4.most.ehrlib.WidgetProvider;
 import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
@@ -27,11 +38,11 @@ import android.widget.Toast;
 
 
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class BloodPressureActivity.
+ * The Class ArchetypeViewerActivityExample.
  */
-public class BloodPressureActivity extends ActionBarActivity{
+public class ArchetypeViewerActivityExample extends ActionBarActivity{
 
 	/** The Constant LANGUAGE. */
 	public static final String LANGUAGE = "es-ar"; // "es-ar"; //
@@ -66,7 +77,7 @@ public class BloodPressureActivity extends ActionBarActivity{
         
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new BloodPressureFragment())
+                    .add(R.id.container, new ArchetypeViewerFragment())
                     .commit();
         }
         
@@ -102,7 +113,7 @@ public class BloodPressureActivity extends ActionBarActivity{
     /**
      * A fragment containing a form for Blood Pressure handling.
      */
-    public static class BloodPressureFragment extends Fragment {
+    public static class ArchetypeViewerFragment extends Fragment {
 
     	 /* (non-Javadoc)
  	     * @see android.support.v4.app.Fragment#onCreateOptionsMenu(android.view.Menu, android.view.MenuInflater)
@@ -150,7 +161,7 @@ public class BloodPressureActivity extends ActionBarActivity{
         /**
          * Instantiates a new blood pressure fragment.
          */
-        public BloodPressureFragment() {
+        public ArchetypeViewerFragment() {
         }
 
         /* (non-Javadoc)
