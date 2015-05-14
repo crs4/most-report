@@ -9,9 +9,11 @@
 
 package it.crs4.most.ehrlib.exceptions;
 
-// TODO: Auto-generated Javadoc
+import it.crs4.most.ehrlib.datatypes.EhrDatatype;
+
+
 /**
- * The Class InvalidDatatypeException.
+ * This exception is called when a user attempts to set an invalid value to a {@link EhrDatatype} item.
  */
 public class InvalidDatatypeException extends Exception {
 

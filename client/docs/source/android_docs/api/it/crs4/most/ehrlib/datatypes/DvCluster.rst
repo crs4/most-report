@@ -12,6 +12,8 @@ DvCluster
 
 .. java:type:: public class DvCluster extends EhrDatatype
 
+   It is a particular datatype that is a container for other datatypes.
+
 Constructors
 ------------
 DvCluster
@@ -20,10 +22,10 @@ DvCluster
 .. java:constructor:: public DvCluster(String path, JSONObject attributes)
    :outertype: DvCluster
 
-   Instantiates a new dv coded text.
+   Instantiates a new DvCluster datatype
 
-   :param path: the path
-   :param attributes: the attributes
+   :param path: the path of this datatype
+   :param attributes: the attributes of this datatype
 
 Methods
 -------
@@ -39,7 +41,7 @@ getSectionName
 .. java:method:: public String getSectionName()
    :outertype: DvCluster
 
-   Get the name of the datatype section containing all the datatype of this cluster
+   Get the name of the datatype section containing all the datatypes of this cluster
 
    :return: the name of the section
 

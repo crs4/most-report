@@ -18,7 +18,7 @@ DvCodedText
 
 .. java:type:: public class DvCodedText extends EhrDatatype
 
-   The Class DvCodedText.
+   This class represents a DV_CODED_TEXT item, according to the definition provided by the OpenEHR Data Type Information Model
 
 Fields
 ------
@@ -38,7 +38,7 @@ DvCodedText
 .. java:constructor:: public DvCodedText(String path, JSONObject attributes)
    :outertype: DvCodedText
 
-   Instantiates a new dv coded text.
+   Instantiates a new DV_CODED_TEXT item.
 
    :param path: the path
    :param attributes: the attributes
@@ -57,7 +57,7 @@ getOptions
 .. java:method:: public String[] getOptions()
    :outertype: DvCodedText
 
-   Gets the options.
+   Gets the options of this DV_CODED_TEXT
 
    :return: the options
 

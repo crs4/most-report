@@ -16,9 +16,9 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class DvQuantity.
+ * This class represents a DV_QUANTITY item, according to the definition provided by the OpenEHR Data Type Information Model
  */
 public class DvQuantity extends EhrDatatype{
 	
@@ -43,7 +43,7 @@ public class DvQuantity extends EhrDatatype{
 	
 	
 	/**
-	 * Instantiates a new dv quantity.
+	 * Instantiates a new DV_QUANTITY item.
 	 *
 	 * @param path the path
 	 * @param attributes the attributes
@@ -61,9 +61,7 @@ public class DvQuantity extends EhrDatatype{
 		}
 	}
 	
-	/* (non-Javadoc)
-	 * @see it.crs4.most.ehrlib.datatypes.EhrDatatype#setAttributes(org.json.JSONObject)
-	 */
+	
 	@Override
 	protected void setAttributes(JSONObject attributes) throws JSONException
 	{
@@ -99,10 +97,10 @@ public class DvQuantity extends EhrDatatype{
 	}
 
 	/**
-	 * Checks if is valid.
+	 * Checks if the value provided as argument is valid for this DV_QUANTITY item or not.
 	 *
-	 * @param value the value
-	 * @return true, if is valid
+	 * @param value the value to be checked
+	 * @return {@code True}, if ithe calue is valid, {@code False} otherwise
 	 */
 	public boolean isValid(double value)
 	{
@@ -110,10 +108,10 @@ public class DvQuantity extends EhrDatatype{
 	}
 	
 	/**
-	 * Gets the precision.
+	 * Gets the amount of decimal digits of the value provided as argument
 	 *
 	 * @param value the value
-	 * @return the precision
+	 * @return the amount of decimal digits of the value provided as argument
 	 */
 	private int getPrecision(double value)
 	{
@@ -163,19 +161,19 @@ public class DvQuantity extends EhrDatatype{
 	}
 	
 	/**
-	 * Gets the magnitude.
+	 * Gets the current magnitude value of this datatype.
 	 *
-	 * @return the magnitude
+	 * @return the magnitude 
 	 */
 	public double getMagnitude() {
 		return this.magnitude;
 	}
 
 	/**
-	 * Sets the magnitude.
+	 * Sets the magnitude value.
 	 *
-	 * @param magnitude the new magnitude
-	 * @throws InvalidDatatypeException the invalid datatype exception
+	 * @param magnitude the new magnitude value
+	 * @throws InvalidDatatypeException if a not valid magnitude value is specified
 	 */
 	public void setMagnitude(double magnitude) throws InvalidDatatypeException  {
 		if (this.isValid(magnitude))
@@ -192,9 +190,9 @@ public class DvQuantity extends EhrDatatype{
 	}
 
 	/**
-	 * Gets the units.
+	 * Gets the unit of measure adopted by this DV_QUANTITY item
 	 *
-	 * @return the units
+	 * @return the current unit of measure
 	 */
 	public String getUnits() {
 		Log.d(TAG,String.format("Calling get unity() from %s return: %s" , this, this.units));
@@ -202,73 +200,69 @@ public class DvQuantity extends EhrDatatype{
 	}
 
 	/**
-	 * Sets the units.
+	 * Sets the unit of measure adopted by this DV_QUANTITY item
 	 *
-	 * @param units the new units
+	 * @param units the new unit of measure
 	 */
 	public void setUnits(String units) {
 		this.units = units;
 	}
 
 	/**
-	 * Gets the max precision.
+	 * Gets the maximum precision (i.e the maximum number of decimal digits admitted for this DV_QUANTITY item)
 	 *
-	 * @return the max precision
+	 * @return the maximum precision
 	 */
 	public int getMaxPrecision() {
 		return this.precision;
 	}
 
 	/**
-	 * Sets the max precision.
+	 * Sets the maximum precision  (i.e the maximum number of decimal digits admitted for this DV_QUANTITY item)
 	 *
-	 * @param precision the new max precision
+	 * @param precision the highest precision
 	 */
-	public void setMaxPrecision(int precision) {
+	public void setMaxtPrecision(int precision) {
 		this.precision = precision;
 	}
 
 	/**
-	 * Gets the min.
+	 * Gets the minimum value admitted for this DV_QUANTITY item
 	 *
-	 * @return the min
+	 * @return the minimum value admitted for this DV_QUANTITY item
 	 */
 	public int getMin() {
 		return this.min;
 	}
 
 	/**
-	 * Sets the min.
+	 * Sets the minimum value admitted for this DV_QUANTITY item
 	 *
-	 * @param min the new min
+	 * @param min the minimum value admitted for this DV_QUANTITY item
 	 */
 	public void setMin(int min) {
 		this.min = min;
 	}
 
 	/**
-	 * Gets the max.
+	 * Gets the maximum value admitted for this DV_QUANTITY item
 	 *
-	 * @return the max
+	 * @return the maximum value admitted for this DV_QUANTITY item
 	 */
 	public int getMax() {
 		return this.max;
 	}
 
 	/**
-	 * Sets the max.
+	 * Sets the maximum value admitted for this DV_QUANTITY item
 	 *
-	 * @param max the new max
+	 * @param max the maximum value admitted for this DV_QUANTITY item
 	 */
 	public void setMax(int max) {
 		this.max = max;
 	}
 
 	 
-	
-	/* (non-Javadoc)
-	 * @see it.crs4.most.ehrlib.datatypes.EhrDatatype#fromJSON(org.json.JSONObject)
-	 */
 	@Override
 	public void fromJSON(JSONObject content) throws JSONException, InvalidDatatypeException {
 		
@@ -295,9 +289,7 @@ public class DvQuantity extends EhrDatatype{
 		
 	}
 
-	/* (non-Javadoc)
-	 * @see it.crs4.most.ehrlib.datatypes.EhrDatatype#toJSON()
-	 */
+
 	@Override
 	public JSONObject toJSON() {
 		JSONObject jsonMagnitude = new JSONObject();

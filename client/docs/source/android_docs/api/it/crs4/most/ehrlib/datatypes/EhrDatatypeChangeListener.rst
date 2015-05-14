@@ -6,13 +6,9 @@ EhrDatatypeChangeListener
 
 .. java:type:: public interface EhrDatatypeChangeListener<T extends EhrDatatype>
 
-   The listener interface for receiving ehrDatatypeChange events. The class that is interested in processing a ehrDatatypeChange event implements this interface, and the object created with that class is registered with a component using the component's addEhrDatatypeChangeListener method. When
-   the ehrDatatypeChange event occurs, that object's appropriate
-   method is invoked.
+   The listener interface for receiving ehrDatatypeChange events. The class that is interested in processing a ehrDatatypeChange event implements this interface, and the object created with that class is registered with a component using the component's \ :java:ref:`EhrDatatype.setDatatypeChangeListener(EhrDatatypeChangeListener)`\  method. When the ehrDatatypeChange event occurs, that object's appropriate method is invoked.
 
-   :param <T>: the generic type
-
-   **See also:** :java:ref:`EhrDatatypeChangeEvent`
+   :param <T>: the generic datatype extending the \ ``EhrDatatype``\
 
 Methods
 -------

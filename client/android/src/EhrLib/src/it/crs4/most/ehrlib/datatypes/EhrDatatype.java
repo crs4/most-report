@@ -16,11 +16,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-// TODO: Auto-generated Javadoc
+
 /**
- * Defines a generic openEHR datatype.
+ * This is the base class for all data types included in a generic Archetype, as defined by the OpenEHR ADL structure
  *
- * @author smonni
  */
 public abstract class EhrDatatype {
 
@@ -28,34 +27,38 @@ public abstract class EhrDatatype {
 	/** The datatype change listener. */
 	protected EhrDatatypeChangeListener datatypeChangeListener;
 	
-	/** The path. */
+	/** The path of the datatype */
 	protected String path;
 	
 	/**
-	 * Sets the datatype change listener.
+	 * Sets the Event listener interface for 'change' events. 
 	 *
-	 * @param datatypeChangeListener the new datatype change listener
+	 * @param datatypeChangeListener the Listener where to notify any content modification of this datatype
 	 */
 	public void setDatatypeChangeListener(EhrDatatypeChangeListener datatypeChangeListener)
 	{
 		this.datatypeChangeListener = datatypeChangeListener;
 	}
 	
+	/**
+	 * 
+	 * @return {@code True} if this datatype is a container for other datatypes, {@code False} otherwise
+	 */
 	public boolean isCluster()
 	{
 		return false;
 	}
 	
 	/**
-	 * Sets the attributes.
+	 * Sets the attributes for this datatype. Generally, different datatypes have different attributes.
 	 *
-	 * @param attributes the new attributes
-	 * @throws JSONException the JSON exception
+	 * @param attributes the json structure containing all the attributes of this datatype.
+	 * @throws JSONException if a malformed json structure was provided
 	 */
 	protected abstract void setAttributes(JSONObject attributes) throws JSONException;
 	
 	/**
-	 * Sets the path.
+	 * Sets the path of this datatype.
 	 *
 	 * @param path the new path
 	 */
@@ -64,7 +67,7 @@ public abstract class EhrDatatype {
 	}
 	
 	/**
-	 * Gets the path.
+	 * Gets the path of this datatype
 	 *
 	 * @return the path
 	 */
@@ -74,18 +77,18 @@ public abstract class EhrDatatype {
 	}
  
 	/**
-	 * From json.
+	 * Load the new content of this datatype from a json schema.
 	 *
-	 * @param data the data
-	 * @throws JSONException the JSON exception
+	 * @param data the json structure representing this datatype
+	 * @throws JSONException if a malformed json structure was provided
 	 * @throws InvalidDatatypeException the invalid datatype exception
 	 */
 	public abstract void fromJSON(JSONObject data) throws JSONException, InvalidDatatypeException;
 	
 	/**
-	 * To json.
+	 * Get the json structure representing the current state of this datatype.
 	 *
-	 * @return the JSON object
+	 * @return the JSON structure representing the current state of this datatype
 	 */
 	public abstract JSONObject toJSON();
 }

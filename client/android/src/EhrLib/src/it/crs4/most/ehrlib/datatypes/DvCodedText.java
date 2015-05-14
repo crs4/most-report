@@ -19,9 +19,9 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class DvCodedText.
+ * This class represents a DV_CODED_TEXT item, according to the definition provided by the OpenEHR Data Type Information Model
  */
 public class DvCodedText extends EhrDatatype {
 
@@ -39,7 +39,7 @@ public class DvCodedText extends EhrDatatype {
 	
 	
 	/**
-	 * Instantiates a new dv coded text.
+	 * Instantiates a new DV_CODED_TEXT item.
 	 *
 	 * @param path the path
 	 * @param attributes the attributes
@@ -56,9 +56,7 @@ public class DvCodedText extends EhrDatatype {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see it.crs4.most.ehrlib.datatypes.EhrDatatype#setAttributes(org.json.JSONObject)
-	 */
+	
 	@Override
 	protected void setAttributes(JSONObject attributes) throws JSONException {
 		/*
@@ -122,7 +120,7 @@ public class DvCodedText extends EhrDatatype {
 	}
 	
 	/**
-	 * Gets the options.
+	 * Gets the options of this DV_CODED_TEXT
 	 *
 	 * @return the options
 	 */
@@ -132,9 +130,7 @@ public class DvCodedText extends EhrDatatype {
 	}
 
 	
-	/* (non-Javadoc)
-	 * @see it.crs4.most.ehrlib.datatypes.EhrDatatype#toJSON()
-	 */
+	
 	@Override
 	public JSONObject toJSON() {
 		JSONObject jsonText = new JSONObject();
@@ -150,6 +146,4 @@ public class DvCodedText extends EhrDatatype {
 		
 		return null;
 	}
-	
-
 }

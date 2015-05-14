@@ -9,18 +9,17 @@
 
 package it.crs4.most.ehrlib.datatypes;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The listener interface for receiving ehrDatatypeChange events.
  * The class that is interested in processing a ehrDatatypeChange
  * event implements this interface, and the object created
  * with that class is registered with a component using the
- * component's <code>addEhrDatatypeChangeListener<code> method. When
+ * component's {@link EhrDatatype#setDatatypeChangeListener(EhrDatatypeChangeListener)} method. When
  * the ehrDatatypeChange event occurs, that object's appropriate
  * method is invoked.
  *
- * @param <T> the generic type
- * @see EhrDatatypeChangeEvent
+ * @param <T> the generic datatype extending the {@code EhrDatatype}
  */
 public interface EhrDatatypeChangeListener<T extends EhrDatatype> {
 	

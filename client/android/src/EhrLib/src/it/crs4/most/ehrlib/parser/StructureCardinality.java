@@ -9,7 +9,7 @@
 
 package it.crs4.most.ehrlib.parser;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Enum StructureCardinality.
  */

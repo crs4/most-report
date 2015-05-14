@@ -14,7 +14,7 @@ DvQuantity
 
 .. java:type:: public class DvQuantity extends EhrDatatype
 
-   The Class DvQuantity.
+   This class represents a DV_QUANTITY item, according to the definition provided by the OpenEHR Data Type Information Model
 
 Constructors
 ------------
@@ -24,7 +24,7 @@ DvQuantity
 .. java:constructor:: public DvQuantity(String path, JSONObject attributes)
    :outertype: DvQuantity
 
-   Instantiates a new dv quantity.
+   Instantiates a new DV_QUANTITY item.
 
    :param path: the path
    :param attributes: the attributes
@@ -53,7 +53,7 @@ getMagnitude
 .. java:method:: public double getMagnitude()
    :outertype: DvQuantity
 
-   Gets the magnitude.
+   Gets the current magnitude value of this datatype.
 
    :return: the magnitude
 
@@ -63,9 +63,9 @@ getMax
 .. java:method:: public int getMax()
    :outertype: DvQuantity
 
-   Gets the max.
+   Gets the maximum value admitted for this DV_QUANTITY item
 
-   :return: the max
+   :return: the maximum value admitted for this DV_QUANTITY item
 
 getMaxPrecision
 ^^^^^^^^^^^^^^^
@@ -73,9 +73,9 @@ getMaxPrecision
 .. java:method:: public int getMaxPrecision()
    :outertype: DvQuantity
 
-   Gets the max precision.
+   Gets the maximum precision (i.e the maximum number of decimal digits admitted for this DV_QUANTITY item)
 
-   :return: the max precision
+   :return: the maximum precision
 
 getMin
 ^^^^^^
@@ -83,9 +83,9 @@ getMin
 .. java:method:: public int getMin()
    :outertype: DvQuantity
 
-   Gets the min.
+   Gets the minimum value admitted for this DV_QUANTITY item
 
-   :return: the min
+   :return: the minimum value admitted for this DV_QUANTITY item
 
 getUnits
 ^^^^^^^^
@@ -93,9 +93,9 @@ getUnits
 .. java:method:: public String getUnits()
    :outertype: DvQuantity
 
-   Gets the units.
+   Gets the unit of measure adopted by this DV_QUANTITY item
 
-   :return: the units
+   :return: the current unit of measure
 
 getValidityMessage
 ^^^^^^^^^^^^^^^^^^
@@ -114,10 +114,10 @@ isValid
 .. java:method:: public boolean isValid(double value)
    :outertype: DvQuantity
 
-   Checks if is valid.
+   Checks if the value provided as argument is valid for this DV_QUANTITY item or not.
 
-   :param value: the value
-   :return: true, if is valid
+   :param value: the value to be checked
+   :return: \ ``True``\ , if ithe calue is valid, \ ``False``\  otherwise
 
 setAttributes
 ^^^^^^^^^^^^^
@@ -131,10 +131,10 @@ setMagnitude
 .. java:method:: public void setMagnitude(double magnitude) throws InvalidDatatypeException
    :outertype: DvQuantity
 
-   Sets the magnitude.
+   Sets the magnitude value.
 
-   :param magnitude: the new magnitude
-   :throws InvalidDatatypeException: the invalid datatype exception
+   :param magnitude: the new magnitude value
+   :throws InvalidDatatypeException: if a not valid magnitude value is specified
 
 setMax
 ^^^^^^
@@ -142,19 +142,19 @@ setMax
 .. java:method:: public void setMax(int max)
    :outertype: DvQuantity
 
-   Sets the max.
+   Sets the maximum value admitted for this DV_QUANTITY item
 
-   :param max: the new max
+   :param max: the maximum value admitted for this DV_QUANTITY item
 
-setMaxPrecision
-^^^^^^^^^^^^^^^
+setMaxtPrecision
+^^^^^^^^^^^^^^^^
 
-.. java:method:: public void setMaxPrecision(int precision)
+.. java:method:: public void setMaxtPrecision(int precision)
    :outertype: DvQuantity
 
-   Sets the max precision.
+   Sets the maximum precision (i.e the maximum number of decimal digits admitted for this DV_QUANTITY item)
 
-   :param precision: the new max precision
+   :param precision: the highest precision
 
 setMin
 ^^^^^^
@@ -162,9 +162,9 @@ setMin
 .. java:method:: public void setMin(int min)
    :outertype: DvQuantity
 
-   Sets the min.
+   Sets the minimum value admitted for this DV_QUANTITY item
 
-   :param min: the new min
+   :param min: the minimum value admitted for this DV_QUANTITY item
 
 setUnits
 ^^^^^^^^
@@ -172,9 +172,9 @@ setUnits
 .. java:method:: public void setUnits(String units)
    :outertype: DvQuantity
 
-   Sets the units.
+   Sets the unit of measure adopted by this DV_QUANTITY item
 
-   :param units: the new units
+   :param units: the new unit of measure
 
 toJSON
 ^^^^^^

@@ -1,3 +1,5 @@
+.. java:import:: it.crs4.most.ehrlib.datatypes EhrDatatype
+
 InvalidDatatypeException
 ========================
 
@@ -6,7 +8,7 @@ InvalidDatatypeException
 
 .. java:type:: public class InvalidDatatypeException extends Exception
 
-   The Class InvalidDatatypeException.
+   This exception is called when a user attempts to set an invalid value to a \ :java:ref:`EhrDatatype`\  item.
 
 Constructors
 ------------

@@ -14,7 +14,8 @@ The project consists of a set of frameworks that deal with different aspects and
 Most Report Framework
 ~~~~~~~~~~~~~~~~~~~~~
 
-The Report Framework [TODO]
+The *MOST-Report* Framework  allows you to load, edit and save clinical archetypes (according to the definition provided by the `openEHR Architecture  <http://www.openehr.org/>`_)   
+in an Android Application.
 
 .. toctree::
    :maxdepth: 2

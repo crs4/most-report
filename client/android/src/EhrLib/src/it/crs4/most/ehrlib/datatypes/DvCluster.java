@@ -14,15 +14,20 @@ import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * It is a particular datatype that is a container for other datatypes.
+ *
+ */
 public class DvCluster extends EhrDatatype {
+	
 
 	private String clusterSectionName= null;
 
 	/**
-	 * Instantiates a new dv coded text.
+	 * Instantiates a new DvCluster datatype
 	 *
-	 * @param path the path
-	 * @param attributes the attributes
+	 * @param path the path of this datatype
+	 * @param attributes the attributes of this datatype
 	 */
 	public DvCluster(String path, JSONObject attributes) {
 		
@@ -48,7 +53,7 @@ public class DvCluster extends EhrDatatype {
 	}
 
 	/**
-	 * Get the name of the datatype section containing all the datatype of this cluster
+	 * Get the name of the datatype section containing all the datatypes of this cluster
 	 * @return the name of the section
 	 */
 	public String getSectionName(){

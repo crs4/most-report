@@ -60,7 +60,7 @@ WidgetProvider
 
 .. java:type:: public class WidgetProvider
 
-   A WidgetProvider is a utility class that builds a set of visual and iteractive widgets corresponding to a specific OpenEHR Archetype. The Archetype description is specified by a set of json structures (to be provided to the class constructor).
+   A WidgetProvider lets you build a set of visual and iteractive widgets corresponding to a specific OpenEHR Archetype. The Archetype description is specified by a set of json structures (to be provided to the class constructor).
 
 Fields
 ------
@@ -112,14 +112,14 @@ WidgetProvider
 .. java:constructor:: public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology, String jsonInstances, String jsonLayoutSchema, String language) throws JSONException, InvalidDatatypeException
    :outertype: WidgetProvider
 
-   Setup a Widget provider representing a specific archetype, according to the specified json archetype datatypes, structure and ontology.
+   Setup a Widget provider representing a specific archetype, according to the specified json datatypes schema , json archetype structure and json ontology.
 
    :param context: the application context
    :param jsonDatatypes: - the json description of all datatypes used by this archetype, subdivided in sections
    :param jsonOntology: - the json ontology (it includes a textual description of each item of the archetype)
    :param jsonInstances: - the initial json structure of the archetype (optionally including initial values)
    :param jsonLayoutSchema: (optional, it can be null) the layout schema containing informations about visual rendering (sections, custom widgets, priorities..)
-   :param language: - the ontology language
+   :param language: - the language code used by the ontology
    :throws InvalidDatatypeException:
    :throws JSONException: the JSON exception
 
@@ -128,13 +128,12 @@ Methods
 buildFormView
 ^^^^^^^^^^^^^
 
-.. java:method:: public FormContainer buildFormView(int index) throws InvalidDatatypeException
+.. java:method:: public FormContainer buildFormView(int index)
    :outertype: WidgetProvider
 
-   build a view containing all widgets according to the json archetype structure, layout and ontology, All widgets are rendered in a vertical layout, optionally ordered by section and/or item priority (if specified in the layout json schema) (This method first calls the \ :java:ref:`buildSectionWidgetsMap(String[])`\  methods on all archetype sections (or on the sections provided by the layout schema , if provided).
+   build a view containing all widgets according to the json archetype structure, layout and ontology, All widgets are rendered in a vertical layout, optionally ordered by section and/or item priority (if specified in the layout json schema)
 
-   :param index: the index
-   :throws InvalidDatatypeException: the invalid datatype exception
+   :param index: the index of this Form Container
    :return: the FormContainer containing all widgets, ordered by section and item priority in a vertical layout
 
 getContext
@@ -213,7 +212,7 @@ updateOntologyLanguage
 .. java:method:: public void updateOntologyLanguage(String lang)
    :outertype: WidgetProvider
 
-   Update the ontology of all datatype widgets.
+   Update the ontology of all \ :java:ref:`DatatypeWidget`\  widgets.
 
    :param lang: the language code (ISO 639-1:2002)
 
