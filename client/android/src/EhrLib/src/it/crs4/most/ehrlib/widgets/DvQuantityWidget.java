@@ -18,6 +18,7 @@ import com.nhaarman.supertooltips.ToolTipView;
 
 import it.crs4.most.ehrlib.R;
 import it.crs4.most.ehrlib.WidgetProvider;
+import it.crs4.most.ehrlib.datatypes.DvCodedText;
 import it.crs4.most.ehrlib.datatypes.DvQuantity;
 import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
 import it.crs4.most.ehrlib.widgets.filters.DvQuantityFilter;
@@ -32,9 +33,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class DvQuantityWidget.
+ * This class represents a visual widget mapped on a  {@link DvQuantity} datatype.
  */
 public class DvQuantityWidget extends DatatypeWidget<DvQuantity>
 {
@@ -64,13 +64,12 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity>
 	private ToolTipRelativeLayout toolTipRelativeLayout;
 
 	/**
-	 * Instantiates a new dv quantity widget.
+	 * Instantiates a new {@link DvQuantityWidget}
 	 *
-	 * @param context the context
-	 * @param name the name
-	 * @param path the path
-	 * @param attributes the attributes
-	 * @param ontology the ontology
+	 * @param provider the widget provider
+	 * @param name the name of this widget
+	 * @param path the path of the {@link DvQuantity} mapped on this widget
+	 * @param attributes the attributes of the {@link DvQuantity} mapped on this widget
 	 * @param parentIndex the parent index
 	 */
 	public DvQuantityWidget(WidgetProvider provider, String name , String path, JSONObject attributes, int parentIndex)
@@ -118,7 +117,7 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity>
 	}
 	
 	
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#replaceTooltip(com.nhaarman.supertooltips.ToolTip)
 	 */
 	@Override
@@ -168,7 +167,7 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity>
 
 	
 
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#reset()
 	 */
 	@Override
@@ -176,7 +175,7 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity>
 		this.updateWidgetContents();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.datatypes.EhrDatatypeChangeListener#onEhrDatatypeChanged(it.crs4.most.ehrlib.datatypes.EhrDatatype)
 	 */
 	@Override
@@ -188,7 +187,7 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity>
 
 
 
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#save()
 	 */
 	@Override
@@ -206,7 +205,7 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity>
 
 
 
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#updateLabelsContent()
 	 */
 	@Override
@@ -216,9 +215,4 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity>
 		_labUnity.setText(String.format("(%s)",datatype.getUnits()));
 		
 	}
-
-
-
-	
-
 }

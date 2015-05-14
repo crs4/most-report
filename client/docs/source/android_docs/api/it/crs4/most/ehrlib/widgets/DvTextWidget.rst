@@ -30,6 +30,8 @@
 
 .. java:import:: it.crs4.most.ehrlib WidgetProvider
 
+.. java:import:: it.crs4.most.ehrlib.datatypes DvQuantity
+
 .. java:import:: it.crs4.most.ehrlib.datatypes DvText
 
 .. java:import:: it.crs4.most.ehrlib.exceptions InvalidDatatypeException
@@ -42,7 +44,7 @@ DvTextWidget
 
 .. java:type:: public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.OnToolTipViewClickedListener
 
-   The Class DvTextWidget.
+   This class represents a visual widget mapped on a \ :java:ref:`DvText`\  datatype.
 
 Constructors
 ------------
@@ -52,13 +54,12 @@ DvTextWidget
 .. java:constructor:: public DvTextWidget(WidgetProvider provider, String name, String path, JSONObject attributes, int parentIndex)
    :outertype: DvTextWidget
 
-   Instantiates a new dv text widget.
+   Instantiates a new \ :java:ref:`DvTextWidget`\
 
-   :param context: the context
-   :param name: the name
-   :param path: the path
-   :param attributes: the attributes
-   :param ontology: the ontology
+   :param provider: the widget provider
+   :param name: the name of this widget
+   :param path: the path of the \ :java:ref:`DvText`\  mapped on this widget
+   :param attributes: the attributes of the \ :java:ref:`DvText`\  mapped on this widget
    :param parentIndex: the parent index
 
 Methods
@@ -69,11 +70,15 @@ onEhrDatatypeChanged
 .. java:method:: @Override public void onEhrDatatypeChanged(DvText datatype)
    :outertype: DvTextWidget
 
+   **See also:** :java:ref:`it.crs4.most.ehrlib.datatypes.EhrDatatypeChangeListener.onEhrDatatypeChanged(it.crs4.most.ehrlib.datatypes.EhrDatatype)`
+
 onToolTipViewClicked
 ^^^^^^^^^^^^^^^^^^^^
 
 .. java:method:: @Override public void onToolTipViewClicked(ToolTipView arg0)
    :outertype: DvTextWidget
+
+   **See also:** :java:ref:`com.nhaarman.supertooltips.ToolTipView.OnToolTipViewClickedListener.onToolTipViewClicked(com.nhaarman.supertooltips.ToolTipView)`
 
 replaceTooltip
 ^^^^^^^^^^^^^^
@@ -81,11 +86,15 @@ replaceTooltip
 .. java:method:: @Override protected void replaceTooltip(ToolTip tooltip)
    :outertype: DvTextWidget
 
+   **See also:** :java:ref:`it.crs4.most.ehrlib.widgets.DatatypeWidget.replaceTooltip(com.nhaarman.supertooltips.ToolTip)`
+
 reset
 ^^^^^
 
 .. java:method:: @Override public void reset()
    :outertype: DvTextWidget
+
+   **See also:** :java:ref:`it.crs4.most.ehrlib.widgets.DatatypeWidget.reset()`
 
 save
 ^^^^
@@ -93,9 +102,13 @@ save
 .. java:method:: @Override public void save() throws InvalidDatatypeException
    :outertype: DvTextWidget
 
+   **See also:** :java:ref:`it.crs4.most.ehrlib.widgets.DatatypeWidget.save()`
+
 updateLabelsContent
 ^^^^^^^^^^^^^^^^^^^
 
 .. java:method:: @Override protected void updateLabelsContent()
    :outertype: DvTextWidget
+
+   **See also:** :java:ref:`it.crs4.most.ehrlib.widgets.DatatypeWidget.updateLabelsContent()`
 

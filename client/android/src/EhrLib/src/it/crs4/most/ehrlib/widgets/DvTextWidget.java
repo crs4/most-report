@@ -29,12 +29,13 @@ import android.widget.TextView;
 
 import it.crs4.most.ehrlib.R;
 import it.crs4.most.ehrlib.WidgetProvider;
+import it.crs4.most.ehrlib.datatypes.DvQuantity;
 import it.crs4.most.ehrlib.datatypes.DvText;
 import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class DvTextWidget.
+ * This class represents a visual widget mapped on a  {@link DvText} datatype.
  */
 public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.OnToolTipViewClickedListener {
 
@@ -61,13 +62,12 @@ public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.
 
 	
 	/**
-	 * Instantiates a new dv text widget.
+	 * Instantiates a new {@link DvTextWidget}
 	 *
-	 * @param context the context
-	 * @param name the name
-	 * @param path the path
-	 * @param attributes the attributes
-	 * @param ontology the ontology
+	 * @param provider the widget provider
+	 * @param name the name of this widget
+	 * @param path the path of the {@link DvText} mapped on this widget
+	 * @param attributes the attributes of the {@link DvText} mapped on this widget
 	 * @param parentIndex the parent index
 	 */
 	public DvTextWidget(WidgetProvider provider,String name, String path, JSONObject attributes, int parentIndex)
@@ -137,7 +137,7 @@ public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.
 		
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.datatypes.EhrDatatypeChangeListener#onEhrDatatypeChanged(it.crs4.most.ehrlib.datatypes.EhrDatatype)
 	 */
 	@Override
@@ -145,7 +145,7 @@ public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.
 		updateWidgetContents();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#save()
 	 */
 	@Override
@@ -157,7 +157,7 @@ public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.
 		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#reset()
 	 */
 	@Override
@@ -166,16 +166,15 @@ public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.
 	}
 
 
-	/* (non-Javadoc)
+	/**
 	 * @see com.nhaarman.supertooltips.ToolTipView.OnToolTipViewClickedListener#onToolTipViewClicked(com.nhaarman.supertooltips.ToolTipView)
 	 */
 	@Override
 	public void onToolTipViewClicked(ToolTipView arg0) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#replaceTooltip(com.nhaarman.supertooltips.ToolTip)
 	 */
 	@Override
@@ -188,7 +187,7 @@ public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.
 		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#updateLabelsContent()
 	 */
 	@Override

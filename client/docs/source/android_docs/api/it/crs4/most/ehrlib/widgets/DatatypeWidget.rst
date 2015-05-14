@@ -28,9 +28,9 @@ DatatypeWidget
 
 .. java:type:: public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDatatypeChangeListener<T>
 
-   The Class DatatypeWidget.
+   This the base class for all DatatypeWidgets. A \ :java:ref:`DatatypeWidget`\  is a visual and interactive widget mapped on a specific \ :java:ref:`EhrDatatype`\ . A user can instantiate a \ :java:ref:`DatatypeWidget`\  for reading, editing and saving the content of the \ :java:ref:`EhrDatatype`\  handled by it.
 
-   :param <T>: the generic type
+   :param <T>: the generic \ :java:ref:`EhrDatatype`\
 
 Fields
 ------
@@ -120,12 +120,12 @@ DatatypeWidget
 .. java:constructor:: public DatatypeWidget(WidgetProvider provider, String name, T datatype, int parent_index)
    :outertype: DatatypeWidget
 
-   Instantiates a new datatype widget.
+   Instantiates a new \ :java:ref:`DatatypeWidget`\  widget.
 
    :param context: the context
-   :param name: the name
-   :param datatype: the datatype
-   :param ontology: the ontology
+   :param name: the name of this widget
+   :param datatype: the \ :java:ref:`EhrDatatype`\  to be handled by this widget
+   :param ontology: the ontology used
    :param parent_index: the parent_index
 
 Methods
@@ -136,9 +136,9 @@ getDatatype
 .. java:method:: public T getDatatype()
    :outertype: DatatypeWidget
 
-   Gets the datatype.
+   Gets the \ :java:ref:`EhrDatatype`\  handled by this widget
 
-   :return: the datatype
+   :return: the \ :java:ref:`EhrDatatype`\
 
 getDescription
 ^^^^^^^^^^^^^^
@@ -166,7 +166,7 @@ getName
 .. java:method:: public String getName()
    :outertype: DatatypeWidget
 
-   returns the un-modified name of the property this widget represents.
+   returns the name of this widget
 
    :return: the name
 
@@ -186,7 +186,7 @@ getPriority
 .. java:method:: public int getPriority()
    :outertype: DatatypeWidget
 
-   returns visual priority.
+   returns the visual priority of this widget (essentially this means it's physical location in the form).
 
    :return: the priority
 
@@ -206,7 +206,7 @@ getView
 .. java:method:: public View getView()
    :outertype: DatatypeWidget
 
-   return LinearLayout containing this widget's view elements.
+   get the Root View containing this widget's view elements.
 
    :return: the view
 
@@ -238,16 +238,6 @@ save
 
    :throws InvalidDatatypeException: if the current value of the fields cannot be converted to a datatype value
 
-setDatatype
-^^^^^^^^^^^
-
-.. java:method:: public void setDatatype(T datatype)
-   :outertype: DatatypeWidget
-
-   Sets the datatype.
-
-   :param datatype: the new datatype
-
 setOntology
 ^^^^^^^^^^^
 
@@ -274,7 +264,7 @@ setVisibility
 .. java:method:: public void setVisibility(int value)
    :outertype: DatatypeWidget
 
-   toggles the visibility of this widget.
+   set the visibility of this widget.
 
    :param value: the new visibility
 

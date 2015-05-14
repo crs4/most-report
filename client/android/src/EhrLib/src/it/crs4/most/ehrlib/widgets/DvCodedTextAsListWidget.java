@@ -32,12 +32,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import it.crs4.most.ehrlib.R;
 import it.crs4.most.ehrlib.WidgetProvider;
+import it.crs4.most.ehrlib.datatypes.DvCluster;
 import it.crs4.most.ehrlib.datatypes.DvCodedText;
 import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class DvCodedTextAsListWidget.
+ * This class represents a visual widget mapped on a  {@link DvCodedText} datatype. It renders all the options of the {@link DvCodedText} datatype in a ListView.
+ *
  */
 public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText>{
     
@@ -66,16 +68,15 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText>{
 	private ToolTipView myToolTipView;
 	
 	/**
-	 * Instantiates a new dv coded text as list widget.
+	 * Instantiates a new {@link DvCodedTextAsListWidget}
 	 *
-	 * @param context the context
-	 * @param name the name
-	 * @param path the path
-	 * @param attributes the attributes
-	 * @param ontology the ontology
+	 * @param provider the widget provider
+	 * @param name the name of this widget
+	 * @param path the path of the {@link DvCodedText} mapped on this widget
+	 * @param attributes the attributes of the {@link DvCodedText} mapped on this widget
 	 * @param parentIndex the parent index
 	 */
-	public DvCodedTextAsListWidget( WidgetProvider provider, String name , String path, JSONObject attributes,JSONObject ontology, int parentIndex) {
+	public DvCodedTextAsListWidget( WidgetProvider provider, String name , String path, JSONObject attributes, int parentIndex) {
 		super(provider, name, new DvCodedText(path, attributes), parentIndex);
 		
 		Log.d(TAG, "istanziato DvCodedTextAsListWidget");
@@ -183,7 +184,7 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText>{
 		list.setSelection(0);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#save()
 	 */
 	@Override
@@ -192,7 +193,7 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText>{
 		getDatatype().setSelectedOptionIndex(this.currentSelectionIndex);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#reset()
 	 */
 	@Override
@@ -201,7 +202,7 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText>{
 		list.setItemChecked(getDatatype().getSelectedOptionIndex(), true);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.datatypes.EhrDatatypeChangeListener#onEhrDatatypeChanged(it.crs4.most.ehrlib.datatypes.EhrDatatype)
 	 */
 	@Override
@@ -210,8 +211,8 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText>{
 	}
 
 
-	/* (non-Javadoc)
-	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#replaceTooltip(com.nhaarman.supertooltips.ToolTip)
+	/**
+	 * @see {@link it.crs4.most.ehrlib.widgets.DatatypeWidget#replaceTooltip(com.nhaarman.supertooltips.ToolTip)}
 	 */
 	@Override
 	protected void replaceTooltip(ToolTip tooltip) {
@@ -223,7 +224,7 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText>{
 		
 	}
 
-	/* (non-Javadoc)
+	/**  
 	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#updateLabelsContent()
 	 */
 	@Override

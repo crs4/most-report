@@ -33,9 +33,8 @@ import it.crs4.most.ehrlib.WidgetProvider;
 import it.crs4.most.ehrlib.datatypes.DvCodedText;
 import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class DvCodedTextWidget.
+ * This class represents a visual widget mapped on a  {@link DvCodedText} datatype. It renders all the options of the {@link DvCodedText} datatype in a Combobox.
  */
 public class DvCodedTextWidget extends DatatypeWidget<DvCodedText>{
 
@@ -61,13 +60,12 @@ public class DvCodedTextWidget extends DatatypeWidget<DvCodedText>{
 	private ToolTipView myToolTipView;
 	
 	/**
-	 * Instantiates a new dv coded text widget.
+	 * Instantiates a new {@link DvCodedTextWidget}
 	 *
-	 * @param context the context
-	 * @param name the name
-	 * @param path the path
-	 * @param attributes the attributes
-	 * @param ontology the ontology
+	 * @param provider the widget provider
+	 * @param name the name of this widget
+	 * @param path the path of the {@link DvCodedText} mapped on this widget
+	 * @param attributes the attributes of the {@link DvCodedText} mapped on this widget
 	 * @param parentIndex the parent index
 	 */
 	public DvCodedTextWidget(WidgetProvider provider, String name , String path, JSONObject attributes, int parentIndex) {
@@ -165,7 +163,7 @@ public class DvCodedTextWidget extends DatatypeWidget<DvCodedText>{
 		});
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#save()
 	 */
 	@Override
@@ -174,7 +172,7 @@ public class DvCodedTextWidget extends DatatypeWidget<DvCodedText>{
 		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#reset()
 	 */
 	@Override
@@ -183,7 +181,7 @@ public class DvCodedTextWidget extends DatatypeWidget<DvCodedText>{
 		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see it.crs4.most.ehrlib.datatypes.EhrDatatypeChangeListener#onEhrDatatypeChanged(it.crs4.most.ehrlib.datatypes.EhrDatatype)
 	 */
 	@Override

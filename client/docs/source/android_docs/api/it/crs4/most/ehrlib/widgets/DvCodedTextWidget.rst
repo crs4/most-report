@@ -46,7 +46,7 @@ DvCodedTextWidget
 
 .. java:type:: public class DvCodedTextWidget extends DatatypeWidget<DvCodedText>
 
-   The Class DvCodedTextWidget.
+   This class represents a visual widget mapped on a \ :java:ref:`DvCodedText`\  datatype. It renders all the options of the \ :java:ref:`DvCodedText`\  datatype in a Combobox.
 
 Constructors
 ------------
@@ -56,13 +56,12 @@ DvCodedTextWidget
 .. java:constructor:: public DvCodedTextWidget(WidgetProvider provider, String name, String path, JSONObject attributes, int parentIndex)
    :outertype: DvCodedTextWidget
 
-   Instantiates a new dv coded text widget.
+   Instantiates a new \ :java:ref:`DvCodedTextWidget`\
 
-   :param context: the context
-   :param name: the name
-   :param path: the path
-   :param attributes: the attributes
-   :param ontology: the ontology
+   :param provider: the widget provider
+   :param name: the name of this widget
+   :param path: the path of the \ :java:ref:`DvCodedText`\  mapped on this widget
+   :param attributes: the attributes of the \ :java:ref:`DvCodedText`\  mapped on this widget
    :param parentIndex: the parent index
 
 Methods
@@ -72,6 +71,8 @@ onEhrDatatypeChanged
 
 .. java:method:: @Override public void onEhrDatatypeChanged(DvCodedText datatype)
    :outertype: DvCodedTextWidget
+
+   **See also:** :java:ref:`it.crs4.most.ehrlib.datatypes.EhrDatatypeChangeListener.onEhrDatatypeChanged(it.crs4.most.ehrlib.datatypes.EhrDatatype)`
 
 replaceTooltip
 ^^^^^^^^^^^^^^
@@ -85,11 +86,15 @@ reset
 .. java:method:: @Override public void reset()
    :outertype: DvCodedTextWidget
 
+   **See also:** :java:ref:`it.crs4.most.ehrlib.widgets.DatatypeWidget.reset()`
+
 save
 ^^^^
 
 .. java:method:: @Override public void save() throws InvalidDatatypeException
    :outertype: DvCodedTextWidget
+
+   **See also:** :java:ref:`it.crs4.most.ehrlib.widgets.DatatypeWidget.save()`
 
 updateLabelsContent
 ^^^^^^^^^^^^^^^^^^^

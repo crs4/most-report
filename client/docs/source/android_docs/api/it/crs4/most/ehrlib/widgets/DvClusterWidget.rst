@@ -40,6 +40,8 @@ DvClusterWidget
 
 .. java:type:: public class DvClusterWidget extends DatatypeWidget<DvCluster>
 
+   This class represents a visual widget mapped on a \ :java:ref:`DvCluster`\  datatype.
+
 Fields
 ------
 myToolTipView
@@ -56,6 +58,14 @@ DvClusterWidget
 .. java:constructor:: public DvClusterWidget(WidgetProvider provider, String name, String path, JSONObject attributes, int parentIndex)
    :outertype: DvClusterWidget
 
+   Instantiate a new DvClusterWidget
+
+   :param provider: the widget provider
+   :param name: the name of this widget
+   :param path: the path of the \ :java:ref:`DvCluster`\  mapped on this widget
+   :param attributes: the attributes of the \ :java:ref:`DvCluster`\  mapped on this widget
+   :param parentIndex: the parent index of this widget
+
 Methods
 -------
 onEhrDatatypeChanged
@@ -63,6 +73,8 @@ onEhrDatatypeChanged
 
 .. java:method:: @Override public void onEhrDatatypeChanged(DvCluster datatype)
    :outertype: DvClusterWidget
+
+   **See also:** :java:ref:`it.crs4.most.ehrlib.datatypes.EhrDatatypeChangeListener.onEhrDatatypeChanged(it.crs4.most.ehrlib.datatypes.EhrDatatype)`
 
 replaceTooltip
 ^^^^^^^^^^^^^^
@@ -76,11 +88,15 @@ reset
 .. java:method:: @Override public void reset()
    :outertype: DvClusterWidget
 
+   **See also:** :java:ref:`it.crs4.most.ehrlib.widgets.DatatypeWidget.reset()`
+
 save
 ^^^^
 
 .. java:method:: @Override public void save() throws InvalidDatatypeException
    :outertype: DvClusterWidget
+
+   **See also:** :java:ref:`it.crs4.most.ehrlib.widgets.DatatypeWidget.save()`
 
 updateLabelsContent
 ^^^^^^^^^^^^^^^^^^^

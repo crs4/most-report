@@ -25,11 +25,11 @@ import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class DatatypeWidget.
+ * This the base class for all DatatypeWidgets. A {@link DatatypeWidget}  is a visual and interactive widget mapped on a specific {@link EhrDatatype}.
+ * A user can instantiate a {@link DatatypeWidget}  for reading, editing and saving the content of the {@link EhrDatatype} handled by it.
  *
- * @param <T> the generic type
+ * @param <T> the generic {@link EhrDatatype}
  */
 public abstract class DatatypeWidget <T extends EhrDatatype> implements EhrDatatypeChangeListener<T>
 {
@@ -85,13 +85,13 @@ public abstract class DatatypeWidget <T extends EhrDatatype> implements EhrDatat
 	protected abstract void replaceTooltip(ToolTip tooltip);
 	
 	/**
-	 * Instantiates a new datatype widget.
+	 * Instantiates a new {@link DatatypeWidget} widget.
 	 *
 	 * @param context the context
-	 * @param name the name
-	 * @param datatype the datatype
-	 * @param ontology the ontology
-	 * @param parent_index the parent_index
+	 * @param name the name of this widget
+	 * @param datatype the {@link EhrDatatype} to be handled by this widget
+	 * @param ontology the ontology used 
+	 * @param parent_index the parent_index 
 	 */
 	public DatatypeWidget( WidgetProvider provider, String name, T datatype, int parent_index)
 	{
@@ -195,20 +195,11 @@ public abstract class DatatypeWidget <T extends EhrDatatype> implements EhrDatat
 		return this.description;
 	}
 	
-	/**
-	 * Sets the datatype.
-	 *
-	 * @param datatype the new datatype
-	 */
-	public void setDatatype(T datatype)
-	{
-		this.datatype = datatype;
-	}
 	
 	/**
-	 * Gets the datatype.
+	 * Gets the {@link EhrDatatype} handled by this widget
 	 *
-	 * @return the datatype
+	 * @return the {@link EhrDatatype}
 	 */
 	public T getDatatype()
 	{
@@ -235,7 +226,7 @@ public abstract class DatatypeWidget <T extends EhrDatatype> implements EhrDatat
 	//
 	// -----------------------------------------------
 	/**
-	 * return LinearLayout containing this widget's view elements.
+	 * get the Root View containing this widget's view elements.
 	 *
 	 * @return the view
 	 */
@@ -255,7 +246,7 @@ public abstract class DatatypeWidget <T extends EhrDatatype> implements EhrDatat
 	}
 	
 	/**
-	 * toggles the visibility of this widget.
+	 * set the visibility of this widget.
 	 *
 	 * @param value the new visibility
 	 */
@@ -282,7 +273,7 @@ public abstract class DatatypeWidget <T extends EhrDatatype> implements EhrDatat
 	}
 	
 	/**
-	 * returns visual priority.
+	 * returns the visual priority of this widget (essentially this means it's physical location in the form).
 	 *
 	 * @return the priority
 	 */
@@ -292,7 +283,7 @@ public abstract class DatatypeWidget <T extends EhrDatatype> implements EhrDatat
 	
 	
 	/**
-	 * returns the un-modified name of the property this widget represents.
+	 * returns the name of this widget
 	 *
 	 * @return the name
 	 */

@@ -10,6 +10,8 @@
 
 .. java:import:: it.crs4.most.ehrlib WidgetProvider
 
+.. java:import:: it.crs4.most.ehrlib.datatypes DvCodedText
+
 .. java:import:: it.crs4.most.ehrlib.datatypes DvQuantity
 
 .. java:import:: it.crs4.most.ehrlib.exceptions InvalidDatatypeException
@@ -42,7 +44,7 @@ DvQuantityWidget
 
 .. java:type:: public class DvQuantityWidget extends DatatypeWidget<DvQuantity>
 
-   The Class DvQuantityWidget.
+   This class represents a visual widget mapped on a \ :java:ref:`DvQuantity`\  datatype.
 
 Fields
 ------
@@ -86,13 +88,12 @@ DvQuantityWidget
 .. java:constructor:: public DvQuantityWidget(WidgetProvider provider, String name, String path, JSONObject attributes, int parentIndex)
    :outertype: DvQuantityWidget
 
-   Instantiates a new dv quantity widget.
+   Instantiates a new \ :java:ref:`DvQuantityWidget`\
 
-   :param context: the context
-   :param name: the name
-   :param path: the path
-   :param attributes: the attributes
-   :param ontology: the ontology
+   :param provider: the widget provider
+   :param name: the name of this widget
+   :param path: the path of the \ :java:ref:`DvQuantity`\  mapped on this widget
+   :param attributes: the attributes of the \ :java:ref:`DvQuantity`\  mapped on this widget
    :param parentIndex: the parent index
 
 Methods
@@ -103,11 +104,15 @@ onEhrDatatypeChanged
 .. java:method:: @Override public void onEhrDatatypeChanged(DvQuantity datatype)
    :outertype: DvQuantityWidget
 
+   **See also:** :java:ref:`it.crs4.most.ehrlib.datatypes.EhrDatatypeChangeListener.onEhrDatatypeChanged(it.crs4.most.ehrlib.datatypes.EhrDatatype)`
+
 replaceTooltip
 ^^^^^^^^^^^^^^
 
 .. java:method:: @Override protected void replaceTooltip(ToolTip tooltip)
    :outertype: DvQuantityWidget
+
+   **See also:** :java:ref:`it.crs4.most.ehrlib.widgets.DatatypeWidget.replaceTooltip(com.nhaarman.supertooltips.ToolTip)`
 
 reset
 ^^^^^
@@ -115,15 +120,21 @@ reset
 .. java:method:: @Override public void reset()
    :outertype: DvQuantityWidget
 
+   **See also:** :java:ref:`it.crs4.most.ehrlib.widgets.DatatypeWidget.reset()`
+
 save
 ^^^^
 
 .. java:method:: @Override public void save() throws InvalidDatatypeException
    :outertype: DvQuantityWidget
 
+   **See also:** :java:ref:`it.crs4.most.ehrlib.widgets.DatatypeWidget.save()`
+
 updateLabelsContent
 ^^^^^^^^^^^^^^^^^^^
 
 .. java:method:: @Override protected void updateLabelsContent()
    :outertype: DvQuantityWidget
+
+   **See also:** :java:ref:`it.crs4.most.ehrlib.widgets.DatatypeWidget.updateLabelsContent()`
 

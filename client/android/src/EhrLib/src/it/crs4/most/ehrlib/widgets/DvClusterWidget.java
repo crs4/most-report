@@ -32,6 +32,10 @@ import it.crs4.most.ehrlib.datatypes.EhrDatatype;
 import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
 
 
+/**
+ * This class represents a visual widget mapped on a  {@link DvCluster} datatype.
+ *
+ */
 public class DvClusterWidget extends DatatypeWidget<DvCluster>{
 
 	private List<DatatypeWidget<EhrDatatype>> clusterWidgets;
@@ -44,6 +48,15 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster>{
 	private boolean areWidgetsVisible = false;
 	private ImageView addRemWidgets;
 	
+	/**
+	 * Instantiate a new DvClusterWidget
+	 * 
+	 * @param provider the widget provider
+	 * @param name the name of this widget
+	 * @param path  the path of the {@link DvCluster} mapped on this widget
+	 * @param attributes the attributes of the {@link DvCluster} mapped on this widget
+	 * @param parentIndex the parent index of this widget
+	 */
 	public DvClusterWidget( WidgetProvider provider,  String name , String path, JSONObject attributes, int parentIndex) {
 		super(provider, name, new DvCluster(path, attributes), parentIndex);
 		buildClusterView();
@@ -127,9 +140,11 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster>{
 	}
 	
 	
+	/**
+	 * @see it.crs4.most.ehrlib.datatypes.EhrDatatypeChangeListener#onEhrDatatypeChanged(it.crs4.most.ehrlib.datatypes.EhrDatatype)
+	 */
 	@Override
 	public void onEhrDatatypeChanged(DvCluster datatype) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -140,10 +155,13 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster>{
 
 	@Override
 	protected void replaceTooltip(ToolTip tooltip) {
-		// TODO Auto-generated method stub
 		
 	}
 
+	
+	/**
+	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#save()
+	 */
 	@Override
 	public void save() throws InvalidDatatypeException {
 		 for( int i = 0; i < clusterWidgets.size(); i++ ) {
@@ -152,6 +170,9 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster>{
 		
 	}
 
+	/**
+	 * @see it.crs4.most.ehrlib.widgets.DatatypeWidget#reset()
+	 */
 	@Override
 	public void reset() {
 		for( int i = 0; i < clusterWidgets.size(); i++ ) {
