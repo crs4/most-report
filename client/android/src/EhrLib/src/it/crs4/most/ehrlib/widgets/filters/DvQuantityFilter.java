@@ -11,6 +11,7 @@
 package it.crs4.most.ehrlib.widgets.filters;
 
 import it.crs4.most.ehrlib.datatypes.DvQuantity;
+import it.crs4.most.ehrlib.widgets.DvQuantityWidget;
 import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,9 +19,9 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class DvQuantityFilter.
+ * This class is internally used by the {@link DvQuantityWidget}.
  */
 public class DvQuantityFilter {
 	

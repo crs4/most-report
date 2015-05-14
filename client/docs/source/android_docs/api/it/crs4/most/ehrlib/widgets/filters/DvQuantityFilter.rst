@@ -1,5 +1,7 @@
 .. java:import:: it.crs4.most.ehrlib.datatypes DvQuantity
 
+.. java:import:: it.crs4.most.ehrlib.widgets DvQuantityWidget
+
 .. java:import:: android.graphics Color
 
 .. java:import:: android.text Editable
@@ -20,7 +22,7 @@ DvQuantityFilter
 
 .. java:type:: public class DvQuantityFilter
 
-   The Class DvQuantityFilter.
+   This class is internally used by the \ :java:ref:`DvQuantityWidget`\ .
 
 Fields
 ------
