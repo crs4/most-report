@@ -15,7 +15,7 @@ Most Report Framework
 ~~~~~~~~~~~~~~~~~~~~~
 
 The *MOST-Report* Framework allows you to load, edit and export clinical Archetypes (according to the definition provided by the `openEHR Architecture  <http://www.openehr.org/>`_)   
-in an Android Application. It lets you build visual forms containing specialized widgets mapped on a specific EHR Datatype you can interact with for viewing and modifying complex archetypes.
+in an Android Application. It lets you build visual forms containing specialized widgets mapped on a specific EHR Datatype you can use for viewing and modifying complex archetypes.
 
 This library internally uses the `SuperToolTips Library  <https://github.com/nhaarman/supertooltips>`_  for rendering the tooltips of the widgets.
 

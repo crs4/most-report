@@ -6,7 +6,7 @@ StructureCardinality
 
 .. java:type:: public enum StructureCardinality
 
-   The Enum StructureCardinality.
+   The StructureCardinalityenum represents athe cardinality of a section of an ADL Archetype.
 
 Enum Constants
 --------------
@@ -16,21 +16,15 @@ MULTIPLE
 .. java:field:: public static final StructureCardinality MULTIPLE
    :outertype: StructureCardinality
 
-   The multiple.
-
 UNIQUE
 ^^^^^^
 
 .. java:field:: public static final StructureCardinality UNIQUE
    :outertype: StructureCardinality
 
-   The unique.
-
 UNKNOWN
 ^^^^^^^
 
 .. java:field:: public static final StructureCardinality UNKNOWN
    :outertype: StructureCardinality
-
-   The unknown.
 
