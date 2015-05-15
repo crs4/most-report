@@ -32,7 +32,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,24 +47,26 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
 	/** The Constant TAG. */
 	public static final String TAG = null;
 	
-	/** The json schema. */
-	private static String JSON_SCHEMA_DATATYPES = "ecg/schema_datatypes_ECG_recording_v1.json";
+	/** The json datatypes schema. */
+	//private static String JSON_SCHEMA_DATATYPES = "ecg/schema_datatypes_ECG_recording_v1.json";
+	private static String JSON_SCHEMA_DATATYPES = "blood_pressure/schema_datatypes_blood_pressure_v1.json";
 	
 	/** The json layout schema. */
-	private static String JSON_SCHEMA_LAYOUT = "ecg/schema_layout_ECG_recording_v1.json";
+	//private static String JSON_SCHEMA_LAYOUT = "ecg/schema_layout_ECG_recording_v1.json";
+	private static String JSON_SCHEMA_LAYOUT = "blood_pressure/schema_layout_blood_pressure_v1.json";
 	
 	/** The json ontology. */
-	private static String JSON_SCHEMA_ONTOLOGY = "ecg/schema_ontology_ECG_recording_v1.json";
-	//private static String JSON_INSTANCES =  "reason_for_encounters/011984cc9bc2460dab67dffd18010871.json";
-	/** The json instances. */
-	private static String JSON_SCHEMA_INSTANCE =  "ecg/schema_adl_void_instance_ECG_recording_v1.json";
-    
-	/** The spain view. */
-	private ImageView spainView = null;
+	//private static String JSON_SCHEMA_ONTOLOGY = "ecg/schema_ontology_ECG_recording_v1.json";
+	private static String JSON_SCHEMA_ONTOLOGY = "blood_pressure/schema_ontology_blood_pressure_v1.json";
 	
-    /* (non-Javadoc)
-     * @see android.support.v7.app.ActionBarActivity#onCreate(android.os.Bundle)
-     */
+	
+	
+	/** The json instances. */
+	//private static String JSON_SCHEMA_INSTANCE =  "ecg/schema_adl_void_instance_ECG_recording_v1.json";
+	private static String JSON_SCHEMA_INSTANCE =  "blood_pressure/schema_adl_void_instance_blood_pressure_v1.json";
+	//private static String JSON_SCHEMA_INSTANCE =  "blood_pressure/schema_adl_instance_blood_pressure_v1.json";
+	
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,9 +83,6 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
     }
     
    
-    /* (non-Javadoc)
-     * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
-     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -92,9 +90,7 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
         return true;
     }
 
-    /* (non-Javadoc)
-     * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
-     */
+   
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -109,21 +105,17 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
     }
 
     /**
-     * A fragment containing a form for Blood Pressure handling.
+     * A fragment containing a form for The Archetype (e.g Blood Pressure) handling.
      */
     public static class ArchetypeViewerFragment extends Fragment {
 
-    	 /* (non-Javadoc)
- 	     * @see android.support.v4.app.Fragment#onCreateOptionsMenu(android.view.Menu, android.view.MenuInflater)
- 	     */
+    	 
  	    @Override
          public void onCreateOptionsMenu( Menu menu, MenuInflater inflater) {   
             inflater.inflate(R.menu.action_fragment, menu);
          }
     	 
-    	 /* (non-Javadoc)
- 	     * @see android.support.v4.app.Fragment#onOptionsItemSelected(android.view.MenuItem)
- 	     */
+    	 
  	    @Override
          public boolean onOptionsItemSelected(MenuItem item) {
                  switch (item.getItemId()) {
@@ -140,9 +132,7 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
                  return super.onOptionsItemSelected(item);
          }
     	 
-        /* (non-Javadoc)
-         * @see android.support.v4.app.Fragment#onCreate(android.os.Bundle)
-         */
+        
         @Override
         public void onCreate (Bundle savedInstanceState)
         {
@@ -157,14 +147,13 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
 		private WidgetProvider widgetProvider;
     	
         /**
-         * Instantiates a new blood pressure fragment.
+         * Instantiates a new Fragment for rendering the Archetype
+         *  
          */
         public ArchetypeViewerFragment() {
         }
 
-        /* (non-Javadoc)
-         * @see android.support.v4.app.Fragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)
-         */
+       
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {

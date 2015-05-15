@@ -1,7 +1,6 @@
 {
 	"sections":[
-		{"data" : {"title" : "dati"}},
-		{"state" :{"title" : "stato"}
+		"data", "state"
 	],
 	"items":{
 		"data[at0001]/events[at0006]/data[at0003]/items[at0004]":{
