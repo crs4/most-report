@@ -13,9 +13,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class AdlStructure.
+ * The Class AdlStructure contains a JSON structure representing a whole or a part of an OpenEHR Archetype.
+ *
  */
 public class AdlStructure {
 	
@@ -37,7 +38,7 @@ public class AdlStructure {
 	/**
 	 * Instantiates a new adl structure.
 	 *
-	 * @param item the item
+	 * @param item the structure. It can be a JSONObject (a single structure or datatype) or a JSONArray (a list of structures and/or datatypes).
 	 */
 	public AdlStructure(Object item)
 	{
@@ -86,7 +87,7 @@ public class AdlStructure {
 	}
 	
 	/**
-	 * Gets the cardinality.
+	 * Gets the cardinality of this ADL structure
 	 *
 	 * @return the cardinality
 	 */
@@ -110,7 +111,8 @@ public class AdlStructure {
 	}
      
 	/**
-	 * Gets the original object.
+	 * Gets the original item provided for building this ADL structure.
+	 * @see #AdlStructure(Object)
 	 *
 	 * @return the original object
 	 */
@@ -119,9 +121,7 @@ public class AdlStructure {
 	  return this.originalItem;	
 	}
 	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+	
 	@Override
 	public String toString(){
 		String structure = "NULL";

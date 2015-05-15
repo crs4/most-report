@@ -20,9 +20,9 @@ import org.json.JSONObject;
 import android.util.Log;
 
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class AdlParser.
+ * This class provides methods for exploring, retrieving and updating the contents of a JSON structure representing an OpenEHR Archetype
  */
 public class AdlParser {
 	
@@ -134,8 +134,8 @@ public class AdlParser {
 
 	
 	/**
-	 * Get an ItemsContainer including all the instances of an archetype, given the path of one of its items).
-	 *
+	 * Get an ItemsContainer including all the instances of an archetype, given the path of any of its items).
+	 * For instance, providing the path data[at0001]/events[at0006]/data[at0003]/items[at0004] , you get the  ADL structure included in data[at0001]/events[at0006]/data[at0003]
 	 * @param path the path of an item
 	 * @return the AdlStructure
 	 */ 
