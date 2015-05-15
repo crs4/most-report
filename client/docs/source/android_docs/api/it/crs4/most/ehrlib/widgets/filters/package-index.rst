@@ -7,5 +7,4 @@ it.crs4.most.ehrlib.widgets.filters
    :maxdepth: 1
 
    DvQuantityFilter
-   EditTextLocker
 

@@ -37,10 +37,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
-
 /**
- * The Class ArchetypeViewerActivityExample.
+ * This example allow you to load an Archetype
  */
 public class ArchetypeViewerActivityExample extends ActionBarActivity{
 

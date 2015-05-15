@@ -134,8 +134,8 @@ public class AdlParser {
 
 	
 	/**
-	 * Get an ItemsContainer including all the instances of an archetype, given the path of any of its items).
-	 * For instance, providing the path data[at0001]/events[at0006]/data[at0003]/items[at0004] , you get the  ADL structure included in data[at0001]/events[at0006]/data[at0003]
+	 * Get an ADL structure containing all the items included in an archetype path. The path must be the absolute parh of any of its items.
+	 * For instance, providing the path data[at0001]/events[at0006]/data[at0003]/items[at0004] , this method returns the ADL structure included in data[at0001]/events[at0006]/data[at0003]
 	 * @param path the path of an item
 	 * @return the AdlStructure
 	 */ 
