@@ -12,7 +12,7 @@ AdlStructure
 
 .. java:type:: public class AdlStructure
 
-   The Class AdlStructure.
+   The Class AdlStructure contains a JSON structure representing a whole or a part of an OpenEHR Archetype.
 
 Constructors
 ------------
@@ -24,7 +24,7 @@ AdlStructure
 
    Instantiates a new adl structure.
 
-   :param item: the item
+   :param item: the structure. It can be a JSONObject (a single structure or datatype) or a JSONArray (a list of structures and/or datatypes).
 
 Methods
 -------
@@ -44,7 +44,7 @@ getCardinality
 .. java:method:: public StructureCardinality getCardinality()
    :outertype: AdlStructure
 
-   Gets the cardinality.
+   Gets the cardinality of this ADL structure
 
    :return: the cardinality
 
@@ -54,9 +54,11 @@ getOriginalObject
 .. java:method:: public Object getOriginalObject()
    :outertype: AdlStructure
 
-   Gets the original object.
+   Gets the original item provided for building this ADL structure.
 
    :return: the original object
+
+   **See also:** :java:ref:`.AdlStructure(Object)`
 
 getStructure
 ^^^^^^^^^^^^

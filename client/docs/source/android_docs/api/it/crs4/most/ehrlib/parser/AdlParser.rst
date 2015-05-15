@@ -20,7 +20,7 @@ AdlParser
 
 .. java:type:: public class AdlParser
 
-   The Class AdlParser.
+   This class provides methods for exploring, retrieving and updating the contents of a JSON structure representing an OpenEHR Archetype
 
 Constructors
 ------------
@@ -42,7 +42,7 @@ getItemsContainer
 .. java:method:: public AdlStructure getItemsContainer(String path)
    :outertype: AdlParser
 
-   Get an ItemsContainer including all the instances of an archetype, given the path of one of its items).
+   Get an ItemsContainer including all the instances of an archetype, given the path of any of its items). For instance, providing the path data[at0001]/events[at0006]/data[at0003]/items[at0004] , you get the ADL structure included in data[at0001]/events[at0006]/data[at0003]
 
    :param path: the path of an item
    :return: the AdlStructure
