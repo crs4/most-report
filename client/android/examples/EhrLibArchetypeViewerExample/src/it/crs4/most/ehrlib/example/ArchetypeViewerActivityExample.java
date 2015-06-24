@@ -11,6 +11,11 @@
 package it.crs4.most.ehrlib.example;
 
 import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.VolleyError;
 
 import it.crs4.ehrlib.example.R;
 import it.crs4.most.ehrlib.FormContainer;
@@ -18,8 +23,10 @@ import it.crs4.most.ehrlib.WidgetProvider;
 import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.method.ScrollingMovementMethod;
 import android.app.Dialog;
+import android.content.Context;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -45,43 +52,54 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
 	public static final String LANGUAGE = "es-ar"; // "es-ar"; //
 	
 	/** The Constant TAG. */
-	public static final String TAG = null;
+	public static final String TAG = "ArchetypeViewerActivityExample";
 	
 	/** The json datatypes schema. */
-	//private static String JSON_SCHEMA_DATATYPES = "ecg/schema_datatypes_ECG_recording_v1.json";
-	private static String JSON_SCHEMA_DATATYPES = "blood_pressure/schema_datatypes_blood_pressure_v1.json";
+	private static String JSON_SCHEMA_DATATYPES = "ecg/schema_datatypes_ECG_recording_v1.json";
+	private static String JSON_SCHEMA_DATATYPES2 = "blood_pressure/schema_datatypes_blood_pressure_v1.json";
 	
 	/** The json layout schema. */
-	//private static String JSON_SCHEMA_LAYOUT = "ecg/schema_layout_ECG_recording_v1.json";
-	private static String JSON_SCHEMA_LAYOUT = "blood_pressure/schema_layout_blood_pressure_v1.json";
+	private static String JSON_SCHEMA_LAYOUT = "ecg/schema_layout_ECG_recording_v1.json";
+	private static String JSON_SCHEMA_LAYOUT2 = "blood_pressure/schema_layout_blood_pressure_v1.json";
 	
 	/** The json ontology. */
-	//private static String JSON_SCHEMA_ONTOLOGY = "ecg/schema_ontology_ECG_recording_v1.json";
-	private static String JSON_SCHEMA_ONTOLOGY = "blood_pressure/schema_ontology_blood_pressure_v1.json";
-	
-	
+	private static String JSON_SCHEMA_ONTOLOGY = "ecg/schema_ontology_ECG_recording_v1.json";
+	private static String JSON_SCHEMA_ONTOLOGY2 = "blood_pressure/schema_ontology_blood_pressure_v1.json";
 	
 	/** The json instances. */
-	//private static String JSON_SCHEMA_INSTANCE =  "ecg/schema_adl_void_instance_ECG_recording_v1.json";
-	private static String JSON_SCHEMA_INSTANCE =  "blood_pressure/schema_adl_void_instance_blood_pressure_v1.json";
-	//private static String JSON_SCHEMA_INSTANCE =  "blood_pressure/schema_adl_instance_blood_pressure_v1.json";
+	private static String JSON_SCHEMA_INSTANCE =  "ecg/schema_adl_void_instance_ECG_recording_v1.json";
+	//private static String JSON_SCHEMA_INSTANCE2 =  "blood_pressure/schema_adl_void_instance_blood_pressure_v1.json";
+	private static String JSON_SCHEMA_INSTANCE2 =  "blood_pressure/remote_instance.json";
 	
-
+	private ArchetypeViewerFragment archetypeFragment = null;
+	    
+	    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.activity_blood_pressure);
-     
-        
+        archetypeFragment =  new ArchetypeViewerFragment(getApplicationContext());
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new ArchetypeViewerFragment())
+                    .add(R.id.container,archetypeFragment )
                     .commit();
         }
         
     }
     
+   public void loadArchetypeFragment(String datatypes, String ontology, String instances, String schema, String language)
+   {
+	   
+	   Log.d(TAG, "Replacing the fragment....");
+	   FragmentManager fm = getSupportFragmentManager();
+   
+	   ArchetypeViewerFragment f =  new ArchetypeViewerFragment(getApplicationContext(), datatypes, ontology, instances, schema,language);
+	   
+	   //fm.beginTransaction().remove(archetypeFragment).add(R.id.container, f).commit();
+        fm.beginTransaction().replace(R.id.container, f).commit();
+       //this.archetypeFragment = f;
+   }
    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -116,7 +134,7 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
          }
     	 
     	 
- 	    @Override
+ 	     @Override
          public boolean onOptionsItemSelected(MenuItem item) {
                  switch (item.getItemId()) {
                  case R.id.menu_spain:
@@ -146,14 +164,34 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
 		/** The widget provider. */
 		private WidgetProvider widgetProvider;
     	
+		
+		private String datatypes = null;
+		private String ontology  = null;
+		private String instances = null;
+		private String schema = null;
+		private String language = null;
+		
+		
         /**
          * Instantiates a new Fragment for rendering the Archetype
          *  
          */
-        public ArchetypeViewerFragment() {
+        public ArchetypeViewerFragment(Context ctx) {
+        	this(ctx,null,null,null,null,null);
+        }
+        
+        public ArchetypeViewerFragment(Context ctx, String datatypes, String ontology, String instances, String schema, String language) {
+        	
+        	this.datatypes = (datatypes == null ?   WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_DATATYPES) : datatypes);
+        	this.ontology = (ontology == null ?   WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_ONTOLOGY) : ontology);
+        	this.instances = (instances== null ?  WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_INSTANCE) : instances);
+        	this.schema = (schema == null ?  WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_LAYOUT) : schema);
+        	this.instances = (instances== null ?  WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_INSTANCE) : instances);
+        	this.language = (language== null ?  LANGUAGE : language);
         }
 
        
+        
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
@@ -162,12 +200,13 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
             //View rootView = WidgetProvider.getDatatypeWidget(getActivity().getApplicationContext(), "DV_QUANTITY", null).getView();
 
 			try {
+				Log.d(TAG, String.format("--->>>> Activity:%s DT:%s,ON:%s, IN:%s. SC: %s, LA:%s", getActivity(),datatypes,ontology,instances,schema,language));
 				widgetProvider = new WidgetProvider(getActivity(), 
-													WidgetProvider.parseFileToString(getActivity().getApplicationContext(),JSON_SCHEMA_DATATYPES),
-													WidgetProvider.parseFileToString(getActivity().getApplicationContext(),JSON_SCHEMA_ONTOLOGY), 
-													WidgetProvider.parseFileToString(getActivity().getApplicationContext(),JSON_SCHEMA_INSTANCE),
-													WidgetProvider.parseFileToString(getActivity().getApplicationContext(),JSON_SCHEMA_LAYOUT),
-													LANGUAGE);
+													this.datatypes,
+													this.ontology, 
+													this.instances,
+													this.schema,
+													this.language);
 				
 				this.formContainer = widgetProvider.buildFormView(0);
 			
@@ -185,10 +224,6 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
             // Buttons Panel
     		View buttonsPanel = inflater.inflate(R.layout.datatype_form_buttons, null);
     		ViewGroup rootView = formContainer.getLayout();
-    		
-    		// Actionbar ImageViews
-    		
-    		
     		
     	    rootView.addView(buttonsPanel);
     	    
@@ -250,6 +285,119 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
 				}
 			});
         	
+
+        	Button butLoad = (Button) buttonsPanel.findViewById(R.id.butLoad);
+        	butLoad.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Toast.makeText(getActivity(), "REMOTE LOADING FROM IP:" + Utils.getIPAddress(true), Toast.LENGTH_LONG).show();
+					String serverIp = "156.148.132.223"; //"156.148.132.223";
+					int serverPort = 8000;
+					final RemotePyEHRConnector rc = new RemotePyEHRConnector(getActivity(), serverIp, serverPort);
+					String clientId = "8c96bf8cea26fa555fa8";
+					String clientSecret = "4fd1f508b7b03fba6509da4c193157d7a2b20838";
+					//'grant_type': 'password',
+		            String username = "admin";
+		            String password = "admin";
+		            String taskgroup = "5dw2x3jfkftxue5a5izw6yiplbbn4dlo";
+					
+					rc.getAccessToken(clientId, clientSecret, username, password, taskgroup, new Listener<String>() {
+
+				
+						@Override
+						public void onResponse(String response) {
+							try {
+								String accessToken = new JSONObject(response).getString("access_token");
+								rc.setAccessToken(accessToken);
+								Toast.makeText(getActivity(), "ACCESS TOKEN:" + accessToken, Toast.LENGTH_LONG).show();
+								
+								final String patientId = "wj7zfhwdfvdy3djrjize2dn5rzlcu5i7";
+								
+								rc.getPatientMedicalRecords(patientId,new Listener<JSONObject>() {
+
+									@Override
+									public void onResponse(JSONObject response) {
+											
+											Log.d(TAG, "MC RESPONSE:" + response.toString());
+											// Get the first medical record ID
+											try {
+												//JSONObject mr = ((JSONObject)response.getJSONObject("RECORD").getJSONArray("ehr_records").get(0)).getJSONObject("ehr_data");
+												String recordId = ((JSONObject)response.getJSONObject("RECORD").getJSONArray("ehr_records").get(0)).getString("record_id");
+					
+												Toast.makeText(getActivity(), "First MC ID:" + recordId, Toast.LENGTH_LONG).show();
+												
+												rc.getPatientMedicalRecord(patientId, recordId, new Listener<JSONObject>() {
+
+													@Override
+													public void onResponse(
+															JSONObject response) {
+														
+														Log.d(TAG, "Mrecord RESPONSE:" + response.toString());
+														
+														String mr;
+														try {
+															mr = response.getJSONObject("RECORD").getJSONObject("ehr_data").toString(2);
+															Log.d(TAG,"INSTANCE:\n" + mr);
+															
+															Toast.makeText(getActivity(), "MR:" + mr, Toast.LENGTH_LONG).show();
+															((ArchetypeViewerActivityExample) getActivity()).loadArchetypeFragment(
+																	WidgetProvider.parseFileToString(getActivity(),JSON_SCHEMA_DATATYPES2),
+																	WidgetProvider.parseFileToString(getActivity(),JSON_SCHEMA_ONTOLOGY2),
+																	WidgetProvider.parseFileToString(getActivity(),JSON_SCHEMA_INSTANCE2),
+																	WidgetProvider.parseFileToString(getActivity(),JSON_SCHEMA_LAYOUT2),
+																	null);
+															
+														} catch (JSONException e) {
+															Toast.makeText(getActivity(), "Error retrieving mr:" + e.getMessage(), Toast.LENGTH_LONG).show();
+															e.printStackTrace();
+														}
+														
+														
+													}
+												}, new ErrorListener() {
+
+													@Override
+													public void onErrorResponse(
+															VolleyError arg0) {
+														Toast.makeText(getActivity(), "ERROR RETRIEVING PATIENT MEDICAL RECORD:" + arg0.getMessage(), Toast.LENGTH_LONG).show();
+														
+													}
+												});
+												
+											} catch (JSONException e) {
+												Toast.makeText(getActivity(), "Eccezione:" + e.getMessage(), Toast.LENGTH_LONG).show();
+												e.printStackTrace();
+											}
+									}
+								}, new ErrorListener() {
+
+									@Override
+									public void onErrorResponse(VolleyError arg0) {
+										Toast.makeText(getActivity(), "ERROR RETRIEVING MEDICAL RECORDS" + arg0.getMessage(), Toast.LENGTH_LONG).show();
+										
+									}
+								});
+							} catch (JSONException e) {
+								Toast.makeText(getActivity(), "NO VALID ACCESS TOKEN:" + response, Toast.LENGTH_LONG).show();
+								e.printStackTrace();
+								
+							}
+							
+							
+						}
+					}, new ErrorListener() {
+
+						@Override
+						public void onErrorResponse(VolleyError response) {
+							Toast.makeText(getActivity(), "ERROR RETRIEVING ACCESS TOKEN:" + response, Toast.LENGTH_LONG).show();
+							response.printStackTrace();
+							
+						}
+					});
+				}
+			});
+        	
         	
         	
         	Button butReset = (Button) buttonsPanel.findViewById(R.id.butReset);
@@ -286,4 +434,6 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
 			});
         }
     }
+    
+    
 }
