@@ -13,6 +13,11 @@ package it.crs4.most.ehrlib.example;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+
 import it.crs4.ehrlib.example.R;
 import it.crs4.most.ehrlib.FormContainer;
 import it.crs4.most.ehrlib.WidgetProvider;
@@ -42,13 +47,13 @@ import android.widget.Toast;
 /**
  * This example allow you to load an Archetype
  */
-public class ArchetypeViewerActivityExample extends ActionBarActivity{
+public class RemoteArchetypeViewerActivityExample extends ActionBarActivity{
 
 	/** The Constant LANGUAGE. */
 	public static final String LANGUAGE = "es-ar"; // "es-ar"; //
 	
 	/** The Constant TAG. */
-	public static final String TAG = "ArchetypeViewerActivityExample";
+	public static final String TAG = "RemoteArchetypeViewerActivityExample";
 	
 	/** The json datatypes schema. */
 	private static String JSON_SCHEMA_DATATYPES = "ecg/schema_datatypes_ECG_recording_v1.json";
@@ -68,8 +73,20 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
 	private static String JSON_SCHEMA_INSTANCE2 =  "blood_pressure/remote_instance.json";
 	
 	private ArchetypeViewerFragment archetypeFragment = null;
-	    
-	    
+	 
+	// REMOTE PYEHR SERVER CONNECTION PARAMS
+	private String serverIp = "156.148.132.223"; //"156.148.132.223";
+	private static int serverPort = 8000;
+	private static RemotePyEHRConnector rc =null;  //new RemotePyEHRConnector(getActivity(), serverIp, serverPort);
+	private  static String clientId = "8c96bf8cea26fa555fa8";
+	private static  String clientSecret = "4fd1f508b7b03fba6509da4c193157d7a2b20838";
+	//'grant_type': 'password',
+	private static String username = "admin";
+	private static String password = "admin";
+	private static String taskgroup = "5dw2x3jfkftxue5a5izw6yiplbbn4dlo";
+	private static String patientId = "wj7zfhwdfvdy3djrjize2dn5rzlcu5i7";
+	private static String accessToken = null;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,7 +99,39 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
                     .commit();
         }
         
+        // remote connector
+        rc = new RemotePyEHRConnector(this, serverIp, serverPort);
+        retrieveAccessToken();
     }
+    
+    
+   private void retrieveAccessToken()
+   {
+	   rc.getAccessToken(clientId, clientSecret, username, password, taskgroup, new Listener<String>() {
+
+		@Override
+		public void onResponse(String response) {
+			try {
+				accessToken = new JSONObject(response).getString("access_token");
+				rc.setAccessToken(accessToken);
+				Toast.makeText(getApplicationContext(), "ACCESS TOKEN:" + accessToken, Toast.LENGTH_LONG).show();
+			} catch (JSONException e) {
+				Toast.makeText(getApplicationContext(), "INVALID ACCESS TOKEN" , Toast.LENGTH_LONG).show();
+				e.printStackTrace();
+			}
+			
+			
+		 
+		}
+	}, new ErrorListener() {
+
+		@Override
+		public void onErrorResponse(VolleyError arg0) {
+			Toast.makeText(getApplicationContext(), "ERROR RETRIEVING ACCESS TOKEN" , Toast.LENGTH_LONG).show();
+			accessToken = null;
+		}
+	});
+   }
     
    public void loadArchetypeFragment(String datatypes, String ontology, String instances, String schema, String language)
    {
@@ -281,9 +330,117 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
 				}
 			});
         	
+        	
+        	Button butExport = (Button) buttonsPanel.findViewById(R.id.butExport);
+        	butExport.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					exportArchetype();
+				}});
 
         	Button butLoad = (Button) buttonsPanel.findViewById(R.id.butLoad);
-        	//butLoad.setOnClickListener(new OnClickListener() {});
+        	butLoad.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Toast.makeText(getActivity(), "REMOTE LOADING FROM IP:" + Utils.getIPAddress(true), Toast.LENGTH_LONG).show();
+
+					rc.getAccessToken(clientId, clientSecret, username, password, taskgroup, new Listener<String>() {
+
+				
+						@Override
+						public void onResponse(String response) {
+							try {
+								String accessToken = new JSONObject(response).getString("access_token");
+								rc.setAccessToken(accessToken);
+								Toast.makeText(getActivity(), "ACCESS TOKEN:" + accessToken, Toast.LENGTH_LONG).show();
+								
+							
+								
+								rc.getPatientMedicalRecords(patientId,new Listener<JSONObject>() {
+
+									@Override
+									public void onResponse(JSONObject response) {
+											
+											Log.d(TAG, "MC RESPONSE:" + response.toString());
+											// Get the first medical record ID
+											try {
+												//JSONObject mr = ((JSONObject)response.getJSONObject("RECORD").getJSONArray("ehr_records").get(0)).getJSONObject("ehr_data");
+												String recordId = ((JSONObject)response.getJSONObject("RECORD").getJSONArray("ehr_records").get(0)).getString("record_id");
+					
+												Toast.makeText(getActivity(), "First MC ID:" + recordId, Toast.LENGTH_LONG).show();
+												
+												rc.getPatientMedicalRecord(patientId, recordId, new Listener<JSONObject>() {
+
+													@Override
+													public void onResponse(
+															JSONObject response) {
+														
+														Log.d(TAG, "Mrecord RESPONSE:" + response.toString());
+														
+														String mr;
+														try {
+															mr = response.getJSONObject("RECORD").getJSONObject("ehr_data").toString(2);
+															Log.d(TAG,"INSTANCE:\n" + mr);
+															
+															Toast.makeText(getActivity(), "MR:" + mr, Toast.LENGTH_LONG).show();
+															((RemoteArchetypeViewerActivityExample) getActivity()).loadArchetypeFragment(
+																	WidgetProvider.parseFileToString(getActivity(),JSON_SCHEMA_DATATYPES2),
+																	WidgetProvider.parseFileToString(getActivity(),JSON_SCHEMA_ONTOLOGY2),
+																	WidgetProvider.parseFileToString(getActivity(),JSON_SCHEMA_INSTANCE2),
+																	WidgetProvider.parseFileToString(getActivity(),JSON_SCHEMA_LAYOUT2),
+																	null);
+															
+														} catch (JSONException e) {
+															Toast.makeText(getActivity(), "Error retrieving mr:" + e.getMessage(), Toast.LENGTH_LONG).show();
+															e.printStackTrace();
+														}
+														
+														
+													}
+												}, new ErrorListener() {
+
+													@Override
+													public void onErrorResponse(
+															VolleyError arg0) {
+														Toast.makeText(getActivity(), "ERROR RETRIEVING PATIENT MEDICAL RECORD:" + arg0.getMessage(), Toast.LENGTH_LONG).show();
+														
+													}
+												});
+												
+											} catch (JSONException e) {
+												Toast.makeText(getActivity(), "Eccezione:" + e.getMessage(), Toast.LENGTH_LONG).show();
+												e.printStackTrace();
+											}
+									}
+								}, new ErrorListener() {
+
+									@Override
+									public void onErrorResponse(VolleyError arg0) {
+										Toast.makeText(getActivity(), "ERROR RETRIEVING MEDICAL RECORDS" + arg0.getMessage(), Toast.LENGTH_LONG).show();
+										
+									}
+								});
+							} catch (JSONException e) {
+								Toast.makeText(getActivity(), "NO VALID ACCESS TOKEN:" + response, Toast.LENGTH_LONG).show();
+								e.printStackTrace();
+								
+							}
+							
+							
+						}
+					}, new ErrorListener() {
+
+						@Override
+						public void onErrorResponse(VolleyError response) {
+							Toast.makeText(getActivity(), "ERROR RETRIEVING ACCESS TOKEN:" + response, Toast.LENGTH_LONG).show();
+							response.printStackTrace();
+							
+						}
+					});
+				}
+			});
         	
         	
         	
@@ -320,6 +477,25 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
 				}
 			});
         }
+
+
+		protected void exportArchetype() {
+		 
+			JSONObject json = widgetProvider.toJson();
+			rc.createPatientMedicalRecord(patientId, json, new Response.Listener<JSONObject>() {
+
+				@Override
+				public void onResponse(JSONObject arg0) {
+					Toast.makeText(getActivity(), "ARCHETYPE EXPORTED", Toast.LENGTH_LONG).show();
+					
+				}}  , new Response.ErrorListener() {
+
+					@Override
+					public void onErrorResponse(VolleyError err) {
+						Toast.makeText(getActivity(), "ERROR exporting ARCHETYPE:" + err.getMessage(), Toast.LENGTH_LONG).show();
+						
+					}});
+		}
     }
     
     

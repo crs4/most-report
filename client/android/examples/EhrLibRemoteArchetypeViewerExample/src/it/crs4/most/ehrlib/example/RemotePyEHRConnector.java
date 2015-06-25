@@ -23,6 +23,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.android.volley.Request;
+import com.android.volley.Request.Method;
 import com.android.volley.Response;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
@@ -121,6 +122,13 @@ public class RemotePyEHRConnector {
 		String uri = String.format("%smedicalrecords/ehr/%s/records/%s/?access_token=%s", this.urlPrefix, patientId,medicalRecordId, accessToken);
 		JsonObjectRequest postReq = new JsonObjectRequest(uri, null, listener, errorListener);
 		this.rq.add(postReq);	 
+	}
+	
+	public void createPatientMedicalRecord(String patientId,  JSONObject medicalRecord, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
+		String uri = String.format("%smedicalrecords/ehr/%s/records/?access_token=%s", this.urlPrefix, patientId, accessToken);
+	
+			JsonObjectRequest postReq = new JsonObjectRequest(Method.POST, uri, medicalRecord, listener, errorListener);
+			this.rq.add(postReq);	 
 	}
 	
 	
