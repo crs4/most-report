@@ -106,10 +106,21 @@ public class RemotePyEHRConnector {
 			Log.d(TAG, "Request added to the queue");
 	}
 	
+	/**
+	 * Get the list of patients of this taskgroup
+	 * @param listener
+	 * @param errorListener
+	 */
+	public void getPatients(Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
+		String uri = String.format("%smedicalrecords/patients/?access_token=%s", this.urlPrefix, accessToken);
+		JsonObjectRequest postReq = new JsonObjectRequest(uri, null, listener, errorListener);
+		this.rq.add(postReq);	 
+	}
+	
 	
 	
 	/**
-	 * return the list a medical record of a patient
+	 * return the list the medical records of a patient
 	 * @param patientId the patient uuid
 	 */
 	public void getPatientMedicalRecords(String patientId, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
@@ -118,12 +129,26 @@ public class RemotePyEHRConnector {
 		this.rq.add(postReq);	 
 	}
 	 
+	/**
+	 * Get a medical record of a patient
+	 * @param patientId the patient uuid
+	 * @param medicalRecordId the medical record to get
+	 * @param listener
+	 * @param errorListener
+	 */
 	public void getPatientMedicalRecord(String patientId, String medicalRecordId, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
 		String uri = String.format("%smedicalrecords/ehr/%s/records/%s/?access_token=%s", this.urlPrefix, patientId,medicalRecordId, accessToken);
 		JsonObjectRequest postReq = new JsonObjectRequest(uri, null, listener, errorListener);
 		this.rq.add(postReq);	 
 	}
 	
+	/**
+	 * Create a new medical record related to the specified patient
+	 * @param patientId the patient id
+	 * @param medicalRecord the medical record to export
+	 * @param listener
+	 * @param errorListener
+	 */
 	public void createPatientMedicalRecord(String patientId,  JSONObject medicalRecord, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
 		String uri = String.format("%smedicalrecords/ehr/%s/records/?access_token=%s", this.urlPrefix, patientId, accessToken);
 	

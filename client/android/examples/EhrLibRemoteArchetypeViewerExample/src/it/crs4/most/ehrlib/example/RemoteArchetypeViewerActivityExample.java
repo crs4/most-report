@@ -39,7 +39,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,21 +58,21 @@ public class RemoteArchetypeViewerActivityExample extends ActionBarActivity{
 	public static final String TAG = "RemoteArchetypeViewerActivityExample";
 	
 	/** The json datatypes schema. */
-	private static String JSON_SCHEMA_DATATYPES = "ecg/schema_datatypes_ECG_recording_v1.json";
-	private static String JSON_SCHEMA_DATATYPES2 = "blood_pressure/schema_datatypes_blood_pressure_v1.json";
+	private static String JSON_SCHEMA_DATATYPES2 = "ecg/schema_datatypes_ECG_recording_v1.json";
+	private static String JSON_SCHEMA_DATATYPES = "blood_pressure/schema_datatypes_blood_pressure_v1.json";
 	
 	/** The json layout schema. */
-	private static String JSON_SCHEMA_LAYOUT = "ecg/schema_layout_ECG_recording_v1.json";
-	private static String JSON_SCHEMA_LAYOUT2 = "blood_pressure/schema_layout_blood_pressure_v1.json";
+	private static String JSON_SCHEMA_LAYOUT2 = "ecg/schema_layout_ECG_recording_v1.json";
+	private static String JSON_SCHEMA_LAYOUT = "blood_pressure/schema_layout_blood_pressure_v1.json";
 	
 	/** The json ontology. */
-	private static String JSON_SCHEMA_ONTOLOGY = "ecg/schema_ontology_ECG_recording_v1.json";
-	private static String JSON_SCHEMA_ONTOLOGY2 = "blood_pressure/schema_ontology_blood_pressure_v1.json";
+	private static String JSON_SCHEMA_ONTOLOGY2 = "ecg/schema_ontology_ECG_recording_v1.json";
+	private static String JSON_SCHEMA_ONTOLOGY = "blood_pressure/schema_ontology_blood_pressure_v1.json";
 	
 	/** The json instances. */
-	private static String JSON_SCHEMA_INSTANCE =  "ecg/schema_adl_void_instance_ECG_recording_v1.json";
-	//private static String JSON_SCHEMA_INSTANCE2 =  "blood_pressure/schema_adl_void_instance_blood_pressure_v1.json";
-	private static String JSON_SCHEMA_INSTANCE2 =  "blood_pressure/remote_instance.json";
+	private static String JSON_SCHEMA_INSTANCE2 =  "ecg/schema_adl_void_instance_ECG_recording_v1.json";
+	private static String JSON_SCHEMA_INSTANCE =  "blood_pressure/schema_adl_void_instance_blood_pressure_v1.json";
+	//private static String JSON_SCHEMA_INSTANCE2 =  "blood_pressure/remote_instance.json";
 	
 	private ArchetypeViewerFragment archetypeFragment = null;
 	 
@@ -92,20 +94,18 @@ public class RemoteArchetypeViewerActivityExample extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.activity_blood_pressure);
-        archetypeFragment =  new ArchetypeViewerFragment(getApplicationContext());
+       
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container,archetypeFragment )
-                    .commit();
+        	  // remote connector
+            rc = new RemotePyEHRConnector(this, serverIp, serverPort);
+            retrieveAccessToken(true);
         }
         
-        // remote connector
-        rc = new RemotePyEHRConnector(this, serverIp, serverPort);
-        retrieveAccessToken();
+      
     }
     
     
-   private void retrieveAccessToken()
+   private void retrieveAccessToken(final boolean loadPatientsFragment)
    {
 	   rc.getAccessToken(clientId, clientSecret, username, password, taskgroup, new Listener<String>() {
 
@@ -115,6 +115,10 @@ public class RemoteArchetypeViewerActivityExample extends ActionBarActivity{
 				accessToken = new JSONObject(response).getString("access_token");
 				rc.setAccessToken(accessToken);
 				Toast.makeText(getApplicationContext(), "ACCESS TOKEN:" + accessToken, Toast.LENGTH_LONG).show();
+				if (loadPatientsFragment)
+				{ 
+					loadMedicalrecordFragment();
+				}
 			} catch (JSONException e) {
 				Toast.makeText(getApplicationContext(), "INVALID ACCESS TOKEN" , Toast.LENGTH_LONG).show();
 				e.printStackTrace();
@@ -132,7 +136,15 @@ public class RemoteArchetypeViewerActivityExample extends ActionBarActivity{
 		}
 	});
    }
-    
+   
+   public void loadMedicalrecordFragment()
+   {
+	   FragmentManager fm = getSupportFragmentManager();
+	   PatientMedicalRecordFragment pmrf = new PatientMedicalRecordFragment(this, this.rc);
+	 
+	   fm.beginTransaction().replace(R.id.container, pmrf).commit();
+   }
+   
    public void loadArchetypeFragment(String datatypes, String ontology, String instances, String schema, String language)
    {
 	   
@@ -265,11 +277,15 @@ public class RemoteArchetypeViewerActivityExample extends ActionBarActivity{
 			}
             
            
-            
+			
             // Buttons Panel
     		View buttonsPanel = inflater.inflate(R.layout.datatype_form_buttons, null);
     		ViewGroup rootView = formContainer.getLayout();
     		
+    		
+    		//FrameLayout fl = (FrameLayout) rootView.findViewById(R.id.container);
+			//fl.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+			
     	    rootView.addView(buttonsPanel);
     	    
             rootView.setBackgroundColor(Color.BLACK);
@@ -344,101 +360,8 @@ public class RemoteArchetypeViewerActivityExample extends ActionBarActivity{
 				
 				@Override
 				public void onClick(View v) {
-					Toast.makeText(getActivity(), "REMOTE LOADING FROM IP:" + Utils.getIPAddress(true), Toast.LENGTH_LONG).show();
-
-					rc.getAccessToken(clientId, clientSecret, username, password, taskgroup, new Listener<String>() {
-
-				
-						@Override
-						public void onResponse(String response) {
-							try {
-								String accessToken = new JSONObject(response).getString("access_token");
-								rc.setAccessToken(accessToken);
-								Toast.makeText(getActivity(), "ACCESS TOKEN:" + accessToken, Toast.LENGTH_LONG).show();
-								
-							
-								
-								rc.getPatientMedicalRecords(patientId,new Listener<JSONObject>() {
-
-									@Override
-									public void onResponse(JSONObject response) {
-											
-											Log.d(TAG, "MC RESPONSE:" + response.toString());
-											// Get the first medical record ID
-											try {
-												//JSONObject mr = ((JSONObject)response.getJSONObject("RECORD").getJSONArray("ehr_records").get(0)).getJSONObject("ehr_data");
-												String recordId = ((JSONObject)response.getJSONObject("RECORD").getJSONArray("ehr_records").get(0)).getString("record_id");
 					
-												Toast.makeText(getActivity(), "First MC ID:" + recordId, Toast.LENGTH_LONG).show();
-												
-												rc.getPatientMedicalRecord(patientId, recordId, new Listener<JSONObject>() {
-
-													@Override
-													public void onResponse(
-															JSONObject response) {
-														
-														Log.d(TAG, "Mrecord RESPONSE:" + response.toString());
-														
-														String mr;
-														try {
-															mr = response.getJSONObject("RECORD").getJSONObject("ehr_data").toString(2);
-															Log.d(TAG,"INSTANCE:\n" + mr);
-															
-															Toast.makeText(getActivity(), "MR:" + mr, Toast.LENGTH_LONG).show();
-															((RemoteArchetypeViewerActivityExample) getActivity()).loadArchetypeFragment(
-																	WidgetProvider.parseFileToString(getActivity(),JSON_SCHEMA_DATATYPES2),
-																	WidgetProvider.parseFileToString(getActivity(),JSON_SCHEMA_ONTOLOGY2),
-																	WidgetProvider.parseFileToString(getActivity(),JSON_SCHEMA_INSTANCE2),
-																	WidgetProvider.parseFileToString(getActivity(),JSON_SCHEMA_LAYOUT2),
-																	null);
-															
-														} catch (JSONException e) {
-															Toast.makeText(getActivity(), "Error retrieving mr:" + e.getMessage(), Toast.LENGTH_LONG).show();
-															e.printStackTrace();
-														}
-														
-														
-													}
-												}, new ErrorListener() {
-
-													@Override
-													public void onErrorResponse(
-															VolleyError arg0) {
-														Toast.makeText(getActivity(), "ERROR RETRIEVING PATIENT MEDICAL RECORD:" + arg0.getMessage(), Toast.LENGTH_LONG).show();
-														
-													}
-												});
-												
-											} catch (JSONException e) {
-												Toast.makeText(getActivity(), "Eccezione:" + e.getMessage(), Toast.LENGTH_LONG).show();
-												e.printStackTrace();
-											}
-									}
-								}, new ErrorListener() {
-
-									@Override
-									public void onErrorResponse(VolleyError arg0) {
-										Toast.makeText(getActivity(), "ERROR RETRIEVING MEDICAL RECORDS" + arg0.getMessage(), Toast.LENGTH_LONG).show();
-										
-									}
-								});
-							} catch (JSONException e) {
-								Toast.makeText(getActivity(), "NO VALID ACCESS TOKEN:" + response, Toast.LENGTH_LONG).show();
-								e.printStackTrace();
-								
-							}
-							
-							
-						}
-					}, new ErrorListener() {
-
-						@Override
-						public void onErrorResponse(VolleyError response) {
-							Toast.makeText(getActivity(), "ERROR RETRIEVING ACCESS TOKEN:" + response, Toast.LENGTH_LONG).show();
-							response.printStackTrace();
-							
-						}
-					});
+					((RemoteArchetypeViewerActivityExample) getActivity()).loadMedicalrecordFragment();
 				}
 			});
         	
