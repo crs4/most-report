@@ -118,6 +118,18 @@ public class RemotePyEHRConnector {
 	}
 	
 	
+	public void createEhrPatient(String patientId, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
+		String uri = String.format("%smedicalrecords/ehr/%s/?access_token=%s", this.urlPrefix, patientId, accessToken);
+			JsonObjectRequest postReq = new JsonObjectRequest(Method.POST, uri, null, listener, errorListener);
+			this.rq.add(postReq);	 
+	}
+	
+	public void deleteEhrPatient(String patientId, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
+		String uri = String.format("%smedicalrecords/ehr/%s/?access_token=%s", this.urlPrefix, patientId, accessToken);
+			JsonObjectRequest postReq = new JsonObjectRequest(Method.DELETE, uri, null, listener, errorListener);
+			this.rq.add(postReq);	 
+	}
+	
 	
 	/**
 	 * return the list the medical records of a patient
@@ -151,93 +163,20 @@ public class RemotePyEHRConnector {
 	 */
 	public void createPatientMedicalRecord(String patientId,  JSONObject medicalRecord, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
 		String uri = String.format("%smedicalrecords/ehr/%s/records/?access_token=%s", this.urlPrefix, patientId, accessToken);
-	
 			JsonObjectRequest postReq = new JsonObjectRequest(Method.POST, uri, medicalRecord, listener, errorListener);
 			this.rq.add(postReq);	 
 	}
 	
-	
-	// --------------------------------------------------------------------------------------------------------------- //
-	// --------------------------------------------------------------------------------------------------------------- //
-	
-	
-	
-	public void doTestJsonRequest() 
-	{
-		//RequestQueue rq = Volley.newRequestQueue(this.ctx);
-		
-		JsonObjectRequest postReq = new JsonObjectRequest( this.urlPrefix + "accounts/", null, new Response.Listener<JSONObject>(){
-		    @Override
-		    public void onResponse(JSONObject response) {
-		    	Log.d("most_example", "Query Response::" + response);
-		    	try {
-					Log.d("most_example", "First Account data:" + response.getJSONObject("data").getJSONArray("accounts").get(0));
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					Log.e("most_example", "error:" + e);
-				}
-		    	
-		    }
-		}, new Response.ErrorListener() {
-		    @Override
-		    public void onErrorResponse(VolleyError error) {
-		    	Log.d("most_example", "Error ["+error+"]");
-	
-		    }
-		});
-
-	this.rq.add(postReq);
-	
-	Log.d("most_example", "Click button 2");
-	}
-	
-
 	/**
-	 * return the task groups associated to this specific device (i.e by its internal device id)
-	 * Note that the used device must be registered on the remote server
+	 * Delete a medical record related to the specified patient
+	 * @param patientId the patient id  
+	 * @param medicalRecord the medical record to delete
+	 * @param listener
+	 * @param errorListener
 	 */
-	public void getTaskgroups(Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
-		String uri = String.format("%steleconsultation/taskgroups/%s/", this.urlPrefix, this.deviceID);
-		JsonObjectRequest postReq = new JsonObjectRequest(uri, null, listener, errorListener);
-		this.rq.add(postReq);	 
+	public void deletePatientMedicalRecord(String patientId,  JSONObject medicalRecord, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
+		String uri = String.format("%smedicalrecords/ehr/%s/records/?access_token=%s", this.urlPrefix, patientId, accessToken);
+			JsonObjectRequest postReq = new JsonObjectRequest(Method.DELETE, uri, medicalRecord, listener, errorListener);
+			this.rq.add(postReq);	 
 	}
-	
-	public void getTeleconsultationsByTaskgroup(String taskgroupId, String accessToken, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
-		String uri = String.format("%steleconsultation/list/?access_token=%s", this.urlPrefix, accessToken);
-		JsonObjectRequest postReq = new JsonObjectRequest(uri, null, listener, errorListener);
-		this.rq.add(postReq);	 
-	}
-	
-	/**
-	 * Retrieve the users associated to the specified TaskGroup ID
-	 * @param taskgroupId the id of the taskgroup
-	 * @param listener the listener where to receive the Taskgroup user(s)
-	 * @param errorListener the listener used for error responses
-	 */
-	public void getUsersByTaskgroup(String taskgroupId, Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
-		String uri = String.format("%steleconsultation/applicants/%s/", this.urlPrefix, taskgroupId);
-		JsonObjectRequest postReq = new JsonObjectRequest(uri, null, listener, errorListener);
-		this.rq.add(postReq);	 
-	}
-	
-
-	public void  getAccounts(Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
-		JsonObjectRequest postReq = new JsonObjectRequest( this.urlPrefix + "accounts/?access_token=" + this.accessToken, null, listener, errorListener);
-		this.rq.add(postReq);	 
-		Log.d("most_example", "getAccountsRequest Sent");
-	}
-
-
-	public void getAccount(int accountId , Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
-		JsonObjectRequest postReq = new JsonObjectRequest( this.urlPrefix + "accounts/" + String.valueOf(accountId)+"/?access_token=" + this.accessToken, null, listener, errorListener);
-		this.rq.add(postReq);
-	}
-
-	
-	public void  getBuddies(int accountId , Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
-		JsonObjectRequest postReq = new JsonObjectRequest( this.urlPrefix + "buddies/" + String.valueOf(accountId)+"/?access_token=" + this.accessToken, null, listener, errorListener);
-		this.rq.add(postReq);
-	}
-
 }

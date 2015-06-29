@@ -19,8 +19,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import it.crs4.ehrlib.example.R;
+import it.crs4.most.ehrlib.ArchetypeSchemaProvider;
 import it.crs4.most.ehrlib.FormContainer;
 import it.crs4.most.ehrlib.WidgetProvider;
+import it.crs4.most.ehrlib.example.models.MedicalRecord;
 import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
@@ -39,9 +41,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,30 +56,14 @@ public class RemoteArchetypeViewerActivityExample extends ActionBarActivity{
 	
 	/** The Constant TAG. */
 	public static final String TAG = "RemoteArchetypeViewerActivityExample";
+
 	
-	/** The json datatypes schema. */
-	private static String JSON_SCHEMA_DATATYPES2 = "ecg/schema_datatypes_ECG_recording_v1.json";
-	private static String JSON_SCHEMA_DATATYPES = "blood_pressure/schema_datatypes_blood_pressure_v1.json";
-	
-	/** The json layout schema. */
-	private static String JSON_SCHEMA_LAYOUT2 = "ecg/schema_layout_ECG_recording_v1.json";
-	private static String JSON_SCHEMA_LAYOUT = "blood_pressure/schema_layout_blood_pressure_v1.json";
-	
-	/** The json ontology. */
-	private static String JSON_SCHEMA_ONTOLOGY2 = "ecg/schema_ontology_ECG_recording_v1.json";
-	private static String JSON_SCHEMA_ONTOLOGY = "blood_pressure/schema_ontology_blood_pressure_v1.json";
-	
-	/** The json instances. */
-	private static String JSON_SCHEMA_INSTANCE2 =  "ecg/schema_adl_void_instance_ECG_recording_v1.json";
-	private static String JSON_SCHEMA_INSTANCE =  "blood_pressure/schema_adl_void_instance_blood_pressure_v1.json";
-	//private static String JSON_SCHEMA_INSTANCE2 =  "blood_pressure/remote_instance.json";
-	
-	private ArchetypeViewerFragment archetypeFragment = null;
-	 
 	// REMOTE PYEHR SERVER CONNECTION PARAMS
 	private String serverIp = "156.148.132.223"; //"156.148.132.223";
 	private static int serverPort = 8000;
 	private static RemotePyEHRConnector rc =null;  //new RemotePyEHRConnector(getActivity(), serverIp, serverPort);
+	private static ArchetypeSchemaProvider asp = null;
+	
 	private  static String clientId = "8c96bf8cea26fa555fa8";
 	private static  String clientSecret = "4fd1f508b7b03fba6509da4c193157d7a2b20838";
 	//'grant_type': 'password',
@@ -98,6 +82,7 @@ public class RemoteArchetypeViewerActivityExample extends ActionBarActivity{
         if (savedInstanceState == null) {
         	  // remote connector
             rc = new RemotePyEHRConnector(this, serverIp, serverPort);
+            asp = new ArchetypeSchemaProvider(this, "archetypes.properties", "archetypes");
             retrieveAccessToken(true);
         }
         
@@ -140,18 +125,18 @@ public class RemoteArchetypeViewerActivityExample extends ActionBarActivity{
    public void loadMedicalrecordFragment()
    {
 	   FragmentManager fm = getSupportFragmentManager();
-	   PatientMedicalRecordFragment pmrf = new PatientMedicalRecordFragment(this, this.rc);
+	   PatientMedicalRecordFragment pmrf = new PatientMedicalRecordFragment(this, rc);
 	 
 	   fm.beginTransaction().replace(R.id.container, pmrf).commit();
    }
    
-   public void loadArchetypeFragment(String datatypes, String ontology, String instances, String schema, String language)
+   public void loadArchetypeFragment(MedicalRecord mr, String instances)
    {
 	   
 	   Log.d(TAG, "Replacing the fragment....");
 	   FragmentManager fm = getSupportFragmentManager();
    
-	   ArchetypeViewerFragment f =  new ArchetypeViewerFragment(getApplicationContext(), datatypes, ontology, instances, schema,language);
+	   ArchetypeViewerFragment f =  new ArchetypeViewerFragment(getApplicationContext(), mr.getArchetypeClass(), null, null, instances, null, null);
 	   
 	   //fm.beginTransaction().remove(archetypeFragment).add(R.id.container, f).commit();
         fm.beginTransaction().replace(R.id.container, f).commit();
@@ -229,21 +214,14 @@ public class RemoteArchetypeViewerActivityExample extends ActionBarActivity{
 		private String language = null;
 		
 		
-        /**
-         * Instantiates a new Fragment for rendering the Archetype
-         *  
-         */
-        public ArchetypeViewerFragment(Context ctx) {
-        	this(ctx,null,null,null,null,null);
-        }
+         
         
-        public ArchetypeViewerFragment(Context ctx, String datatypes, String ontology, String instances, String schema, String language) {
+        public ArchetypeViewerFragment(Context ctx, String archetypeClass, String datatypes, String ontology, String instances, String schema, String language) {
         	
-        	this.datatypes = (datatypes == null ?   WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_DATATYPES) : datatypes);
-        	this.ontology = (ontology == null ?   WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_ONTOLOGY) : ontology);
-        	this.instances = (instances== null ?  WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_INSTANCE) : instances);
-        	this.schema = (schema == null ?  WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_LAYOUT) : schema);
-        	this.instances = (instances== null ?  WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_INSTANCE) : instances);
+        	this.datatypes = (datatypes == null ?  asp.getDatatypesSchema(archetypeClass): datatypes);
+        	this.ontology = (ontology == null ?    asp.getOntologySchema(archetypeClass) : ontology);
+        	this.instances = (instances== null ?  asp.getAdlStructureSchema(archetypeClass) : instances);
+        	this.schema = (schema == null ?  asp.getLayoutSchema(archetypeClass) : schema);
         	this.language = (language== null ?  LANGUAGE : language);
         }
 
@@ -279,7 +257,7 @@ public class RemoteArchetypeViewerActivityExample extends ActionBarActivity{
            
 			
             // Buttons Panel
-    		View buttonsPanel = inflater.inflate(R.layout.datatype_form_buttons, null);
+    		View buttonsPanel = inflater.inflate(R.layout.datatype_form_buttons, container, false);
     		ViewGroup rootView = formContainer.getLayout();
     		
     		

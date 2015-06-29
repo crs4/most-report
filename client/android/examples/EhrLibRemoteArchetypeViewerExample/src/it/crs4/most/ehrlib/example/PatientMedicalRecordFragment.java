@@ -101,7 +101,7 @@ public class PatientMedicalRecordFragment extends Fragment{
 				}});
 	}
 	
-	private void loadPatientMedicalRecord(MedicalRecord mr)
+	private void loadPatientMedicalRecord(final MedicalRecord mr)
 	{
 		rc.getPatientMedicalRecord(mr.getPatient().getUuid(), mr.getRecordId(),  new Listener<JSONObject>() {
 
@@ -111,7 +111,7 @@ public class PatientMedicalRecordFragment extends Fragment{
 				try {
 					String instances = res.getJSONObject("RECORD").getJSONObject("ehr_data").toString();
 					//String instances = null;
-					av.loadArchetypeFragment(null, null, instances, null, null);
+					av.loadArchetypeFragment(mr, instances);
 				} 
 				
 				catch (Exception e) {

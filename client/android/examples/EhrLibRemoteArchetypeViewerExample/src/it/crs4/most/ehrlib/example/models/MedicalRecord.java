@@ -20,6 +20,17 @@ public class MedicalRecord {
 	public Patient getPatient() {
 		return patient;
 	}
+	
+	public String getArchetypeClass()
+	{
+		try {
+			return getMedicalRecord().getString("archetype_class");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	public JSONObject getMedicalRecord() {
 		try {
