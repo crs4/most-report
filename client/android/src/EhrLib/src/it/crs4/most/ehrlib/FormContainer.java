@@ -5,7 +5,6 @@ import java.util.List;
 import android.util.Log;
 import android.view.ViewGroup;
 
-import it.crs4.most.ehrlib.R.id;
 import it.crs4.most.ehrlib.datatypes.EhrDatatype;
 import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
 import it.crs4.most.ehrlib.widgets.DatatypeWidget;
