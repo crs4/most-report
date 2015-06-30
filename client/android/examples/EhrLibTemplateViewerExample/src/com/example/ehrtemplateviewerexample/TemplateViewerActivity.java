@@ -3,12 +3,9 @@ package com.example.ehrtemplateviewerexample;
 import java.util.List;
 
 import org.json.JSONException;
-
-
 import it.crs4.most.ehrlib.ArchetypeSchemaProvider;
 import it.crs4.most.ehrlib.TemplateProvider;
 import it.crs4.most.ehrlib.WidgetProvider;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -36,6 +33,14 @@ public class TemplateViewerActivity extends ActionBarActivity {
 	}
 
 	
+	private void updateOntologies(String lang)
+	{
+		for (WidgetProvider wp : this.tp.getWidgetProviders())
+		{
+			wp.updateOntologyLanguage(lang);  
+		}
+	}
+	
 	private void buildArchetypeFragments()
 	{
 		List<WidgetProvider> wps = this.tp.getWidgetProviders();
@@ -52,20 +57,24 @@ public class TemplateViewerActivity extends ActionBarActivity {
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.template_viewer, menu);
+		getMenuInflater().inflate(R.menu.action_template, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
+		
+		 switch (item.getItemId()) {
+         case R.id.menu_spain:
+                 updateOntologies("es-ar");
+                 return true;
+         case R.id.menu_english:
+        	 updateOntologies("en");
+             return true;
+         case R.id.action_quit:
+        	 finish();
+        	 return true;
+         }
+         return super.onOptionsItemSelected(item);
 	}
 }

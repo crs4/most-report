@@ -155,7 +155,11 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster>{
 
 	@Override
 	protected void replaceTooltip(ToolTip tooltip) {
-		
+		if (myToolTipView!=null)
+		{
+			myToolTipView.remove();
+			myToolTipView = toolTipRelativeLayout.showToolTipForView(toolTip, _help);
+		}
 	}
 
 	
