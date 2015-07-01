@@ -6,5 +6,6 @@
     <string name="title_activity_template_viewer">TemplateViewerActivity</string>
     <string name ="es">Español</string>
 	<string name ="en">English</string>
-
+	<string name ="but_save">Save</string>
+	<string name ="but_reset">Reset</string>
 </resources>

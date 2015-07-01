@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 public class ArchetypeFragment extends Fragment {
 	
 	private WidgetProvider wp;
+	private FormContainer formContainer;
 	
 	public ArchetypeFragment(WidgetProvider wp) {
 		this.wp = wp;
@@ -22,10 +23,15 @@ public class ArchetypeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) 
 	{
-		FormContainer  formContainer = this.wp.buildFormView(0);
+		this.formContainer = this.wp.buildFormView(0);
 		ViewGroup rootView = formContainer.getLayout();
 		rootView.setBackgroundColor(Color.BLACK);
 		return rootView;
+	}
+	
+	public FormContainer getFormContainer()
+	{
+		return this.formContainer;
 	}
 
 }
