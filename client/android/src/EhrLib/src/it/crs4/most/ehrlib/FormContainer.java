@@ -26,18 +26,24 @@ public class FormContainer {
 	
 	/** The tag. */
 	private String TAG="FormContainer";
+	
+	/** The placeholders for included archetypes (if any) **/
+	private List<ArchetypePlaceholder> archetypePlaceholders;
     
-    /**
+   
+
+	/**
      * Creates a new Form Container
      * 
      * @param layout the layout the layout containing all the {@link DatatypeWidget}
      * @param widgets the list of the {@link DatatypeWidget}
      * @param index the index of this form
      */
-	public FormContainer(ViewGroup layout, List<DatatypeWidget<EhrDatatype>> widgets, int index)
+	public FormContainer(ViewGroup layout, List<DatatypeWidget<EhrDatatype>> widgets,  int index)
 	{
 		this.layout = layout;
 		this.widgets = widgets;
+		//this.archetypePlaceholders = archetypePlaceholders;
 		this.index = index;
 	}
 
@@ -103,6 +109,14 @@ public class FormContainer {
 		return widgets;
 	}
 
+	/**
+	 * 
+	 * @return the archetype placeholders
+	 */
+	 public List<ArchetypePlaceholder> getArchetypePlaceholders() {
+			return archetypePlaceholders;
+		}
+	 
 
 	/**
 	 * Get the index of this form container

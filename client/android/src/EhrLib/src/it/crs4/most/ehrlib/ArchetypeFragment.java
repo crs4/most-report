@@ -1,7 +1,5 @@
-package com.example.ehrtemplateviewerexample;
+package it.crs4.most.ehrlib;
 
-import it.crs4.most.ehrlib.FormContainer;
-import it.crs4.most.ehrlib.WidgetProvider;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -25,6 +23,7 @@ public class ArchetypeFragment extends Fragment {
 	{
 		this.formContainer = this.wp.buildFormView(0);
 		ViewGroup rootView = formContainer.getLayout();
+		
 		rootView.setBackgroundColor(Color.BLACK);
 		return rootView;
 	}

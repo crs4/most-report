@@ -1,4 +1,4 @@
-package com.example.ehrtemplateviewerexample;
+package com.example.nestedarchetypeactivityexample;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +22,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
-public class TemplateViewerActivity extends ActionBarActivity {
+public class InnerArchetypeViewerActivity extends ActionBarActivity {
     private final String LANGUAGE = "en";
 	private TemplateProvider tp = null;
 	private List<ArchetypeFragment> archetypeFragments;
-	private static final String TAG = "TemplateViewerActivity";
+	private static final String TAG = "InnerArchetypeViewerActivity";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

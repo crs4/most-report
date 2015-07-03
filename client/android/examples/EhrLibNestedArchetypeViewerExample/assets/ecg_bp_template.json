@@ -1,0 +1,13 @@
+{
+	"id":"my_template_id",
+	"name":"ECG & BLOOD PRESSURE",
+	"definition":[
+
+		{
+			"archetype_class":"openEHR-EHR-OBSERVATION.blood_pressure.v1",
+			"exclude":["at0004", "at0005"]
+		}
+		
+	]
+	
+}

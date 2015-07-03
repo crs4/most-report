@@ -66,9 +66,7 @@ public class TemplateProvider {
 				String archetypeClass =  archetype_classes.getJSONObject(i).getString("archetype_class");
 				String jsonExclude = archetype_classes.getJSONObject(i).getJSONArray("exclude").toString();
 				try {
-					WidgetProvider wp = new WidgetProvider(ctx, archetypeSchemaProvider.getDatatypesSchema(archetypeClass), 
-							archetypeSchemaProvider.getOntologySchema(archetypeClass), archetypeSchemaProvider.getAdlStructureSchema(archetypeClass), 
-							archetypeSchemaProvider.getLayoutSchema(archetypeClass), language, jsonExclude );
+					WidgetProvider wp = new WidgetProvider(ctx, archetypeSchemaProvider, archetypeClass, language, jsonExclude);
 					
 					this.wproviders.add(wp);
 					

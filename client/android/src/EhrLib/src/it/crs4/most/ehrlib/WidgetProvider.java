@@ -106,9 +106,38 @@ private String jsonOntology;
 private TextView titleView;
 
 private List<String> excludeArray = new ArrayList<String>();
+private ArchetypeSchemaProvider asp = null;
+
+private String language;
+
+public WidgetProvider(Context context, ArchetypeSchemaProvider asp, String archetypeMainClass, String language , String jsonExclude) throws JSONException, InvalidDatatypeException
+{
+	this.asp = asp;
+	this.context = context;
+	this.language = language;
+	this.datatypesSchema = new JSONObject(asp.getDatatypesSchema(archetypeMainClass));
+	this.jsonOntology = asp.getOntologySchema(archetypeMainClass);
+	this.ontology = getOntology(this.jsonOntology, language);
+	
+	if (asp.getLayoutSchema(archetypeMainClass)!=null)
+		this.jsonLayoutSchema = new JSONObject(asp.getLayoutSchema(archetypeMainClass));
+	
+	if (jsonExclude!=null)
+	{
+		this.buildExcludeArray(new JSONArray(jsonExclude));
+	}
+	
+	// Archetype structure instance
+	this.jsonArchetype = new JSONObject(asp.getAdlStructureSchema(archetypeMainClass));
+	this.archetypeInstances =  this.jsonArchetype.getJSONObject("archetype_details");
+	this.archetypeAdlParser = new AdlParser(this.archetypeInstances);
+	
+	// build all sections because we must build also widgets referred by clusters
+	this.buildSectionWidgetsMap(null);
+}
 
 public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology, String jsonInstances, String jsonLayoutSchema, String language) throws JSONException, InvalidDatatypeException 
-{
+{ 
 	this(context,jsonDatatypes,  jsonOntology, jsonInstances, jsonLayoutSchema,language, null);
 }
 
@@ -120,7 +149,7 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 	 * @param jsonOntology - the json ontology (it includes a textual description of each item of the archetype)
 	 * @param jsonInstances - the initial json structure of the archetype (optionally including initial values)
 	 * @param jsonLayoutSchema (optional, it can be null) the layout schema containing informations about visual rendering (sections, custom widgets, priorities..)
-	 * @param jsonExclude (optional, it can be null) the list of archetype items (i.e their id , like "at0004") t excelude from the viewer
+	 * @param jsonExclude (optional, it can be null) the list of archetype items (i.e their id , like "at0004") to exclude from the viewer
 	 * @param language - the language code used by the ontology
 	 * @throws JSONException the JSON exception
 	 * @throws InvalidDatatypeException 
@@ -138,7 +167,6 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 			if (jsonExclude!=null)
 			{
 				this.buildExcludeArray(new JSONArray(jsonExclude));
-				 
 			}
 			
 			// Archetype structure instance
@@ -234,13 +262,25 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 			widgetClassName= classNames[1];
 		}
 
-		Log.d(TAG, String.format("Found Form Widget: %s" , widgetClassName));
+		Log.d(TAG, String.format("Found Datatype Widget: %s" , widgetClassName));
 		Class<?> clazz;
 		try {
 			clazz = Class.forName(widgetClassName);
 			Constructor<?> ctor = clazz.getConstructor(WidgetProvider.class, String.class, String.class, JSONObject.class, int.class);
 			Log.d(TAG, String.format("Instancing widget %s for datatype: %s parentIndex: %s" , widgetClassName, datatype,  parentIndex));
-			DatatypeWidget<EhrDatatype> widget =(DatatypeWidget<EhrDatatype>) ctor.newInstance(new Object[] {this, title, path, attributes, parentIndex });
+			
+			// A datatype of type ARCHETYPE MUST BE HANDLED BY ITS OWN WIDGET PROVIDER
+			WidgetProvider wp = this;
+			
+			if (datatype.equals("ARCHETYPE")) {
+				Log.d(TAG,"Found Innser archetype!");
+				String archetypeName = attributes.getString("archetype_class");
+				Log.d(TAG,"Inner Arechetype Class Name:" + archetypeName);
+				
+				wp = new WidgetProvider(this.context, this.asp, archetypeName , archetypeName, null);
+			}
+			
+			DatatypeWidget<EhrDatatype> widget =(DatatypeWidget<EhrDatatype>) ctor.newInstance(new Object[] {wp, title, path, attributes, parentIndex });
 			return  widget;
 			
 		} catch (ClassNotFoundException e) {
@@ -259,6 +299,12 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidDatatypeException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -289,7 +335,7 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 	}
 	
 	/**
-	 * Builds a Map of widgets, according to the provided archetype json schema, where each key is an archetype section and the corresponding values are an oredered list of widgets corresponding to the underluying  EHR datatypes.
+	 * Builds a Map of widgets, according to the provided archetype json schema, where each key is an archetype section and the corresponding values are an ordered list of widgets corresponding to the underlying  EHR datatypes.
 	 *
 	 * @param sections the array of sections to build (if null is provided, all sections of the provided archetype are built)
 	 * @return the map of widgets
@@ -412,7 +458,6 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
       
         View titleView = buildTitleView(context, formTitle);
         _layout.addView(titleView);
-        		
         for( int i = 0; i < _allWidgets.size(); i++ ) {
         	_layout.addView( ( View ) _allWidgets.get(i).getView() );
         }
@@ -469,7 +514,7 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 		return sectionWidgetsMap.get(section);
 	}
 	/**
-	 * Builds a list of widgets from a specific section and item index.
+	 * Builds a list of widgets of a specific section and item index.
 	 *
 	 * @param section the section
 	 * @param itemIndex the index of the archetype instance to be created
@@ -531,7 +576,7 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 				
 				JSONObject itemStructureInfo = datatypes.getJSONObject(itemTitle);
 			 	
-			 	String itemType =  itemStructureInfo.getString("type"); //  from the datatypes structure
+			 	String itemType =  itemStructureInfo.getString("type"); //  from the datatypes structure Es: DV_TEXT, ARCHETYPE
 			 	String itemPath =  itemStructureInfo.getString("path"); //  from the datatypes structure
 			 	
 			 	JSONObject itemAttributes = itemStructureInfo.getJSONObject("attributes");
