@@ -12,7 +12,14 @@ public class InnerArchetype extends EhrDatatype {
 	 
 
 	public InnerArchetype(String path, JSONObject attributes) {
-		// TODO Auto-generated constructor stub
+		this.setPath(path);
+		
+		try {
+			setAttributes(attributes);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

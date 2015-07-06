@@ -11,9 +11,11 @@ package it.crs4.most.ehrlib.widgets;
 
 import java.util.List;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -40,6 +42,7 @@ import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
  */
 public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 
+	private static final String TAG = "InnerArchetypeWidget";
 	private List<DatatypeWidget<EhrDatatype>> archetypeWidgets;
 	private TextView _title;
 	private ToolTipRelativeLayout toolTipRelativeLayout;
@@ -52,16 +55,28 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 	private FormContainer formContainer = null;
 	
 	/**
-	 * Instantiate a new DvClusterWidget
+	 * Instantiate a new InnerArchetypeWidget
 	 * 
 	 * @param provider the widget provider
 	 * @param name the name of this widget
-	 * @param path  the path of the {@link DvCluster} mapped on this widget
-	 * @param attributes the attributes of the {@link DvCluster} mapped on this widget
+	 * @param path  the path of the {@link InnerArchetype} mapped on this widget
+	 * @param attributes the attributes of the {@link InnerArchetype} mapped on this widget
 	 * @param parentIndex the parent index of this widget
 	 */
 	public InnerArchetypeWidget( WidgetProvider provider,  String name , String path, JSONObject attributes, int parentIndex) {
-		super(provider, name, new InnerArchetype(path, attributes), parentIndex);
+		_widget_provider = provider;
+		_name 		= name;
+	    _context 	= provider.getContext();
+		_ontology   = provider.getOntology();
+		_parent_index = parentIndex;
+		
+		this.datatype = new InnerArchetype(path, attributes);
+		this.datatype.setDatatypeChangeListener(this);
+		
+		this.setupDisplaytitle();
+		this.setupDescription();
+		super.setupTooltip();
+		
 		buildInnerArchetypeView();
 		updateLabelsContent();
 		
@@ -91,6 +106,49 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 	}
 	
 	
+	/**
+	 * Sets the ontology.
+	 *
+	 * @param ontology the new ontology
+	 */
+	@Override
+	public void setOntology(JSONObject ontology, String language)
+	{
+		this._widget_provider.updateOntologyLanguage(language);
+		this._ontology = this._widget_provider.getOntology();
+		this.setupDescription();
+		this.setupDisplaytitle();
+		
+		this.setupTooltip();
+		this.updateLabelsContent();
+		
+	}
+	
+	/**
+	 * Setup description.
+	 */
+	private void setupDescription()
+	{
+		try {
+			this.description = _ontology.getJSONObject(_widget_provider.getDatatypesSchema().getString("title")).getString("description"); 
+		} catch (JSONException e) {
+			Log.e(TAG , "Problems during DESCRIPTION SETUP:" + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Setup displaytitle.
+	 */
+	private void setupDisplaytitle() {
+		try {
+			
+			displayTitle = _ontology.getJSONObject(_widget_provider.getDatatypesSchema().getString("title")).getString("text"); 
+			//displayTitle = _ontology.getJSONObject(_name).getString("text");
+		} catch (JSONException e) {
+			displayTitle = _name;
+		}
+	}
 	
 	private void buildInnerArchetypeView()
 	{
@@ -106,7 +164,7 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 	    this.formContainer = this._widget_provider.buildFormView(0);
 	 
 	    archetypeWidgets =   this.formContainer.getWidgets();
-		 
+		
 	
 	 
 	 addRemWidgets = (ImageView) _root_view.findViewById(R.id.image_toggle_widgets);
@@ -126,11 +184,8 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 	}
 
 	private void addWidgets()
-	{
-		 for( int i = 0; i < archetypeWidgets.size(); i++ ) {
-			 _archetype_layout.addView( ( View ) archetypeWidgets.get(i).getView() );
-	        }
-		 
+	{   
+		 _archetype_layout.addView(this.formContainer.getLayout());
 		 this.areWidgetsVisible = true;
 		 this.addRemWidgets.setImageDrawable(_context.getResources().getDrawable(android.R.drawable.ic_menu_revert));
 	}

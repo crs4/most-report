@@ -15,7 +15,7 @@
 												"at0005":"DATA_NODE::DV_QUANTITY",
 												"at1006":"DATA_NODE::DV_QUANTITY",
 												"at1007":"DATA_NODE::DV_QUANTITY",
-												"at0033":"DATA_NODE::DV_TEXT"
+												"at0033":"DATA_NODE::DV_TEXT",
 												"at1025":"ARCHETYPE_NODE"
 											}
 										}
@@ -30,7 +30,7 @@
 											},
 											"at1030":"ARCHETYPE_NODE",
 											"at1043":"DATA_NODE::DV_CODED_TEXT",
-											"at1005":"DATA_NODE::DV_QUANTITY",
+											"at1005":"DATA_NODE::DV_QUANTITY"
 											
 										}
 									]

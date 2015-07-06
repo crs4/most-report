@@ -59,10 +59,10 @@ public abstract class DatatypeWidget <T extends EhrDatatype> implements EhrDatat
 	protected JSONObject _ontology = null;
     
 	/** The description. */
-	private String description = "N.A";
+	protected String description = "N.A";
 	
 	/** The display title. */
-	private String displayTitle;
+	protected String displayTitle;
 	
 	/** The tool tip. */
 	protected ToolTip toolTip;
@@ -83,6 +83,9 @@ public abstract class DatatypeWidget <T extends EhrDatatype> implements EhrDatat
 	 * @param tooltip the tooltip
 	 */
 	protected abstract void replaceTooltip(ToolTip tooltip);
+	
+	// Nedeed for InnerArchetypeWidget that does not call the super constructor.
+	protected DatatypeWidget() {}
 	
 	/**
 	 * Instantiates a new {@link DatatypeWidget} widget.
@@ -112,7 +115,7 @@ public abstract class DatatypeWidget <T extends EhrDatatype> implements EhrDatat
 	/**
 	 * Setup tooltip.
 	 */
-	private void setupTooltip() {
+	protected void setupTooltip() {
 		
 		//if (this.toolTip!=null) {}
 			
@@ -120,6 +123,7 @@ public abstract class DatatypeWidget <T extends EhrDatatype> implements EhrDatat
          .withText(this.getDescription())
          .withColor(Color.GREEN)
          .withShadow()
+         .withTextColor(Color.BLUE)
          .withAnimationType(ToolTip.AnimationType.FROM_TOP);
 		 
 		 this.replaceTooltip(this.toolTip);
@@ -140,8 +144,9 @@ public abstract class DatatypeWidget <T extends EhrDatatype> implements EhrDatat
 	 * Sets the ontology.
 	 *
 	 * @param ontology the new ontology
+	 * @param lang the language of the new loaded ontology
 	 */
-	public void setOntology(JSONObject ontology)
+	public void setOntology(JSONObject ontology, String lang)
 	{
 		this._ontology = ontology;
 		this.setupDescription();

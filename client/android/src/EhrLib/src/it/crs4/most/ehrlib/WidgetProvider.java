@@ -55,6 +55,7 @@ public class WidgetProvider {
         //put("DV_CODED_TEXT", new String[] {"it.crs4.most.ehrlib.datatypes.DvCodedText", "it.crs4.most.ehrlib.widgets.DvCodedTextWidget"});
         put("DV_CODED_TEXT", new String[] {"it.crs4.most.ehrlib.datatypes.DvCodedText", "it.crs4.most.ehrlib.widgets.DvCodedTextWidget"});
         put("DV_CLUSTER", new String[] {"it.crs4.most.ehrlib.datatypes.DvCluster", "it.crs4.most.ehrlib.widgets.DvClusterWidget"});
+        put("ARCHETYPE", new String[] {"it.crs4.most.ehrlib.datatypes.InnerArchetype", "it.crs4.most.ehrlib.widgets.InnerArchetypeWidget"});
     }
 };
 
@@ -116,6 +117,7 @@ public WidgetProvider(Context context, ArchetypeSchemaProvider asp, String arche
 	this.context = context;
 	this.language = language;
 	this.datatypesSchema = new JSONObject(asp.getDatatypesSchema(archetypeMainClass));
+	Log.d(TAG, "Loading ontology for archetype class:" + archetypeMainClass);
 	this.jsonOntology = asp.getOntologySchema(archetypeMainClass);
 	this.ontology = getOntology(this.jsonOntology, language);
 	
@@ -134,6 +136,10 @@ public WidgetProvider(Context context, ArchetypeSchemaProvider asp, String arche
 	
 	// build all sections because we must build also widgets referred by clusters
 	this.buildSectionWidgetsMap(null);
+}
+
+public JSONObject getDatatypesSchema() {
+	return datatypesSchema;
 }
 
 public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology, String jsonInstances, String jsonLayoutSchema, String language) throws JSONException, InvalidDatatypeException 
@@ -226,7 +232,7 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 		{
 			List<DatatypeWidget<EhrDatatype>> sectionWidgets = sectionWidgetsMap.get(section);
 			for (DatatypeWidget<EhrDatatype> w : sectionWidgets)
-				w.setOntology(this.ontology);
+				w.setOntology(this.ontology, lang);
 		}
 	}
 
@@ -258,7 +264,11 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 		{
 			String [] classNames = ehrWidgetsMap.get(datatype);
 			if (classNames==null)
+			{
+				Log.e(TAG, "Datatype Widget not found for: " + datatype);
 				return null;
+			}
+				
 			widgetClassName= classNames[1];
 		}
 
@@ -277,7 +287,7 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 				String archetypeName = attributes.getString("archetype_class");
 				Log.d(TAG,"Inner Arechetype Class Name:" + archetypeName);
 				
-				wp = new WidgetProvider(this.context, this.asp, archetypeName , archetypeName, null);
+				wp = new WidgetProvider(this.context, this.asp, archetypeName , language, null);
 			}
 			
 			DatatypeWidget<EhrDatatype> widget =(DatatypeWidget<EhrDatatype>) ctor.newInstance(new Object[] {wp, title, path, attributes, parentIndex });
@@ -324,8 +334,10 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 		try {
 			JSONArray jsonSections = this.datatypesSchema.getJSONObject("datatypes").names();
 			String [] sections = new String[jsonSections.length()];
-			for (int i=0;i<sections.length;i++)
+			for (int i=0;i<sections.length;i++){
 				sections[i] = jsonSections.getString(i);
+				Log.d(TAG, "Found section:" + sections[i]);  
+			}
 			return sections;
 		} catch (JSONException e) {
 	        Log.e(TAG, "Error retrieving sections: %s" + e.getMessage());
@@ -425,12 +437,14 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 			
 			//formTitle = String.format("%s [%s]", ontology.getJSONObject(datatypesSchema.getString("title")).getString("text"), index);   
 			formTitle = ontology.getJSONObject(datatypesSchema.getString("title")).getString("text"); 
-
+			Log.d(TAG, "FORM TITLE: " + formTitle);
+			
 			for (String section : sections)
 			{
-				List<DatatypeWidget<EhrDatatype>>  sectionWidgets = this.sectionWidgetsMap.get(section);
+				List<DatatypeWidget<EhrDatatype>> sectionWidgets  = this.sectionWidgetsMap.get(section);
 				if (this.jsonLayoutSchema!=null)
 				{
+					Log.d(TAG, String.format("SectionWidgets for section %s: %s" , section, sectionWidgets));  
 					Collections.sort(sectionWidgets, new PriorityComparison(this.jsonLayoutSchema) );	
 				}
 				_allWidgets.addAll(sectionWidgets);

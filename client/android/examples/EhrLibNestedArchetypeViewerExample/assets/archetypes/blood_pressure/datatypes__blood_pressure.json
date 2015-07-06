@@ -66,16 +66,15 @@
 				}
 				
 			},
+			
 		"at1025":{
 			"path":"data[at0001]/events[at0006]/data[at0003]/items[at1025]",
 			"type":"ARCHETYPE",
-			"attributes":{ "archetype_class" : "openEHR-EHR-OBSERVATION.ecg.v1"}
+			"attributes":{ "archetype_class" : "openEHR-EHR-OBSERVATION.ecg.v1" }
 				
-			},
-			
-			
-		}
-		,
+			}	
+		},
+		
 		"state":{
 			"at0008":{
 				"path":"data[at0001]/events[at0006]/state[at0007]/items[at0008]",

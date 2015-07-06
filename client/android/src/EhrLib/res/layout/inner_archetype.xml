@@ -26,7 +26,7 @@
     android:layout_height="wrap_content" 
     android:text="Inner Archetype Viewer"
     android:textSize="20dp"
-    android:textColor="#ffFFA500"
+    android:textColor="#ff11AA30"
     android:layout_weight="1"
     android:layout_gravity="center_vertical"
     />
