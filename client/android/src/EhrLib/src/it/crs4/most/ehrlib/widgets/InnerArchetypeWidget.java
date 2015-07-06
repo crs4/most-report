@@ -70,7 +70,7 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 		_ontology   = provider.getOntology();
 		_parent_index = parentIndex;
 		
-		this.datatype = new InnerArchetype(path, attributes);
+		this.datatype = new InnerArchetype(provider, path, attributes);
 		this.datatype.setDatatypeChangeListener(this);
 		
 		this.setupDisplaytitle();
@@ -161,10 +161,7 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 				
 		_title = (TextView) _root_view.findViewById(R.id.txt_archetype_title);
 		
-	    this.formContainer = this._widget_provider.buildFormView(0);
-	 
-	    archetypeWidgets =   this.formContainer.getWidgets();
-		
+	    
 	
 	 
 	 addRemWidgets = (ImageView) _root_view.findViewById(R.id.image_toggle_widgets);
@@ -182,9 +179,20 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 	});
 			 
 	}
+	
+	private void buildNewArchetypeContainer()
+	{
+		this.formContainer = this._widget_provider.buildFormView(0);
+	    archetypeWidgets =   this.formContainer.getWidgets();
+		
+	}
 
 	private void addWidgets()
 	{   
+		if (this.formContainer==null)
+		{
+			this.buildNewArchetypeContainer();
+		}
 		 _archetype_layout.addView(this.formContainer.getLayout());
 		 this.areWidgetsVisible = true;
 		 this.addRemWidgets.setImageDrawable(_context.getResources().getDrawable(android.R.drawable.ic_menu_revert));
@@ -226,9 +234,14 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 	 */
 	@Override
 	public void save() throws InvalidDatatypeException {
-		 for( int i = 0; i < archetypeWidgets.size(); i++ ) {
-			  archetypeWidgets.get(i).save();
-	        }
+		
+		if (archetypeWidgets!=null)
+		{
+			 for( int i = 0; i < archetypeWidgets.size(); i++ ) {
+				  archetypeWidgets.get(i).save();
+		        }
+		}
+		
 		
 	}
 
@@ -237,9 +250,14 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 	 */
 	@Override
 	public void reset() {
-		for( int i = 0; i < archetypeWidgets.size(); i++ ) {
-			  archetypeWidgets.get(i).reset();
-	        }
+		
+		if (archetypeWidgets!=null)
+		{
+			for( int i = 0; i < archetypeWidgets.size(); i++ ) {
+				  archetypeWidgets.get(i).reset();
+		        }
+		}
+		
 	}
 
 }

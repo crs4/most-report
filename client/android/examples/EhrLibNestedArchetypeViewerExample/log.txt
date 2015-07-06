@@ -1,0 +1,866 @@
+07-06 18:33:28.461: D/dalvikvm(7835): Late-enabling CheckJNI
+07-06 18:33:28.551: I/dalvikvm(7835): Could not find method android.view.ViewGroup.onNestedScrollAccepted, referenced from method android.support.v7.internal.widget.ActionBarOverlayLayout.onNestedScrollAccepted
+07-06 18:33:28.551: W/dalvikvm(7835): VFY: unable to resolve virtual method 11377: Landroid/view/ViewGroup;.onNestedScrollAccepted (Landroid/view/View;Landroid/view/View;I)V
+07-06 18:33:28.551: D/dalvikvm(7835): VFY: replacing opcode 0x6f at 0x0000
+07-06 18:33:28.551: I/dalvikvm(7835): Could not find method android.view.ViewGroup.onStopNestedScroll, referenced from method android.support.v7.internal.widget.ActionBarOverlayLayout.onStopNestedScroll
+07-06 18:33:28.551: W/dalvikvm(7835): VFY: unable to resolve virtual method 11383: Landroid/view/ViewGroup;.onStopNestedScroll (Landroid/view/View;)V
+07-06 18:33:28.551: D/dalvikvm(7835): VFY: replacing opcode 0x6f at 0x0000
+07-06 18:33:28.551: I/dalvikvm(7835): Could not find method android.support.v7.internal.widget.ActionBarOverlayLayout.stopNestedScroll, referenced from method android.support.v7.internal.widget.ActionBarOverlayLayout.setHideOnContentScrollEnabled
+07-06 18:33:28.551: W/dalvikvm(7835): VFY: unable to resolve virtual method 9062: Landroid/support/v7/internal/widget/ActionBarOverlayLayout;.stopNestedScroll ()V
+07-06 18:33:28.551: D/dalvikvm(7835): VFY: replacing opcode 0x6e at 0x000e
+07-06 18:33:28.561: I/dalvikvm(7835): Could not find method android.content.res.TypedArray.getChangingConfigurations, referenced from method android.support.v7.internal.widget.TintTypedArray.getChangingConfigurations
+07-06 18:33:28.561: W/dalvikvm(7835): VFY: unable to resolve virtual method 375: Landroid/content/res/TypedArray;.getChangingConfigurations ()I
+07-06 18:33:28.561: D/dalvikvm(7835): VFY: replacing opcode 0x6e at 0x0002
+07-06 18:33:28.561: I/dalvikvm(7835): Could not find method android.content.res.TypedArray.getType, referenced from method android.support.v7.internal.widget.TintTypedArray.getType
+07-06 18:33:28.561: W/dalvikvm(7835): VFY: unable to resolve virtual method 397: Landroid/content/res/TypedArray;.getType (I)I
+07-06 18:33:28.561: D/dalvikvm(7835): VFY: replacing opcode 0x6e at 0x0002
+07-06 18:33:28.591: D/WidgetProvider(7835): Loading ontology for archetype class:openEHR-EHR-OBSERVATION.blood_pressure.v1
+07-06 18:33:28.601: D/WidgetProvider(7835): Reading ontology: {
+07-06 18:33:28.601: D/WidgetProvider(7835): 	"en":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0000":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Blood Pressure",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"The local measurement of arterial blood pressure which is a surrogate for arterial. pressure in the systemic circulation. Most commonly, use of the term 'blood pressure' refers to measurement of brachial artery pressure in the upper arm."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0001":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"history",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"History Structural node."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0003":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"blood pressure",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"internal"
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0004":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Systolic",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"Peak systemic arterial blood pressure  - measured in systolic or contraction phase of the heart cycle."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0005":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Diastolic",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"Minimum systemic arterial blood pressure - measured in the diastolic or relaxation phase of the heart cycle."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0006":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"any event",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"Default event."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0007":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"state structure",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"internal"
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0008":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Position",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"The position of the subject at the time of measurement."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0011":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Tree",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"List Structure"
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0013":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Cuff Size",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"The size of the cuff used for blood pressure measurement."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0033":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Comment",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"Comment on blood pressure measurement."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at1006":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Mean Arterial Pressure",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"The average arterial pressure that occurs over the entire course of the heart contraction and relaxation cycle."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at1007":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Pulse Pressure",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"The difference between the systolic and diastolic pressure."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0033":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Comment",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"Comment on blood pressure measurement."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at1000":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Standing",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"Standing at the time of blood pressure measurement."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at1001":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Sitting",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"Sitting (for example on bed or chair) at the time of blood pressure measurement."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at1002":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Reclining",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"Reclining at the time of blood pressure measurement."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at1003":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Lying",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"Lying flat at the time of blood pressure measurement."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at1014":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Lying with tilt to left",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"Lying flat with some lateral tilt, usually angled towards the left side.   Commonly required in the last trimester of pregnancy to relieve aortocaval compression."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at1052":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Confounding factors",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"Comment on and record other incidental factors that may be contributing to the blood pressure measurement.  For example, level of anxiety or 'white coat syndrome'; pain or fever; changes in atmospheric pressure etc."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at1025":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Included Archetype",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"Included archetype, just for testing"
+07-06 18:33:28.601: D/WidgetProvider(7835): 		}
+07-06 18:33:28.601: D/WidgetProvider(7835): 		
+07-06 18:33:28.601: D/WidgetProvider(7835): 	},
+07-06 18:33:28.601: D/WidgetProvider(7835): 	
+07-06 18:33:28.601: D/WidgetProvider(7835): 	"es-ar":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0000":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Presión Arterial",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"La medición local de la tensión arterial que deriva de la medida de la presión arterial en la circulación sistémica. Comúnmente el uso de 'presión arterial' se refiere a la medida de la presión de la arteria braquial por encima del pliegue del codo."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0001":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"historia",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"historia Nodo estructural"
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0003":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"blood pressure",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"internal"
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0004":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Sistólica",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"Presión arterial sistólica pico - medido en sístole o la fase de contracción del ciclo cardíaco."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0005":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Diástole",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"Presión arterial sistémica mínima - medido durante la diástole o fase de relajación del ciclo cardíaco."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0006":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"cualquier evento",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"Evento por defecto."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0007":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"state structure",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"internal"
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0008":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"Posición",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"La posición del individuo en el momento del registro."
+07-06 18:33:28.601: D/WidgetProvider(7835): 		},
+07-06 18:33:28.601: D/WidgetProvider(7835): 		"at0011":{
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"text":"estructura de lista",
+07-06 18:33:28.601: D/WidgetProvider(7835): 			"description":"
+07-06 18:33:28.601: D/WidgetProvider(7835): Ontology read ok 
+07-06 18:33:28.611: D/WidgetProvider(7835): Found section:state
+07-06 18:33:28.611: D/WidgetProvider(7835): Found section:data
+07-06 18:33:28.611: D/WidgetProvider(7835): item data path:data[at0001]/events[at0006]/state[at0007]/items[at1052]
+07-06 18:33:28.611: D/TestAdlParser(7835): JSON IN getObjectByPath:{"data":{"at0001":[{"events":[{"at1042":"DATA_NODE::MATH_FUNCTION","at0006":{"state":{"at0007":[{"at1043":"DATA_NODE::DV_CODED_TEXT","at1030":"ARCHETYPE_NODE","items":{"at1052":"DATA_NODE::DV_TEXT","at0008":"DATA_NODE::DV_CODED_TEXT"},"at1005":"DATA_NODE::DV_QUANTITY"}]},"data":{"at0003":[{"items":{"at0033":"DATA_NODE::DV_TEXT","at0005":"DATA_NODE::DV_QUANTITY","at1025":"ARCHETYPE_NODE","at1007":"DATA_NODE::DV_QUANTITY","at0004":"DATA_NODE::DV_QUANTITY","at1006":"DATA_NODE::DV_QUANTITY"}}]}}}]}]},"protocol":{"at0011":[{"items":{"at0013":"DATA_NODE::DV_CODED_TEXT","at1033":[{"items":{"at1034":"DATA_NODE::DV_TEXT","at0014":"DATA_NODE::DV_CODED_TEXT"}}],"at1025":"ARCHETYPE_NODE","at1038":"DATA_NODE::DV_TEXT","at1010":"DATA_NODE::DV_CODED_TEXT","at1035":"DATA_NODE::DV_CODED_TEXT"}}]}}
+07-06 18:33:28.611: D/WidgetProvider(7835): creating datatype widgets...
+07-06 18:33:28.611: D/WidgetProvider(7835): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvTextWidget
+07-06 18:33:28.611: D/WidgetProvider(7835): Instancing widget it.crs4.most.ehrlib.widgets.DvTextWidget for datatype: DV_TEXT parentIndex: 0
+07-06 18:33:28.631: D/WidgetProvider(7835): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvCodedTextWidget
+07-06 18:33:28.631: D/WidgetProvider(7835): Instancing widget it.crs4.most.ehrlib.widgets.DvCodedTextWidget for datatype: DV_CODED_TEXT parentIndex: 0
+07-06 18:33:28.641: D/dalvikvm(7835): GC_FOR_ALLOC freed 272K, 4% free 9290K/9592K, paused 17ms, total 17ms
+07-06 18:33:28.651: D/WidgetProvider(7835): item data path:data[at0001]/events[at0006]/data[at0003]/items[at0033]
+07-06 18:33:28.651: D/TestAdlParser(7835): JSON IN getObjectByPath:{"data":{"at0001":[{"events":[{"at1042":"DATA_NODE::MATH_FUNCTION","at0006":{"state":{"at0007":[{"at1043":"DATA_NODE::DV_CODED_TEXT","at1030":"ARCHETYPE_NODE","items":{"at1052":"DATA_NODE::DV_TEXT","at0008":"DATA_NODE::DV_CODED_TEXT"},"at1005":"DATA_NODE::DV_QUANTITY"}]},"data":{"at0003":[{"items":{"at0033":"DATA_NODE::DV_TEXT","at0005":"DATA_NODE::DV_QUANTITY","at1025":"ARCHETYPE_NODE","at1007":"DATA_NODE::DV_QUANTITY","at0004":"DATA_NODE::DV_QUANTITY","at1006":"DATA_NODE::DV_QUANTITY"}}]}}}]}]},"protocol":{"at0011":[{"items":{"at0013":"DATA_NODE::DV_CODED_TEXT","at1033":[{"items":{"at1034":"DATA_NODE::DV_TEXT","at0014":"DATA_NODE::DV_CODED_TEXT"}}],"at1025":"ARCHETYPE_NODE","at1038":"DATA_NODE::DV_TEXT","at1010":"DATA_NODE::DV_CODED_TEXT","at1035":"DATA_NODE::DV_CODED_TEXT"}}]}}
+07-06 18:33:28.651: D/WidgetProvider(7835): creating datatype widgets...
+07-06 18:33:28.651: D/WidgetProvider(7835): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvTextWidget
+07-06 18:33:28.651: D/WidgetProvider(7835): Instancing widget it.crs4.most.ehrlib.widgets.DvTextWidget for datatype: DV_TEXT parentIndex: 0
+07-06 18:33:28.661: D/WidgetProvider(7835): Found Datatype Widget: it.crs4.most.ehrlib.widgets.InnerArchetypeWidget
+07-06 18:33:28.661: D/WidgetProvider(7835): Instancing widget it.crs4.most.ehrlib.widgets.InnerArchetypeWidget for datatype: ARCHETYPE parentIndex: 0
+07-06 18:33:28.661: D/WidgetProvider(7835): Found Innser archetype!
+07-06 18:33:28.661: D/WidgetProvider(7835): Inner Arechetype Class Name:openEHR-EHR-OBSERVATION.ecg.v1
+07-06 18:33:28.661: D/WidgetProvider(7835): Loading ontology for archetype class:openEHR-EHR-OBSERVATION.ecg.v1
+07-06 18:33:28.661: D/WidgetProvider(7835): Reading ontology: {
+07-06 18:33:28.661: D/WidgetProvider(7835): 	"en":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 		"at0000":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"text":"ECG recording",
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"description":"An electrocardiograph (ECG) is an interpretation of the electrical activity of the heart over time, recorded non-invasively using external skin electrodes."
+07-06 18:33:28.661: D/WidgetProvider(7835): 		},
+07-06 18:33:28.661: D/WidgetProvider(7835): 		"at0006":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"text":"Global ECG Parameters",
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"description":"Details about the entire ECG."
+07-06 18:33:28.661: D/WidgetProvider(7835): 		},
+07-06 18:33:28.661: D/WidgetProvider(7835): 		"at0007":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"text":"QT interval",
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"description":"Interval from the onset of the QRS complex to the end of the T wave."
+07-06 18:33:28.661: D/WidgetProvider(7835): 		},
+07-06 18:33:28.661: D/WidgetProvider(7835): 		"at0009":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"text":"Automatic interpretation",
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"description":"Interpretative comment on this recording originating from the device."
+07-06 18:33:28.661: D/WidgetProvider(7835): 		},
+07-06 18:33:28.661: D/WidgetProvider(7835): 		"at0012":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"text":"PR interval",
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"description":"Measured interval from onset of P wave to QRS."
+07-06 18:33:28.661: D/WidgetProvider(7835): 		},
+07-06 18:33:28.661: D/WidgetProvider(7835): 		"at0013":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"text":"RR Rate",
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"description":"Frequency of electrical ventricular contractions (measured from R wave to R wave) and indicative of the mechanical heart rate."
+07-06 18:33:28.661: D/WidgetProvider(7835): 		},
+07-06 18:33:28.661: D/WidgetProvider(7835): 		"at0081":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"text":"Overall interpretation",
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"description":"An overall interpretative comment on this recording."
+07-06 18:33:28.661: D/WidgetProvider(7835): 		}
+07-06 18:33:28.661: D/WidgetProvider(7835): 		
+07-06 18:33:28.661: D/WidgetProvider(7835): 	},
+07-06 18:33:28.661: D/WidgetProvider(7835): 	
+07-06 18:33:28.661: D/WidgetProvider(7835): 	"es-ar":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 		"at0000":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"text":"ECG recording",
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"description":"An electrocardiograph (ECG) is an interpretation of the electrical activity of the heart over time, recorded non-invasively using external skin electrodes."
+07-06 18:33:28.661: D/WidgetProvider(7835): 		},
+07-06 18:33:28.661: D/WidgetProvider(7835): 		"at0006":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"text":"Global ECG Parameters",
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"description":"Details about the entire ECG."
+07-06 18:33:28.661: D/WidgetProvider(7835): 		},
+07-06 18:33:28.661: D/WidgetProvider(7835): 		
+07-06 18:33:28.661: D/WidgetProvider(7835): 		"at0007":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"text":"QT interval",
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"description":"Interval from the onset of the QRS complex to the end of the T wave."
+07-06 18:33:28.661: D/WidgetProvider(7835): 		},
+07-06 18:33:28.661: D/WidgetProvider(7835): 		"at0009":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"text":"Automatic interpretation",
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"description":"Interpretative comment on this recording originating from the device."
+07-06 18:33:28.661: D/WidgetProvider(7835): 		},
+07-06 18:33:28.661: D/WidgetProvider(7835): 		"at0012":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"text":"PR interval",
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"description":"Measured interval from onset of P wave to QRS."
+07-06 18:33:28.661: D/WidgetProvider(7835): 		},
+07-06 18:33:28.661: D/WidgetProvider(7835): 		"at0013":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"text":"RR Rate",
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"description":"Frequency of electrical ventricular contractions (measured from R wave to R wave) and indicative of the mechanical heart rate."
+07-06 18:33:28.661: D/WidgetProvider(7835): 		},
+07-06 18:33:28.661: D/WidgetProvider(7835): 		"at0081":{
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"text":"Overall interpretation",
+07-06 18:33:28.661: D/WidgetProvider(7835): 			"description":"An overall interpretative comment on this recording."
+07-06 18:33:28.661: D/WidgetProvider(7835): 		}
+07-06 18:33:28.661: D/WidgetProvider(7835): 		
+07-06 18:33:28.661: D/WidgetProvider(7835): 	}
+07-06 18:33:28.661: D/WidgetProvider(7835): 	
+07-06 18:33:28.661: D/WidgetProvider(7835): 	
+07-06 18:33:28.661: D/WidgetProvider(7835): 	
+07-06 18:33:28.661: D/WidgetProvider(7835): 	
+07-06 18:33:28.661: D/WidgetProvider(7835): 	
+07-06 18:33:28.661: D/WidgetProvider(7835): }
+07-06 18:33:28.661: D/WidgetProvider(7835): Ontology read ok 
+07-06 18:33:28.661: D/WidgetProvider(7835): Found section:ecg_parameters
+07-06 18:33:28.661: D/WidgetProvider(7835): Found section:data
+07-06 18:33:28.661: D/WidgetProvider(7835): item data path:data[at0001]/events[at0002]/data[at0005]/items[at0006]/items[at0013]
+07-06 18:33:28.671: D/TestAdlParser(7835): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0005":[{"items":{"at0006":{"items":{"at0013":"DATA_NODE::DV_QUANTITY","at0012":"DATA_NODE::DV_QUANTITY"}},"at0009":"DATA_NODE::DV_TEXT"}}]}}}}]}}
+07-06 18:33:28.671: D/WidgetProvider(7835): creating datatype widgets...
+07-06 18:33:28.671: D/WidgetProvider(7835): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvQuantityWidget
+07-06 18:33:28.671: D/WidgetProvider(7835): Instancing widget it.crs4.most.ehrlib.widgets.DvQuantityWidget for datatype: DV_QUANTITY parentIndex: 0
+07-06 18:33:28.671: D/DvQuantity(7835): ISTANZIATA DV QUANTITY con path:data[at0001]/events[at0002]/data[at0005]/items[at0006]/items[at0013]
+07-06 18:33:28.671: D/DvQuantity(7835): Setting datatype attributes: {"range":{"min":0},"unit_of_measure":"\/min","precision":0}
+07-06 18:33:28.671: D/DvQuantity(7835): Set unity:/min
+07-06 18:33:28.671: D/DvQuantity(7835): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41eefd38 return: /min
+07-06 18:33:28.671: D/DvQuantity(7835): Calling get unit from it.crs4.most.ehrlib.datatypes.DvQuantity@41eefd38 return: /min
+07-06 18:33:28.671: D/DvQuantity(7835): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41eefd38 return: /min
+07-06 18:33:28.671: D/DvQuantityWidget(7835): DV QUANTITY VALUE: 0.0
+07-06 18:33:28.671: E/DvQuantityFilter(7835): Invalid double:java.lang.NumberFormatException: Invalid double: ""
+07-06 18:33:28.671: D/DvQuantityWidget(7835): CALLED updateWidgetContents with DV QUANTITY VALUE: 0.0
+07-06 18:33:28.671: D/DvQuantity(7835): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41eefd38 return: /min
+07-06 18:33:28.671: D/WidgetProvider(7835): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvQuantityWidget
+07-06 18:33:28.671: D/WidgetProvider(7835): Instancing widget it.crs4.most.ehrlib.widgets.DvQuantityWidget for datatype: DV_QUANTITY parentIndex: 0
+07-06 18:33:28.671: D/DvQuantity(7835): ISTANZIATA DV QUANTITY con path:data[at0001]/events[at0002]/data[at0005]/items[at0006]/items[at0012]
+07-06 18:33:28.671: D/DvQuantity(7835): Setting datatype attributes: {"range":{"min":0},"unit_of_measure":"millisec","precision":0}
+07-06 18:33:28.671: D/DvQuantity(7835): Set unity:millisec
+07-06 18:33:28.671: D/DvQuantity(7835): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41f12568 return: millisec
+07-06 18:33:28.671: D/DvQuantity(7835): Calling get unit from it.crs4.most.ehrlib.datatypes.DvQuantity@41f12568 return: millisec
+07-06 18:33:28.681: D/DvQuantity(7835): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41f12568 return: millisec
+07-06 18:33:28.681: D/DvQuantityWidget(7835): DV QUANTITY VALUE: 0.0
+07-06 18:33:28.681: E/DvQuantityFilter(7835): Invalid double:java.lang.NumberFormatException: Invalid double: ""
+07-06 18:33:28.681: D/DvQuantityWidget(7835): CALLED updateWidgetContents with DV QUANTITY VALUE: 0.0
+07-06 18:33:28.681: D/DvQuantity(7835): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41f12568 return: millisec
+07-06 18:33:28.681: D/WidgetProvider(7835): item data path:data[at0001]/events[at0002]/data[at0005]/items[at0081]
+07-06 18:33:28.681: D/TestAdlParser(7835): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0005":[{"items":{"at0006":{"items":{"at0013":"DATA_NODE::DV_QUANTITY","at0012":"DATA_NODE::DV_QUANTITY"}},"at0009":"DATA_NODE::DV_TEXT"}}]}}}}]}}
+07-06 18:33:28.681: D/WidgetProvider(7835): creating datatype widgets...
+07-06 18:33:28.681: D/WidgetProvider(7835): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvClusterWidget
+07-06 18:33:28.681: D/WidgetProvider(7835): Instancing widget it.crs4.most.ehrlib.widgets.DvClusterWidget for datatype: DV_CLUSTER parentIndex: 0
+07-06 18:33:28.681: D/WidgetProvider(7835): ITEM CONTENT FOR ITEM 0: null
+07-06 18:33:28.681: D/WidgetProvider(7835): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvTextWidget
+07-06 18:33:28.681: D/WidgetProvider(7835): Instancing widget it.crs4.most.ehrlib.widgets.DvTextWidget for datatype: DV_TEXT parentIndex: 0
+07-06 18:33:28.691: D/WidgetProvider(7835): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvQuantityWidget
+07-06 18:33:28.691: D/WidgetProvider(7835): Instancing widget it.crs4.most.ehrlib.widgets.DvQuantityWidget for datatype: DV_QUANTITY parentIndex: 0
+07-06 18:33:28.691: D/DvQuantity(7835): ISTANZIATA DV QUANTITY con path:data[at0001]/events[at0006]/data[at0003]/items[at1007]
+07-06 18:33:28.691: D/DvQuantity(7835): Setting datatype attributes: {"range":{"min":10,"max":180},"unit_of_measure":"mm[Hg]","precision":2}
+07-06 18:33:28.691: D/DvQuantity(7835): Set unity:mm[Hg]
+07-06 18:33:28.691: D/DvQuantity(7835): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41ed3660 return: mm[Hg]
+07-06 18:33:28.691: D/DvQuantity(7835): Calling get unit from it.crs4.most.ehrlib.datatypes.DvQuantity@41ed3660 return: mm[Hg]
+07-06 18:33:28.701: D/DvQuantity(7835): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41ed3660 return: mm[Hg]
+07-06 18:33:28.701: D/DvQuantityWidget(7835): DV QUANTITY VALUE: 0.0
+07-06 18:33:28.701: E/DvQuantityFilter(7835): Invalid double:java.lang.NumberFormatException: Invalid double: ""
+07-06 18:33:28.701: D/DvQuantityWidget(7835): CALLED updateWidgetContents with DV QUANTITY VALUE: 0.0
+07-06 18:33:28.701: D/DvQuantity(7835): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41ed3660 return: mm[Hg]
+07-06 18:33:28.701: D/WidgetProvider(7835): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvQuantityWidget
+07-06 18:33:28.701: D/WidgetProvider(7835): Instancing widget it.crs4.most.ehrlib.widgets.DvQuantityWidget for datatype: DV_QUANTITY parentIndex: 0
+07-06 18:33:28.701: D/DvQuantity(7835): ISTANZIATA DV QUANTITY con path:data[at0001]/events[at0006]/data[at0003]/items[at1006]
+07-06 18:33:28.701: D/DvQuantity(7835): Setting datatype attributes: {"range":{"min":10,"max":180},"unit_of_measure":"mm[Hg]","precision":2}
+07-06 18:33:28.701: D/DvQuantity(7835): Set unity:mm[Hg]
+07-06 18:33:28.701: D/DvQuantity(7835): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41f38298 return: mm[Hg]
+07-06 18:33:28.701: D/DvQuantity(7835): Calling get unit from it.crs4.most.ehrlib.datatypes.DvQuantity@41f38298 return: mm[Hg]
+07-06 18:33:28.701: D/DvQuantity(7835): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41f38298 return: mm[Hg]
+07-06 18:33:28.701: D/DvQuantityWidget(7835): DV QUANTITY VALUE: 0.0
+07-06 18:33:28.701: E/DvQuantityFilter(7835): Invalid double:java.lang.NumberFormatException: Invalid double: ""
+07-06 18:33:28.701: D/DvQuantityWidget(7835): CALLED updateWidgetContents with DV QUANTITY VALUE: 0.0
+07-06 18:33:28.701: D/DvQuantity(7835): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41f38298 return: mm[Hg]
+07-06 18:33:28.711: D/WidgetProvider(7835): Generating form....
+07-06 18:33:28.711: D/WidgetProvider(7835): FORM TITLE: Blood Pressure
+07-06 18:33:28.711: D/WidgetProvider(7835): SectionWidgets for section data: [it.crs4.most.ehrlib.widgets.DvTextWidget@41efaf70, it.crs4.most.ehrlib.widgets.InnerArchetypeWidget@41f2daf8, it.crs4.most.ehrlib.widgets.DvQuantityWidget@41ed3600, it.crs4.most.ehrlib.widgets.DvQuantityWidget@41f38238]
+07-06 18:33:28.711: W/System.err(7835): org.json.JSONException: No value for data[at0001]/events[at0006]/data[at0003]/items[at1025]
+07-06 18:33:28.711: W/System.err(7835): 	at org.json.JSONObject.get(JSONObject.java:355)
+07-06 18:33:28.711: W/System.err(7835): 	at org.json.JSONObject.getJSONObject(JSONObject.java:574)
+07-06 18:33:28.711: W/System.err(7835): 	at it.crs4.most.ehrlib.PriorityComparison.compare(PriorityComparison.java:40)
+07-06 18:33:28.711: W/System.err(7835): 	at it.crs4.most.ehrlib.PriorityComparison.compare(PriorityComparison.java:1)
+07-06 18:33:28.711: W/System.err(7835): 	at java.util.TimSort.countRunAndMakeAscending(TimSort.java:320)
+07-06 18:33:28.711: W/System.err(7835): 	at java.util.TimSort.sort(TimSort.java:185)
+07-06 18:33:28.711: W/System.err(7835): 	at java.util.TimSort.sort(TimSort.java:169)
+07-06 18:33:28.711: W/System.err(7835): 	at java.util.Arrays.sort(Arrays.java:2023)
+07-06 18:33:28.711: W/System.err(7835): 	at java.util.Collections.sort(Collections.java:1883)
+07-06 18:33:28.711: W/System.err(7835): 	at it.crs4.most.ehrlib.WidgetProvider.buildFormView(WidgetProvider.java:448)
+07-06 18:33:28.711: W/System.err(7835): 	at it.crs4.most.ehrlib.ArchetypeFragment.onCreateView(ArchetypeFragment.java:24)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.Fragment.performCreateView(Fragment.java:1786)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:947)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:1126)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.BackStackRecord.run(BackStackRecord.java:739)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.FragmentManagerImpl.execPendingActions(FragmentManager.java:1489)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.FragmentActivity.onStart(FragmentActivity.java:548)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.Instrumentation.callActivityOnStart(Instrumentation.java:1171)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.Activity.performStart(Activity.java:5241)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2157)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2233)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.ActivityThread.access$800(ActivityThread.java:135)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1196)
+07-06 18:33:28.711: W/System.err(7835): 	at android.os.Handler.dispatchMessage(Handler.java:102)
+07-06 18:33:28.711: W/System.err(7835): 	at android.os.Looper.loop(Looper.java:136)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-06 18:33:28.711: W/System.err(7835): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-06 18:33:28.711: W/System.err(7835): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-06 18:33:28.711: W/System.err(7835): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-06 18:33:28.711: W/System.err(7835): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-06 18:33:28.711: W/System.err(7835): 	at dalvik.system.NativeStart.main(Native Method)
+07-06 18:33:28.711: W/System.err(7835): org.json.JSONException: No value for data[at0001]/events[at0006]/data[at0003]/items[at1025]
+07-06 18:33:28.711: W/System.err(7835): 	at org.json.JSONObject.get(JSONObject.java:355)
+07-06 18:33:28.711: W/System.err(7835): 	at org.json.JSONObject.getJSONObject(JSONObject.java:574)
+07-06 18:33:28.711: W/System.err(7835): 	at it.crs4.most.ehrlib.PriorityComparison.compare(PriorityComparison.java:40)
+07-06 18:33:28.711: W/System.err(7835): 	at it.crs4.most.ehrlib.PriorityComparison.compare(PriorityComparison.java:1)
+07-06 18:33:28.711: W/System.err(7835): 	at java.util.TimSort.countRunAndMakeAscending(TimSort.java:325)
+07-06 18:33:28.711: W/System.err(7835): 	at java.util.TimSort.sort(TimSort.java:185)
+07-06 18:33:28.711: W/System.err(7835): 	at java.util.TimSort.sort(TimSort.java:169)
+07-06 18:33:28.711: W/System.err(7835): 	at java.util.Arrays.sort(Arrays.java:2023)
+07-06 18:33:28.711: W/System.err(7835): 	at java.util.Collections.sort(Collections.java:1883)
+07-06 18:33:28.711: W/System.err(7835): 	at it.crs4.most.ehrlib.WidgetProvider.buildFormView(WidgetProvider.java:448)
+07-06 18:33:28.711: W/System.err(7835): 	at it.crs4.most.ehrlib.ArchetypeFragment.onCreateView(ArchetypeFragment.java:24)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.Fragment.performCreateView(Fragment.java:1786)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:947)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:1126)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.BackStackRecord.run(BackStackRecord.java:739)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.FragmentManagerImpl.execPendingActions(FragmentManager.java:1489)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.FragmentActivity.onStart(FragmentActivity.java:548)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.Instrumentation.callActivityOnStart(Instrumentation.java:1171)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.Activity.performStart(Activity.java:5241)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2157)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2233)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.ActivityThread.access$800(ActivityThread.java:135)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1196)
+07-06 18:33:28.711: W/System.err(7835): 	at android.os.Handler.dispatchMessage(Handler.java:102)
+07-06 18:33:28.711: W/System.err(7835): 	at android.os.Looper.loop(Looper.java:136)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-06 18:33:28.711: W/System.err(7835): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-06 18:33:28.711: W/System.err(7835): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-06 18:33:28.711: W/System.err(7835): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-06 18:33:28.711: W/System.err(7835): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-06 18:33:28.711: W/System.err(7835): 	at dalvik.system.NativeStart.main(Native Method)
+07-06 18:33:28.711: W/System.err(7835): org.json.JSONException: No value for data[at0001]/events[at0006]/data[at0003]/items[at1025]
+07-06 18:33:28.711: W/System.err(7835): 	at org.json.JSONObject.get(JSONObject.java:355)
+07-06 18:33:28.711: W/System.err(7835): 	at org.json.JSONObject.getJSONObject(JSONObject.java:574)
+07-06 18:33:28.711: W/System.err(7835): 	at it.crs4.most.ehrlib.PriorityComparison.compare(PriorityComparison.java:40)
+07-06 18:33:28.711: W/System.err(7835): 	at it.crs4.most.ehrlib.PriorityComparison.compare(PriorityComparison.java:1)
+07-06 18:33:28.711: W/System.err(7835): 	at java.util.TimSort.binarySort(TimSort.java:261)
+07-06 18:33:28.711: W/System.err(7835): 	at java.util.TimSort.sort(TimSort.java:186)
+07-06 18:33:28.711: W/System.err(7835): 	at java.util.TimSort.sort(TimSort.java:169)
+07-06 18:33:28.711: W/System.err(7835): 	at java.util.Arrays.sort(Arrays.java:2023)
+07-06 18:33:28.711: W/System.err(7835): 	at java.util.Collections.sort(Collections.java:1883)
+07-06 18:33:28.711: W/System.err(7835): 	at it.crs4.most.ehrlib.WidgetProvider.buildFormView(WidgetProvider.java:448)
+07-06 18:33:28.711: W/System.err(7835): 	at it.crs4.most.ehrlib.ArchetypeFragment.onCreateView(ArchetypeFragment.java:24)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.Fragment.performCreateView(Fragment.java:1786)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:947)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:1126)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.BackStackRecord.run(BackStackRecord.java:739)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.FragmentManagerImpl.execPendingActions(FragmentManager.java:1489)
+07-06 18:33:28.711: W/System.err(7835): 	at android.support.v4.app.FragmentActivity.onStart(FragmentActivity.java:548)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.Instrumentation.callActivityOnStart(Instrumentation.java:1171)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.Activity.performStart(Activity.java:5241)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2157)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2233)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.ActivityThread.access$800(ActivityThread.java:135)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1196)
+07-06 18:33:28.711: W/System.err(7835): 	at android.os.Handler.dispatchMessage(Handler.java:102)
+07-06 18:33:28.711: W/System.err(7835): 	at android.os.Looper.loop(Looper.java:136)
+07-06 18:33:28.711: W/System.err(7835): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-06 18:33:28.711: W/System.err(7835): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-06 18:33:28.711: W/System.err(7835): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-06 18:33:28.711: W/System.err(7835): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-06 18:33:28.711: W/System.err(7835): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-06 18:33:28.711: W/System.err(7835): 	at dalvik.system.NativeStart.main(Native Method)
+07-06 18:33:28.711: D/WidgetProvider(7835): SectionWidgets for section state: [it.crs4.most.ehrlib.widgets.DvTextWidget@41f455b8, it.crs4.most.ehrlib.widgets.DvCodedTextWidget@41f50df0]
+07-06 18:33:28.721: D/WidgetProvider(7835): Resetting all widgets...
+07-06 18:33:28.721: D/DvTextWidget(7835): CALLED updateWidgetContents with DV TEXT VALUE: 
+07-06 18:33:28.721: D/AndroidRuntime(7835): Shutting down VM
+07-06 18:33:28.721: W/dalvikvm(7835): threadid=1: thread exiting with uncaught exception (group=0x41602ba8)
+07-06 18:33:28.721: E/AndroidRuntime(7835): FATAL EXCEPTION: main
+07-06 18:33:28.721: E/AndroidRuntime(7835): Process: com.example.nestedarchetypeactivityexample, PID: 7835
+07-06 18:33:28.721: E/AndroidRuntime(7835): java.lang.RuntimeException: Unable to start activity ComponentInfo{com.example.nestedarchetypeactivityexample/com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity}: java.lang.NullPointerException
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2184)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2233)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.app.ActivityThread.access$800(ActivityThread.java:135)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1196)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.os.Handler.dispatchMessage(Handler.java:102)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.os.Looper.loop(Looper.java:136)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at dalvik.system.NativeStart.main(Native Method)
+07-06 18:33:28.721: E/AndroidRuntime(7835): Caused by: java.lang.NullPointerException
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.reset(InnerArchetypeWidget.java:248)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at it.crs4.most.ehrlib.FormContainer.resetWidget(FormContainer.java:57)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at it.crs4.most.ehrlib.FormContainer.resetAllWidgets(FormContainer.java:66)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at it.crs4.most.ehrlib.WidgetProvider.buildFormView(WidgetProvider.java:485)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at it.crs4.most.ehrlib.ArchetypeFragment.onCreateView(ArchetypeFragment.java:24)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.support.v4.app.Fragment.performCreateView(Fragment.java:1786)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:947)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:1126)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.support.v4.app.BackStackRecord.run(BackStackRecord.java:739)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.support.v4.app.FragmentManagerImpl.execPendingActions(FragmentManager.java:1489)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.support.v4.app.FragmentActivity.onStart(FragmentActivity.java:548)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.app.Instrumentation.callActivityOnStart(Instrumentation.java:1171)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.app.Activity.performStart(Activity.java:5241)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2157)
+07-06 18:33:28.721: E/AndroidRuntime(7835): 	... 11 more
+07-06 18:33:39.001: D/dalvikvm(7835): Debugger has detached; object registry had 1 entries
+07-06 18:33:39.061: D/dalvikvm(7835): GC_CONCURRENT freed 309K, 4% free 9446K/9788K, paused 6ms+10ms, total 58ms
+07-06 18:34:34.655: I/Process(7835): Sending signal. PID: 7835 SIG: 9
+07-06 18:35:07.888: I/dalvikvm(8008): Could not find method android.view.ViewGroup.onNestedScrollAccepted, referenced from method android.support.v7.internal.widget.ActionBarOverlayLayout.onNestedScrollAccepted
+07-06 18:35:07.888: W/dalvikvm(8008): VFY: unable to resolve virtual method 11377: Landroid/view/ViewGroup;.onNestedScrollAccepted (Landroid/view/View;Landroid/view/View;I)V
+07-06 18:35:07.888: D/dalvikvm(8008): VFY: replacing opcode 0x6f at 0x0000
+07-06 18:35:07.888: I/dalvikvm(8008): Could not find method android.view.ViewGroup.onStopNestedScroll, referenced from method android.support.v7.internal.widget.ActionBarOverlayLayout.onStopNestedScroll
+07-06 18:35:07.888: W/dalvikvm(8008): VFY: unable to resolve virtual method 11383: Landroid/view/ViewGroup;.onStopNestedScroll (Landroid/view/View;)V
+07-06 18:35:07.888: D/dalvikvm(8008): VFY: replacing opcode 0x6f at 0x0000
+07-06 18:35:07.888: I/dalvikvm(8008): Could not find method android.support.v7.internal.widget.ActionBarOverlayLayout.stopNestedScroll, referenced from method android.support.v7.internal.widget.ActionBarOverlayLayout.setHideOnContentScrollEnabled
+07-06 18:35:07.888: W/dalvikvm(8008): VFY: unable to resolve virtual method 9062: Landroid/support/v7/internal/widget/ActionBarOverlayLayout;.stopNestedScroll ()V
+07-06 18:35:07.888: D/dalvikvm(8008): VFY: replacing opcode 0x6e at 0x000e
+07-06 18:35:07.888: I/dalvikvm(8008): Could not find method android.content.res.TypedArray.getChangingConfigurations, referenced from method android.support.v7.internal.widget.TintTypedArray.getChangingConfigurations
+07-06 18:35:07.888: W/dalvikvm(8008): VFY: unable to resolve virtual method 375: Landroid/content/res/TypedArray;.getChangingConfigurations ()I
+07-06 18:35:07.888: D/dalvikvm(8008): VFY: replacing opcode 0x6e at 0x0002
+07-06 18:35:07.888: I/dalvikvm(8008): Could not find method android.content.res.TypedArray.getType, referenced from method android.support.v7.internal.widget.TintTypedArray.getType
+07-06 18:35:07.888: W/dalvikvm(8008): VFY: unable to resolve virtual method 397: Landroid/content/res/TypedArray;.getType (I)I
+07-06 18:35:07.888: D/dalvikvm(8008): VFY: replacing opcode 0x6e at 0x0002
+07-06 18:35:07.928: D/WidgetProvider(8008): Loading ontology for archetype class:openEHR-EHR-OBSERVATION.blood_pressure.v1
+07-06 18:35:07.928: D/WidgetProvider(8008): Reading ontology: {
+07-06 18:35:07.928: D/WidgetProvider(8008): 	"en":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0000":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Blood Pressure",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"The local measurement of arterial blood pressure which is a surrogate for arterial. pressure in the systemic circulation. Most commonly, use of the term 'blood pressure' refers to measurement of brachial artery pressure in the upper arm."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0001":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"history",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"History Structural node."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0003":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"blood pressure",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"internal"
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0004":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Systolic",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"Peak systemic arterial blood pressure  - measured in systolic or contraction phase of the heart cycle."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0005":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Diastolic",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"Minimum systemic arterial blood pressure - measured in the diastolic or relaxation phase of the heart cycle."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0006":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"any event",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"Default event."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0007":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"state structure",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"internal"
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0008":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Position",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"The position of the subject at the time of measurement."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0011":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Tree",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"List Structure"
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0013":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Cuff Size",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"The size of the cuff used for blood pressure measurement."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0033":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Comment",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"Comment on blood pressure measurement."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at1006":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Mean Arterial Pressure",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"The average arterial pressure that occurs over the entire course of the heart contraction and relaxation cycle."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at1007":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Pulse Pressure",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"The difference between the systolic and diastolic pressure."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0033":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Comment",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"Comment on blood pressure measurement."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at1000":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Standing",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"Standing at the time of blood pressure measurement."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at1001":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Sitting",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"Sitting (for example on bed or chair) at the time of blood pressure measurement."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at1002":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Reclining",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"Reclining at the time of blood pressure measurement."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at1003":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Lying",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"Lying flat at the time of blood pressure measurement."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at1014":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Lying with tilt to left",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"Lying flat with some lateral tilt, usually angled towards the left side.   Commonly required in the last trimester of pregnancy to relieve aortocaval compression."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at1052":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Confounding factors",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"Comment on and record other incidental factors that may be contributing to the blood pressure measurement.  For example, level of anxiety or 'white coat syndrome'; pain or fever; changes in atmospheric pressure etc."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at1025":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Included Archetype",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"Included archetype, just for testing"
+07-06 18:35:07.928: D/WidgetProvider(8008): 		}
+07-06 18:35:07.928: D/WidgetProvider(8008): 		
+07-06 18:35:07.928: D/WidgetProvider(8008): 	},
+07-06 18:35:07.928: D/WidgetProvider(8008): 	
+07-06 18:35:07.928: D/WidgetProvider(8008): 	"es-ar":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0000":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Presión Arterial",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"La medición local de la tensión arterial que deriva de la medida de la presión arterial en la circulación sistémica. Comúnmente el uso de 'presión arterial' se refiere a la medida de la presión de la arteria braquial por encima del pliegue del codo."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0001":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"historia",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"historia Nodo estructural"
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0003":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"blood pressure",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"internal"
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0004":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Sistólica",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"Presión arterial sistólica pico - medido en sístole o la fase de contracción del ciclo cardíaco."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0005":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Diástole",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"Presión arterial sistémica mínima - medido durante la diástole o fase de relajación del ciclo cardíaco."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0006":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"cualquier evento",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"Evento por defecto."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0007":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"state structure",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"internal"
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0008":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"Posición",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"La posición del individuo en el momento del registro."
+07-06 18:35:07.928: D/WidgetProvider(8008): 		},
+07-06 18:35:07.928: D/WidgetProvider(8008): 		"at0011":{
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"text":"estructura de lista",
+07-06 18:35:07.928: D/WidgetProvider(8008): 			"description":"
+07-06 18:35:07.948: D/WidgetProvider(8008): Ontology read ok 
+07-06 18:35:07.958: D/WidgetProvider(8008): Found section:state
+07-06 18:35:07.958: D/WidgetProvider(8008): Found section:data
+07-06 18:35:07.958: D/WidgetProvider(8008): item data path:data[at0001]/events[at0006]/state[at0007]/items[at1052]
+07-06 18:35:07.968: D/TestAdlParser(8008): JSON IN getObjectByPath:{"data":{"at0001":[{"events":[{"at1042":"DATA_NODE::MATH_FUNCTION","at0006":{"state":{"at0007":[{"at1043":"DATA_NODE::DV_CODED_TEXT","at1030":"ARCHETYPE_NODE","items":{"at1052":"DATA_NODE::DV_TEXT","at0008":"DATA_NODE::DV_CODED_TEXT"},"at1005":"DATA_NODE::DV_QUANTITY"}]},"data":{"at0003":[{"items":{"at0033":"DATA_NODE::DV_TEXT","at0005":"DATA_NODE::DV_QUANTITY","at1025":"ARCHETYPE_NODE","at1007":"DATA_NODE::DV_QUANTITY","at0004":"DATA_NODE::DV_QUANTITY","at1006":"DATA_NODE::DV_QUANTITY"}}]}}}]}]},"protocol":{"at0011":[{"items":{"at0013":"DATA_NODE::DV_CODED_TEXT","at1033":[{"items":{"at1034":"DATA_NODE::DV_TEXT","at0014":"DATA_NODE::DV_CODED_TEXT"}}],"at1025":"ARCHETYPE_NODE","at1038":"DATA_NODE::DV_TEXT","at1010":"DATA_NODE::DV_CODED_TEXT","at1035":"DATA_NODE::DV_CODED_TEXT"}}]}}
+07-06 18:35:07.968: D/WidgetProvider(8008): creating datatype widgets...
+07-06 18:35:07.968: D/WidgetProvider(8008): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvTextWidget
+07-06 18:35:07.968: D/WidgetProvider(8008): Instancing widget it.crs4.most.ehrlib.widgets.DvTextWidget for datatype: DV_TEXT parentIndex: 0
+07-06 18:35:08.008: D/dalvikvm(8008): GC_FOR_ALLOC freed 272K, 4% free 9289K/9592K, paused 14ms, total 14ms
+07-06 18:35:08.018: D/WidgetProvider(8008): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvCodedTextWidget
+07-06 18:35:08.018: D/WidgetProvider(8008): Instancing widget it.crs4.most.ehrlib.widgets.DvCodedTextWidget for datatype: DV_CODED_TEXT parentIndex: 0
+07-06 18:35:08.018: D/WidgetProvider(8008): item data path:data[at0001]/events[at0006]/data[at0003]/items[at0033]
+07-06 18:35:08.018: D/TestAdlParser(8008): JSON IN getObjectByPath:{"data":{"at0001":[{"events":[{"at1042":"DATA_NODE::MATH_FUNCTION","at0006":{"state":{"at0007":[{"at1043":"DATA_NODE::DV_CODED_TEXT","at1030":"ARCHETYPE_NODE","items":{"at1052":"DATA_NODE::DV_TEXT","at0008":"DATA_NODE::DV_CODED_TEXT"},"at1005":"DATA_NODE::DV_QUANTITY"}]},"data":{"at0003":[{"items":{"at0033":"DATA_NODE::DV_TEXT","at0005":"DATA_NODE::DV_QUANTITY","at1025":"ARCHETYPE_NODE","at1007":"DATA_NODE::DV_QUANTITY","at0004":"DATA_NODE::DV_QUANTITY","at1006":"DATA_NODE::DV_QUANTITY"}}]}}}]}]},"protocol":{"at0011":[{"items":{"at0013":"DATA_NODE::DV_CODED_TEXT","at1033":[{"items":{"at1034":"DATA_NODE::DV_TEXT","at0014":"DATA_NODE::DV_CODED_TEXT"}}],"at1025":"ARCHETYPE_NODE","at1038":"DATA_NODE::DV_TEXT","at1010":"DATA_NODE::DV_CODED_TEXT","at1035":"DATA_NODE::DV_CODED_TEXT"}}]}}
+07-06 18:35:08.018: D/WidgetProvider(8008): creating datatype widgets...
+07-06 18:35:08.018: D/WidgetProvider(8008): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvTextWidget
+07-06 18:35:08.018: D/WidgetProvider(8008): Instancing widget it.crs4.most.ehrlib.widgets.DvTextWidget for datatype: DV_TEXT parentIndex: 0
+07-06 18:35:08.028: D/WidgetProvider(8008): Found Datatype Widget: it.crs4.most.ehrlib.widgets.InnerArchetypeWidget
+07-06 18:35:08.028: D/WidgetProvider(8008): Instancing widget it.crs4.most.ehrlib.widgets.InnerArchetypeWidget for datatype: ARCHETYPE parentIndex: 0
+07-06 18:35:08.028: D/WidgetProvider(8008): Found Innser archetype!
+07-06 18:35:08.028: D/WidgetProvider(8008): Inner Arechetype Class Name:openEHR-EHR-OBSERVATION.ecg.v1
+07-06 18:35:08.028: D/WidgetProvider(8008): Loading ontology for archetype class:openEHR-EHR-OBSERVATION.ecg.v1
+07-06 18:35:08.028: D/WidgetProvider(8008): Reading ontology: {
+07-06 18:35:08.028: D/WidgetProvider(8008): 	"en":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 		"at0000":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"text":"ECG recording",
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"description":"An electrocardiograph (ECG) is an interpretation of the electrical activity of the heart over time, recorded non-invasively using external skin electrodes."
+07-06 18:35:08.028: D/WidgetProvider(8008): 		},
+07-06 18:35:08.028: D/WidgetProvider(8008): 		"at0006":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"text":"Global ECG Parameters",
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"description":"Details about the entire ECG."
+07-06 18:35:08.028: D/WidgetProvider(8008): 		},
+07-06 18:35:08.028: D/WidgetProvider(8008): 		"at0007":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"text":"QT interval",
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"description":"Interval from the onset of the QRS complex to the end of the T wave."
+07-06 18:35:08.028: D/WidgetProvider(8008): 		},
+07-06 18:35:08.028: D/WidgetProvider(8008): 		"at0009":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"text":"Automatic interpretation",
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"description":"Interpretative comment on this recording originating from the device."
+07-06 18:35:08.028: D/WidgetProvider(8008): 		},
+07-06 18:35:08.028: D/WidgetProvider(8008): 		"at0012":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"text":"PR interval",
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"description":"Measured interval from onset of P wave to QRS."
+07-06 18:35:08.028: D/WidgetProvider(8008): 		},
+07-06 18:35:08.028: D/WidgetProvider(8008): 		"at0013":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"text":"RR Rate",
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"description":"Frequency of electrical ventricular contractions (measured from R wave to R wave) and indicative of the mechanical heart rate."
+07-06 18:35:08.028: D/WidgetProvider(8008): 		},
+07-06 18:35:08.028: D/WidgetProvider(8008): 		"at0081":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"text":"Overall interpretation",
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"description":"An overall interpretative comment on this recording."
+07-06 18:35:08.028: D/WidgetProvider(8008): 		}
+07-06 18:35:08.028: D/WidgetProvider(8008): 		
+07-06 18:35:08.028: D/WidgetProvider(8008): 	},
+07-06 18:35:08.028: D/WidgetProvider(8008): 	
+07-06 18:35:08.028: D/WidgetProvider(8008): 	"es-ar":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 		"at0000":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"text":"ECG recording",
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"description":"An electrocardiograph (ECG) is an interpretation of the electrical activity of the heart over time, recorded non-invasively using external skin electrodes."
+07-06 18:35:08.028: D/WidgetProvider(8008): 		},
+07-06 18:35:08.028: D/WidgetProvider(8008): 		"at0006":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"text":"Global ECG Parameters",
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"description":"Details about the entire ECG."
+07-06 18:35:08.028: D/WidgetProvider(8008): 		},
+07-06 18:35:08.028: D/WidgetProvider(8008): 		
+07-06 18:35:08.028: D/WidgetProvider(8008): 		"at0007":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"text":"QT interval",
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"description":"Interval from the onset of the QRS complex to the end of the T wave."
+07-06 18:35:08.028: D/WidgetProvider(8008): 		},
+07-06 18:35:08.028: D/WidgetProvider(8008): 		"at0009":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"text":"Automatic interpretation",
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"description":"Interpretative comment on this recording originating from the device."
+07-06 18:35:08.028: D/WidgetProvider(8008): 		},
+07-06 18:35:08.028: D/WidgetProvider(8008): 		"at0012":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"text":"PR interval",
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"description":"Measured interval from onset of P wave to QRS."
+07-06 18:35:08.028: D/WidgetProvider(8008): 		},
+07-06 18:35:08.028: D/WidgetProvider(8008): 		"at0013":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"text":"RR Rate",
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"description":"Frequency of electrical ventricular contractions (measured from R wave to R wave) and indicative of the mechanical heart rate."
+07-06 18:35:08.028: D/WidgetProvider(8008): 		},
+07-06 18:35:08.028: D/WidgetProvider(8008): 		"at0081":{
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"text":"Overall interpretation",
+07-06 18:35:08.028: D/WidgetProvider(8008): 			"description":"An overall interpretative comment on this recording."
+07-06 18:35:08.028: D/WidgetProvider(8008): 		}
+07-06 18:35:08.028: D/WidgetProvider(8008): 		
+07-06 18:35:08.028: D/WidgetProvider(8008): 	}
+07-06 18:35:08.028: D/WidgetProvider(8008): 	
+07-06 18:35:08.028: D/WidgetProvider(8008): 	
+07-06 18:35:08.028: D/WidgetProvider(8008): 	
+07-06 18:35:08.028: D/WidgetProvider(8008): 	
+07-06 18:35:08.028: D/WidgetProvider(8008): 	
+07-06 18:35:08.028: D/WidgetProvider(8008): }
+07-06 18:35:08.028: D/WidgetProvider(8008): Ontology read ok 
+07-06 18:35:08.028: D/WidgetProvider(8008): Found section:ecg_parameters
+07-06 18:35:08.028: D/WidgetProvider(8008): Found section:data
+07-06 18:35:08.028: D/WidgetProvider(8008): item data path:data[at0001]/events[at0002]/data[at0005]/items[at0006]/items[at0013]
+07-06 18:35:08.028: D/TestAdlParser(8008): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0005":[{"items":{"at0006":{"items":{"at0013":"DATA_NODE::DV_QUANTITY","at0012":"DATA_NODE::DV_QUANTITY"}},"at0009":"DATA_NODE::DV_TEXT"}}]}}}}]}}
+07-06 18:35:08.028: D/WidgetProvider(8008): creating datatype widgets...
+07-06 18:35:08.028: D/WidgetProvider(8008): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvQuantityWidget
+07-06 18:35:08.028: D/WidgetProvider(8008): Instancing widget it.crs4.most.ehrlib.widgets.DvQuantityWidget for datatype: DV_QUANTITY parentIndex: 0
+07-06 18:35:08.028: D/DvQuantity(8008): ISTANZIATA DV QUANTITY con path:data[at0001]/events[at0002]/data[at0005]/items[at0006]/items[at0013]
+07-06 18:35:08.028: D/DvQuantity(8008): Setting datatype attributes: {"range":{"min":0},"unit_of_measure":"\/min","precision":0}
+07-06 18:35:08.028: D/DvQuantity(8008): Set unity:/min
+07-06 18:35:08.028: D/DvQuantity(8008): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41ef3fc8 return: /min
+07-06 18:35:08.028: D/DvQuantity(8008): Calling get unit from it.crs4.most.ehrlib.datatypes.DvQuantity@41ef3fc8 return: /min
+07-06 18:35:08.038: D/DvQuantity(8008): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41ef3fc8 return: /min
+07-06 18:35:08.038: D/DvQuantityWidget(8008): DV QUANTITY VALUE: 0.0
+07-06 18:35:08.038: E/DvQuantityFilter(8008): Invalid double:java.lang.NumberFormatException: Invalid double: ""
+07-06 18:35:08.038: D/DvQuantityWidget(8008): CALLED updateWidgetContents with DV QUANTITY VALUE: 0.0
+07-06 18:35:08.038: D/DvQuantity(8008): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41ef3fc8 return: /min
+07-06 18:35:08.038: D/WidgetProvider(8008): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvQuantityWidget
+07-06 18:35:08.038: D/WidgetProvider(8008): Instancing widget it.crs4.most.ehrlib.widgets.DvQuantityWidget for datatype: DV_QUANTITY parentIndex: 0
+07-06 18:35:08.038: D/DvQuantity(8008): ISTANZIATA DV QUANTITY con path:data[at0001]/events[at0002]/data[at0005]/items[at0006]/items[at0012]
+07-06 18:35:08.038: D/DvQuantity(8008): Setting datatype attributes: {"range":{"min":0},"unit_of_measure":"millisec","precision":0}
+07-06 18:35:08.038: D/DvQuantity(8008): Set unity:millisec
+07-06 18:35:08.038: D/DvQuantity(8008): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41edfd50 return: millisec
+07-06 18:35:08.038: D/DvQuantity(8008): Calling get unit from it.crs4.most.ehrlib.datatypes.DvQuantity@41edfd50 return: millisec
+07-06 18:35:08.048: D/DvQuantity(8008): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41edfd50 return: millisec
+07-06 18:35:08.048: D/DvQuantityWidget(8008): DV QUANTITY VALUE: 0.0
+07-06 18:35:08.048: E/DvQuantityFilter(8008): Invalid double:java.lang.NumberFormatException: Invalid double: ""
+07-06 18:35:08.048: D/DvQuantityWidget(8008): CALLED updateWidgetContents with DV QUANTITY VALUE: 0.0
+07-06 18:35:08.048: D/DvQuantity(8008): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41edfd50 return: millisec
+07-06 18:35:08.048: D/WidgetProvider(8008): item data path:data[at0001]/events[at0002]/data[at0005]/items[at0081]
+07-06 18:35:08.048: D/TestAdlParser(8008): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0005":[{"items":{"at0006":{"items":{"at0013":"DATA_NODE::DV_QUANTITY","at0012":"DATA_NODE::DV_QUANTITY"}},"at0009":"DATA_NODE::DV_TEXT"}}]}}}}]}}
+07-06 18:35:08.048: D/WidgetProvider(8008): creating datatype widgets...
+07-06 18:35:08.048: D/WidgetProvider(8008): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvClusterWidget
+07-06 18:35:08.048: D/WidgetProvider(8008): Instancing widget it.crs4.most.ehrlib.widgets.DvClusterWidget for datatype: DV_CLUSTER parentIndex: 0
+07-06 18:35:08.048: D/WidgetProvider(8008): ITEM CONTENT FOR ITEM 0: null
+07-06 18:35:08.048: D/WidgetProvider(8008): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvTextWidget
+07-06 18:35:08.048: D/WidgetProvider(8008): Instancing widget it.crs4.most.ehrlib.widgets.DvTextWidget for datatype: DV_TEXT parentIndex: 0
+07-06 18:35:08.058: D/WidgetProvider(8008): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvQuantityWidget
+07-06 18:35:08.058: D/WidgetProvider(8008): Instancing widget it.crs4.most.ehrlib.widgets.DvQuantityWidget for datatype: DV_QUANTITY parentIndex: 0
+07-06 18:35:08.058: D/DvQuantity(8008): ISTANZIATA DV QUANTITY con path:data[at0001]/events[at0006]/data[at0003]/items[at1007]
+07-06 18:35:08.058: D/DvQuantity(8008): Setting datatype attributes: {"range":{"min":10,"max":180},"unit_of_measure":"mm[Hg]","precision":2}
+07-06 18:35:08.058: D/DvQuantity(8008): Set unity:mm[Hg]
+07-06 18:35:08.058: D/DvQuantity(8008): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41f1d180 return: mm[Hg]
+07-06 18:35:08.058: D/DvQuantity(8008): Calling get unit from it.crs4.most.ehrlib.datatypes.DvQuantity@41f1d180 return: mm[Hg]
+07-06 18:35:08.068: D/DvQuantity(8008): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41f1d180 return: mm[Hg]
+07-06 18:35:08.068: D/DvQuantityWidget(8008): DV QUANTITY VALUE: 0.0
+07-06 18:35:08.068: E/DvQuantityFilter(8008): Invalid double:java.lang.NumberFormatException: Invalid double: ""
+07-06 18:35:08.068: D/DvQuantityWidget(8008): CALLED updateWidgetContents with DV QUANTITY VALUE: 0.0
+07-06 18:35:08.068: D/DvQuantity(8008): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41f1d180 return: mm[Hg]
+07-06 18:35:08.068: D/WidgetProvider(8008): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvQuantityWidget
+07-06 18:35:08.068: D/WidgetProvider(8008): Instancing widget it.crs4.most.ehrlib.widgets.DvQuantityWidget for datatype: DV_QUANTITY parentIndex: 0
+07-06 18:35:08.068: D/DvQuantity(8008): ISTANZIATA DV QUANTITY con path:data[at0001]/events[at0006]/data[at0003]/items[at1006]
+07-06 18:35:08.068: D/DvQuantity(8008): Setting datatype attributes: {"range":{"min":10,"max":180},"unit_of_measure":"mm[Hg]","precision":2}
+07-06 18:35:08.068: D/DvQuantity(8008): Set unity:mm[Hg]
+07-06 18:35:08.068: D/DvQuantity(8008): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41f51778 return: mm[Hg]
+07-06 18:35:08.068: D/DvQuantity(8008): Calling get unit from it.crs4.most.ehrlib.datatypes.DvQuantity@41f51778 return: mm[Hg]
+07-06 18:35:08.068: D/DvQuantity(8008): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41f51778 return: mm[Hg]
+07-06 18:35:08.068: D/DvQuantityWidget(8008): DV QUANTITY VALUE: 0.0
+07-06 18:35:08.068: E/DvQuantityFilter(8008): Invalid double:java.lang.NumberFormatException: Invalid double: ""
+07-06 18:35:08.068: D/DvQuantityWidget(8008): CALLED updateWidgetContents with DV QUANTITY VALUE: 0.0
+07-06 18:35:08.068: D/DvQuantity(8008): Calling get unity() from it.crs4.most.ehrlib.datatypes.DvQuantity@41f51778 return: mm[Hg]
+07-06 18:35:08.068: D/WidgetProvider(8008): Generating form....
+07-06 18:35:08.068: D/WidgetProvider(8008): FORM TITLE: Blood Pressure
+07-06 18:35:08.068: D/WidgetProvider(8008): SectionWidgets for section data: [it.crs4.most.ehrlib.widgets.DvTextWidget@41ee02b8, it.crs4.most.ehrlib.widgets.InnerArchetypeWidget@41f1a128, it.crs4.most.ehrlib.widgets.DvQuantityWidget@41f1d120, it.crs4.most.ehrlib.widgets.DvQuantityWidget@41f51718]
+07-06 18:35:08.078: W/System.err(8008): org.json.JSONException: No value for data[at0001]/events[at0006]/data[at0003]/items[at1025]
+07-06 18:35:08.078: W/System.err(8008): 	at org.json.JSONObject.get(JSONObject.java:355)
+07-06 18:35:08.078: W/System.err(8008): 	at org.json.JSONObject.getJSONObject(JSONObject.java:574)
+07-06 18:35:08.078: W/System.err(8008): 	at it.crs4.most.ehrlib.PriorityComparison.compare(PriorityComparison.java:40)
+07-06 18:35:08.078: W/System.err(8008): 	at it.crs4.most.ehrlib.PriorityComparison.compare(PriorityComparison.java:1)
+07-06 18:35:08.078: W/System.err(8008): 	at java.util.TimSort.countRunAndMakeAscending(TimSort.java:320)
+07-06 18:35:08.078: W/System.err(8008): 	at java.util.TimSort.sort(TimSort.java:185)
+07-06 18:35:08.078: W/System.err(8008): 	at java.util.TimSort.sort(TimSort.java:169)
+07-06 18:35:08.078: W/System.err(8008): 	at java.util.Arrays.sort(Arrays.java:2023)
+07-06 18:35:08.078: W/System.err(8008): 	at java.util.Collections.sort(Collections.java:1883)
+07-06 18:35:08.078: W/System.err(8008): 	at it.crs4.most.ehrlib.WidgetProvider.buildFormView(WidgetProvider.java:448)
+07-06 18:35:08.078: W/System.err(8008): 	at it.crs4.most.ehrlib.ArchetypeFragment.onCreateView(ArchetypeFragment.java:24)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.Fragment.performCreateView(Fragment.java:1786)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:947)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:1126)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.BackStackRecord.run(BackStackRecord.java:739)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.FragmentManagerImpl.execPendingActions(FragmentManager.java:1489)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.FragmentActivity.onStart(FragmentActivity.java:548)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.Instrumentation.callActivityOnStart(Instrumentation.java:1171)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.Activity.performStart(Activity.java:5241)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2157)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2233)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.ActivityThread.access$800(ActivityThread.java:135)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1196)
+07-06 18:35:08.078: W/System.err(8008): 	at android.os.Handler.dispatchMessage(Handler.java:102)
+07-06 18:35:08.078: W/System.err(8008): 	at android.os.Looper.loop(Looper.java:136)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-06 18:35:08.078: W/System.err(8008): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-06 18:35:08.078: W/System.err(8008): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-06 18:35:08.078: W/System.err(8008): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-06 18:35:08.078: W/System.err(8008): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-06 18:35:08.078: W/System.err(8008): 	at dalvik.system.NativeStart.main(Native Method)
+07-06 18:35:08.078: W/System.err(8008): org.json.JSONException: No value for data[at0001]/events[at0006]/data[at0003]/items[at1025]
+07-06 18:35:08.078: W/System.err(8008): 	at org.json.JSONObject.get(JSONObject.java:355)
+07-06 18:35:08.078: W/System.err(8008): 	at org.json.JSONObject.getJSONObject(JSONObject.java:574)
+07-06 18:35:08.078: W/System.err(8008): 	at it.crs4.most.ehrlib.PriorityComparison.compare(PriorityComparison.java:40)
+07-06 18:35:08.078: W/System.err(8008): 	at it.crs4.most.ehrlib.PriorityComparison.compare(PriorityComparison.java:1)
+07-06 18:35:08.078: W/System.err(8008): 	at java.util.TimSort.countRunAndMakeAscending(TimSort.java:325)
+07-06 18:35:08.078: W/System.err(8008): 	at java.util.TimSort.sort(TimSort.java:185)
+07-06 18:35:08.078: W/System.err(8008): 	at java.util.TimSort.sort(TimSort.java:169)
+07-06 18:35:08.078: W/System.err(8008): 	at java.util.Arrays.sort(Arrays.java:2023)
+07-06 18:35:08.078: W/System.err(8008): 	at java.util.Collections.sort(Collections.java:1883)
+07-06 18:35:08.078: W/System.err(8008): 	at it.crs4.most.ehrlib.WidgetProvider.buildFormView(WidgetProvider.java:448)
+07-06 18:35:08.078: W/System.err(8008): 	at it.crs4.most.ehrlib.ArchetypeFragment.onCreateView(ArchetypeFragment.java:24)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.Fragment.performCreateView(Fragment.java:1786)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:947)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:1126)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.BackStackRecord.run(BackStackRecord.java:739)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.FragmentManagerImpl.execPendingActions(FragmentManager.java:1489)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.FragmentActivity.onStart(FragmentActivity.java:548)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.Instrumentation.callActivityOnStart(Instrumentation.java:1171)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.Activity.performStart(Activity.java:5241)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2157)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2233)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.ActivityThread.access$800(ActivityThread.java:135)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1196)
+07-06 18:35:08.078: W/System.err(8008): 	at android.os.Handler.dispatchMessage(Handler.java:102)
+07-06 18:35:08.078: W/System.err(8008): 	at android.os.Looper.loop(Looper.java:136)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-06 18:35:08.078: W/System.err(8008): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-06 18:35:08.078: W/System.err(8008): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-06 18:35:08.078: W/System.err(8008): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-06 18:35:08.078: W/System.err(8008): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-06 18:35:08.078: W/System.err(8008): 	at dalvik.system.NativeStart.main(Native Method)
+07-06 18:35:08.078: W/System.err(8008): org.json.JSONException: No value for data[at0001]/events[at0006]/data[at0003]/items[at1025]
+07-06 18:35:08.078: W/System.err(8008): 	at org.json.JSONObject.get(JSONObject.java:355)
+07-06 18:35:08.078: W/System.err(8008): 	at org.json.JSONObject.getJSONObject(JSONObject.java:574)
+07-06 18:35:08.078: W/System.err(8008): 	at it.crs4.most.ehrlib.PriorityComparison.compare(PriorityComparison.java:40)
+07-06 18:35:08.078: W/System.err(8008): 	at it.crs4.most.ehrlib.PriorityComparison.compare(PriorityComparison.java:1)
+07-06 18:35:08.078: W/System.err(8008): 	at java.util.TimSort.binarySort(TimSort.java:261)
+07-06 18:35:08.078: W/System.err(8008): 	at java.util.TimSort.sort(TimSort.java:186)
+07-06 18:35:08.078: W/System.err(8008): 	at java.util.TimSort.sort(TimSort.java:169)
+07-06 18:35:08.078: W/System.err(8008): 	at java.util.Arrays.sort(Arrays.java:2023)
+07-06 18:35:08.078: W/System.err(8008): 	at java.util.Collections.sort(Collections.java:1883)
+07-06 18:35:08.078: W/System.err(8008): 	at it.crs4.most.ehrlib.WidgetProvider.buildFormView(WidgetProvider.java:448)
+07-06 18:35:08.078: W/System.err(8008): 	at it.crs4.most.ehrlib.ArchetypeFragment.onCreateView(ArchetypeFragment.java:24)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.Fragment.performCreateView(Fragment.java:1786)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:947)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:1126)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.BackStackRecord.run(BackStackRecord.java:739)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.FragmentManagerImpl.execPendingActions(FragmentManager.java:1489)
+07-06 18:35:08.078: W/System.err(8008): 	at android.support.v4.app.FragmentActivity.onStart(FragmentActivity.java:548)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.Instrumentation.callActivityOnStart(Instrumentation.java:1171)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.Activity.performStart(Activity.java:5241)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2157)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2233)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.ActivityThread.access$800(ActivityThread.java:135)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1196)
+07-06 18:35:08.078: W/System.err(8008): 	at android.os.Handler.dispatchMessage(Handler.java:102)
+07-06 18:35:08.078: W/System.err(8008): 	at android.os.Looper.loop(Looper.java:136)
+07-06 18:35:08.078: W/System.err(8008): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-06 18:35:08.078: W/System.err(8008): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-06 18:35:08.078: W/System.err(8008): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-06 18:35:08.078: W/System.err(8008): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-06 18:35:08.078: W/System.err(8008): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-06 18:35:08.078: W/System.err(8008): 	at dalvik.system.NativeStart.main(Native Method)
+07-06 18:35:08.078: D/WidgetProvider(8008): SectionWidgets for section state: [it.crs4.most.ehrlib.widgets.DvTextWidget@41f46558, it.crs4.most.ehrlib.widgets.DvCodedTextWidget@41f32ed8]
+07-06 18:35:08.088: D/WidgetProvider(8008): Resetting all widgets...
+07-06 18:35:08.088: D/DvTextWidget(8008): CALLED updateWidgetContents with DV TEXT VALUE: 
+07-06 18:35:08.088: D/AndroidRuntime(8008): Shutting down VM
+07-06 18:35:08.088: W/dalvikvm(8008): threadid=1: thread exiting with uncaught exception (group=0x41602ba8)
+07-06 18:35:08.088: E/AndroidRuntime(8008): FATAL EXCEPTION: main
+07-06 18:35:08.088: E/AndroidRuntime(8008): Process: com.example.nestedarchetypeactivityexample, PID: 8008
+07-06 18:35:08.088: E/AndroidRuntime(8008): java.lang.RuntimeException: Unable to start activity ComponentInfo{com.example.nestedarchetypeactivityexample/com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity}: java.lang.NullPointerException
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2184)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2233)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.app.ActivityThread.access$800(ActivityThread.java:135)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1196)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.os.Handler.dispatchMessage(Handler.java:102)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.os.Looper.loop(Looper.java:136)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at dalvik.system.NativeStart.main(Native Method)
+07-06 18:35:08.088: E/AndroidRuntime(8008): Caused by: java.lang.NullPointerException
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.reset(InnerArchetypeWidget.java:248)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at it.crs4.most.ehrlib.FormContainer.resetWidget(FormContainer.java:57)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at it.crs4.most.ehrlib.FormContainer.resetAllWidgets(FormContainer.java:66)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at it.crs4.most.ehrlib.WidgetProvider.buildFormView(WidgetProvider.java:485)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at it.crs4.most.ehrlib.ArchetypeFragment.onCreateView(ArchetypeFragment.java:24)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.support.v4.app.Fragment.performCreateView(Fragment.java:1786)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:947)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:1126)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.support.v4.app.BackStackRecord.run(BackStackRecord.java:739)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.support.v4.app.FragmentManagerImpl.execPendingActions(FragmentManager.java:1489)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.support.v4.app.FragmentActivity.onStart(FragmentActivity.java:548)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.app.Instrumentation.callActivityOnStart(Instrumentation.java:1171)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.app.Activity.performStart(Activity.java:5241)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2157)
+07-06 18:35:08.088: E/AndroidRuntime(8008): 	... 11 more

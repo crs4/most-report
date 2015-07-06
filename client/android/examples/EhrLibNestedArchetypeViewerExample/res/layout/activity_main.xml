@@ -14,9 +14,14 @@
     android:gravity="center_horizontal"
     >
     
+     <Button
+     android:id="@+id/butJson"
+     android:layout_height="wrap_content"
+     android:layout_width="wrap_content"
+     android:text="@string/but_json"
+    />
     
     <Button
-  
      android:id="@+id/butSave"
      android:layout_height="wrap_content"
      android:layout_width="wrap_content"

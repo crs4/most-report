@@ -16,6 +16,10 @@ public class ArchetypeFragment extends Fragment {
 		this.wp = wp;
 	}
 	
+	public WidgetProvider getwidgetProvider() {
+		return this.wp;
+	}
+	
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

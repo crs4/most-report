@@ -112,6 +112,12 @@ public abstract class DatatypeWidget <T extends EhrDatatype> implements EhrDatat
 		this.setupTooltip();
 	}
 	
+	
+	public WidgetProvider getWidgetProvider()
+	{
+		return this._widget_provider;
+	}
+	
 	/**
 	 * Setup tooltip.
 	 */

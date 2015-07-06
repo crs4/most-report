@@ -642,6 +642,10 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 			for (DatatypeWidget<EhrDatatype> widget : sectionWidgets)
 			{
 				if (widget.getDatatype().isCluster()) continue;
+				if (widget.getDatatype().isInnerArchetype())
+				{
+					widget.getWidgetProvider().updateSectionsJsonContent(index);
+				}
 									
 				String path = widget.getDatatype().getPath();
 				Log.d(TAG, "\nPATH TO UPDATE: " + path);

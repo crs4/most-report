@@ -10,6 +10,7 @@
 
 package it.crs4.most.ehrlib.datatypes;
 
+import it.crs4.most.ehrlib.WidgetProvider;
 import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
 
 import org.json.JSONException;
@@ -50,6 +51,16 @@ public abstract class EhrDatatype {
 	}
 	
 	/**
+	 * 
+	 * @return {@code True} if this datatype is an archetype itself  {@code False} otherwise
+	 */
+	public boolean isInnerArchetype()
+	{
+		return false;
+	}
+	
+	
+	/**
 	 * Sets the attributes for this datatype. Generally, different datatypes have different attributes.
 	 *
 	 * @param attributes the json structure containing all the attributes of this datatype.
@@ -75,6 +86,8 @@ public abstract class EhrDatatype {
 	{
 		return this.path;
 	}
+	
+	
  
 	/**
 	 * Load the new content of this datatype from a json schema.

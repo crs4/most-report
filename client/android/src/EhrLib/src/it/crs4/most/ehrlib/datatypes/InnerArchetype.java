@@ -1,5 +1,6 @@
 package it.crs4.most.ehrlib.datatypes;
 
+import it.crs4.most.ehrlib.WidgetProvider;
 import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
 
 import org.json.JSONException;
@@ -8,11 +9,14 @@ import org.json.JSONObject;
 public class InnerArchetype extends EhrDatatype {
 
 	private String archetypeClass;
+	private WidgetProvider wp;
 	
 	 
 
-	public InnerArchetype(String path, JSONObject attributes) {
+	public InnerArchetype(WidgetProvider wp, String path, JSONObject attributes) {
+		this.wp = wp;
 		this.setPath(path);
+		
 		
 		try {
 			setAttributes(attributes);
@@ -20,6 +24,10 @@ public class InnerArchetype extends EhrDatatype {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public WidgetProvider getWidgetProvider() {
+		return wp;
 	}
 
 	@Override
@@ -41,8 +49,18 @@ public class InnerArchetype extends EhrDatatype {
 
 	@Override
 	public JSONObject toJSON() {
-		// TODO Auto-generated method stub
-		return null;
+	 
+		return this.wp.toJson();
+	}
+	
+	/**
+	 * 
+	 * @return {@code True} if this datatype is an archetype itself  {@code False} otherwise
+	 */
+	@Override
+	public boolean isInnerArchetype()
+	{
+		return true;
 	}
 
 }

@@ -3,7 +3,9 @@ package com.example.nestedarchetypeactivityexample;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import it.crs4.most.ehrlib.ArchetypeFragment;
 import it.crs4.most.ehrlib.ArchetypeSchemaProvider;
@@ -12,6 +14,8 @@ import it.crs4.most.ehrlib.WidgetProvider;
 import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
+import android.text.method.ScrollingMovementMethod;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -19,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -43,8 +48,41 @@ public class InnerArchetypeViewerActivity extends ActionBarActivity {
 		}
 	}
 
+	private JSONArray getTemplateJsonContent()
+	{
+		List<WidgetProvider> wps = this.tp.getWidgetProviders();
+		JSONArray tmpJson = new JSONArray();
+	    for (int i=0;i<wps.size();i++)
+			try {
+				tmpJson.put(i,wps.get(i).toJson());
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		return tmpJson;
+		
+	}
 	private void setupButtonsListener()
 	{
+		Button butJson = (Button) findViewById(R.id.butJson);
+    	butJson.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				String content;
+				try {
+					content = getTemplateJsonContent().toString(2);
+					showInfoDialog(content);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					showInfoDialog(String.format("Error Parsing Json Content: \n\n %s" , e.getMessage()));
+				}
+				
+			}
+		});
+    	
 		Button butSave =  (Button) findViewById(R.id.butSave);
 		butSave.setOnClickListener(new OnClickListener() {
 			
@@ -66,6 +104,33 @@ public class InnerArchetypeViewerActivity extends ActionBarActivity {
 		});
 	}
 	
+	/**
+     * Show info dialog.
+     *
+     * @param content the content
+     */
+    private void showInfoDialog(String content)
+    { 
+    	final Dialog dialog = new Dialog(this);
+    	dialog.setTitle("Json Adl Structure");
+    	dialog.setContentView(R.layout.custom_dialog);
+    	TextView dialogText = (TextView) dialog.findViewById(R.id.dialogText);
+    	dialogText.setMovementMethod(new ScrollingMovementMethod());
+    	dialogText.setText(content);
+    	
+    	Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+    	dialogButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+				
+			}
+		});
+    	
+    	dialog.show();
+    }
+    
 	private void updateOntologies(String lang)
 	{
 		for (WidgetProvider wp : this.tp.getWidgetProviders())
@@ -89,11 +154,15 @@ public class InnerArchetypeViewerActivity extends ActionBarActivity {
 		{
 			try {
 				af.getFormContainer().submitAllWidgets();
+				af.getwidgetProvider().updateSectionsJsonContent(0);
 			} catch (InvalidDatatypeException e) {
 				Log.e(TAG, "Error submitting forms:" + e.getMessage());
 				e.printStackTrace();
 				Toast.makeText(this, "Error Validating Template:" + e.getMessage(), Toast.LENGTH_LONG).show();
 				error=true;
+			} catch (JSONException e) {
+				Log.e(TAG, "Error updating json content:" + e.getMessage());
+				e.printStackTrace();
 			}
 		}
 		
@@ -103,6 +172,7 @@ public class InnerArchetypeViewerActivity extends ActionBarActivity {
 			Toast.makeText(this, "Template content was not successfully saved." , Toast.LENGTH_LONG).show();
 	}
 	
+ 
 	private void buildArchetypeFragments()
 	{
 		this.archetypeFragments = new ArrayList<ArchetypeFragment>();

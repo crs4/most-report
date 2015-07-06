@@ -36,7 +36,7 @@
     android:layout_width="wrap_content" 
     android:layout_height="wrap_content" 
     android:layout_gravity="right"
-    android:src="@android:drawable/ic_menu_more"
+    android:src="@android:drawable/ic_menu_add"
     />
     
 </LinearLayout>
@@ -60,8 +60,8 @@
 
     <View
     android:layout_width="fill_parent"
-    android:layout_height="2dp"
-    android:background="@android:color/darker_gray"/>
+    android:layout_height="4dp"
+    android:background="#ff11AA30"/>
   
 </LinearLayout>
 
