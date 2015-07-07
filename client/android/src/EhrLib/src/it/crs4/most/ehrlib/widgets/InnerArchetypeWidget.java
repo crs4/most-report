@@ -53,6 +53,8 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 	private boolean areWidgetsVisible = false;
 	private ImageView addRemWidgets;
 	private FormContainer formContainer = null;
+	private boolean created = false;
+	private String language = "en";
 	
 	/**
 	 * Instantiate a new InnerArchetypeWidget
@@ -114,13 +116,19 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 	@Override
 	public void setOntology(JSONObject ontology, String language)
 	{
-		this._widget_provider.updateOntologyLanguage(language);
-		this._ontology = this._widget_provider.getOntology();
+		this.language = language;
+		
+		this._ontology = ontology;
 		this.setupDescription();
 		this.setupDisplaytitle();
 		
 		this.setupTooltip();
 		this.updateLabelsContent();
+		
+		if (this.created)
+		{
+			this._widget_provider.updateOntologyLanguage(language);
+		}
 		
 	}
 	
@@ -184,7 +192,7 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 	{
 		this.formContainer = this._widget_provider.buildFormView(0);
 	    archetypeWidgets =   this.formContainer.getWidgets();
-		
+	    this._widget_provider.updateOntologyLanguage(this.language);
 	}
 
 	private void addWidgets()
@@ -192,6 +200,7 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 		if (this.formContainer==null)
 		{
 			this.buildNewArchetypeContainer();
+			this.created = true;
 		}
 		 _archetype_layout.addView(this.formContainer.getLayout());
 		 this.areWidgetsVisible = true;

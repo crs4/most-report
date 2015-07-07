@@ -135,7 +135,7 @@ public WidgetProvider(Context context, ArchetypeSchemaProvider asp, String arche
 	this.archetypeAdlParser = new AdlParser(this.archetypeInstances);
 	
 	// build all sections because we must build also widgets referred by clusters
-	this.buildSectionWidgetsMap(null);
+	//this.buildSectionWidgetsMap(null);
 }
 
 public JSONObject getDatatypesSchema() {
@@ -181,7 +181,7 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 			this.archetypeAdlParser = new AdlParser(this.archetypeInstances);
 			
 			// build all sections because we must build also widgets referred by clusters
-			this.buildSectionWidgetsMap(null);
+			//this.buildSectionWidgetsMap(null);
 	}
 	
 	
@@ -409,6 +409,13 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
             }
 		 */
 		
+		try {
+			buildSectionWidgetsMap(null);
+		} catch (InvalidDatatypeException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			Log.e(TAG, "Error building section map:" + e1);
+		}
 		
 		String [] sections = null;
 		
@@ -633,6 +640,9 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 	 */
 	public void updateSectionsJsonContent(int index) throws JSONException
 	{
+		if (sectionWidgetsMap==null)
+			return;
+		
 		String [] sections = sectionWidgetsMap.keySet().toArray(new String[0]);
 		
 		for (String section : sections)
