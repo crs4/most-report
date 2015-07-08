@@ -1,0 +1,13 @@
+{
+	"id":"eco_fast_template_id",
+	"name":"Eco Fast Template",
+	"definition":[
+
+		{
+			"archetype_class":"openEHR-EHR-OBSERVATION.eco_fast.v1",
+			"exclude":[]
+		}
+		
+	]
+	
+}

@@ -60,7 +60,7 @@
 			},
 			"at0033":{
 				"path":"data[at0001]/events[at0006]/data[at0003]/items[at0033]",
-				"type":"DV_TEXT",
+				"type":"DV_BOOLEAN",
 				"attributes":{
 					
 				}

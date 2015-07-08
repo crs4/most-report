@@ -39,7 +39,7 @@ public class InnerArchetypeViewerActivity extends ActionBarActivity {
 		
 		try {
 			ArchetypeSchemaProvider asp = new ArchetypeSchemaProvider(getApplicationContext(), "archetypes.properties", "archetypes");
-			this.tp = new TemplateProvider(getApplicationContext(),WidgetProvider.parseFileToString(getApplicationContext(), "ecg_bp_template.json"), asp, LANGUAGE);
+			this.tp = new TemplateProvider(getApplicationContext(),WidgetProvider.parseFileToString(getApplicationContext(), "eco_fast__template.json"), asp, LANGUAGE);
 		    this.buildArchetypeFragments();
 		    this.setupButtonsListener();
 		} catch (JSONException e) {
