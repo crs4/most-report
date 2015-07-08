@@ -14,6 +14,7 @@ import java.util.List;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,6 +39,7 @@ import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
  */
 public class DvClusterWidget extends DatatypeWidget<DvCluster>{
 
+	private static final String TAG = "DvClusterWidget";
 	private List<DatatypeWidget<EhrDatatype>> clusterWidgets;
 	private TextView _title;
 	private ToolTipRelativeLayout toolTipRelativeLayout;
@@ -104,7 +106,7 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster>{
 	 String sectionRef = this.datatype.getSectionName();
 	 
 	 clusterWidgets =   this._widget_provider.getSectionWidgets(sectionRef, 0);
-		 
+	 Log.d(TAG, String.format("In DVCLUSTER: Section widgets for section %s: %s ", sectionRef, clusterWidgets)); 
 	
 	 
 	 addRemWidgets = (ImageView) _root_view.findViewById(R.id.image_toggle_widgets);

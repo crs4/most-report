@@ -30,7 +30,7 @@ public class PriorityComparison implements Comparator< DatatypeWidget<EhrDatatyp
 	
 	public int compare(  DatatypeWidget<EhrDatatype>item1, DatatypeWidget<EhrDatatype> item2 ) {
 		
-		if (this.schema==null) return 1;
+		if (this.schema==null || !this.schema.has("items")) return 1;
 		else
 		{
 			String path1 = item1.getDatatype().getPath();

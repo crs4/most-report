@@ -19,6 +19,28 @@
         android:layout_height="wrap_content"
         android:src="@android:drawable/ic_menu_info_details" />
     
+    <TextView  
+    android:id="@+id/txt_title"
+    android:textStyle="bold"
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:text=""
+    android:textColor="#ffffffff"
+    android:layout_weight="1"
+    android:layout_gravity="center_vertical"
+    />
+    
+    <TextView  
+    android:id="@+id/txt_validity"
+    android:textStyle="bold"
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:text=""
+    android:textColor="#ffff0000"
+    android:layout_weight="1"
+    android:gravity="right"
+    />
+    
 </LinearLayout>
  
 <LinearLayout 
@@ -28,12 +50,17 @@
     android:layout_gravity="center_vertical"
     >
     
-    <CheckBox 
-    android:id="@+id/check_is_selected"
+    <EditText 
+    android:id="@+id/txt_text"
     android:layout_width="match_parent" 
     android:layout_height="wrap_content" 
+    android:inputType="textMultiLine|textCapSentences"
+    android:maxLines="4"
+    android:scrollbars="vertical"
+    android:scrollHorizontally="false"
     android:textColor="#ff00ffff"
-    android:text="Selected?"
+    android:text=""
+    android:hint="@string/comment_hint"
     />
     
     </LinearLayout>

@@ -54,6 +54,7 @@ public class WidgetProvider {
         put("DV_TEXT", new String[] {"it.crs4.most.ehrlib.datatypes.DvText", "it.crs4.most.ehrlib.widgets.DvTextWidget"});
         //put("DV_CODED_TEXT", new String[] {"it.crs4.most.ehrlib.datatypes.DvCodedText", "it.crs4.most.ehrlib.widgets.DvCodedTextWidget"});
         put("DV_CODED_TEXT", new String[] {"it.crs4.most.ehrlib.datatypes.DvCodedText", "it.crs4.most.ehrlib.widgets.DvCodedTextWidget"});
+        put("DV_BOOLEAN", new String[] {"it.crs4.most.ehrlib.datatypes.DvBoolean", "it.crs4.most.ehrlib.widgets.DvBooleanWidget"});
         put("DV_CLUSTER", new String[] {"it.crs4.most.ehrlib.datatypes.DvCluster", "it.crs4.most.ehrlib.widgets.DvClusterWidget"});
         put("ARCHETYPE", new String[] {"it.crs4.most.ehrlib.datatypes.InnerArchetype", "it.crs4.most.ehrlib.widgets.InnerArchetypeWidget"});
     }
@@ -449,11 +450,13 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 			for (String section : sections)
 			{
 				List<DatatypeWidget<EhrDatatype>> sectionWidgets  = this.sectionWidgetsMap.get(section);
+				Log.d(TAG, String.format("SectionWidgets for section %s: %s" , section, sectionWidgets));  
+				
 				if (this.jsonLayoutSchema!=null)
 				{
-					Log.d(TAG, String.format("SectionWidgets for section %s: %s" , section, sectionWidgets));  
 					Collections.sort(sectionWidgets, new PriorityComparison(this.jsonLayoutSchema) );	
 				}
+				
 				_allWidgets.addAll(sectionWidgets);
 	
 			}
@@ -489,7 +492,7 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
         
 		FormContainer fc =  new FormContainer((ViewGroup) _container, _allWidgets, index);
 		Log.d(TAG, "Resetting all widgets...");
-		fc.resetAllWidgets();
+		//fc.resetAllWidgets();
 		return fc;
 	}
 	
@@ -548,13 +551,14 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 						JSONObject sectionDatatypes = this.datatypesSchema.getJSONObject("datatypes").getJSONObject(section);
 						// Retrieve a path of a datatype used for getting the structure of the "section" structure in an archetype instance
 						String sectionDatapath = sectionDatatypes.getJSONObject(sectionDatatypes.names().getString(0)).getString("path");
+						Log.d(TAG, "Building SECTION:" + section);
 						Log.d(TAG, "item data path:" + sectionDatapath);
 						// It contains the structure of the "data" item instances of this archetype
 						AdlStructure sectionStructure = this.archetypeAdlParser.getItemsContainer(sectionDatapath);
 						return buildDatatypeWidgets(sectionStructure, sectionDatatypes, itemIndex);
 					} catch (JSONException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
+						Log.e(TAG,"Error building section widgets:" + e.getMessage());
 					}
 	
 					return null;
@@ -585,7 +589,7 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 			
 			//items_structure = (JSONObject) datatypes.getJSONArray("items").get(itemIndex);
 			items_structure = dataStructure.getStructure(itemIndex).getJSONObject("items");
-			
+			Log.d(TAG, "ITEM STRUCTURE NAMES:" +  items_structure.names());
 			for( int i= 0; i < items_structure.names().length(); i++ ) 
 			{
 				String itemTitle  = items_structure.names().getString(i);  // es: at0004
@@ -601,7 +605,7 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 			 	String itemPath =  itemStructureInfo.getString("path"); //  from the datatypes structure
 			 	
 			 	JSONObject itemAttributes = itemStructureInfo.getJSONObject("attributes");
-		
+			 	Log.d(TAG, String.format("Trying to building widget for %s with path %s", itemTitle, itemPath));
 			 	DatatypeWidget<EhrDatatype> widget = buildDatatypeWidget(itemType, itemPath, itemTitle, itemAttributes, itemIndex);
 			 	
 			 	// Fill the field of the widget reading the content from the json data, if existing
@@ -619,7 +623,7 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 				 		widget.getDatatype().fromJSON(itemContent);
 				 	}
 			 	}
-			 	
+			 	Log.d(TAG, String.format("Adding widget %s for %s" , widget, itemTitle));
 			 	widgets.add( widget );
 			}
 			

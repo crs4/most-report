@@ -18,23 +18,23 @@ import android.util.Log;
 
 
 /**
- * This class represents a DV_TEXT item, according to the definition provided by the OpenEHR Data Type Information Model
+ * This class represents a DV_BOOLEAN item, according to the definition provided by the OpenEHR Data Type Information Model
  */
-public class DvText extends EhrDatatype {
+public class DvBoolean extends EhrDatatype {
 
 	/** The text. */
-	private String text = "";
+	private boolean value = false;
 	
 	/** The tag. */
-	private String TAG = "DvText";
+	private String TAG = "DvBoolean";
 	
 	/**
-	 * Instantiates a new DV_TEXT item.
+	 * Instantiates a new DV_BOOLEAN item.
 	 *
 	 * @param path the path
 	 * @param attributes the attributes
 	 */
-	public DvText(String path, JSONObject attributes)
+	public DvBoolean(String path, JSONObject attributes)
 	{
 		this.setPath(path);
 		try {
@@ -55,8 +55,8 @@ public class DvText extends EhrDatatype {
 	public void fromJSON(JSONObject data) throws JSONException,
 			InvalidDatatypeException {
 		 
-		if (!data.isNull("text"))
-			this.setText(data.getString("text"));
+		if (!data.isNull("selected"))
+			this.setValue(data.getBoolean("selected"));
 		
 	}
 
@@ -65,7 +65,7 @@ public class DvText extends EhrDatatype {
 	public JSONObject toJSON() {
 		JSONObject jsonText = new JSONObject();
 		try {
-			String value = String.format("{\"value\": { \"text\" : \"%s\"}}", this.text);
+			String value = String.format("{\"value\": { \"selected\" : %s}}", this.value);
 			Log.d(TAG , "To be converted in JSON:" + value);
 			jsonText = new JSONObject(value);
 			
@@ -78,12 +78,12 @@ public class DvText extends EhrDatatype {
 	}
 
 	/**
-	 * Gets the current text of this DV_TEXT item
+	 * Gets the current value of this DV_BOOLEAN item
 	 *
-	 * @returnc the current text of this DV_TEXT item
+	 * @return the current text of this DV_TEXT item
 	 */
-	public String getText() {
-		return text;
+	public boolean getValue() {
+		return this.value;
 	}
 
 	/**
@@ -91,13 +91,13 @@ public class DvText extends EhrDatatype {
 	 *
 	 * @param text the new text
 	 */
-	public void setText(String text) {
-		this.text = text;
+	public void setValue(boolean value) {
+		this.value = value;
 	
 	
 	if (this.datatypeChangeListener!=null)
 	{
-		Log.d(TAG ,"Notifying datatype changes to the DvTextWidget with current value:" + getText());
+		Log.d(TAG ,"Notifying datatype changes to the DvTextWidget with current value:" + getValue());
 		this.datatypeChangeListener.onEhrDatatypeChanged(this);
 	}
 	else
