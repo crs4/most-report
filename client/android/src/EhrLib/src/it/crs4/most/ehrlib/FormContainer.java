@@ -27,10 +27,6 @@ public class FormContainer {
 	/** The tag. */
 	private String TAG="FormContainer";
 	
-	/** The placeholders for included archetypes (if any) **/
-	private List<ArchetypePlaceholder> archetypePlaceholders;
-    
-   
 
 	/**
      * Creates a new Form Container
@@ -109,14 +105,6 @@ public class FormContainer {
 		return widgets;
 	}
 
-	/**
-	 * 
-	 * @return the archetype placeholders
-	 */
-	 public List<ArchetypePlaceholder> getArchetypePlaceholders() {
-			return archetypePlaceholders;
-		}
-	 
 
 	/**
 	 * Get the index of this form container
