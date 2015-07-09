@@ -120,13 +120,13 @@ public class DvBooleanWidget extends DatatypeWidget<DvBoolean> implements ToolTi
 				
 				@Override
 				public void run() {
-					_chkBoolean.setSelected(datatype.getValue());
+					_chkBoolean.setChecked(datatype.getValue());
 				}
 			});
 		}
 		else
-		{
-			_chkBoolean.setSelected(datatype.getValue());
+		{    
+			_chkBoolean.setChecked(datatype.getValue());
 		}
 		
 	}
@@ -144,7 +144,7 @@ public class DvBooleanWidget extends DatatypeWidget<DvBoolean> implements ToolTi
 	 */
 	@Override
 	public void save() throws InvalidDatatypeException {
-		boolean value = _chkBoolean.isSelected();
+		boolean value = _chkBoolean.isChecked();
 		this.datatype.setValue(value);
 	}
 

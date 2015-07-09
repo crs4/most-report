@@ -410,13 +410,7 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
             }
 		 */
 		
-		try {
-			buildSectionWidgetsMap(null);
-		} catch (InvalidDatatypeException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-			Log.e(TAG, "Error building section map:" + e1);
-		}
+		
 		
 		String [] sections = null;
 		
@@ -426,13 +420,26 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 			try {
 				jsonSections = this.jsonLayoutSchema.getJSONArray("sections");
 				sections = new String[jsonSections.length()];
+				
 				for (int i=0;i<sections.length;i++)
 					sections[i] = jsonSections.getString(i);
+				
+				buildSectionWidgetsMap(sections);
 			} catch (JSONException e) {
+				e.printStackTrace();
+			} catch (InvalidDatatypeException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
-		}
+		} else
+			try {
+				buildSectionWidgetsMap(null);
+			} catch (InvalidDatatypeException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 		
 		if (sections==null)
 			sections = getSections();
@@ -535,7 +542,18 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 	
 	
 	public List<DatatypeWidget<EhrDatatype>> getSectionWidgets(String section, int itemIndex){
-		return sectionWidgetsMap.get(section);
+		List<DatatypeWidget<EhrDatatype>> widgets = sectionWidgetsMap.get(section);
+		if (widgets==null)
+		{
+			try {
+				widgets = buildSectionWidgets(section, itemIndex);
+				sectionWidgetsMap.put(section, widgets);
+			} catch (InvalidDatatypeException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return widgets;
 	}
 	/**
 	 * Builds a list of widgets of a specific section and item index.
@@ -663,7 +681,13 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 									
 				String path = widget.getDatatype().getPath();
 				Log.d(TAG, "\nPATH TO UPDATE: " + path);
-				this.archetypeAdlParser.replaceContent(path, index, widget.getDatatype().toJSON());
+				try{
+					this.archetypeAdlParser.replaceContent(path, index, widget.getDatatype().toJSON());
+				}catch(JSONException je) {
+					Log.e(TAG, "Exception replacing content:" + je.getMessage());
+					je.printStackTrace();
+				}
+				
 			}
 			
 		}

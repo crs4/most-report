@@ -1,224 +1,219 @@
-07-08 18:55:48.152: D/dalvikvm(11133): Late-enabling CheckJNI
-07-08 18:55:48.282: I/dalvikvm(11133): Could not find method android.view.ViewGroup.onNestedScrollAccepted, referenced from method android.support.v7.internal.widget.ActionBarOverlayLayout.onNestedScrollAccepted
-07-08 18:55:48.282: W/dalvikvm(11133): VFY: unable to resolve virtual method 11381: Landroid/view/ViewGroup;.onNestedScrollAccepted (Landroid/view/View;Landroid/view/View;I)V
-07-08 18:55:48.282: D/dalvikvm(11133): VFY: replacing opcode 0x6f at 0x0000
-07-08 18:55:48.282: I/dalvikvm(11133): Could not find method android.view.ViewGroup.onStopNestedScroll, referenced from method android.support.v7.internal.widget.ActionBarOverlayLayout.onStopNestedScroll
-07-08 18:55:48.282: W/dalvikvm(11133): VFY: unable to resolve virtual method 11387: Landroid/view/ViewGroup;.onStopNestedScroll (Landroid/view/View;)V
-07-08 18:55:48.282: D/dalvikvm(11133): VFY: replacing opcode 0x6f at 0x0000
-07-08 18:55:48.282: I/dalvikvm(11133): Could not find method android.support.v7.internal.widget.ActionBarOverlayLayout.stopNestedScroll, referenced from method android.support.v7.internal.widget.ActionBarOverlayLayout.setHideOnContentScrollEnabled
-07-08 18:55:48.282: W/dalvikvm(11133): VFY: unable to resolve virtual method 9066: Landroid/support/v7/internal/widget/ActionBarOverlayLayout;.stopNestedScroll ()V
-07-08 18:55:48.282: D/dalvikvm(11133): VFY: replacing opcode 0x6e at 0x000e
-07-08 18:55:48.292: I/dalvikvm(11133): Could not find method android.content.res.TypedArray.getChangingConfigurations, referenced from method android.support.v7.internal.widget.TintTypedArray.getChangingConfigurations
-07-08 18:55:48.292: W/dalvikvm(11133): VFY: unable to resolve virtual method 379: Landroid/content/res/TypedArray;.getChangingConfigurations ()I
-07-08 18:55:48.292: D/dalvikvm(11133): VFY: replacing opcode 0x6e at 0x0002
-07-08 18:55:48.292: I/dalvikvm(11133): Could not find method android.content.res.TypedArray.getType, referenced from method android.support.v7.internal.widget.TintTypedArray.getType
-07-08 18:55:48.292: W/dalvikvm(11133): VFY: unable to resolve virtual method 401: Landroid/content/res/TypedArray;.getType (I)I
-07-08 18:55:48.292: D/dalvikvm(11133): VFY: replacing opcode 0x6e at 0x0002
-07-08 18:55:48.322: D/WidgetProvider(11133): Loading ontology for archetype class:openEHR-EHR-OBSERVATION.eco_fast.v1
-07-08 18:55:48.322: D/WidgetProvider(11133): Reading ontology: {
-07-08 18:55:48.322: D/WidgetProvider(11133): 	"en":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0000":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Eco FAST",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"Focused Assessment Sonography for Trauma"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0004":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Periheoatic_space",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0005":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Perisplenic_space",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0006":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Pericardium",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0007":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Pelvis",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0008":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Findings",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0012":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Effusion",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0009":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Findings",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0013":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Effusion",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0010":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Findings",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0014":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Effusion",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0011":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Findings",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0015":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Effusion",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		}	
-07-08 18:55:48.322: D/WidgetProvider(11133): 	},
-07-08 18:55:48.322: D/WidgetProvider(11133): 	"es-ar":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0000":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Eco FAST",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"Focused Assessment Sonography for Trauma"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0004":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Periheoatic_space",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0005":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Perisplenic_space",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0006":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Pericardium",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0007":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Pelvis",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0008":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Findings",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0012":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Effusion",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0009":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Findings",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0013":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Effusion",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0010":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Findings",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0014":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Effusion",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0011":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Findings",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		},
-07-08 18:55:48.322: D/WidgetProvider(11133): 		"at0015":{
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"text":"Effusion",
-07-08 18:55:48.322: D/WidgetProvider(11133): 			"description":"todo"
-07-08 18:55:48.322: D/WidgetProvider(11133): 		}		
-07-08 18:55:48.322: D/WidgetProvider(11133): 	}
-07-08 18:55:48.322: D/WidgetProvider(11133): }
-07-08 18:55:48.322: D/WidgetProvider(11133): Ontology read ok 
-07-08 18:55:48.332: D/WidgetProvider(11133): Found section:data
-07-08 18:55:48.332: D/WidgetProvider(11133): Found section:pericardium_parameters
-07-08 18:55:48.332: D/WidgetProvider(11133): Found section:perisplenic_parameters
-07-08 18:55:48.332: D/WidgetProvider(11133): Found section:pelvis_parameters
-07-08 18:55:48.332: D/WidgetProvider(11133): Found section:periheoatic_parameters
-07-08 18:55:48.332: D/WidgetProvider(11133): Building SECTION:data
-07-08 18:55:48.332: D/WidgetProvider(11133): item data path:data[at0001]/events[at0002]/data[at0003]/items[at0004]
-07-08 18:55:48.332: D/TestAdlParser(11133): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":"DATA_NODE::DV_BOOLEAN","at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":"DATA_NODE::DV_BOOLEAN","at0010":"DATA_NODE::DV_TEXT"}},"at0005":{"items":{"at0013":"DATA_NODE::DV_BOOLEAN","at0009":"DATA_NODE::DV_TEXT"}}}}]}}}}]}}
-07-08 18:55:48.332: D/WidgetProvider(11133): creating datatype widgets...
-07-08 18:55:48.332: D/WidgetProvider(11133): ITEM STRUCTURE NAMES:%s["at0004","at0007","at0006","at0005"]
-07-08 18:55:48.332: D/WidgetProvider(11133): Trying to building widget for at0004 with path data[at0001]/events[at0002]/data[at0003]/items[at0004]
-07-08 18:55:48.332: D/WidgetProvider(11133): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvClusterWidget
-07-08 18:55:48.332: D/WidgetProvider(11133): Instancing widget it.crs4.most.ehrlib.widgets.DvClusterWidget for datatype: DV_CLUSTER parentIndex: 0
-07-08 18:55:48.342: D/DvClusterWidget(11133): In DVCLUSTER: Section widgets for section periheoatic_parameters: null 
-07-08 18:55:48.342: D/WidgetProvider(11133): ITEM CONTENT FOR ITEM 0: null
-07-08 18:55:48.342: D/WidgetProvider(11133): Adding widget it.crs4.most.ehrlib.widgets.DvClusterWidget@41f3e4a8
-07-08 18:55:48.342: D/WidgetProvider(11133): Trying to building widget for at0007 with path data[at0001]/events[at0002]/data[at0003]/items[at0007]
-07-08 18:55:48.342: D/WidgetProvider(11133): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvClusterWidget
-07-08 18:55:48.342: D/WidgetProvider(11133): Instancing widget it.crs4.most.ehrlib.widgets.DvClusterWidget for datatype: DV_CLUSTER parentIndex: 0
-07-08 18:55:48.352: D/DvClusterWidget(11133): In DVCLUSTER: Section widgets for section pelvis_parameters: null 
-07-08 18:55:48.352: D/WidgetProvider(11133): ITEM CONTENT FOR ITEM 1: null
-07-08 18:55:48.352: D/WidgetProvider(11133): Adding widget it.crs4.most.ehrlib.widgets.DvClusterWidget@41f4c5f0
-07-08 18:55:48.352: D/WidgetProvider(11133): Trying to building widget for at0006 with path data[at0001]/events[at0002]/data[at0003]/items[at0006]
-07-08 18:55:48.352: D/WidgetProvider(11133): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvClusterWidget
-07-08 18:55:48.352: D/WidgetProvider(11133): Instancing widget it.crs4.most.ehrlib.widgets.DvClusterWidget for datatype: DV_CLUSTER parentIndex: 0
-07-08 18:55:48.373: D/dalvikvm(11133): GC_FOR_ALLOC freed 275K, 4% free 9286K/9592K, paused 16ms, total 16ms
-07-08 18:55:48.373: D/DvClusterWidget(11133): In DVCLUSTER: Section widgets for section pericardium_parameters: null 
-07-08 18:55:48.373: D/WidgetProvider(11133): ITEM CONTENT FOR ITEM 2: null
-07-08 18:55:48.373: D/WidgetProvider(11133): Adding widget it.crs4.most.ehrlib.widgets.DvClusterWidget@41f4f6a8
-07-08 18:55:48.373: D/WidgetProvider(11133): Trying to building widget for at0005 with path data[at0001]/events[at0002]/data[at0003]/items[at0005]
-07-08 18:55:48.373: D/WidgetProvider(11133): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvClusterWidget
-07-08 18:55:48.373: D/WidgetProvider(11133): Instancing widget it.crs4.most.ehrlib.widgets.DvClusterWidget for datatype: DV_CLUSTER parentIndex: 0
-07-08 18:55:48.373: D/DvClusterWidget(11133): In DVCLUSTER: Section widgets for section perisplenic_parameters: null 
-07-08 18:55:48.373: D/WidgetProvider(11133): ITEM CONTENT FOR ITEM 3: null
-07-08 18:55:48.373: D/WidgetProvider(11133): Adding widget it.crs4.most.ehrlib.widgets.DvClusterWidget@41f0bf20
-07-08 18:55:48.373: D/WidgetProvider(11133): Building SECTION:pericardium_parameters
-07-08 18:55:48.373: D/WidgetProvider(11133): item data path:data[at0001]/events[at0002]/data[at0003]/items[at0006]/items[at0014]
-07-08 18:55:48.373: D/TestAdlParser(11133): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":"DATA_NODE::DV_BOOLEAN","at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":"DATA_NODE::DV_BOOLEAN","at0010":"DATA_NODE::DV_TEXT"}},"at0005":{"items":{"at0013":"DATA_NODE::DV_BOOLEAN","at0009":"DATA_NODE::DV_TEXT"}}}}]}}}}]}}
-07-08 18:55:48.373: D/WidgetProvider(11133): creating datatype widgets...
-07-08 18:55:48.373: D/WidgetProvider(11133): ITEM STRUCTURE NAMES:%s["at0014","at0010"]
-07-08 18:55:48.373: D/WidgetProvider(11133): Trying to building widget for at0014 with path data[at0001]/events[at0002]/data[at0003]/items[at0006]/items[at0014]
-07-08 18:55:48.373: D/WidgetProvider(11133): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvBooleanWidget
-07-08 18:55:48.373: D/WidgetProvider(11133): Instancing widget it.crs4.most.ehrlib.widgets.DvBooleanWidget for datatype: DV_BOOLEAN parentIndex: 0
-07-08 18:55:48.383: D/WidgetProvider(11133): Adding widget it.crs4.most.ehrlib.widgets.DvBooleanWidget@41f10068
-07-08 18:55:48.383: D/WidgetProvider(11133): Trying to building widget for at0010 with path data[at0001]/events[at0002]/data[at0003]/items[at0006]/items[at0010]
-07-08 18:55:48.383: D/WidgetProvider(11133): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvTextWidget
-07-08 18:55:48.383: D/WidgetProvider(11133): Instancing widget it.crs4.most.ehrlib.widgets.DvTextWidget for datatype: DV_TEXT parentIndex: 0
-07-08 18:55:48.393: D/WidgetProvider(11133): Adding widget it.crs4.most.ehrlib.widgets.DvTextWidget@41f4a9a8
-07-08 18:55:48.393: D/WidgetProvider(11133): Building SECTION:perisplenic_parameters
-07-08 18:55:48.393: D/WidgetProvider(11133): item data path:data[at0001]/events[at0002]/data[at0003]/items[at0005]/items[at0013]
-07-08 18:55:48.393: D/TestAdlParser(11133): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":"DATA_NODE::DV_BOOLEAN","at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":"DATA_NODE::DV_BOOLEAN","at0010":"DATA_NODE::DV_TEXT"}},"at0005":{"items":{"at0013":"DATA_NODE::DV_BOOLEAN","at0009":"DATA_NODE::DV_TEXT"}}}}]}}}}]}}
-07-08 18:55:48.393: D/WidgetProvider(11133): creating datatype widgets...
-07-08 18:55:48.393: D/WidgetProvider(11133): ITEM STRUCTURE NAMES:%s["at0013","at0009"]
-07-08 18:55:48.393: D/WidgetProvider(11133): Trying to building widget for at0013 with path data[at0001]/events[at0002]/data[at0003]/items[at0005]/items[at0013]
-07-08 18:55:48.393: D/WidgetProvider(11133): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvBooleanWidget
-07-08 18:55:48.393: D/WidgetProvider(11133): Instancing widget it.crs4.most.ehrlib.widgets.DvBooleanWidget for datatype: DV_BOOLEAN parentIndex: 0
-07-08 18:55:48.393: D/WidgetProvider(11133): Adding widget it.crs4.most.ehrlib.widgets.DvBooleanWidget@41ef8ec8
-07-08 18:55:48.393: D/WidgetProvider(11133): Trying to building widget for at0009 with path data[at0001]/events[at0002]/data[at0003]/items[at0005]/items[at0009]
-07-08 18:55:48.393: D/WidgetProvider(11133): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvTextWidget
-07-08 18:55:48.393: D/WidgetProvider(11133): Instancing widget it.crs4.most.ehrlib.widgets.DvTextWidget for datatype: DV_TEXT parentIndex: 0
-07-08 18:55:48.403: D/WidgetProvider(11133): Adding widget it.crs4.most.ehrlib.widgets.DvTextWidget@41f16a78
-07-08 18:55:48.403: D/WidgetProvider(11133): Building SECTION:pelvis_parameters
-07-08 18:55:48.403: D/WidgetProvider(11133): item data path:data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0015]
-07-08 18:55:48.403: D/TestAdlParser(11133): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":"DATA_NODE::DV_BOOLEAN","at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":"DATA_NODE::DV_BOOLEAN","at0010":"DATA_NODE::DV_TEXT"}},"at0005":{"items":{"at0013":"DATA_NODE::DV_BOOLEAN","at0009":"DATA_NODE::DV_TEXT"}}}}]}}}}]}}
-07-08 18:55:48.403: D/WidgetProvider(11133): creating datatype widgets...
-07-08 18:55:48.403: D/WidgetProvider(11133): ITEM STRUCTURE NAMES:%s["at0015","at0011"]
-07-08 18:55:48.403: D/WidgetProvider(11133): Trying to building widget for at0015 with path data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0015]
-07-08 18:55:48.403: D/WidgetProvider(11133): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvBooleanWidget
-07-08 18:55:48.403: D/WidgetProvider(11133): Instancing widget it.crs4.most.ehrlib.widgets.DvBooleanWidget for datatype: DV_BOOLEAN parentIndex: 0
-07-08 18:55:48.403: D/WidgetProvider(11133): Adding widget it.crs4.most.ehrlib.widgets.DvBooleanWidget@41efb260
-07-08 18:55:48.403: D/WidgetProvider(11133): Trying to building widget for at0011 with path data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0011]
-07-08 18:55:48.413: D/WidgetProvider(11133): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvTextWidget
-07-08 18:55:48.413: D/WidgetProvider(11133): Instancing widget it.crs4.most.ehrlib.widgets.DvTextWidget for datatype: DV_TEXT parentIndex: 0
-07-08 18:55:48.413: D/WidgetProvider(11133): Adding widget it.crs4.most.ehrlib.widgets.DvTextWidget@41f00e30
-07-08 18:55:48.413: D/WidgetProvider(11133): Building SECTION:periheoatic_parameters
-07-08 18:55:48.413: D/WidgetProvider(11133): item data path:data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0008]
-07-08 18:55:48.413: D/TestAdlParser(11133): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":"DATA_NODE::DV_BOOLEAN","at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":"DATA_NODE::DV_BOOLEAN","at0010":"DATA_NODE::DV_TEXT"}},"at0005":{"items":{"at0013":"DATA_NODE::DV_BOOLEAN","at0009":"DATA_NODE::DV_TEXT"}}}}]}}}}]}}
-07-08 18:55:48.413: D/WidgetProvider(11133): creating datatype widgets...
-07-08 18:55:48.413: D/WidgetProvider(11133): ITEM STRUCTURE NAMES:%s["at0008","at0012"]
-07-08 18:55:48.413: D/WidgetProvider(11133): Trying to building widget for at0008 with path data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0008]
-07-08 18:55:48.413: D/WidgetProvider(11133): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvTextWidget
-07-08 18:55:48.413: D/WidgetProvider(11133): Instancing widget it.crs4.most.ehrlib.widgets.DvTextWidget for datatype: DV_TEXT parentIndex: 0
-07-08 18:55:48.413: D/WidgetProvider(11133): Adding widget it.crs4.most.ehrlib.widgets.DvTextWidget@41ee5810
-07-08 18:55:48.413: D/WidgetProvider(11133): Trying to building widget for at0012 with path data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0012]
-07-08 18:55:48.413: D/WidgetProvider(11133): Found Datatype Widget: it.crs4.most.ehrlib.widgets.DvBooleanWidget
-07-08 18:55:48.413: D/WidgetProvider(11133): Instancing widget it.crs4.most.ehrlib.widgets.DvBooleanWidget for datatype: DV_BOOLEAN parentIndex: 0
-07-08 18:55:48.423: D/WidgetProvider(11133): Adding widget it.crs4.most.ehrlib.widgets.DvBooleanWidget@41f34650
-07-08 18:55:48.423: D/WidgetProvider(11133): Generating form....
-07-08 18:55:48.423: D/WidgetProvider(11133): FORM TITLE: Eco FAST
-07-08 18:55:48.423: D/WidgetProvider(11133): SectionWidgets for section data: [it.crs4.most.ehrlib.widgets.DvClusterWidget@41f3e4a8, it.crs4.most.ehrlib.widgets.DvClusterWidget@41f4c5f0, it.crs4.most.ehrlib.widgets.DvClusterWidget@41f4f6a8, it.crs4.most.ehrlib.widgets.DvClusterWidget@41f0bf20]
-07-08 18:55:48.423: D/WidgetProvider(11133): Resetting all widgets...
-07-08 18:55:48.453: I/Adreno-EGL(11133): <qeglDrvAPI_eglInitialize:320>: EGL 1.4 QUALCOMM Build: I0404c4692afb8623f95c43aeb6d5e13ed4b30ddbDate: 11/06/13
-07-08 18:55:48.483: D/OpenGLRenderer(11133): Enabling debug mode 0
-07-08 18:56:03.307: D/dalvikvm(11133): Debugger has detached; object registry had 1 entries
-07-08 18:56:05.289: D/dalvikvm(11133): Debugger has detached; object registry had 1 entries
-07-08 18:56:17.821: D/dalvikvm(11133): Debugger has detached; object registry had 1 entries
+07-09 11:21:49.668: I/LatinIME:LogUtils(868): Dictionary info: dictionary = contacts.it_IT.dict ; version = ? ; date = ?
+07-09 11:21:49.668: D/audio_hw_primary(189): select_devices: out_snd_device(2: speaker) in_snd_device(0: )
+07-09 11:21:49.668: D/ACDB-LOADER(189): ACDB -> send_afe_cal
+07-09 11:21:51.851: D/dalvikvm(868): GC_FOR_ALLOC freed 4629K, 31% free 10996K/15852K, paused 36ms, total 36ms
+07-09 11:21:51.861: I/dalvikvm-heap(868): Grow heap (frag case) to 14.224MB for 3624016-byte allocation
+07-09 11:21:51.881: D/dalvikvm(868): GC_FOR_ALLOC freed 7K, 26% free 14528K/19392K, paused 22ms, total 22ms
+07-09 11:21:51.911: D/dalvikvm(868): GC_CONCURRENT freed 103K, 26% free 14425K/19392K, paused 3ms+3ms, total 32ms
+07-09 11:21:52.902: D/audio_hw_primary(189): select_devices: out_snd_device(2: speaker) in_snd_device(0: )
+07-09 11:21:52.902: D/ACDB-LOADER(189): ACDB -> send_afe_cal
+07-09 11:21:58.077: D/audio_hw_primary(189): select_devices: out_snd_device(2: speaker) in_snd_device(0: )
+07-09 11:21:58.077: D/ACDB-LOADER(189): ACDB -> send_afe_cal
+07-09 11:22:01.490: D/dalvikvm(868): GC_FOR_ALLOC freed 4244K, 32% free 10923K/15852K, paused 30ms, total 30ms
+07-09 11:22:01.500: I/dalvikvm-heap(868): Grow heap (frag case) to 14.152MB for 3624016-byte allocation
+07-09 11:22:01.530: D/dalvikvm(868): GC_FOR_ALLOC freed <1K, 26% free 14461K/19392K, paused 31ms, total 31ms
+07-09 11:22:01.560: D/dalvikvm(868): GC_CONCURRENT freed 28K, 26% free 14433K/19392K, paused 4ms+3ms, total 29ms
+07-09 11:22:01.890: D/dalvikvm(635): GC_EXPLICIT freed 5153K, 26% free 41483K/55544K, paused 3ms+15ms, total 152ms
+07-09 11:22:01.910: D/audio_hw_primary(189): select_devices: out_snd_device(2: speaker) in_snd_device(0: )
+07-09 11:22:01.910: D/ACDB-LOADER(189): ACDB -> send_afe_cal
+07-09 11:22:01.970: I/LatinIME:LogUtils(868): Dictionary info: dictionary = main:it ; version = 43 ; date = 1389654090
+07-09 11:22:01.980: I/LatinIME:LogUtils(868): Dictionary info: dictionary = userunigram.it.dict ; version = ? ; date = ?
+07-09 11:22:06.675: D/audio_hw_primary(189): select_devices: out_snd_device(2: speaker) in_snd_device(0: )
+07-09 11:22:06.675: D/ACDB-LOADER(189): ACDB -> send_afe_cal
+07-09 11:22:10.689: D/dalvikvm(868): GC_FOR_ALLOC freed 4426K, 31% free 11004K/15852K, paused 32ms, total 32ms
+07-09 11:22:10.699: I/dalvikvm-heap(868): Grow heap (frag case) to 14.232MB for 3624016-byte allocation
+07-09 11:22:10.729: D/dalvikvm(868): GC_FOR_ALLOC freed 10K, 26% free 14533K/19392K, paused 28ms, total 28ms
+07-09 11:22:10.759: D/dalvikvm(868): GC_CONCURRENT freed 48K, 26% free 14484K/19392K, paused 3ms+3ms, total 29ms
+07-09 11:22:10.929: D/audio_hw_primary(189): select_devices: out_snd_device(2: speaker) in_snd_device(0: )
+07-09 11:22:10.929: D/ACDB-LOADER(189): ACDB -> send_afe_cal
+07-09 11:22:16.364: D/dalvikvm(868): GC_FOR_ALLOC freed 3881K, 31% free 10948K/15852K, paused 27ms, total 28ms
+07-09 11:22:16.374: I/dalvikvm-heap(868): Grow heap (frag case) to 14.177MB for 3624016-byte allocation
+07-09 11:22:16.404: D/dalvikvm(868): GC_FOR_ALLOC freed <1K, 26% free 14486K/19392K, paused 28ms, total 28ms
+07-09 11:22:16.434: D/dalvikvm(868): GC_CONCURRENT freed 1K, 26% free 14485K/19392K, paused 2ms+2ms, total 30ms
+07-09 11:22:18.757: D/FormContainer(24118): Saving widget for path:data[at0001]/events[at0002]/data[at0003]/items[at0004]
+07-09 11:22:18.757: D/DvClusterWidget(24118): Widgets for dv cluster to be updated:2
+07-09 11:22:18.757: D/DvText(24118): Notifying datatype changes to the DvTextWidget with current value:Phjdykdhmdhmdhmdhm
+07-09 11:22:18.757: D/DvTextWidget(24118): CALLED updateWidgetContents with DV TEXT VALUE: Phjdykdhmdhmdhmdhm
+07-09 11:22:18.757: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41ed2718 Called  setValue for DV_BOOLEAN: true
+07-09 11:22:18.757: D/DvBoolean(24118): Notifying datatype changes to the DvBooleanWidget with current value:true
+07-09 11:22:18.757: D/DvTextWidget(24118): CALLED updateWidgetContents with DV BOOLEAN VALUE: true
+07-09 11:22:18.757: D/FormContainer(24118): Saving widget for path:data[at0001]/events[at0002]/data[at0003]/items[at0007]
+07-09 11:22:18.757: D/DvClusterWidget(24118): Widgets for dv cluster to be updated:2
+07-09 11:22:18.757: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41f53088 Called  setValue for DV_BOOLEAN: true
+07-09 11:22:18.757: D/DvBoolean(24118): Notifying datatype changes to the DvBooleanWidget with current value:true
+07-09 11:22:18.757: D/DvTextWidget(24118): CALLED updateWidgetContents with DV BOOLEAN VALUE: true
+07-09 11:22:18.757: D/DvText(24118): Notifying datatype changes to the DvTextWidget with current value:Fu!DH!DH!
+07-09 11:22:18.757: D/DvTextWidget(24118): CALLED updateWidgetContents with DV TEXT VALUE: Fu!DH!DH!
+07-09 11:22:18.767: D/FormContainer(24118): Saving widget for path:data[at0001]/events[at0002]/data[at0003]/items[at0006]
+07-09 11:22:18.767: D/DvClusterWidget(24118): Widgets for dv cluster to be updated:2
+07-09 11:22:18.767: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41fbb3e0 Called  setValue for DV_BOOLEAN: true
+07-09 11:22:18.767: D/DvBoolean(24118): Notifying datatype changes to the DvBooleanWidget with current value:true
+07-09 11:22:18.767: D/DvTextWidget(24118): CALLED updateWidgetContents with DV BOOLEAN VALUE: true
+07-09 11:22:18.767: D/DvText(24118): Notifying datatype changes to the DvTextWidget with current value:Wsgmsgmsg
+07-09 11:22:18.767: D/DvTextWidget(24118): CALLED updateWidgetContents with DV TEXT VALUE: Wsgmsgmsg
+07-09 11:22:18.767: D/FormContainer(24118): Saving widget for path:data[at0001]/events[at0002]/data[at0003]/items[at0005]
+07-09 11:22:18.767: D/DvClusterWidget(24118): Widgets for dv cluster to be updated:2
+07-09 11:22:18.777: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41fcf080 Called  setValue for DV_BOOLEAN: false
+07-09 11:22:18.777: D/DvBoolean(24118): Notifying datatype changes to the DvBooleanWidget with current value:false
+07-09 11:22:18.777: D/DvTextWidget(24118): CALLED updateWidgetContents with DV BOOLEAN VALUE: false
+07-09 11:22:18.777: D/DvText(24118): Notifying datatype changes to the DvTextWidget with current value:Fu!fu!FH!fu!fu!
+07-09 11:22:18.777: D/DvTextWidget(24118): CALLED updateWidgetContents with DV TEXT VALUE: Fu!fu!FH!fu!fu!
+07-09 11:22:18.807: I/LatinIME:LogUtils(868): Dictionary info: dictionary = main:it ; version = 43 ; date = 1389654090
+07-09 11:22:18.807: D/dalvikvm(24118): GC_FOR_ALLOC freed 361K, 4% free 10037K/10428K, paused 19ms, total 25ms
+07-09 11:22:18.807: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0006]/items[at0014]
+07-09 11:22:18.807: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41fe4070 Called toJson  for DV_BOOLEAN:false
+07-09 11:22:18.807: D/DvBoolean(24118): To be converted in JSON:{"value": { "selected" : false}}
+07-09 11:22:18.817: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":"DATA_NODE::DV_BOOLEAN","at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":"DATA_NODE::DV_BOOLEAN","at0010":"DATA_NODE::DV_TEXT"}},"at0005":{"items":{"at0013":"DATA_NODE::DV_BOOLEAN","at0009":"DATA_NODE::DV_TEXT"}}}}]}}}}]}}
+07-09 11:22:18.817: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
+07-09 11:22:18.817: D/TestAdlParser(24118):   "at0014": "DATA_NODE::DV_BOOLEAN",
+07-09 11:22:18.817: D/TestAdlParser(24118):   "at0010": "DATA_NODE::DV_TEXT"
+07-09 11:22:18.817: D/TestAdlParser(24118): }
+07-09 11:22:18.817: D/TestAdlParser(24118): UPDATED STRUCTURE:{
+07-09 11:22:18.817: D/TestAdlParser(24118):   "at0014": {
+07-09 11:22:18.817: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.817: D/TestAdlParser(24118):       "selected": false
+07-09 11:22:18.817: D/TestAdlParser(24118):     }
+07-09 11:22:18.817: D/TestAdlParser(24118):   },
+07-09 11:22:18.817: D/TestAdlParser(24118):   "at0010": "DATA_NODE::DV_TEXT"
+07-09 11:22:18.817: D/TestAdlParser(24118): }
+07-09 11:22:18.817: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0006]/items[at0010]
+07-09 11:22:18.817: D/DvText(24118): To be converted in JSON:{"value": { "text" : ""}}
+07-09 11:22:18.817: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":"DATA_NODE::DV_BOOLEAN","at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":{"value":{"selected":false}},"at0010":"DATA_NODE::DV_TEXT"}},"at0005":{"items":{"at0013":"DATA_NODE::DV_BOOLEAN","at0009":"DATA_NODE::DV_TEXT"}}}}]}}}}]}}
+07-09 11:22:18.817: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
+07-09 11:22:18.817: D/TestAdlParser(24118):   "at0014": {
+07-09 11:22:18.817: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.817: D/TestAdlParser(24118):       "selected": false
+07-09 11:22:18.817: D/TestAdlParser(24118):     }
+07-09 11:22:18.817: D/TestAdlParser(24118):   },
+07-09 11:22:18.817: D/TestAdlParser(24118):   "at0010": "DATA_NODE::DV_TEXT"
+07-09 11:22:18.817: D/TestAdlParser(24118): }
+07-09 11:22:18.817: D/TestAdlParser(24118): UPDATED STRUCTURE:{
+07-09 11:22:18.817: D/TestAdlParser(24118):   "at0014": {
+07-09 11:22:18.817: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.817: D/TestAdlParser(24118):       "selected": false
+07-09 11:22:18.817: D/TestAdlParser(24118):     }
+07-09 11:22:18.817: D/TestAdlParser(24118):   },
+07-09 11:22:18.817: D/TestAdlParser(24118):   "at0010": {
+07-09 11:22:18.817: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.817: D/TestAdlParser(24118):       "text": ""
+07-09 11:22:18.817: D/TestAdlParser(24118):     }
+07-09 11:22:18.817: D/TestAdlParser(24118):   }
+07-09 11:22:18.817: D/TestAdlParser(24118): }
+07-09 11:22:18.817: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0005]/items[at0013]
+07-09 11:22:18.817: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41fed118 Called toJson  for DV_BOOLEAN:false
+07-09 11:22:18.817: D/DvBoolean(24118): To be converted in JSON:{"value": { "selected" : false}}
+07-09 11:22:18.827: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":"DATA_NODE::DV_BOOLEAN","at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":{"value":{"selected":false}},"at0010":{"value":{"text":""}}}},"at0005":{"items":{"at0013":"DATA_NODE::DV_BOOLEAN","at0009":"DATA_NODE::DV_TEXT"}}}}]}}}}]}}
+07-09 11:22:18.827: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
+07-09 11:22:18.827: D/TestAdlParser(24118):   "at0013": "DATA_NODE::DV_BOOLEAN",
+07-09 11:22:18.827: D/TestAdlParser(24118):   "at0009": "DATA_NODE::DV_TEXT"
+07-09 11:22:18.827: D/TestAdlParser(24118): }
+07-09 11:22:18.827: D/TestAdlParser(24118): UPDATED STRUCTURE:{
+07-09 11:22:18.827: D/TestAdlParser(24118):   "at0013": {
+07-09 11:22:18.827: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.827: D/TestAdlParser(24118):       "selected": false
+07-09 11:22:18.827: D/TestAdlParser(24118):     }
+07-09 11:22:18.827: D/TestAdlParser(24118):   },
+07-09 11:22:18.827: D/TestAdlParser(24118):   "at0009": "DATA_NODE::DV_TEXT"
+07-09 11:22:18.827: D/TestAdlParser(24118): }
+07-09 11:22:18.827: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0005]/items[at0009]
+07-09 11:22:18.827: D/DvText(24118): To be converted in JSON:{"value": { "text" : ""}}
+07-09 11:22:18.827: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":"DATA_NODE::DV_BOOLEAN","at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":{"value":{"selected":false}},"at0010":{"value":{"text":""}}}},"at0005":{"items":{"at0013":{"value":{"selected":false}},"at0009":"DATA_NODE::DV_TEXT"}}}}]}}}}]}}
+07-09 11:22:18.827: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
+07-09 11:22:18.827: D/TestAdlParser(24118):   "at0013": {
+07-09 11:22:18.827: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.827: D/TestAdlParser(24118):       "selected": false
+07-09 11:22:18.827: D/TestAdlParser(24118):     }
+07-09 11:22:18.827: D/TestAdlParser(24118):   },
+07-09 11:22:18.827: D/TestAdlParser(24118):   "at0009": "DATA_NODE::DV_TEXT"
+07-09 11:22:18.827: D/TestAdlParser(24118): }
+07-09 11:22:18.827: D/TestAdlParser(24118): UPDATED STRUCTURE:{
+07-09 11:22:18.827: D/TestAdlParser(24118):   "at0013": {
+07-09 11:22:18.827: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.827: D/TestAdlParser(24118):       "selected": false
+07-09 11:22:18.827: D/TestAdlParser(24118):     }
+07-09 11:22:18.827: D/TestAdlParser(24118):   },
+07-09 11:22:18.827: D/TestAdlParser(24118):   "at0009": {
+07-09 11:22:18.827: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.827: D/TestAdlParser(24118):       "text": ""
+07-09 11:22:18.827: D/TestAdlParser(24118):     }
+07-09 11:22:18.827: D/TestAdlParser(24118):   }
+07-09 11:22:18.827: D/TestAdlParser(24118): }
+07-09 11:22:18.827: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0015]
+07-09 11:22:18.827: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41fca438 Called toJson  for DV_BOOLEAN:false
+07-09 11:22:18.827: D/DvBoolean(24118): To be converted in JSON:{"value": { "selected" : false}}
+07-09 11:22:18.837: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":"DATA_NODE::DV_BOOLEAN","at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":{"value":{"selected":false}},"at0010":{"value":{"text":""}}}},"at0005":{"items":{"at0013":{"value":{"selected":false}},"at0009":{"value":{"text":""}}}}}}]}}}}]}}
+07-09 11:22:18.837: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
+07-09 11:22:18.837: D/TestAdlParser(24118):   "at0015": "DATA_NODE::DV_BOOLEAN",
+07-09 11:22:18.837: D/TestAdlParser(24118):   "at0011": "DATA_NODE::DV_TEXT"
+07-09 11:22:18.837: D/TestAdlParser(24118): }
+07-09 11:22:18.837: D/TestAdlParser(24118): UPDATED STRUCTURE:{
+07-09 11:22:18.837: D/TestAdlParser(24118):   "at0015": {
+07-09 11:22:18.837: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.837: D/TestAdlParser(24118):       "selected": false
+07-09 11:22:18.837: D/TestAdlParser(24118):     }
+07-09 11:22:18.837: D/TestAdlParser(24118):   },
+07-09 11:22:18.837: D/TestAdlParser(24118):   "at0011": "DATA_NODE::DV_TEXT"
+07-09 11:22:18.837: D/TestAdlParser(24118): }
+07-09 11:22:18.837: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0011]
+07-09 11:22:18.837: D/DvText(24118): To be converted in JSON:{"value": { "text" : ""}}
+07-09 11:22:18.837: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":{"value":{"selected":false}},"at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":{"value":{"selected":false}},"at0010":{"value":{"text":""}}}},"at0005":{"items":{"at0013":{"value":{"selected":false}},"at0009":{"value":{"text":""}}}}}}]}}}}]}}
+07-09 11:22:18.837: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
+07-09 11:22:18.837: D/TestAdlParser(24118):   "at0015": {
+07-09 11:22:18.837: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.837: D/TestAdlParser(24118):       "selected": false
+07-09 11:22:18.837: D/TestAdlParser(24118):     }
+07-09 11:22:18.837: D/TestAdlParser(24118):   },
+07-09 11:22:18.837: D/TestAdlParser(24118):   "at0011": "DATA_NODE::DV_TEXT"
+07-09 11:22:18.837: D/TestAdlParser(24118): }
+07-09 11:22:18.837: D/TestAdlParser(24118): UPDATED STRUCTURE:{
+07-09 11:22:18.837: D/TestAdlParser(24118):   "at0015": {
+07-09 11:22:18.837: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.837: D/TestAdlParser(24118):       "selected": false
+07-09 11:22:18.837: D/TestAdlParser(24118):     }
+07-09 11:22:18.837: D/TestAdlParser(24118):   },
+07-09 11:22:18.837: D/TestAdlParser(24118):   "at0011": {
+07-09 11:22:18.837: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.837: D/TestAdlParser(24118):       "text": ""
+07-09 11:22:18.837: D/TestAdlParser(24118):     }
+07-09 11:22:18.837: D/TestAdlParser(24118):   }
+07-09 11:22:18.837: D/TestAdlParser(24118): }
+07-09 11:22:18.837: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0008]
+07-09 11:22:18.837: D/DvText(24118): To be converted in JSON:{"value": { "text" : ""}}
+07-09 11:22:18.837: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":{"value":{"selected":false}},"at0011":{"value":{"text":""}}}},"at0006":{"items":{"at0014":{"value":{"selected":false}},"at0010":{"value":{"text":""}}}},"at0005":{"items":{"at0013":{"value":{"selected":false}},"at0009":{"value":{"text":""}}}}}}]}}}}]}}
+07-09 11:22:18.837: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
+07-09 11:22:18.837: D/TestAdlParser(24118):   "at0008": "DATA_NODE::DV_TEXT",
+07-09 11:22:18.837: D/TestAdlParser(24118):   "at0012": "DATA_NODE::DV_BOOLEAN"
+07-09 11:22:18.837: D/TestAdlParser(24118): }
+07-09 11:22:18.837: D/TestAdlParser(24118): UPDATED STRUCTURE:{
+07-09 11:22:18.837: D/TestAdlParser(24118):   "at0008": {
+07-09 11:22:18.837: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.837: D/TestAdlParser(24118):       "text": ""
+07-09 11:22:18.837: D/TestAdlParser(24118):     }
+07-09 11:22:18.837: D/TestAdlParser(24118):   },
+07-09 11:22:18.837: D/TestAdlParser(24118):   "at0012": "DATA_NODE::DV_BOOLEAN"
+07-09 11:22:18.837: D/TestAdlParser(24118): }
+07-09 11:22:18.837: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0012]
+07-09 11:22:18.847: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41f2ee80 Called toJson  for DV_BOOLEAN:false
+07-09 11:22:18.847: D/DvBoolean(24118): To be converted in JSON:{"value": { "selected" : false}}
+07-09 11:22:18.847: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":{"value":{"text":""}},"at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":{"value":{"selected":false}},"at0011":{"value":{"text":""}}}},"at0006":{"items":{"at0014":{"value":{"selected":false}},"at0010":{"value":{"text":""}}}},"at0005":{"items":{"at0013":{"value":{"selected":false}},"at0009":{"value":{"text":""}}}}}}]}}}}]}}
+07-09 11:22:18.847: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
+07-09 11:22:18.847: D/TestAdlParser(24118):   "at0008": {
+07-09 11:22:18.847: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.847: D/TestAdlParser(24118):       "text": ""
+07-09 11:22:18.847: D/TestAdlParser(24118):     }
+07-09 11:22:18.847: D/TestAdlParser(24118):   },
+07-09 11:22:18.847: D/TestAdlParser(24118):   "at0012": "DATA_NODE::DV_BOOLEAN"
+07-09 11:22:18.847: D/TestAdlParser(24118): }
+07-09 11:22:18.847: D/TestAdlParser(24118): UPDATED STRUCTURE:{
+07-09 11:22:18.847: D/TestAdlParser(24118):   "at0008": {
+07-09 11:22:18.847: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.847: D/TestAdlParser(24118):       "text": ""
+07-09 11:22:18.847: D/TestAdlParser(24118):     }
+07-09 11:22:18.847: D/TestAdlParser(24118):   },
+07-09 11:22:18.847: D/TestAdlParser(24118):   "at0012": {
+07-09 11:22:18.847: D/TestAdlParser(24118):     "value": {
+07-09 11:22:18.847: D/TestAdlParser(24118):       "selected": false
+07-09 11:22:18.847: D/TestAdlParser(24118):     }
+07-09 11:22:18.847: D/TestAdlParser(24118):   }
+07-09 11:22:18.847: D/TestAdlParser(24118): }
+07-09 11:22:19.668: D/ConnectivityService(635): handleInetConditionHoldEnd: net=1, condition=0, published condition=0

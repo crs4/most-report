@@ -19,15 +19,6 @@
         android:layout_height="wrap_content"
         android:src="@android:drawable/ic_menu_info_details" />
     
-</LinearLayout>
- 
-<LinearLayout 
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_vertical"
-    >
-    
     <CheckBox 
     android:id="@+id/check_is_selected"
     android:layout_width="match_parent" 
@@ -36,7 +27,9 @@
     android:text="Selected?"
     />
     
-    </LinearLayout>
+</LinearLayout>
+ 
+
 
     <com.nhaarman.supertooltips.ToolTipRelativeLayout
         android:id="@+id/activity_main_tooltipRelativeLayout"

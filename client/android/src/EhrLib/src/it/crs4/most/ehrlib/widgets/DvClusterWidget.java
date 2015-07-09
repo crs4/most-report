@@ -170,6 +170,7 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster>{
 	 */
 	@Override
 	public void save() throws InvalidDatatypeException {
+		Log.d(TAG, "Widgets for dv cluster to be updated:" + clusterWidgets.size());
 		 for( int i = 0; i < clusterWidgets.size(); i++ ) {
 			  clusterWidgets.get(i).save();
 	        }

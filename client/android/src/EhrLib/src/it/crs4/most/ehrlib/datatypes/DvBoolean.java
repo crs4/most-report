@@ -63,11 +63,12 @@ public class DvBoolean extends EhrDatatype {
 	
 	@Override
 	public JSONObject toJSON() {
+		Log.d(TAG, String.format("DV_BOOLEAN:%s Called toJson  for DV_BOOLEAN:%s" , this, String.valueOf(this.value)));
 		JSONObject jsonText = new JSONObject();
 		try {
-			String value = String.format("{\"value\": { \"selected\" : %s}}", this.value);
-			Log.d(TAG , "To be converted in JSON:" + value);
-			jsonText = new JSONObject(value);
+			String convValue = String.format("{\"value\": { \"selected\" : %s}}",this.value);
+			Log.d(TAG , "To be converted in JSON:" + convValue);
+			jsonText = new JSONObject(convValue);
 			
 			return jsonText;
 		} catch (JSONException e) {
@@ -87,17 +88,18 @@ public class DvBoolean extends EhrDatatype {
 	}
 
 	/**
-	 * Sets the text of this DV_TEXT item
+	 * Sets the text of this DV_BOOLEAN item
 	 *
 	 * @param text the new text
 	 */
 	public void setValue(boolean value) {
+		Log.d(TAG, String.format("DV_BOOLEAN:%s Called  setValue for DV_BOOLEAN: %s" , this, String.valueOf(value)));
 		this.value = value;
 	
 	
 	if (this.datatypeChangeListener!=null)
 	{
-		Log.d(TAG ,"Notifying datatype changes to the DvTextWidget with current value:" + getValue());
+		Log.d(TAG ,"Notifying datatype changes to the DvBooleanWidget with current value:" + getValue());
 		this.datatypeChangeListener.onEhrDatatypeChanged(this);
 	}
 	else
