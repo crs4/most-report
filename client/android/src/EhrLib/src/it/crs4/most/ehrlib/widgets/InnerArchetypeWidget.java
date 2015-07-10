@@ -138,7 +138,9 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 	private void setupDescription()
 	{
 		try {
-			this.description = _ontology.getJSONObject(_widget_provider.getDatatypesSchema().getString("title")).getString("description"); 
+			//this.description = _ontology.getJSONObject(_widget_provider.getDatatypesSchema().getString("title")).getString("description"); 
+			this.description = _ontology.getJSONObject(_name).getString("description"); 
+			
 		} catch (JSONException e) {
 			Log.e(TAG , "Problems during DESCRIPTION SETUP:" + e.getMessage());
 			e.printStackTrace();
@@ -151,9 +153,12 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 	private void setupDisplaytitle() {
 		try {
 			
-			displayTitle = _ontology.getJSONObject(_widget_provider.getDatatypesSchema().getString("title")).getString("text"); 
-			//displayTitle = _ontology.getJSONObject(_name).getString("text");
+			//displayTitle = _ontology.getJSONObject(_widget_provider.getDatatypesSchema().getString("title")).getString("text"); 
+			displayTitle = _ontology.getJSONObject(_name).getString("text"); 
+			 
 		} catch (JSONException e) {
+			Log.e(TAG,"Error retrieving inner archetype title:" + e.getMessage());
+			Log.d(TAG, "Current ontology:" + _ontology.toString());
 			displayTitle = _name;
 		}
 	}

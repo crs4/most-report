@@ -92,12 +92,16 @@ public class AdlParser {
 	private Object getObjectByPath(String [] paths, JSONObject json, int numLevelsUp)
 	{
 		Log.d(TAG, "JSON IN getObjectByPath:" + json);
-		//Log.d(TAG, "LEVELS UP:" + numLevelsUp);
+		Log.d(TAG, "LEVELS UP:" + numLevelsUp);
 		
-		//for (String s : paths) Log.d(TAG, "Path:" +s);
+		for (String s : paths) Log.d(TAG, "Path:" +s);
 		
 		int lastIndex = paths.length-1 +numLevelsUp;
-			
+		Log.d(TAG, "LAST INDEX:" + lastIndex);
+		
+		if (lastIndex<0)
+			return json;
+		
 		try {	
 		for (int i=0;i<lastIndex;i++)
 		{  
@@ -118,7 +122,7 @@ public class AdlParser {
 			
 		 
 		
-		//Log.d(TAG, "Returning Object by path:" + json.get(paths[lastIndex]));
+		Log.d(TAG, "Returning Object by path:" + json.get(paths[lastIndex]));
 		
 				return json.get(paths[lastIndex]);
 				
@@ -134,7 +138,7 @@ public class AdlParser {
 
 	
 	/**
-	 * Get an ADL structure containing all the items included in an archetype path. The path must be the absolute parh of any of its items.
+	 * Get an ADL structure containing all the items included in an archetype path. The path must be the absolute path of any of its items.
 	 * For instance, providing the path data[at0001]/events[at0006]/data[at0003]/items[at0004] , this method returns the ADL structure included in data[at0001]/events[at0006]/data[at0003]
 	 * @param path the path of an item
 	 * @return the AdlStructure

@@ -169,6 +169,7 @@ public abstract class DatatypeWidget <T extends EhrDatatype> implements EhrDatat
 		try {
 			displayTitle = _ontology.getJSONObject(_name).getString("text");
 		} catch (JSONException e) {
+			Log.e(TAG, String.format("Key %s not found for datatype with ontology: %s", _name, _ontology));
 			displayTitle = _name;
 		}
 	}

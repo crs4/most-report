@@ -1,219 +1,638 @@
-07-09 11:21:49.668: I/LatinIME:LogUtils(868): Dictionary info: dictionary = contacts.it_IT.dict ; version = ? ; date = ?
-07-09 11:21:49.668: D/audio_hw_primary(189): select_devices: out_snd_device(2: speaker) in_snd_device(0: )
-07-09 11:21:49.668: D/ACDB-LOADER(189): ACDB -> send_afe_cal
-07-09 11:21:51.851: D/dalvikvm(868): GC_FOR_ALLOC freed 4629K, 31% free 10996K/15852K, paused 36ms, total 36ms
-07-09 11:21:51.861: I/dalvikvm-heap(868): Grow heap (frag case) to 14.224MB for 3624016-byte allocation
-07-09 11:21:51.881: D/dalvikvm(868): GC_FOR_ALLOC freed 7K, 26% free 14528K/19392K, paused 22ms, total 22ms
-07-09 11:21:51.911: D/dalvikvm(868): GC_CONCURRENT freed 103K, 26% free 14425K/19392K, paused 3ms+3ms, total 32ms
-07-09 11:21:52.902: D/audio_hw_primary(189): select_devices: out_snd_device(2: speaker) in_snd_device(0: )
-07-09 11:21:52.902: D/ACDB-LOADER(189): ACDB -> send_afe_cal
-07-09 11:21:58.077: D/audio_hw_primary(189): select_devices: out_snd_device(2: speaker) in_snd_device(0: )
-07-09 11:21:58.077: D/ACDB-LOADER(189): ACDB -> send_afe_cal
-07-09 11:22:01.490: D/dalvikvm(868): GC_FOR_ALLOC freed 4244K, 32% free 10923K/15852K, paused 30ms, total 30ms
-07-09 11:22:01.500: I/dalvikvm-heap(868): Grow heap (frag case) to 14.152MB for 3624016-byte allocation
-07-09 11:22:01.530: D/dalvikvm(868): GC_FOR_ALLOC freed <1K, 26% free 14461K/19392K, paused 31ms, total 31ms
-07-09 11:22:01.560: D/dalvikvm(868): GC_CONCURRENT freed 28K, 26% free 14433K/19392K, paused 4ms+3ms, total 29ms
-07-09 11:22:01.890: D/dalvikvm(635): GC_EXPLICIT freed 5153K, 26% free 41483K/55544K, paused 3ms+15ms, total 152ms
-07-09 11:22:01.910: D/audio_hw_primary(189): select_devices: out_snd_device(2: speaker) in_snd_device(0: )
-07-09 11:22:01.910: D/ACDB-LOADER(189): ACDB -> send_afe_cal
-07-09 11:22:01.970: I/LatinIME:LogUtils(868): Dictionary info: dictionary = main:it ; version = 43 ; date = 1389654090
-07-09 11:22:01.980: I/LatinIME:LogUtils(868): Dictionary info: dictionary = userunigram.it.dict ; version = ? ; date = ?
-07-09 11:22:06.675: D/audio_hw_primary(189): select_devices: out_snd_device(2: speaker) in_snd_device(0: )
-07-09 11:22:06.675: D/ACDB-LOADER(189): ACDB -> send_afe_cal
-07-09 11:22:10.689: D/dalvikvm(868): GC_FOR_ALLOC freed 4426K, 31% free 11004K/15852K, paused 32ms, total 32ms
-07-09 11:22:10.699: I/dalvikvm-heap(868): Grow heap (frag case) to 14.232MB for 3624016-byte allocation
-07-09 11:22:10.729: D/dalvikvm(868): GC_FOR_ALLOC freed 10K, 26% free 14533K/19392K, paused 28ms, total 28ms
-07-09 11:22:10.759: D/dalvikvm(868): GC_CONCURRENT freed 48K, 26% free 14484K/19392K, paused 3ms+3ms, total 29ms
-07-09 11:22:10.929: D/audio_hw_primary(189): select_devices: out_snd_device(2: speaker) in_snd_device(0: )
-07-09 11:22:10.929: D/ACDB-LOADER(189): ACDB -> send_afe_cal
-07-09 11:22:16.364: D/dalvikvm(868): GC_FOR_ALLOC freed 3881K, 31% free 10948K/15852K, paused 27ms, total 28ms
-07-09 11:22:16.374: I/dalvikvm-heap(868): Grow heap (frag case) to 14.177MB for 3624016-byte allocation
-07-09 11:22:16.404: D/dalvikvm(868): GC_FOR_ALLOC freed <1K, 26% free 14486K/19392K, paused 28ms, total 28ms
-07-09 11:22:16.434: D/dalvikvm(868): GC_CONCURRENT freed 1K, 26% free 14485K/19392K, paused 2ms+2ms, total 30ms
-07-09 11:22:18.757: D/FormContainer(24118): Saving widget for path:data[at0001]/events[at0002]/data[at0003]/items[at0004]
-07-09 11:22:18.757: D/DvClusterWidget(24118): Widgets for dv cluster to be updated:2
-07-09 11:22:18.757: D/DvText(24118): Notifying datatype changes to the DvTextWidget with current value:Phjdykdhmdhmdhmdhm
-07-09 11:22:18.757: D/DvTextWidget(24118): CALLED updateWidgetContents with DV TEXT VALUE: Phjdykdhmdhmdhmdhm
-07-09 11:22:18.757: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41ed2718 Called  setValue for DV_BOOLEAN: true
-07-09 11:22:18.757: D/DvBoolean(24118): Notifying datatype changes to the DvBooleanWidget with current value:true
-07-09 11:22:18.757: D/DvTextWidget(24118): CALLED updateWidgetContents with DV BOOLEAN VALUE: true
-07-09 11:22:18.757: D/FormContainer(24118): Saving widget for path:data[at0001]/events[at0002]/data[at0003]/items[at0007]
-07-09 11:22:18.757: D/DvClusterWidget(24118): Widgets for dv cluster to be updated:2
-07-09 11:22:18.757: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41f53088 Called  setValue for DV_BOOLEAN: true
-07-09 11:22:18.757: D/DvBoolean(24118): Notifying datatype changes to the DvBooleanWidget with current value:true
-07-09 11:22:18.757: D/DvTextWidget(24118): CALLED updateWidgetContents with DV BOOLEAN VALUE: true
-07-09 11:22:18.757: D/DvText(24118): Notifying datatype changes to the DvTextWidget with current value:Fu!DH!DH!
-07-09 11:22:18.757: D/DvTextWidget(24118): CALLED updateWidgetContents with DV TEXT VALUE: Fu!DH!DH!
-07-09 11:22:18.767: D/FormContainer(24118): Saving widget for path:data[at0001]/events[at0002]/data[at0003]/items[at0006]
-07-09 11:22:18.767: D/DvClusterWidget(24118): Widgets for dv cluster to be updated:2
-07-09 11:22:18.767: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41fbb3e0 Called  setValue for DV_BOOLEAN: true
-07-09 11:22:18.767: D/DvBoolean(24118): Notifying datatype changes to the DvBooleanWidget with current value:true
-07-09 11:22:18.767: D/DvTextWidget(24118): CALLED updateWidgetContents with DV BOOLEAN VALUE: true
-07-09 11:22:18.767: D/DvText(24118): Notifying datatype changes to the DvTextWidget with current value:Wsgmsgmsg
-07-09 11:22:18.767: D/DvTextWidget(24118): CALLED updateWidgetContents with DV TEXT VALUE: Wsgmsgmsg
-07-09 11:22:18.767: D/FormContainer(24118): Saving widget for path:data[at0001]/events[at0002]/data[at0003]/items[at0005]
-07-09 11:22:18.767: D/DvClusterWidget(24118): Widgets for dv cluster to be updated:2
-07-09 11:22:18.777: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41fcf080 Called  setValue for DV_BOOLEAN: false
-07-09 11:22:18.777: D/DvBoolean(24118): Notifying datatype changes to the DvBooleanWidget with current value:false
-07-09 11:22:18.777: D/DvTextWidget(24118): CALLED updateWidgetContents with DV BOOLEAN VALUE: false
-07-09 11:22:18.777: D/DvText(24118): Notifying datatype changes to the DvTextWidget with current value:Fu!fu!FH!fu!fu!
-07-09 11:22:18.777: D/DvTextWidget(24118): CALLED updateWidgetContents with DV TEXT VALUE: Fu!fu!FH!fu!fu!
-07-09 11:22:18.807: I/LatinIME:LogUtils(868): Dictionary info: dictionary = main:it ; version = 43 ; date = 1389654090
-07-09 11:22:18.807: D/dalvikvm(24118): GC_FOR_ALLOC freed 361K, 4% free 10037K/10428K, paused 19ms, total 25ms
-07-09 11:22:18.807: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0006]/items[at0014]
-07-09 11:22:18.807: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41fe4070 Called toJson  for DV_BOOLEAN:false
-07-09 11:22:18.807: D/DvBoolean(24118): To be converted in JSON:{"value": { "selected" : false}}
-07-09 11:22:18.817: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":"DATA_NODE::DV_BOOLEAN","at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":"DATA_NODE::DV_BOOLEAN","at0010":"DATA_NODE::DV_TEXT"}},"at0005":{"items":{"at0013":"DATA_NODE::DV_BOOLEAN","at0009":"DATA_NODE::DV_TEXT"}}}}]}}}}]}}
-07-09 11:22:18.817: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
-07-09 11:22:18.817: D/TestAdlParser(24118):   "at0014": "DATA_NODE::DV_BOOLEAN",
-07-09 11:22:18.817: D/TestAdlParser(24118):   "at0010": "DATA_NODE::DV_TEXT"
-07-09 11:22:18.817: D/TestAdlParser(24118): }
-07-09 11:22:18.817: D/TestAdlParser(24118): UPDATED STRUCTURE:{
-07-09 11:22:18.817: D/TestAdlParser(24118):   "at0014": {
-07-09 11:22:18.817: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.817: D/TestAdlParser(24118):       "selected": false
-07-09 11:22:18.817: D/TestAdlParser(24118):     }
-07-09 11:22:18.817: D/TestAdlParser(24118):   },
-07-09 11:22:18.817: D/TestAdlParser(24118):   "at0010": "DATA_NODE::DV_TEXT"
-07-09 11:22:18.817: D/TestAdlParser(24118): }
-07-09 11:22:18.817: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0006]/items[at0010]
-07-09 11:22:18.817: D/DvText(24118): To be converted in JSON:{"value": { "text" : ""}}
-07-09 11:22:18.817: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":"DATA_NODE::DV_BOOLEAN","at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":{"value":{"selected":false}},"at0010":"DATA_NODE::DV_TEXT"}},"at0005":{"items":{"at0013":"DATA_NODE::DV_BOOLEAN","at0009":"DATA_NODE::DV_TEXT"}}}}]}}}}]}}
-07-09 11:22:18.817: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
-07-09 11:22:18.817: D/TestAdlParser(24118):   "at0014": {
-07-09 11:22:18.817: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.817: D/TestAdlParser(24118):       "selected": false
-07-09 11:22:18.817: D/TestAdlParser(24118):     }
-07-09 11:22:18.817: D/TestAdlParser(24118):   },
-07-09 11:22:18.817: D/TestAdlParser(24118):   "at0010": "DATA_NODE::DV_TEXT"
-07-09 11:22:18.817: D/TestAdlParser(24118): }
-07-09 11:22:18.817: D/TestAdlParser(24118): UPDATED STRUCTURE:{
-07-09 11:22:18.817: D/TestAdlParser(24118):   "at0014": {
-07-09 11:22:18.817: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.817: D/TestAdlParser(24118):       "selected": false
-07-09 11:22:18.817: D/TestAdlParser(24118):     }
-07-09 11:22:18.817: D/TestAdlParser(24118):   },
-07-09 11:22:18.817: D/TestAdlParser(24118):   "at0010": {
-07-09 11:22:18.817: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.817: D/TestAdlParser(24118):       "text": ""
-07-09 11:22:18.817: D/TestAdlParser(24118):     }
-07-09 11:22:18.817: D/TestAdlParser(24118):   }
-07-09 11:22:18.817: D/TestAdlParser(24118): }
-07-09 11:22:18.817: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0005]/items[at0013]
-07-09 11:22:18.817: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41fed118 Called toJson  for DV_BOOLEAN:false
-07-09 11:22:18.817: D/DvBoolean(24118): To be converted in JSON:{"value": { "selected" : false}}
-07-09 11:22:18.827: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":"DATA_NODE::DV_BOOLEAN","at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":{"value":{"selected":false}},"at0010":{"value":{"text":""}}}},"at0005":{"items":{"at0013":"DATA_NODE::DV_BOOLEAN","at0009":"DATA_NODE::DV_TEXT"}}}}]}}}}]}}
-07-09 11:22:18.827: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
-07-09 11:22:18.827: D/TestAdlParser(24118):   "at0013": "DATA_NODE::DV_BOOLEAN",
-07-09 11:22:18.827: D/TestAdlParser(24118):   "at0009": "DATA_NODE::DV_TEXT"
-07-09 11:22:18.827: D/TestAdlParser(24118): }
-07-09 11:22:18.827: D/TestAdlParser(24118): UPDATED STRUCTURE:{
-07-09 11:22:18.827: D/TestAdlParser(24118):   "at0013": {
-07-09 11:22:18.827: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.827: D/TestAdlParser(24118):       "selected": false
-07-09 11:22:18.827: D/TestAdlParser(24118):     }
-07-09 11:22:18.827: D/TestAdlParser(24118):   },
-07-09 11:22:18.827: D/TestAdlParser(24118):   "at0009": "DATA_NODE::DV_TEXT"
-07-09 11:22:18.827: D/TestAdlParser(24118): }
-07-09 11:22:18.827: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0005]/items[at0009]
-07-09 11:22:18.827: D/DvText(24118): To be converted in JSON:{"value": { "text" : ""}}
-07-09 11:22:18.827: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":"DATA_NODE::DV_BOOLEAN","at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":{"value":{"selected":false}},"at0010":{"value":{"text":""}}}},"at0005":{"items":{"at0013":{"value":{"selected":false}},"at0009":"DATA_NODE::DV_TEXT"}}}}]}}}}]}}
-07-09 11:22:18.827: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
-07-09 11:22:18.827: D/TestAdlParser(24118):   "at0013": {
-07-09 11:22:18.827: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.827: D/TestAdlParser(24118):       "selected": false
-07-09 11:22:18.827: D/TestAdlParser(24118):     }
-07-09 11:22:18.827: D/TestAdlParser(24118):   },
-07-09 11:22:18.827: D/TestAdlParser(24118):   "at0009": "DATA_NODE::DV_TEXT"
-07-09 11:22:18.827: D/TestAdlParser(24118): }
-07-09 11:22:18.827: D/TestAdlParser(24118): UPDATED STRUCTURE:{
-07-09 11:22:18.827: D/TestAdlParser(24118):   "at0013": {
-07-09 11:22:18.827: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.827: D/TestAdlParser(24118):       "selected": false
-07-09 11:22:18.827: D/TestAdlParser(24118):     }
-07-09 11:22:18.827: D/TestAdlParser(24118):   },
-07-09 11:22:18.827: D/TestAdlParser(24118):   "at0009": {
-07-09 11:22:18.827: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.827: D/TestAdlParser(24118):       "text": ""
-07-09 11:22:18.827: D/TestAdlParser(24118):     }
-07-09 11:22:18.827: D/TestAdlParser(24118):   }
-07-09 11:22:18.827: D/TestAdlParser(24118): }
-07-09 11:22:18.827: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0015]
-07-09 11:22:18.827: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41fca438 Called toJson  for DV_BOOLEAN:false
-07-09 11:22:18.827: D/DvBoolean(24118): To be converted in JSON:{"value": { "selected" : false}}
-07-09 11:22:18.837: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":"DATA_NODE::DV_BOOLEAN","at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":{"value":{"selected":false}},"at0010":{"value":{"text":""}}}},"at0005":{"items":{"at0013":{"value":{"selected":false}},"at0009":{"value":{"text":""}}}}}}]}}}}]}}
-07-09 11:22:18.837: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
-07-09 11:22:18.837: D/TestAdlParser(24118):   "at0015": "DATA_NODE::DV_BOOLEAN",
-07-09 11:22:18.837: D/TestAdlParser(24118):   "at0011": "DATA_NODE::DV_TEXT"
-07-09 11:22:18.837: D/TestAdlParser(24118): }
-07-09 11:22:18.837: D/TestAdlParser(24118): UPDATED STRUCTURE:{
-07-09 11:22:18.837: D/TestAdlParser(24118):   "at0015": {
-07-09 11:22:18.837: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.837: D/TestAdlParser(24118):       "selected": false
-07-09 11:22:18.837: D/TestAdlParser(24118):     }
-07-09 11:22:18.837: D/TestAdlParser(24118):   },
-07-09 11:22:18.837: D/TestAdlParser(24118):   "at0011": "DATA_NODE::DV_TEXT"
-07-09 11:22:18.837: D/TestAdlParser(24118): }
-07-09 11:22:18.837: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0011]
-07-09 11:22:18.837: D/DvText(24118): To be converted in JSON:{"value": { "text" : ""}}
-07-09 11:22:18.837: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":{"value":{"selected":false}},"at0011":"DATA_NODE::DV_TEXT"}},"at0006":{"items":{"at0014":{"value":{"selected":false}},"at0010":{"value":{"text":""}}}},"at0005":{"items":{"at0013":{"value":{"selected":false}},"at0009":{"value":{"text":""}}}}}}]}}}}]}}
-07-09 11:22:18.837: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
-07-09 11:22:18.837: D/TestAdlParser(24118):   "at0015": {
-07-09 11:22:18.837: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.837: D/TestAdlParser(24118):       "selected": false
-07-09 11:22:18.837: D/TestAdlParser(24118):     }
-07-09 11:22:18.837: D/TestAdlParser(24118):   },
-07-09 11:22:18.837: D/TestAdlParser(24118):   "at0011": "DATA_NODE::DV_TEXT"
-07-09 11:22:18.837: D/TestAdlParser(24118): }
-07-09 11:22:18.837: D/TestAdlParser(24118): UPDATED STRUCTURE:{
-07-09 11:22:18.837: D/TestAdlParser(24118):   "at0015": {
-07-09 11:22:18.837: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.837: D/TestAdlParser(24118):       "selected": false
-07-09 11:22:18.837: D/TestAdlParser(24118):     }
-07-09 11:22:18.837: D/TestAdlParser(24118):   },
-07-09 11:22:18.837: D/TestAdlParser(24118):   "at0011": {
-07-09 11:22:18.837: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.837: D/TestAdlParser(24118):       "text": ""
-07-09 11:22:18.837: D/TestAdlParser(24118):     }
-07-09 11:22:18.837: D/TestAdlParser(24118):   }
-07-09 11:22:18.837: D/TestAdlParser(24118): }
-07-09 11:22:18.837: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0008]
-07-09 11:22:18.837: D/DvText(24118): To be converted in JSON:{"value": { "text" : ""}}
-07-09 11:22:18.837: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":"DATA_NODE::DV_TEXT","at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":{"value":{"selected":false}},"at0011":{"value":{"text":""}}}},"at0006":{"items":{"at0014":{"value":{"selected":false}},"at0010":{"value":{"text":""}}}},"at0005":{"items":{"at0013":{"value":{"selected":false}},"at0009":{"value":{"text":""}}}}}}]}}}}]}}
-07-09 11:22:18.837: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
-07-09 11:22:18.837: D/TestAdlParser(24118):   "at0008": "DATA_NODE::DV_TEXT",
-07-09 11:22:18.837: D/TestAdlParser(24118):   "at0012": "DATA_NODE::DV_BOOLEAN"
-07-09 11:22:18.837: D/TestAdlParser(24118): }
-07-09 11:22:18.837: D/TestAdlParser(24118): UPDATED STRUCTURE:{
-07-09 11:22:18.837: D/TestAdlParser(24118):   "at0008": {
-07-09 11:22:18.837: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.837: D/TestAdlParser(24118):       "text": ""
-07-09 11:22:18.837: D/TestAdlParser(24118):     }
-07-09 11:22:18.837: D/TestAdlParser(24118):   },
-07-09 11:22:18.837: D/TestAdlParser(24118):   "at0012": "DATA_NODE::DV_BOOLEAN"
-07-09 11:22:18.837: D/TestAdlParser(24118): }
-07-09 11:22:18.837: D/WidgetProvider(24118): PATH TO UPDATE: data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0012]
-07-09 11:22:18.847: D/DvBoolean(24118): DV_BOOLEAN:it.crs4.most.ehrlib.datatypes.DvBoolean@41f2ee80 Called toJson  for DV_BOOLEAN:false
-07-09 11:22:18.847: D/DvBoolean(24118): To be converted in JSON:{"value": { "selected" : false}}
-07-09 11:22:18.847: D/TestAdlParser(24118): JSON IN getObjectByPath:{"data":{"at0001":[{"events":{"at0002":{"data":{"at0003":[{"items":{"at0004":{"items":{"at0008":{"value":{"text":""}},"at0012":"DATA_NODE::DV_BOOLEAN"}},"at0007":{"items":{"at0015":{"value":{"selected":false}},"at0011":{"value":{"text":""}}}},"at0006":{"items":{"at0014":{"value":{"selected":false}},"at0010":{"value":{"text":""}}}},"at0005":{"items":{"at0013":{"value":{"selected":false}},"at0009":{"value":{"text":""}}}}}}]}}}}]}}
-07-09 11:22:18.847: D/TestAdlParser(24118): STRUCTURE TO UPDATE:{
-07-09 11:22:18.847: D/TestAdlParser(24118):   "at0008": {
-07-09 11:22:18.847: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.847: D/TestAdlParser(24118):       "text": ""
-07-09 11:22:18.847: D/TestAdlParser(24118):     }
-07-09 11:22:18.847: D/TestAdlParser(24118):   },
-07-09 11:22:18.847: D/TestAdlParser(24118):   "at0012": "DATA_NODE::DV_BOOLEAN"
-07-09 11:22:18.847: D/TestAdlParser(24118): }
-07-09 11:22:18.847: D/TestAdlParser(24118): UPDATED STRUCTURE:{
-07-09 11:22:18.847: D/TestAdlParser(24118):   "at0008": {
-07-09 11:22:18.847: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.847: D/TestAdlParser(24118):       "text": ""
-07-09 11:22:18.847: D/TestAdlParser(24118):     }
-07-09 11:22:18.847: D/TestAdlParser(24118):   },
-07-09 11:22:18.847: D/TestAdlParser(24118):   "at0012": {
-07-09 11:22:18.847: D/TestAdlParser(24118):     "value": {
-07-09 11:22:18.847: D/TestAdlParser(24118):       "selected": false
-07-09 11:22:18.847: D/TestAdlParser(24118):     }
-07-09 11:22:18.847: D/TestAdlParser(24118):   }
-07-09 11:22:18.847: D/TestAdlParser(24118): }
-07-09 11:22:19.668: D/ConnectivityService(635): handleInetConditionHoldEnd: net=1, condition=0, published condition=0
+07-10 18:53:01.096: D/dalvikvm(20132): Late-enabling CheckJNI
+07-10 18:53:01.206: I/dalvikvm(20132): Could not find method android.view.ViewGroup.onNestedScrollAccepted, referenced from method android.support.v7.internal.widget.ActionBarOverlayLayout.onNestedScrollAccepted
+07-10 18:53:01.206: W/dalvikvm(20132): VFY: unable to resolve virtual method 11375: Landroid/view/ViewGroup;.onNestedScrollAccepted (Landroid/view/View;Landroid/view/View;I)V
+07-10 18:53:01.206: D/dalvikvm(20132): VFY: replacing opcode 0x6f at 0x0000
+07-10 18:53:01.206: I/dalvikvm(20132): Could not find method android.view.ViewGroup.onStopNestedScroll, referenced from method android.support.v7.internal.widget.ActionBarOverlayLayout.onStopNestedScroll
+07-10 18:53:01.206: W/dalvikvm(20132): VFY: unable to resolve virtual method 11381: Landroid/view/ViewGroup;.onStopNestedScroll (Landroid/view/View;)V
+07-10 18:53:01.206: D/dalvikvm(20132): VFY: replacing opcode 0x6f at 0x0000
+07-10 18:53:01.216: I/dalvikvm(20132): Could not find method android.support.v7.internal.widget.ActionBarOverlayLayout.stopNestedScroll, referenced from method android.support.v7.internal.widget.ActionBarOverlayLayout.setHideOnContentScrollEnabled
+07-10 18:53:01.216: W/dalvikvm(20132): VFY: unable to resolve virtual method 9060: Landroid/support/v7/internal/widget/ActionBarOverlayLayout;.stopNestedScroll ()V
+07-10 18:53:01.216: D/dalvikvm(20132): VFY: replacing opcode 0x6e at 0x000e
+07-10 18:53:01.216: I/dalvikvm(20132): Could not find method android.content.res.TypedArray.getChangingConfigurations, referenced from method android.support.v7.internal.widget.TintTypedArray.getChangingConfigurations
+07-10 18:53:01.216: W/dalvikvm(20132): VFY: unable to resolve virtual method 374: Landroid/content/res/TypedArray;.getChangingConfigurations ()I
+07-10 18:53:01.216: D/dalvikvm(20132): VFY: replacing opcode 0x6e at 0x0002
+07-10 18:53:01.216: I/dalvikvm(20132): Could not find method android.content.res.TypedArray.getType, referenced from method android.support.v7.internal.widget.TintTypedArray.getType
+07-10 18:53:01.216: W/dalvikvm(20132): VFY: unable to resolve virtual method 396: Landroid/content/res/TypedArray;.getType (I)I
+07-10 18:53:01.216: D/dalvikvm(20132): VFY: replacing opcode 0x6e at 0x0002
+07-10 18:53:01.256: D/WidgetProvider(20132): Loading ontology for archetype class:openEHR-EHR-SECTION.adhoc_observation.v1
+07-10 18:53:01.256: D/WidgetProvider(20132): Reading ontology: {
+07-10 18:53:01.256: D/WidgetProvider(20132): 	"en":{
+07-10 18:53:01.256: D/WidgetProvider(20132): 		"at0000.1":{
+07-10 18:53:01.256: D/WidgetProvider(20132): 			"text":"Adhoc observation section (EN)",
+07-10 18:53:01.256: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.256: D/WidgetProvider(20132): 		},
+07-10 18:53:01.256: D/WidgetProvider(20132): 	  "at0.3" : { "text":"Eco Fast (EN)",
+07-10 18:53:01.256: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:01.256: D/WidgetProvider(20132): 	  	},
+07-10 18:53:01.256: D/WidgetProvider(20132): 	   "at0.4" : { "text":"Abdominal Mass (EN)",
+07-10 18:53:01.256: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:01.256: D/WidgetProvider(20132): 	  	}
+07-10 18:53:01.256: D/WidgetProvider(20132): 	  	
+07-10 18:53:01.256: D/WidgetProvider(20132): 	},
+07-10 18:53:01.256: D/WidgetProvider(20132): 	"es-ar":{
+07-10 18:53:01.256: D/WidgetProvider(20132): 		"at0000.1":{
+07-10 18:53:01.256: D/WidgetProvider(20132): 			"text":"Adhoc observation section (ES)",
+07-10 18:53:01.256: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.256: D/WidgetProvider(20132): 		},
+07-10 18:53:01.256: D/WidgetProvider(20132): 		
+07-10 18:53:01.256: D/WidgetProvider(20132): 		"at0.3" : { "text":"Eco Fast (ES)",
+07-10 18:53:01.256: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:01.256: D/WidgetProvider(20132): 	  	},
+07-10 18:53:01.256: D/WidgetProvider(20132): 	    "at0.4" : { "text":"Abdominal Mass (ES)",
+07-10 18:53:01.256: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:01.256: D/WidgetProvider(20132): 	  	}
+07-10 18:53:01.256: D/WidgetProvider(20132): 	}
+07-10 18:53:01.256: D/WidgetProvider(20132): }
+07-10 18:53:01.256: D/WidgetProvider(20132): Ontology read ok 
+07-10 18:53:01.256: D/WidgetProvider(20132): Building SECTION:items
+07-10 18:53:01.256: D/WidgetProvider(20132): item data path:items[at0.3]
+07-10 18:53:01.256: D/TestAdlParser(20132): JSON IN getObjectByPath:{"items":{"at0.3":"ARCHETYPE_NODE","at0.4":"ARCHETYPE_NODE"}}
+07-10 18:53:01.256: D/TestAdlParser(20132): LEVELS UP:-2
+07-10 18:53:01.256: D/TestAdlParser(20132): Path:items
+07-10 18:53:01.256: D/TestAdlParser(20132): Path:at0.3
+07-10 18:53:01.256: D/TestAdlParser(20132): LAST INDEX:-1
+07-10 18:53:01.256: D/WidgetProvider(20132): creating datatype widgets...
+07-10 18:53:01.256: D/WidgetProvider(20132): ITEM STRUCTURE NAMES:["at0.3","at0.4"]
+07-10 18:53:01.256: D/WidgetProvider(20132): Trying to building widget for at0.3 with path items[at0.3]
+07-10 18:53:01.256: D/WidgetProvider(20132): Found Datatype Widget: it.crs4.most.ehrlib.widgets.InnerArchetypeWidget
+07-10 18:53:01.266: D/WidgetProvider(20132): Instancing widget it.crs4.most.ehrlib.widgets.InnerArchetypeWidget for datatype: ARCHETYPE parentIndex: 0
+07-10 18:53:01.266: D/WidgetProvider(20132): Found Innser archetype!
+07-10 18:53:01.266: D/WidgetProvider(20132): Inner Arechetype Class Name:openEHR-EHR-OBSERVATION.eco_fast.v1
+07-10 18:53:01.266: D/WidgetProvider(20132): Loading ontology for archetype class:openEHR-EHR-OBSERVATION.eco_fast.v1
+07-10 18:53:01.266: D/WidgetProvider(20132): Reading ontology: {
+07-10 18:53:01.266: D/WidgetProvider(20132): 	"en":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0000":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Eco FAST",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"Focused Assessment Sonography for Trauma"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0004":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Periheoatic_space",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0005":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Perisplenic_space",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0006":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Pericardium",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0007":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Pelvis",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0008":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Findings",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0012":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Effusion",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0009":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Findings",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0013":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Effusion",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0010":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Findings",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0014":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Effusion",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0011":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Findings",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0015":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Effusion",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		}	
+07-10 18:53:01.266: D/WidgetProvider(20132): 	},
+07-10 18:53:01.266: D/WidgetProvider(20132): 	"es-ar":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0000":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Eco FAST",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"Focused Assessment Sonography for Trauma"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0004":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Periheoatic_space",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0005":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Perisplenic_space",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0006":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Pericardium",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0007":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Pelvis",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0008":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Findings",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0012":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Effusion",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0009":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Findings",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0013":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Effusion",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0010":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Findings",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0014":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Effusion",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0011":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Findings",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		},
+07-10 18:53:01.266: D/WidgetProvider(20132): 		"at0015":{
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"text":"Effusion",
+07-10 18:53:01.266: D/WidgetProvider(20132): 			"description":"todo"
+07-10 18:53:01.266: D/WidgetProvider(20132): 		}		
+07-10 18:53:01.266: D/WidgetProvider(20132): 	}
+07-10 18:53:01.266: D/WidgetProvider(20132): }
+07-10 18:53:01.276: D/WidgetProvider(20132): Ontology read ok 
+07-10 18:53:01.286: D/WidgetProvider(20132): Adding widget it.crs4.most.ehrlib.widgets.InnerArchetypeWidget@41f3cc58 for at0.3
+07-10 18:53:01.286: D/WidgetProvider(20132): Trying to building widget for at0.4 with path items[at0.4]
+07-10 18:53:01.286: D/WidgetProvider(20132): Found Datatype Widget: it.crs4.most.ehrlib.widgets.InnerArchetypeWidget
+07-10 18:53:01.286: D/WidgetProvider(20132): Instancing widget it.crs4.most.ehrlib.widgets.InnerArchetypeWidget for datatype: ARCHETYPE parentIndex: 0
+07-10 18:53:01.286: D/WidgetProvider(20132): Found Innser archetype!
+07-10 18:53:01.286: D/WidgetProvider(20132): Inner Arechetype Class Name:openEHR-EHR-OBSERVATION.abdomen_scan.v1
+07-10 18:53:01.306: D/dalvikvm(20132): GC_FOR_ALLOC freed 258K, 4% free 9303K/9592K, paused 15ms, total 15ms
+07-10 18:53:01.306: D/WidgetProvider(20132): Loading ontology for archetype class:openEHR-EHR-OBSERVATION.abdomen_scan.v1
+07-10 18:53:01.306: D/WidgetProvider(20132): Reading ontology: {
+07-10 18:53:01.306: D/WidgetProvider(20132): 	"en":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0000":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Abdomen scan",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0004":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Gallstone",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0007":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Hydronephrosis",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0005":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Presence",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0006":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Diameter",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0009":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Organomegaly",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0010":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Presence",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0011":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Diameter",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0012":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Bladder overdistention",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0000":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Abdominal mass",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		}
+07-10 18:53:01.306: D/WidgetProvider(20132): 	},
+07-10 18:53:01.306: D/WidgetProvider(20132): 	"es-ar":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0000":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Abdomen scan",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0004":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Gallstone",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0007":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Hydronephrosis",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0005":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Presence",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0006":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Diameter",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0009":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Organomegaly",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0010":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Presence",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0011":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Diameter",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0012":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Bladder overdistention",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		},
+07-10 18:53:01.306: D/WidgetProvider(20132): 		"at0000":{
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"text":"Abdominal mass",
+07-10 18:53:01.306: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:01.306: D/WidgetProvider(20132): 		}
+07-10 18:53:01.306: D/WidgetProvider(20132): 	}
+07-10 18:53:01.306: D/WidgetProvider(20132): }
+07-10 18:53:01.306: D/WidgetProvider(20132): Ontology read ok 
+07-10 18:53:01.306: D/WidgetProvider(20132): Adding widget it.crs4.most.ehrlib.widgets.InnerArchetypeWidget@41ed8dd0 for at0.4
+07-10 18:53:01.306: D/WidgetProvider(20132): Generating form....
+07-10 18:53:01.306: D/WidgetProvider(20132): FORM TITLE: Adhoc observation section (EN)
+07-10 18:53:01.306: D/WidgetProvider(20132): SectionWidgets for section items: [it.crs4.most.ehrlib.widgets.InnerArchetypeWidget@41f3cc58, it.crs4.most.ehrlib.widgets.InnerArchetypeWidget@41ed8dd0]
+07-10 18:53:01.316: D/WidgetProvider(20132): Resetting all widgets...
+07-10 18:53:01.356: I/Adreno-EGL(20132): <qeglDrvAPI_eglInitialize:320>: EGL 1.4 QUALCOMM Build: I0404c4692afb8623f95c43aeb6d5e13ed4b30ddbDate: 11/06/13
+07-10 18:53:01.386: D/OpenGLRenderer(20132): Enabling debug mode 0
+07-10 18:53:04.959: D/WidgetProvider(20132): Reading ontology: {
+07-10 18:53:04.959: D/WidgetProvider(20132): 	"en":{
+07-10 18:53:04.959: D/WidgetProvider(20132): 		"at0000.1":{
+07-10 18:53:04.959: D/WidgetProvider(20132): 			"text":"Adhoc observation section (EN)",
+07-10 18:53:04.959: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:04.959: D/WidgetProvider(20132): 		},
+07-10 18:53:04.959: D/WidgetProvider(20132): 	  "at0.3" : { "text":"Eco Fast (EN)",
+07-10 18:53:04.959: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:04.959: D/WidgetProvider(20132): 	  	},
+07-10 18:53:04.959: D/WidgetProvider(20132): 	   "at0.4" : { "text":"Abdominal Mass (EN)",
+07-10 18:53:04.959: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:04.959: D/WidgetProvider(20132): 	  	}
+07-10 18:53:04.959: D/WidgetProvider(20132): 	  	
+07-10 18:53:04.959: D/WidgetProvider(20132): 	},
+07-10 18:53:04.959: D/WidgetProvider(20132): 	"es-ar":{
+07-10 18:53:04.959: D/WidgetProvider(20132): 		"at0000.1":{
+07-10 18:53:04.959: D/WidgetProvider(20132): 			"text":"Adhoc observation section (ES)",
+07-10 18:53:04.959: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:04.959: D/WidgetProvider(20132): 		},
+07-10 18:53:04.959: D/WidgetProvider(20132): 		
+07-10 18:53:04.959: D/WidgetProvider(20132): 		"at0.3" : { "text":"Eco Fast (ES)",
+07-10 18:53:04.959: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:04.959: D/WidgetProvider(20132): 	  	},
+07-10 18:53:04.959: D/WidgetProvider(20132): 	    "at0.4" : { "text":"Abdominal Mass (ES)",
+07-10 18:53:04.959: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:04.959: D/WidgetProvider(20132): 	  	}
+07-10 18:53:04.959: D/WidgetProvider(20132): 	}
+07-10 18:53:04.959: D/WidgetProvider(20132): }
+07-10 18:53:04.969: D/WidgetProvider(20132): Ontology read ok 
+07-10 18:53:04.969: E/InnerArchetypeWidget(20132): Problems during DESCRIPTION SETUP:No value for at0000
+07-10 18:53:04.969: W/System.err(20132): org.json.JSONException: No value for at0000
+07-10 18:53:04.969: W/System.err(20132): 	at org.json.JSONObject.get(JSONObject.java:355)
+07-10 18:53:04.969: W/System.err(20132): 	at org.json.JSONObject.getJSONObject(JSONObject.java:574)
+07-10 18:53:04.969: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setupDescription(InnerArchetypeWidget.java:141)
+07-10 18:53:04.969: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setOntology(InnerArchetypeWidget.java:122)
+07-10 18:53:04.969: W/System.err(20132): 	at it.crs4.most.ehrlib.WidgetProvider.updateOntologyLanguage(WidgetProvider.java:236)
+07-10 18:53:04.969: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.updateOntologies(InnerArchetypeViewerActivity.java:138)
+07-10 18:53:04.969: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.onOptionsItemSelected(InnerArchetypeViewerActivity.java:207)
+07-10 18:53:04.969: W/System.err(20132): 	at android.app.Activity.onMenuItemSelected(Activity.java:2600)
+07-10 18:53:04.969: W/System.err(20132): 	at android.support.v4.app.FragmentActivity.onMenuItemSelected(FragmentActivity.java:350)
+07-10 18:53:04.969: W/System.err(20132): 	at android.support.v7.app.ActionBarActivity.onMenuItemSelected(ActionBarActivity.java:155)
+07-10 18:53:04.969: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegate$1.onMenuItemSelected(ActionBarActivityDelegate.java:74)
+07-10 18:53:04.969: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegateBase.onMenuItemSelected(ActionBarActivityDelegateBase.java:556)
+07-10 18:53:04.969: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.dispatchMenuItemSelected(MenuBuilder.java:802)
+07-10 18:53:04.969: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:153)
+07-10 18:53:04.969: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:949)
+07-10 18:53:04.969: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:939)
+07-10 18:53:04.969: W/System.err(20132): 	at android.support.v7.widget.ActionMenuView.invokeItem(ActionMenuView.java:596)
+07-10 18:53:04.979: W/System.err(20132): 	at android.support.v7.internal.view.menu.ActionMenuItemView.onClick(ActionMenuItemView.java:145)
+07-10 18:53:04.979: W/System.err(20132): 	at android.view.View.performClick(View.java:4438)
+07-10 18:53:04.979: W/System.err(20132): 	at android.view.View$PerformClick.run(View.java:18422)
+07-10 18:53:04.979: W/System.err(20132): 	at android.os.Handler.handleCallback(Handler.java:733)
+07-10 18:53:04.979: W/System.err(20132): 	at android.os.Handler.dispatchMessage(Handler.java:95)
+07-10 18:53:04.979: W/System.err(20132): 	at android.os.Looper.loop(Looper.java:136)
+07-10 18:53:04.979: W/System.err(20132): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-10 18:53:04.979: W/System.err(20132): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-10 18:53:04.979: W/System.err(20132): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-10 18:53:04.979: W/System.err(20132): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-10 18:53:04.979: W/System.err(20132): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-10 18:53:04.979: W/System.err(20132): 	at dalvik.system.NativeStart.main(Native Method)
+07-10 18:53:04.979: E/InnerArchetypeWidget(20132): Problems during DESCRIPTION SETUP:No value for at0000
+07-10 18:53:04.979: W/System.err(20132): org.json.JSONException: No value for at0000
+07-10 18:53:04.979: W/System.err(20132): 	at org.json.JSONObject.get(JSONObject.java:355)
+07-10 18:53:04.979: W/System.err(20132): 	at org.json.JSONObject.getJSONObject(JSONObject.java:574)
+07-10 18:53:04.979: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setupDescription(InnerArchetypeWidget.java:141)
+07-10 18:53:04.979: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setOntology(InnerArchetypeWidget.java:122)
+07-10 18:53:04.979: W/System.err(20132): 	at it.crs4.most.ehrlib.WidgetProvider.updateOntologyLanguage(WidgetProvider.java:236)
+07-10 18:53:04.979: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.updateOntologies(InnerArchetypeViewerActivity.java:138)
+07-10 18:53:04.979: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.onOptionsItemSelected(InnerArchetypeViewerActivity.java:207)
+07-10 18:53:04.979: W/System.err(20132): 	at android.app.Activity.onMenuItemSelected(Activity.java:2600)
+07-10 18:53:04.979: W/System.err(20132): 	at android.support.v4.app.FragmentActivity.onMenuItemSelected(FragmentActivity.java:350)
+07-10 18:53:04.979: W/System.err(20132): 	at android.support.v7.app.ActionBarActivity.onMenuItemSelected(ActionBarActivity.java:155)
+07-10 18:53:04.979: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegate$1.onMenuItemSelected(ActionBarActivityDelegate.java:74)
+07-10 18:53:04.979: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegateBase.onMenuItemSelected(ActionBarActivityDelegateBase.java:556)
+07-10 18:53:04.979: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.dispatchMenuItemSelected(MenuBuilder.java:802)
+07-10 18:53:04.979: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:153)
+07-10 18:53:04.979: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:949)
+07-10 18:53:04.979: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:939)
+07-10 18:53:04.979: W/System.err(20132): 	at android.support.v7.widget.ActionMenuView.invokeItem(ActionMenuView.java:596)
+07-10 18:53:04.979: W/System.err(20132): 	at android.support.v7.internal.view.menu.ActionMenuItemView.onClick(ActionMenuItemView.java:145)
+07-10 18:53:04.979: W/System.err(20132): 	at android.view.View.performClick(View.java:4438)
+07-10 18:53:04.979: W/System.err(20132): 	at android.view.View$PerformClick.run(View.java:18422)
+07-10 18:53:04.979: W/System.err(20132): 	at android.os.Handler.handleCallback(Handler.java:733)
+07-10 18:53:04.979: W/System.err(20132): 	at android.os.Handler.dispatchMessage(Handler.java:95)
+07-10 18:53:04.989: W/System.err(20132): 	at android.os.Looper.loop(Looper.java:136)
+07-10 18:53:04.989: W/System.err(20132): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-10 18:53:04.989: W/System.err(20132): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-10 18:53:04.989: W/System.err(20132): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-10 18:53:04.989: W/System.err(20132): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-10 18:53:04.989: W/System.err(20132): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-10 18:53:04.989: W/System.err(20132): 	at dalvik.system.NativeStart.main(Native Method)
+07-10 18:53:06.481: D/WidgetProvider(20132): Reading ontology: {
+07-10 18:53:06.481: D/WidgetProvider(20132): 	"en":{
+07-10 18:53:06.481: D/WidgetProvider(20132): 		"at0000.1":{
+07-10 18:53:06.481: D/WidgetProvider(20132): 			"text":"Adhoc observation section (EN)",
+07-10 18:53:06.481: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:06.481: D/WidgetProvider(20132): 		},
+07-10 18:53:06.481: D/WidgetProvider(20132): 	  "at0.3" : { "text":"Eco Fast (EN)",
+07-10 18:53:06.481: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:06.481: D/WidgetProvider(20132): 	  	},
+07-10 18:53:06.481: D/WidgetProvider(20132): 	   "at0.4" : { "text":"Abdominal Mass (EN)",
+07-10 18:53:06.481: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:06.481: D/WidgetProvider(20132): 	  	}
+07-10 18:53:06.481: D/WidgetProvider(20132): 	  	
+07-10 18:53:06.481: D/WidgetProvider(20132): 	},
+07-10 18:53:06.481: D/WidgetProvider(20132): 	"es-ar":{
+07-10 18:53:06.481: D/WidgetProvider(20132): 		"at0000.1":{
+07-10 18:53:06.481: D/WidgetProvider(20132): 			"text":"Adhoc observation section (ES)",
+07-10 18:53:06.481: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:06.481: D/WidgetProvider(20132): 		},
+07-10 18:53:06.481: D/WidgetProvider(20132): 		
+07-10 18:53:06.481: D/WidgetProvider(20132): 		"at0.3" : { "text":"Eco Fast (ES)",
+07-10 18:53:06.481: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:06.481: D/WidgetProvider(20132): 	  	},
+07-10 18:53:06.481: D/WidgetProvider(20132): 	    "at0.4" : { "text":"Abdominal Mass (ES)",
+07-10 18:53:06.481: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:06.481: D/WidgetProvider(20132): 	  	}
+07-10 18:53:06.481: D/WidgetProvider(20132): 	}
+07-10 18:53:06.481: D/WidgetProvider(20132): }
+07-10 18:53:06.481: D/WidgetProvider(20132): Ontology read ok 
+07-10 18:53:06.491: E/InnerArchetypeWidget(20132): Problems during DESCRIPTION SETUP:No value for at0000
+07-10 18:53:06.491: W/System.err(20132): org.json.JSONException: No value for at0000
+07-10 18:53:06.491: W/System.err(20132): 	at org.json.JSONObject.get(JSONObject.java:355)
+07-10 18:53:06.491: W/System.err(20132): 	at org.json.JSONObject.getJSONObject(JSONObject.java:574)
+07-10 18:53:06.491: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setupDescription(InnerArchetypeWidget.java:141)
+07-10 18:53:06.491: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setOntology(InnerArchetypeWidget.java:122)
+07-10 18:53:06.491: W/System.err(20132): 	at it.crs4.most.ehrlib.WidgetProvider.updateOntologyLanguage(WidgetProvider.java:236)
+07-10 18:53:06.491: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.updateOntologies(InnerArchetypeViewerActivity.java:138)
+07-10 18:53:06.491: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.onOptionsItemSelected(InnerArchetypeViewerActivity.java:204)
+07-10 18:53:06.491: W/System.err(20132): 	at android.app.Activity.onMenuItemSelected(Activity.java:2600)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v4.app.FragmentActivity.onMenuItemSelected(FragmentActivity.java:350)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.app.ActionBarActivity.onMenuItemSelected(ActionBarActivity.java:155)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegate$1.onMenuItemSelected(ActionBarActivityDelegate.java:74)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegateBase.onMenuItemSelected(ActionBarActivityDelegateBase.java:556)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.dispatchMenuItemSelected(MenuBuilder.java:802)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:153)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:949)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:939)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.widget.ActionMenuView.invokeItem(ActionMenuView.java:596)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.internal.view.menu.ActionMenuItemView.onClick(ActionMenuItemView.java:145)
+07-10 18:53:06.491: W/System.err(20132): 	at android.view.View.performClick(View.java:4438)
+07-10 18:53:06.491: W/System.err(20132): 	at android.view.View$PerformClick.run(View.java:18422)
+07-10 18:53:06.491: W/System.err(20132): 	at android.os.Handler.handleCallback(Handler.java:733)
+07-10 18:53:06.491: W/System.err(20132): 	at android.os.Handler.dispatchMessage(Handler.java:95)
+07-10 18:53:06.491: W/System.err(20132): 	at android.os.Looper.loop(Looper.java:136)
+07-10 18:53:06.491: W/System.err(20132): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-10 18:53:06.491: W/System.err(20132): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-10 18:53:06.491: W/System.err(20132): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-10 18:53:06.491: W/System.err(20132): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-10 18:53:06.491: W/System.err(20132): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-10 18:53:06.491: W/System.err(20132): 	at dalvik.system.NativeStart.main(Native Method)
+07-10 18:53:06.491: E/InnerArchetypeWidget(20132): Problems during DESCRIPTION SETUP:No value for at0000
+07-10 18:53:06.491: W/System.err(20132): org.json.JSONException: No value for at0000
+07-10 18:53:06.491: W/System.err(20132): 	at org.json.JSONObject.get(JSONObject.java:355)
+07-10 18:53:06.491: W/System.err(20132): 	at org.json.JSONObject.getJSONObject(JSONObject.java:574)
+07-10 18:53:06.491: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setupDescription(InnerArchetypeWidget.java:141)
+07-10 18:53:06.491: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setOntology(InnerArchetypeWidget.java:122)
+07-10 18:53:06.491: W/System.err(20132): 	at it.crs4.most.ehrlib.WidgetProvider.updateOntologyLanguage(WidgetProvider.java:236)
+07-10 18:53:06.491: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.updateOntologies(InnerArchetypeViewerActivity.java:138)
+07-10 18:53:06.491: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.onOptionsItemSelected(InnerArchetypeViewerActivity.java:204)
+07-10 18:53:06.491: W/System.err(20132): 	at android.app.Activity.onMenuItemSelected(Activity.java:2600)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v4.app.FragmentActivity.onMenuItemSelected(FragmentActivity.java:350)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.app.ActionBarActivity.onMenuItemSelected(ActionBarActivity.java:155)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegate$1.onMenuItemSelected(ActionBarActivityDelegate.java:74)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegateBase.onMenuItemSelected(ActionBarActivityDelegateBase.java:556)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.dispatchMenuItemSelected(MenuBuilder.java:802)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:153)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:949)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:939)
+07-10 18:53:06.491: W/System.err(20132): 	at android.support.v7.widget.ActionMenuView.invokeItem(ActionMenuView.java:596)
+07-10 18:53:06.501: W/System.err(20132): 	at android.support.v7.internal.view.menu.ActionMenuItemView.onClick(ActionMenuItemView.java:145)
+07-10 18:53:06.501: W/System.err(20132): 	at android.view.View.performClick(View.java:4438)
+07-10 18:53:06.501: W/System.err(20132): 	at android.view.View$PerformClick.run(View.java:18422)
+07-10 18:53:06.501: W/System.err(20132): 	at android.os.Handler.handleCallback(Handler.java:733)
+07-10 18:53:06.501: W/System.err(20132): 	at android.os.Handler.dispatchMessage(Handler.java:95)
+07-10 18:53:06.501: W/System.err(20132): 	at android.os.Looper.loop(Looper.java:136)
+07-10 18:53:06.501: W/System.err(20132): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-10 18:53:06.501: W/System.err(20132): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-10 18:53:06.501: W/System.err(20132): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-10 18:53:06.501: W/System.err(20132): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-10 18:53:06.501: W/System.err(20132): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-10 18:53:06.501: W/System.err(20132): 	at dalvik.system.NativeStart.main(Native Method)
+07-10 18:53:07.372: D/WidgetProvider(20132): Reading ontology: {
+07-10 18:53:07.372: D/WidgetProvider(20132): 	"en":{
+07-10 18:53:07.372: D/WidgetProvider(20132): 		"at0000.1":{
+07-10 18:53:07.372: D/WidgetProvider(20132): 			"text":"Adhoc observation section (EN)",
+07-10 18:53:07.372: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:07.372: D/WidgetProvider(20132): 		},
+07-10 18:53:07.372: D/WidgetProvider(20132): 	  "at0.3" : { "text":"Eco Fast (EN)",
+07-10 18:53:07.372: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:07.372: D/WidgetProvider(20132): 	  	},
+07-10 18:53:07.372: D/WidgetProvider(20132): 	   "at0.4" : { "text":"Abdominal Mass (EN)",
+07-10 18:53:07.372: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:07.372: D/WidgetProvider(20132): 	  	}
+07-10 18:53:07.372: D/WidgetProvider(20132): 	  	
+07-10 18:53:07.372: D/WidgetProvider(20132): 	},
+07-10 18:53:07.372: D/WidgetProvider(20132): 	"es-ar":{
+07-10 18:53:07.372: D/WidgetProvider(20132): 		"at0000.1":{
+07-10 18:53:07.372: D/WidgetProvider(20132): 			"text":"Adhoc observation section (ES)",
+07-10 18:53:07.372: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:07.372: D/WidgetProvider(20132): 		},
+07-10 18:53:07.372: D/WidgetProvider(20132): 		
+07-10 18:53:07.372: D/WidgetProvider(20132): 		"at0.3" : { "text":"Eco Fast (ES)",
+07-10 18:53:07.372: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:07.372: D/WidgetProvider(20132): 	  	},
+07-10 18:53:07.372: D/WidgetProvider(20132): 	    "at0.4" : { "text":"Abdominal Mass (ES)",
+07-10 18:53:07.372: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:07.372: D/WidgetProvider(20132): 	  	}
+07-10 18:53:07.372: D/WidgetProvider(20132): 	}
+07-10 18:53:07.372: D/WidgetProvider(20132): }
+07-10 18:53:07.372: D/WidgetProvider(20132): Ontology read ok 
+07-10 18:53:07.372: E/InnerArchetypeWidget(20132): Problems during DESCRIPTION SETUP:No value for at0000
+07-10 18:53:07.372: W/System.err(20132): org.json.JSONException: No value for at0000
+07-10 18:53:07.372: W/System.err(20132): 	at org.json.JSONObject.get(JSONObject.java:355)
+07-10 18:53:07.372: W/System.err(20132): 	at org.json.JSONObject.getJSONObject(JSONObject.java:574)
+07-10 18:53:07.372: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setupDescription(InnerArchetypeWidget.java:141)
+07-10 18:53:07.372: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setOntology(InnerArchetypeWidget.java:122)
+07-10 18:53:07.372: W/System.err(20132): 	at it.crs4.most.ehrlib.WidgetProvider.updateOntologyLanguage(WidgetProvider.java:236)
+07-10 18:53:07.382: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.updateOntologies(InnerArchetypeViewerActivity.java:138)
+07-10 18:53:07.382: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.onOptionsItemSelected(InnerArchetypeViewerActivity.java:207)
+07-10 18:53:07.382: W/System.err(20132): 	at android.app.Activity.onMenuItemSelected(Activity.java:2600)
+07-10 18:53:07.382: W/System.err(20132): 	at android.support.v4.app.FragmentActivity.onMenuItemSelected(FragmentActivity.java:350)
+07-10 18:53:07.382: W/System.err(20132): 	at android.support.v7.app.ActionBarActivity.onMenuItemSelected(ActionBarActivity.java:155)
+07-10 18:53:07.382: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegate$1.onMenuItemSelected(ActionBarActivityDelegate.java:74)
+07-10 18:53:07.382: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegateBase.onMenuItemSelected(ActionBarActivityDelegateBase.java:556)
+07-10 18:53:07.382: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.dispatchMenuItemSelected(MenuBuilder.java:802)
+07-10 18:53:07.382: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:153)
+07-10 18:53:07.382: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:949)
+07-10 18:53:07.382: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:939)
+07-10 18:53:07.382: W/System.err(20132): 	at android.support.v7.widget.ActionMenuView.invokeItem(ActionMenuView.java:596)
+07-10 18:53:07.382: W/System.err(20132): 	at android.support.v7.internal.view.menu.ActionMenuItemView.onClick(ActionMenuItemView.java:145)
+07-10 18:53:07.382: W/System.err(20132): 	at android.view.View.performClick(View.java:4438)
+07-10 18:53:07.382: W/System.err(20132): 	at android.view.View$PerformClick.run(View.java:18422)
+07-10 18:53:07.382: W/System.err(20132): 	at android.os.Handler.handleCallback(Handler.java:733)
+07-10 18:53:07.382: W/System.err(20132): 	at android.os.Handler.dispatchMessage(Handler.java:95)
+07-10 18:53:07.382: W/System.err(20132): 	at android.os.Looper.loop(Looper.java:136)
+07-10 18:53:07.382: W/System.err(20132): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-10 18:53:07.382: W/System.err(20132): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-10 18:53:07.382: W/System.err(20132): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-10 18:53:07.382: W/System.err(20132): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-10 18:53:07.382: W/System.err(20132): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-10 18:53:07.382: W/System.err(20132): 	at dalvik.system.NativeStart.main(Native Method)
+07-10 18:53:07.382: E/InnerArchetypeWidget(20132): Problems during DESCRIPTION SETUP:No value for at0000
+07-10 18:53:07.382: W/System.err(20132): org.json.JSONException: No value for at0000
+07-10 18:53:07.382: W/System.err(20132): 	at org.json.JSONObject.get(JSONObject.java:355)
+07-10 18:53:07.382: W/System.err(20132): 	at org.json.JSONObject.getJSONObject(JSONObject.java:574)
+07-10 18:53:07.392: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setupDescription(InnerArchetypeWidget.java:141)
+07-10 18:53:07.392: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setOntology(InnerArchetypeWidget.java:122)
+07-10 18:53:07.392: W/System.err(20132): 	at it.crs4.most.ehrlib.WidgetProvider.updateOntologyLanguage(WidgetProvider.java:236)
+07-10 18:53:07.392: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.updateOntologies(InnerArchetypeViewerActivity.java:138)
+07-10 18:53:07.392: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.onOptionsItemSelected(InnerArchetypeViewerActivity.java:207)
+07-10 18:53:07.392: W/System.err(20132): 	at android.app.Activity.onMenuItemSelected(Activity.java:2600)
+07-10 18:53:07.392: W/System.err(20132): 	at android.support.v4.app.FragmentActivity.onMenuItemSelected(FragmentActivity.java:350)
+07-10 18:53:07.392: W/System.err(20132): 	at android.support.v7.app.ActionBarActivity.onMenuItemSelected(ActionBarActivity.java:155)
+07-10 18:53:07.392: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegate$1.onMenuItemSelected(ActionBarActivityDelegate.java:74)
+07-10 18:53:07.392: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegateBase.onMenuItemSelected(ActionBarActivityDelegateBase.java:556)
+07-10 18:53:07.392: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.dispatchMenuItemSelected(MenuBuilder.java:802)
+07-10 18:53:07.392: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:153)
+07-10 18:53:07.392: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:949)
+07-10 18:53:07.392: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:939)
+07-10 18:53:07.392: W/System.err(20132): 	at android.support.v7.widget.ActionMenuView.invokeItem(ActionMenuView.java:596)
+07-10 18:53:07.392: W/System.err(20132): 	at android.support.v7.internal.view.menu.ActionMenuItemView.onClick(ActionMenuItemView.java:145)
+07-10 18:53:07.392: W/System.err(20132): 	at android.view.View.performClick(View.java:4438)
+07-10 18:53:07.392: W/System.err(20132): 	at android.view.View$PerformClick.run(View.java:18422)
+07-10 18:53:07.392: W/System.err(20132): 	at android.os.Handler.handleCallback(Handler.java:733)
+07-10 18:53:07.392: W/System.err(20132): 	at android.os.Handler.dispatchMessage(Handler.java:95)
+07-10 18:53:07.392: W/System.err(20132): 	at android.os.Looper.loop(Looper.java:136)
+07-10 18:53:07.392: W/System.err(20132): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-10 18:53:07.392: W/System.err(20132): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-10 18:53:07.392: W/System.err(20132): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-10 18:53:07.392: W/System.err(20132): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-10 18:53:07.392: W/System.err(20132): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-10 18:53:07.392: W/System.err(20132): 	at dalvik.system.NativeStart.main(Native Method)
+07-10 18:53:07.832: D/WidgetProvider(20132): Reading ontology: {
+07-10 18:53:07.832: D/WidgetProvider(20132): 	"en":{
+07-10 18:53:07.832: D/WidgetProvider(20132): 		"at0000.1":{
+07-10 18:53:07.832: D/WidgetProvider(20132): 			"text":"Adhoc observation section (EN)",
+07-10 18:53:07.832: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:07.832: D/WidgetProvider(20132): 		},
+07-10 18:53:07.832: D/WidgetProvider(20132): 	  "at0.3" : { "text":"Eco Fast (EN)",
+07-10 18:53:07.832: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:07.832: D/WidgetProvider(20132): 	  	},
+07-10 18:53:07.832: D/WidgetProvider(20132): 	   "at0.4" : { "text":"Abdominal Mass (EN)",
+07-10 18:53:07.832: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:07.832: D/WidgetProvider(20132): 	  	}
+07-10 18:53:07.832: D/WidgetProvider(20132): 	  	
+07-10 18:53:07.832: D/WidgetProvider(20132): 	},
+07-10 18:53:07.832: D/WidgetProvider(20132): 	"es-ar":{
+07-10 18:53:07.832: D/WidgetProvider(20132): 		"at0000.1":{
+07-10 18:53:07.832: D/WidgetProvider(20132): 			"text":"Adhoc observation section (ES)",
+07-10 18:53:07.832: D/WidgetProvider(20132): 			"description":"Todo"
+07-10 18:53:07.832: D/WidgetProvider(20132): 		},
+07-10 18:53:07.832: D/WidgetProvider(20132): 		
+07-10 18:53:07.832: D/WidgetProvider(20132): 		"at0.3" : { "text":"Eco Fast (ES)",
+07-10 18:53:07.832: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:07.832: D/WidgetProvider(20132): 	  	},
+07-10 18:53:07.832: D/WidgetProvider(20132): 	    "at0.4" : { "text":"Abdominal Mass (ES)",
+07-10 18:53:07.832: D/WidgetProvider(20132): 				  "description":"Todo"
+07-10 18:53:07.832: D/WidgetProvider(20132): 	  	}
+07-10 18:53:07.832: D/WidgetProvider(20132): 	}
+07-10 18:53:07.832: D/WidgetProvider(20132): }
+07-10 18:53:07.842: D/WidgetProvider(20132): Ontology read ok 
+07-10 18:53:07.842: E/InnerArchetypeWidget(20132): Problems during DESCRIPTION SETUP:No value for at0000
+07-10 18:53:07.842: W/System.err(20132): org.json.JSONException: No value for at0000
+07-10 18:53:07.842: W/System.err(20132): 	at org.json.JSONObject.get(JSONObject.java:355)
+07-10 18:53:07.842: W/System.err(20132): 	at org.json.JSONObject.getJSONObject(JSONObject.java:574)
+07-10 18:53:07.842: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setupDescription(InnerArchetypeWidget.java:141)
+07-10 18:53:07.842: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setOntology(InnerArchetypeWidget.java:122)
+07-10 18:53:07.842: W/System.err(20132): 	at it.crs4.most.ehrlib.WidgetProvider.updateOntologyLanguage(WidgetProvider.java:236)
+07-10 18:53:07.842: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.updateOntologies(InnerArchetypeViewerActivity.java:138)
+07-10 18:53:07.842: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.onOptionsItemSelected(InnerArchetypeViewerActivity.java:204)
+07-10 18:53:07.842: W/System.err(20132): 	at android.app.Activity.onMenuItemSelected(Activity.java:2600)
+07-10 18:53:07.842: W/System.err(20132): 	at android.support.v4.app.FragmentActivity.onMenuItemSelected(FragmentActivity.java:350)
+07-10 18:53:07.842: W/System.err(20132): 	at android.support.v7.app.ActionBarActivity.onMenuItemSelected(ActionBarActivity.java:155)
+07-10 18:53:07.842: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegate$1.onMenuItemSelected(ActionBarActivityDelegate.java:74)
+07-10 18:53:07.842: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegateBase.onMenuItemSelected(ActionBarActivityDelegateBase.java:556)
+07-10 18:53:07.842: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.dispatchMenuItemSelected(MenuBuilder.java:802)
+07-10 18:53:07.842: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:153)
+07-10 18:53:07.842: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:949)
+07-10 18:53:07.842: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:939)
+07-10 18:53:07.842: W/System.err(20132): 	at android.support.v7.widget.ActionMenuView.invokeItem(ActionMenuView.java:596)
+07-10 18:53:07.842: W/System.err(20132): 	at android.support.v7.internal.view.menu.ActionMenuItemView.onClick(ActionMenuItemView.java:145)
+07-10 18:53:07.852: W/System.err(20132): 	at android.view.View.performClick(View.java:4438)
+07-10 18:53:07.852: W/System.err(20132): 	at android.view.View$PerformClick.run(View.java:18422)
+07-10 18:53:07.852: W/System.err(20132): 	at android.os.Handler.handleCallback(Handler.java:733)
+07-10 18:53:07.852: W/System.err(20132): 	at android.os.Handler.dispatchMessage(Handler.java:95)
+07-10 18:53:07.852: W/System.err(20132): 	at android.os.Looper.loop(Looper.java:136)
+07-10 18:53:07.852: W/System.err(20132): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-10 18:53:07.852: W/System.err(20132): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-10 18:53:07.852: W/System.err(20132): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-10 18:53:07.852: W/System.err(20132): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-10 18:53:07.852: W/System.err(20132): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-10 18:53:07.852: W/System.err(20132): 	at dalvik.system.NativeStart.main(Native Method)
+07-10 18:53:07.852: E/InnerArchetypeWidget(20132): Problems during DESCRIPTION SETUP:No value for at0000
+07-10 18:53:07.852: W/System.err(20132): org.json.JSONException: No value for at0000
+07-10 18:53:07.852: W/System.err(20132): 	at org.json.JSONObject.get(JSONObject.java:355)
+07-10 18:53:07.852: W/System.err(20132): 	at org.json.JSONObject.getJSONObject(JSONObject.java:574)
+07-10 18:53:07.852: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setupDescription(InnerArchetypeWidget.java:141)
+07-10 18:53:07.852: W/System.err(20132): 	at it.crs4.most.ehrlib.widgets.InnerArchetypeWidget.setOntology(InnerArchetypeWidget.java:122)
+07-10 18:53:07.852: W/System.err(20132): 	at it.crs4.most.ehrlib.WidgetProvider.updateOntologyLanguage(WidgetProvider.java:236)
+07-10 18:53:07.852: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.updateOntologies(InnerArchetypeViewerActivity.java:138)
+07-10 18:53:07.852: W/System.err(20132): 	at com.example.nestedarchetypeactivityexample.InnerArchetypeViewerActivity.onOptionsItemSelected(InnerArchetypeViewerActivity.java:204)
+07-10 18:53:07.852: W/System.err(20132): 	at android.app.Activity.onMenuItemSelected(Activity.java:2600)
+07-10 18:53:07.852: W/System.err(20132): 	at android.support.v4.app.FragmentActivity.onMenuItemSelected(FragmentActivity.java:350)
+07-10 18:53:07.852: W/System.err(20132): 	at android.support.v7.app.ActionBarActivity.onMenuItemSelected(ActionBarActivity.java:155)
+07-10 18:53:07.852: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegate$1.onMenuItemSelected(ActionBarActivityDelegate.java:74)
+07-10 18:53:07.852: W/System.err(20132): 	at android.support.v7.app.ActionBarActivityDelegateBase.onMenuItemSelected(ActionBarActivityDelegateBase.java:556)
+07-10 18:53:07.852: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.dispatchMenuItemSelected(MenuBuilder.java:802)
+07-10 18:53:07.852: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuItemImpl.invoke(MenuItemImpl.java:153)
+07-10 18:53:07.852: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:949)
+07-10 18:53:07.852: W/System.err(20132): 	at android.support.v7.internal.view.menu.MenuBuilder.performItemAction(MenuBuilder.java:939)
+07-10 18:53:07.852: W/System.err(20132): 	at android.support.v7.widget.ActionMenuView.invokeItem(ActionMenuView.java:596)
+07-10 18:53:07.852: W/System.err(20132): 	at android.support.v7.internal.view.menu.ActionMenuItemView.onClick(ActionMenuItemView.java:145)
+07-10 18:53:07.852: W/System.err(20132): 	at android.view.View.performClick(View.java:4438)
+07-10 18:53:07.852: W/System.err(20132): 	at android.view.View$PerformClick.run(View.java:18422)
+07-10 18:53:07.852: W/System.err(20132): 	at android.os.Handler.handleCallback(Handler.java:733)
+07-10 18:53:07.852: W/System.err(20132): 	at android.os.Handler.dispatchMessage(Handler.java:95)
+07-10 18:53:07.852: W/System.err(20132): 	at android.os.Looper.loop(Looper.java:136)
+07-10 18:53:07.852: W/System.err(20132): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-10 18:53:07.852: W/System.err(20132): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-10 18:53:07.852: W/System.err(20132): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-10 18:53:07.852: W/System.err(20132): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-10 18:53:07.852: W/System.err(20132): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-10 18:53:07.852: W/System.err(20132): 	at dalvik.system.NativeStart.main(Native Method)

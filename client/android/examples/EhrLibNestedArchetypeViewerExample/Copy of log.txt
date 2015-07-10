@@ -1,0 +1,29 @@
+07-10 20:25:56.865: D/WidgetProvider(25342): Reading ontology: {
+07-10 20:25:56.865: D/WidgetProvider(25342): 	"en":{
+07-10 20:25:56.865: D/WidgetProvider(25342): 		"at0000.1":{
+07-10 20:25:56.865: D/WidgetProvider(25342): 			"text":"Adhoc observation section (EN)",
+07-10 20:25:56.865: D/WidgetProvider(25342): 			"description":"Todo"
+07-10 20:25:56.865: D/WidgetProvider(25342): 		},
+07-10 20:25:56.865: D/WidgetProvider(25342): 	  "at0.3" : { "text":"Eco Fast (EN) NOT USED!",
+07-10 20:25:56.865: D/WidgetProvider(25342): 				  "description":"Todo"
+07-10 20:25:56.865: D/WidgetProvider(25342): 	  	},
+07-10 20:25:56.865: D/WidgetProvider(25342): 	   "at0.4" : { "text":"Abdominal Mass (EN) NOT USED!",
+07-10 20:25:56.865: D/WidgetProvider(25342): 				  "description":"Todo"
+07-10 20:25:56.865: D/WidgetProvider(25342): 	  	}
+07-10 20:25:56.865: D/WidgetProvider(25342): 	  	
+07-10 20:25:56.865: D/WidgetProvider(25342): 	},
+07-10 20:25:56.865: D/WidgetProvider(25342): 	"es-ar":{
+07-10 20:25:56.865: D/WidgetProvider(25342): 		"at0000.1":{
+07-10 20:25:56.865: D/WidgetProvider(25342): 			"text":"Adhoc observation section (ES) ",
+07-10 20:25:56.865: D/WidgetProvider(25342): 			"description":"Todo"
+07-10 20:25:56.865: D/WidgetProvider(25342): 		},
+07-10 20:25:56.865: D/WidgetProvider(25342): 		
+07-10 20:25:56.865: D/WidgetProvider(25342): 		"at0.3" : { "text":"Eco Fast (ES) NOT USED!",
+07-10 20:25:56.865: D/WidgetProvider(25342): 				  "description":"Todo"
+07-10 20:25:56.865: D/WidgetProvider(25342): 	  	},
+07-10 20:25:56.865: D/WidgetProvider(25342): 	    "at0.4" : { "text":"Abdominal Mass (ES) NOT USED!",
+07-10 20:25:56.865: D/WidgetProvider(25342): 				  "description":"Todo"
+07-10 20:25:56.865: D/WidgetProvider(25342): 	  	}
+07-10 20:25:56.865: D/WidgetProvider(25342): 	}
+07-10 20:25:56.865: D/WidgetProvider(25342): }
+07-10 20:25:56.875: D/WidgetProvider(25342): Ontology read ok 
