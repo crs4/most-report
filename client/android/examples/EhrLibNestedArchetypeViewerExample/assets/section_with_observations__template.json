@@ -4,7 +4,7 @@
 	"definition":[
 
 		{
-			"archetype_class":"openEHR-EHR-SECTION.adhoc_observation.v1",
+			"archetype_class":"openEHR-EHR-SECTION.adhoc-observation_container.v1",
 			"exclude":[]
 		}
 		

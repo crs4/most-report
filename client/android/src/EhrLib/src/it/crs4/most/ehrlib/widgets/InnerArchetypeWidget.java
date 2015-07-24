@@ -75,8 +75,9 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 		this.datatype = new InnerArchetype(provider, path, attributes);
 		this.datatype.setDatatypeChangeListener(this);
 		
-		this.setupDisplaytitle();
-		this.setupDescription();
+		this.setupDisplaytitle(true);
+		this.setupDescription(true);
+		
 		super.setupTooltip();
 		
 		buildInnerArchetypeView();
@@ -132,14 +133,20 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 		
 	}
 	
+	private void setupDescription() 
+	{
+		this.setupDescription(false);
+	}
 	/**
 	 * Setup description.
 	 */
-	private void setupDescription()
+	private void setupDescription(boolean firstRequest)
 	{
 		try {
-			//this.description = _ontology.getJSONObject(_widget_provider.getDatatypesSchema().getString("title")).getString("description"); 
-			this.description = _ontology.getJSONObject(_name).getString("description"); 
+			if (firstRequest)
+				this.description = _ontology.getJSONObject(_widget_provider.getDatatypesSchema().getString("title")).getString("description"); 
+			else
+			    this.description = _ontology.getJSONObject(_name).getString("description"); 
 			
 		} catch (JSONException e) {
 			Log.e(TAG , "Problems during DESCRIPTION SETUP:" + e.getMessage());
@@ -147,14 +154,21 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
 		}
 	}
 	
+	
+	private void setupDisplaytitle()
+	{
+		this.setupDisplaytitle(false);
+	}
+	
 	/**
 	 * Setup displaytitle.
 	 */
-	private void setupDisplaytitle() {
+	private void setupDisplaytitle(boolean firstRequest) {
 		try {
-			
-			//displayTitle = _ontology.getJSONObject(_widget_provider.getDatatypesSchema().getString("title")).getString("text"); 
-			displayTitle = _ontology.getJSONObject(_name).getString("text"); 
+			if (firstRequest)
+				displayTitle = _ontology.getJSONObject(_widget_provider.getDatatypesSchema().getString("title")).getString("text"); 
+			else
+				displayTitle = _ontology.getJSONObject(_name).getString("text"); 
 			 
 		} catch (JSONException e) {
 			Log.e(TAG,"Error retrieving inner archetype title:" + e.getMessage());

@@ -1,0 +1,18 @@
+{
+	"title":"at0000.1",
+	"datatypes":{
+		"items":{
+			"at0.1":{
+				"path":"items[at0.1]",
+				"type":"ARCHETYPE",
+				"attributes":{
+					"archetype_class":"openEHR-EHR-OBSERVATION.fast_scan.v1"
+				}
+				}
+			
+				
+			}
+			
+		}
+		
+}

@@ -201,7 +201,7 @@ public class InnerArchetypeViewerActivity extends ActionBarActivity {
 		
 		 switch (item.getItemId()) {
          case R.id.menu_spain:
-                 updateOntologies("es-ar");
+                 updateOntologies("it"); // es-ar
                  return true;
          case R.id.menu_english:
         	 updateOntologies("en");
