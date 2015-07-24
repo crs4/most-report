@@ -3,7 +3,8 @@
 	"archetype_details":{
 		"items":
 			{
-				"at0.1":"ARCHETYPE_NODE"
+				"at0.1":"ARCHETYPE_NODE",
+				"at0.2":"ARCHETYPE_NODE"
 				
 			}
 		

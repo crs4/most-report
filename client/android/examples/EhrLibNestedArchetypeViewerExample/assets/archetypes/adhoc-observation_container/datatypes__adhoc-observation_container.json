@@ -8,11 +8,19 @@
 				"attributes":{
 					"archetype_class":"openEHR-EHR-OBSERVATION.fast_scan.v1"
 				}
+				
+			},
+			"at0.2":{
+				"path":"items[at0.2]",
+				"type":"ARCHETYPE",
+				"attributes":{
+					"archetype_class":"openEHR-EHR-OBSERVATION.abdominal_scan.v1"
 				}
-			
 				
 			}
 			
 		}
 		
+	}
+	
 }

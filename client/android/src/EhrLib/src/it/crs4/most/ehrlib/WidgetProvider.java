@@ -643,6 +643,12 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 			 	}
 			 	Log.d(TAG, String.format("Adding widget %s for %s" , widget, itemTitle));
 			 	widgets.add( widget );
+			 	
+			 	// Ordering cluster widgets
+			 	if (this.jsonLayoutSchema!=null)
+				{
+					Collections.sort(widgets, new PriorityComparison(this.jsonLayoutSchema) );	
+				}
 			}
 			
 		} catch (JSONException e) {

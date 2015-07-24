@@ -4,8 +4,11 @@
 			"text":"Ad hoc heading for observation",
 			"description":"A generic section header to contain observation archetypes which should be renamed in a template to suit a specific clinical context"
 		},
-	  "at0.1" : { "text":"OBSERVATION slot ",
-				  "description":"A generic slot to contain observation archetype"
+	  "at0.1" : { "text":"FAST Scan ",
+				  "description":"FAST report"
+	  	},
+	  "at0.2" : { "text":"Abdominal Scan",
+				  "description":"Abdominal scan report"
 	  	}
 	  	
 	},
@@ -15,8 +18,11 @@
 			"description":"Una generica sezione da usare per contenere archetipi di tipo Observation, che dovrebbe essere rinominata in un template per adattarsi allo specifico contesto clinico."
 		},
 		
-		"at0.1" : { "text":"OBSERVATION slot",
-				  "description":"A generic slot to contain observation archetype"
+		"at0.1" : { "text":"Eco FAST",
+				  "description":"Report esame FAST"
+	  	},
+	  	"at0.2" : { "text":"Ecografia addominale",
+				  "description":"Report ecografia addominale"
 	  	}
 	}
 }

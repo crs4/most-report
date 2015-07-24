@@ -200,7 +200,7 @@ public class InnerArchetypeViewerActivity extends ActionBarActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		
 		 switch (item.getItemId()) {
-         case R.id.menu_spain:
+         case R.id.menu_italy:
                  updateOntologies("it"); // es-ar
                  return true;
          case R.id.menu_english:

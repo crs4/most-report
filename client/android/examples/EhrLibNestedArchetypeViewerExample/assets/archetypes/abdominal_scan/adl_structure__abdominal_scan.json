@@ -20,7 +20,7 @@
 												},
 												"at0008":{
 													"items":{
-														"at009":"DATA_NODE::DV_BOOLEAN",
+														"at0009":"DATA_NODE::DV_BOOLEAN",
 														"at0010":"DATA_NODE::DV_QUANTITY"
 													}
 												},

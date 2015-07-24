@@ -79,7 +79,12 @@ public class DvQuantity extends EhrDatatype{
 			this.setUnits(attributes.getString("unit_of_measure"));
 			Log.d(TAG,"Set unity:" + this.units);
 			Log.d(TAG,String.format("Calling get unit from %s return: %s" , this, this.getUnits()));
-			this.precision = attributes.getInt("precision");
+			
+			if (attributes.has("precision"))
+			{
+				this.precision = attributes.getInt("precision");
+			}
+			
 			if (attributes.has("range"))
 					{
 				       if(attributes.getJSONObject("range").has("min"))

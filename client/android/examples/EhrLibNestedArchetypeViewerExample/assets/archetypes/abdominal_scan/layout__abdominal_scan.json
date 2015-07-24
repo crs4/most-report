@@ -1,5 +1,23 @@
 {
 	"sections":[
 		"data"
-	]
-}
+	],
+	"items":{
+		"data[at0001]/events[at0002]/data[at0003]/items[at0004]":{
+			"priority":1
+		},
+		"data[at0001]/events[at0002]/data[at0003]/items[at0005]":{
+			"priority":2
+		},
+		"data[at0001]/events[at0002]/data[at0003]/items[at0008]":{
+			"priority":3
+		},
+		"data[at0001]/events[at0002]/data[at0003]/items[at0011]":{
+			"priority":4
+		},
+		"data[at0001]/events[at0002]/data[at0003]/items[at0012]":{
+			"priority":5
+		}
+		
+	}
+	}

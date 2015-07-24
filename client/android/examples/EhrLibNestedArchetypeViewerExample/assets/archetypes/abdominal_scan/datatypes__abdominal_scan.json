@@ -46,7 +46,10 @@
 				"path":"data[at0001]/events[at0002]/data[at0003]/items[at0005]/items[at0007]",
 				"type":"DV_QUANTITY",
 				"attributes":{
-					"unit_of_measure":"cm"
+					"unit_of_measure":"cm",
+					"range":{
+						"min":0
+					}
 				}
 			}
 		},
@@ -61,7 +64,10 @@
 				"path":"data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0010]",
 				"type":"DV_QUANTITY",
 				"attributes":{
-					"unit_of_measure":"cm"
+					"unit_of_measure":"cm",
+					"range":{
+						"min":0
+					}
 				}
 			}
 		}

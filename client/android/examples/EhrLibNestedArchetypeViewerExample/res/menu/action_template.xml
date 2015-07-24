@@ -3,11 +3,11 @@
      >
 
     <item
-       android:id="@+id/menu_spain"
+       android:id="@+id/menu_italy"
        android:orderInCategory="100"
        custom:showAsAction="always"
-       android:icon="@drawable/spain32"
-       android:title="@string/es"/>
+       android:icon="@drawable/italy32"
+       android:title="@string/it"/>
     
     <item
        android:id="@+id/menu_english"
