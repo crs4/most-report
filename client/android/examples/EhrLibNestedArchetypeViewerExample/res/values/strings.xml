@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">InnerArchetypeViewerExample</string>
+    <string name="app_name">EHR Template Viewer Demo</string>
     <string name="action_quit">Exit</string>
     <string name="title_activity_template_viewer">TemplateViewerActivity</string>
     <string name ="es">Español</string>
