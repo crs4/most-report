@@ -17,6 +17,8 @@ public class PriorityComparison implements Comparator< DatatypeWidget<EhrDatatyp
 	/** The schema. */
 	private JSONObject schema = null;
 	
+	private JSONObject aliases = null;
+	
 	/**
 	 * Instantiates a new priority comparison.
 	 *
@@ -25,8 +27,16 @@ public class PriorityComparison implements Comparator< DatatypeWidget<EhrDatatyp
 	public PriorityComparison(JSONObject layoutSchema)
 	{
 		this.schema = layoutSchema;
+		this.aliases = this.schema.optJSONObject("aliases");
 	}
 	
+	private JSONObject getSchemaObject(String key) throws JSONException
+	{
+		JSONObject obj = this.schema.getJSONObject("items").optJSONObject(key);
+		if (obj==null)
+			return this.schema.getJSONObject("items").getJSONObject((this.schema.getJSONObject("aliases").getString(key)));
+		return obj;
+	}
 	
 	public int compare(  DatatypeWidget<EhrDatatype>item1, DatatypeWidget<EhrDatatype> item2 ) {
 		
@@ -37,7 +47,7 @@ public class PriorityComparison implements Comparator< DatatypeWidget<EhrDatatyp
 			String path2 = item2.getDatatype().getPath();
 			
 			try {
-				return this.schema.getJSONObject("items").getJSONObject(path1).getInt("priority") > this.schema.getJSONObject("items").getJSONObject(path2).getInt("priority") ? 1: -1;
+				return getSchemaObject(path1).getInt("priority") > getSchemaObject(path2).getInt("priority") ? 1: -1;
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
