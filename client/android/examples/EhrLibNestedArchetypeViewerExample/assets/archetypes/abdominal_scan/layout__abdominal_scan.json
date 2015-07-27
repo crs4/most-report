@@ -17,7 +17,19 @@
 		},
 		"data[at0001]/events[at0002]/data[at0003]/items[at0012]":{
 			"priority":5
+		},
+		"data[at0001]/events[at0002]/data[at0003]/items[at0005]/items[at0006]":{
+			"priority":1
+		},
+		"data[at0001]/events[at0002]/data[at0003]/items[at0005]/items[at0007]":{
+			"priority":2
+		},
+		"data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0009]":{
+			"priority":1
+		},
+		"data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0010]":{
+			"priority":2
 		}
-		
 	}
-	}
+	
+}
