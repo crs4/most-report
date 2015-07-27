@@ -1,5 +1,22 @@
 {
 	"title":"at0000",
+	"clusters" : {
+		
+	"ecg_parameters":{	
+			"at0013":{
+				"path":"data[at0001]/events[at0002]/data[at0005]/items[at0006]/items[at0013]",
+				"type":"DV_QUANTITY",
+				"attributes":{
+					"unit_of_measure":"/min",
+					"precision":0,
+					"range":{
+						"min":0
+					}					
+			   }	
+			}
+			}
+			},
+			
 	"datatypes":{
 		"data":{
 			"at0006":{
@@ -19,20 +36,9 @@
 				"type":"DV_TEXT",
 				"attributes":{}
 			}
-		},
+		} ,
 		
-		"ecg_parameters":{	
-			"at0013":{
-				"path":"data[at0001]/events[at0002]/data[at0005]/items[at0006]/items[at0013]",
-				"type":"DV_QUANTITY",
-				"attributes":{
-					"unit_of_measure":"/min",
-					"precision":0,
-					"range":{
-						"min":0
-					}					
-			}	
-			},
+		
 			
 			"at0012":{
 				"path":"data[at0001]/events[at0002]/data[at0005]/items[at0006]/items[at0012]",
@@ -45,6 +51,5 @@
 					}					
 				}
 			}
-		}
 	}
 }

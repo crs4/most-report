@@ -69,6 +69,12 @@ public static final LayoutParams defaultLayoutParams = new LinearLayout.LayoutPa
 /** The section widgets map. */
 protected Map<String, List<DatatypeWidget<EhrDatatype>>> sectionWidgetsMap;
 
+
+//- data map, with the "cluster" archetype value as key
+/** The cluster widgets map. */
+protected Map<String, List<DatatypeWidget<EhrDatatype>>> clusterWidgetsMap;
+
+
 // -- widgets
 /** The _container. */
 protected LinearLayout _container;
@@ -135,8 +141,6 @@ public WidgetProvider(Context context, ArchetypeSchemaProvider asp, String arche
 	this.archetypeInstances =  this.jsonArchetype.getJSONObject("archetype_details");
 	this.archetypeAdlParser = new AdlParser(this.archetypeInstances);
 	
-	// build all sections because we must build also widgets referred by clusters
-	//this.buildSectionWidgetsMap(null);
 }
 
 public JSONObject getDatatypesSchema() {
@@ -181,8 +185,6 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 			this.archetypeInstances =  this.jsonArchetype.getJSONObject("archetype_details");
 			this.archetypeAdlParser = new AdlParser(this.archetypeInstances);
 			
-			// build all sections because we must build also widgets referred by clusters
-			//this.buildSectionWidgetsMap(null);
 	}
 	
 	
@@ -235,6 +237,16 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 			for (DatatypeWidget<EhrDatatype> w : sectionWidgets)
 				w.setOntology(this.ontology, lang);
 		}
+		
+		String [] clusters = clusterWidgetsMap.keySet().toArray(new String[0]);
+		
+		for (String cluster : clusters)
+		{
+			List<DatatypeWidget<EhrDatatype>> clusterWidgets = clusterWidgetsMap.get(cluster);
+			for (DatatypeWidget<EhrDatatype> w : clusterWidgets)
+				w.setOntology(this.ontology, lang);
+		}
+		
 	}
 
 	/**
@@ -348,6 +360,33 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 	}
 	
 	/**
+	 * Get the clusters of this archetype structure or null if no cluster is found
+	 *
+	 * @return the clusters
+	 */
+	private String [] getClusters()
+	{
+		try {
+			JSONArray jsonClusters = this.datatypesSchema.getJSONObject("clusters").names();
+			String [] clusters = new String[jsonClusters.length()];
+			
+			for (int i=0;i<clusters.length;i++){
+				clusters[i] = jsonClusters.getString(i);
+				Log.d(TAG, "Found cluster:" + clusters[i]);  
+			}
+			return clusters;
+		} catch (JSONException e) {
+	        Log.e(TAG, "Error retrieving clusters from json" + this.datatypesSchema);
+			e.printStackTrace();
+		} catch (NullPointerException e)
+		{
+			 Log.w(TAG, "No clusters found in the current archetype:" + e.getMessage());
+			return null;
+		}
+		return null;
+	}
+	
+	/**
 	 * Builds a Map of widgets, according to the provided archetype json schema, where each key is an archetype section and the corresponding values are an ordered list of widgets corresponding to the underlying  EHR datatypes.
 	 *
 	 * @param sections the array of sections to build (if null is provided, all sections of the provided archetype are built)
@@ -367,6 +406,34 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 		 }
 		 
 		 return  this.sectionWidgetsMap;
+	}
+	
+	
+	/**
+	 * Builds a Map of widgets, according to the provided archetype json schema, where each key is an archetype section and the corresponding values are an ordered list of widgets corresponding to the underlying  EHR datatypes.
+	 *
+	 * @param clusters the array of clusters to build (if null is provided, all clusters of the provided archetype are built)
+	 * @return the map of widgets
+	 * @throws InvalidDatatypeException the invalid datatype exception
+	 */
+	private Map<String, List<DatatypeWidget<EhrDatatype>>> buildClusterWidgetsMap(String [] clusters) throws InvalidDatatypeException
+	{
+		if (clusters==null)
+			clusters = getClusters();
+		
+		this.clusterWidgetsMap = new HashMap<String, List<DatatypeWidget<EhrDatatype>>>();
+		
+		// No Clusters
+		if (clusters==null)
+			return this.clusterWidgetsMap;
+		
+		for (String cluster : clusters)
+		 {
+			 List<DatatypeWidget<EhrDatatype>> clusterWidgets = buildClusterWidgets(cluster, 0);
+			 this.clusterWidgetsMap.put(cluster, clusterWidgets);
+		 }
+		 
+		 return  this.clusterWidgetsMap;
 	}
 	
  
@@ -410,7 +477,14 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
             }
 		 */
 		
-		
+		// Build cluster widgets, needed for sections including them
+		try {
+			buildClusterWidgetsMap(null);
+		} catch (InvalidDatatypeException e2) {
+			Log.e(TAG,String.format("Error building cluster Widget Map:%s", e2.getMessage()));
+			e2.printStackTrace();
+			
+		}
 		
 		String [] sections = null;
 		
@@ -555,6 +629,22 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 		}
 		return widgets;
 	}
+	
+	public List<DatatypeWidget<EhrDatatype>> getClusterWidgets(String cluster, int itemIndex){
+		List<DatatypeWidget<EhrDatatype>> widgets = clusterWidgetsMap.get(cluster);
+		if (widgets==null)
+		{
+			try {
+				widgets = buildClusterWidgets(cluster, itemIndex);
+				clusterWidgetsMap.put(cluster, widgets);
+			} catch (InvalidDatatypeException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return widgets;
+	}
+	
 	/**
 	 * Builds a list of widgets of a specific section and item index.
 	 *
@@ -581,6 +671,36 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 	
 					return null;
 	}
+	
+	/**
+	 * Builds a list of widgets of a specific cluster and item index.
+	 *
+	 * @param cluster the cluster
+	 * @param itemIndex the index of the archetype instance to be created
+	 * @return a list of datatype widgets of the "data" substructure
+	 * @throws InvalidDatatypeException the invalid datatype exception
+	 */
+	private List<DatatypeWidget<EhrDatatype>> buildClusterWidgets(String cluster, int itemIndex) throws InvalidDatatypeException
+	{
+					try {
+						JSONObject sectionDatatypes = this.datatypesSchema.getJSONObject("clusters").getJSONObject(cluster);
+						// Retrieve a path of a datatype used for getting the structure of the "cluster" structure in an archetype instance
+						String sectionDatapath = sectionDatatypes.getJSONObject(sectionDatatypes.names().getString(0)).getString("path");
+						Log.d(TAG, "Building CLUSTER:" + cluster);
+						Log.d(TAG, "item data path:" + sectionDatapath);
+						// It contains the structure of the "data" item instances of this archetype
+						AdlStructure sectionStructure = this.archetypeAdlParser.getItemsContainer(sectionDatapath);
+						return buildDatatypeWidgets(sectionStructure, sectionDatatypes, itemIndex);
+					} catch (JSONException e) {
+						e.printStackTrace();
+						Log.e(TAG,"Error building  cluster widgets:" + e.getMessage());
+					}
+	
+					return null;
+	}
+	
+	
+	
 	
 	/**
 	 * Builds a list of widgets from a specific item index, according to the provided schema, ontology and language
@@ -668,14 +788,28 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 	 */
 	public void updateSectionsJsonContent(int index) throws JSONException
 	{
-		if (sectionWidgetsMap==null)
+		updateMapJsonContent(sectionWidgetsMap, index);
+		updateMapJsonContent(clusterWidgetsMap, index);
+	}
+	
+	/**
+	 * Update the json structure according to the current value of the datatype widgets included the specified Map
+	 *
+	 * @param index the form index
+	 * @return the updated json structure
+	 * @throws JSONException the JSON exception
+	 */
+	private void updateMapJsonContent(Map<String, List<DatatypeWidget<EhrDatatype>>> widgetsMap , int index) throws JSONException
+	{
+		if (widgetsMap==null)
 			return;
 		
-		String [] sections = sectionWidgetsMap.keySet().toArray(new String[0]);
+		
+		String [] sections = widgetsMap.keySet().toArray(new String[0]);
 		
 		for (String section : sections)
 		{
-			List<DatatypeWidget<EhrDatatype>> sectionWidgets = sectionWidgetsMap.get(section);
+			List<DatatypeWidget<EhrDatatype>> sectionWidgets = widgetsMap.get(section);
 			
 			for (DatatypeWidget<EhrDatatype> widget : sectionWidgets)
 			{

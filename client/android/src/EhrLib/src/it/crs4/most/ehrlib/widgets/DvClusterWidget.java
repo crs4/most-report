@@ -105,8 +105,8 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster>{
 		  
 	 String sectionRef = this.datatype.getSectionName();
 	 
-	 clusterWidgets =   this._widget_provider.getSectionWidgets(sectionRef, 0);
-	 Log.d(TAG, String.format("In DVCLUSTER: Section widgets for section %s: %s ", sectionRef, clusterWidgets)); 
+	 clusterWidgets =   this._widget_provider.getClusterWidgets(sectionRef, 0);
+	 Log.d(TAG, String.format("In DVCLUSTER: Cluster widgets for cluster %s: %s ", sectionRef, clusterWidgets)); 
 	
 	 
 	 addRemWidgets = (ImageView) _root_view.findViewById(R.id.image_toggle_widgets);

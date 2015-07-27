@@ -1,37 +1,6 @@
 {
 	"title":"at0000",
-	"datatypes":{
-		"data":{
-			"at0004":{
-				"path":"data[at0001]/events[at0002]/data[at0003]/items[at0004]",
-				"type":"DV_CLUSTER",
-				"attributes":{
-					"datatype_ref":"subcostal_parameters"
-				}
-			},
-			"at0007":{
-				"path":"data[at0001]/events[at0002]/data[at0003]/items[at0007]",
-				"type":"DV_CLUSTER",
-				"attributes":{
-					"datatype_ref":"ruq_parameters"
-				}
-			},
-			"at0010":{
-				"path":"data[at0001]/events[at0002]/data[at0003]/items[at0010]",
-				"type":"DV_CLUSTER",
-				"attributes":{
-					"datatype_ref":"luq_parameters"
-				}
-			},
-			"at0013":{
-				"path":"data[at0001]/events[at0002]/data[at0003]/items[at0013]",
-				"type":"DV_CLUSTER",
-				"attributes":{
-					"datatype_ref":"subrapubic_parameters"
-				}
-			}
-		},
-		
+	"clusters" : {
 		"subcostal_parameters":{
 			"at0005":{
 				"path":"data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0005]",
@@ -92,7 +61,40 @@
 				"attributes":{
 				}
 			}
-		}
+		}		
+	},
+	
+	"datatypes":{
+		"data":{
+			"at0004":{
+				"path":"data[at0001]/events[at0002]/data[at0003]/items[at0004]",
+				"type":"DV_CLUSTER",
+				"attributes":{
+					"datatype_ref":"subcostal_parameters"
+				}
+			},
+			"at0007":{
+				"path":"data[at0001]/events[at0002]/data[at0003]/items[at0007]",
+				"type":"DV_CLUSTER",
+				"attributes":{
+					"datatype_ref":"ruq_parameters"
+				}
+			},
+			"at0010":{
+				"path":"data[at0001]/events[at0002]/data[at0003]/items[at0010]",
+				"type":"DV_CLUSTER",
+				"attributes":{
+					"datatype_ref":"luq_parameters"
+				}
+			},
+			"at0013":{
+				"path":"data[at0001]/events[at0002]/data[at0003]/items[at0013]",
+				"type":"DV_CLUSTER",
+				"attributes":{
+					"datatype_ref":"subrapubic_parameters"
+				}
+			}
+		}	
 	}
 }
 		
