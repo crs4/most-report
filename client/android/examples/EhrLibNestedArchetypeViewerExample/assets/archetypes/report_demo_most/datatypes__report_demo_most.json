@@ -1,0 +1,26 @@
+{
+	"title":"at0000",
+	"datatypes":{
+		"items":{
+			"at0001":{
+				"path":"items[at0001]",
+				"type":"ARCHETYPE",
+				"attributes":{
+					"archetype_class":"openEHR-EHR-OBSERVATION.fast_scan.v1"
+				}
+				
+			},
+			"at0002":{
+				"path":"items[at0002]",
+				"type":"ARCHETYPE",
+				"attributes":{
+					"archetype_class":"openEHR-EHR-OBSERVATION.abdominal_scan.v1"
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+}
