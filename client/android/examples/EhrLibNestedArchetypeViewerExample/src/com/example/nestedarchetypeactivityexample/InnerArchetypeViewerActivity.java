@@ -38,6 +38,7 @@ public class InnerArchetypeViewerActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_main);
 		
 		try {
+			// Provide an Archetype Schema Provider containing the informations about all the archetype schema used by the application)
 			ArchetypeSchemaProvider asp = new ArchetypeSchemaProvider(getApplicationContext(), "archetypes.properties", "archetypes");
 			this.tp = new TemplateProvider(getApplicationContext(),WidgetProvider.parseFileToString(getApplicationContext(), "most_demo__template.json"), asp, LANGUAGE);
 		    this.buildArchetypeFragments();
