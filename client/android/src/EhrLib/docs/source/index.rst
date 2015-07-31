@@ -14,7 +14,7 @@ The project consists of a set of frameworks that deal with different aspects and
 Report Framework
 ~~~~~~~~~~~~~~~~
 
-The Report Framework allows you to include and visually handle in your mobile applications clinical records, automatically built by json structures representing specific OpenEHR Archetypes.
+The Report Framework allows you to load, display and edit clinical records in your mobile applications, automatically built by json structures representing specific OpenEHR Archetypes.
 
 
 TREE:
@@ -24,7 +24,7 @@ TREE:
    :maxdepth: 2
 
    
-   installation
+   dependences
    tutorial
    android_docs/api/packages
    examples

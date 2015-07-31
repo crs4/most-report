@@ -40,7 +40,7 @@ import android.widget.Toast;
 
 
 /**
- * This example allow you to load an Archetype
+ * This example allow you how to load an Archetype
  */
 public class ArchetypeViewerActivityExample extends ActionBarActivity{
 
@@ -64,8 +64,7 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
 	
 	/** The json instances. */
 	private static String JSON_SCHEMA_INSTANCE =  "ecg/schema_adl_void_instance_ECG_recording_v1.json";
-	//private static String JSON_SCHEMA_INSTANCE2 =  "blood_pressure/schema_adl_void_instance_blood_pressure_v1.json";
-	private static String JSON_SCHEMA_INSTANCE2 =  "blood_pressure/remote_instance.json";
+	private static String JSON_SCHEMA_INSTANCE2 =  "blood_pressure/schema_adl_void_instance_blood_pressure_v1.json";
 	
 	private ArchetypeViewerFragment archetypeFragment = null;
 	    
@@ -91,10 +90,8 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
 	   FragmentManager fm = getSupportFragmentManager();
    
 	   ArchetypeViewerFragment f =  new ArchetypeViewerFragment(getApplicationContext(), datatypes, ontology, instances, schema,language);
-	   
-	   //fm.beginTransaction().remove(archetypeFragment).add(R.id.container, f).commit();
-        fm.beginTransaction().replace(R.id.container, f).commit();
-       //this.archetypeFragment = f;
+       fm.beginTransaction().replace(R.id.container, f).commit();
+ 
    }
    
     @Override
@@ -178,11 +175,11 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
         
         public ArchetypeViewerFragment(Context ctx, String datatypes, String ontology, String instances, String schema, String language) {
         	
-        	this.datatypes = (datatypes == null ?   WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_DATATYPES) : datatypes);
-        	this.ontology = (ontology == null ?   WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_ONTOLOGY) : ontology);
-        	this.instances = (instances== null ?  WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_INSTANCE) : instances);
-        	this.schema = (schema == null ?  WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_LAYOUT) : schema);
-        	this.instances = (instances== null ?  WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_INSTANCE) : instances);
+        	this.datatypes = (datatypes == null ?   WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_DATATYPES2) : datatypes);
+        	this.ontology = (ontology == null ?   WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_ONTOLOGY2) : ontology);
+        	this.instances = (instances== null ?  WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_INSTANCE2) : instances);
+        	this.schema = (schema == null ?  WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_LAYOUT2) : schema);
+        	this.instances = (instances== null ?  WidgetProvider.parseFileToString(ctx,JSON_SCHEMA_INSTANCE2) : instances);
         	this.language = (language== null ?  LANGUAGE : language);
         }
 
@@ -191,10 +188,7 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            //View rootView = inflater.inflate(R.layout.fragment_blood_pressure, container, false);
-            
-            //View rootView = WidgetProvider.getDatatypeWidget(getActivity().getApplicationContext(), "DV_QUANTITY", null).getView();
-
+           
 			try {
 				Log.d(TAG, String.format("--->>>> Activity:%s DT:%s,ON:%s, IN:%s. SC: %s, LA:%s", getActivity(),datatypes,ontology,instances,schema,language));
 				widgetProvider = new WidgetProvider(getActivity(), 
@@ -214,8 +208,6 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
 				Log.e(TAG, "Error building widgets: " + e);
 				e.printStackTrace();
 			}
-            
-           
             
             // Buttons Panel
     		View buttonsPanel = inflater.inflate(R.layout.datatype_form_buttons, null);
@@ -321,6 +313,4 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity{
 			});
         }
     }
-    
-    
 }

@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import it.crs4.most.ehrlib.ArchetypeFragment;
 import it.crs4.most.ehrlib.ArchetypeSchemaProvider;
