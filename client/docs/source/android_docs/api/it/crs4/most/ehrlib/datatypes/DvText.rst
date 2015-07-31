@@ -14,7 +14,7 @@ DvText
 
 .. java:type:: public class DvText extends EhrDatatype
 
-   This class represents a DV_CODED_TEXT item, according to the definition provided by the OpenEHR Data Type Information Model
+   This class represents a DV_TEXT item, according to the definition provided by the OpenEHR Data Type Information Model
 
 Constructors
 ------------

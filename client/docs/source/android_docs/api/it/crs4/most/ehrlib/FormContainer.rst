@@ -4,8 +4,6 @@
 
 .. java:import:: android.view ViewGroup
 
-.. java:import:: it.crs4.most.ehrlib R.id
-
 .. java:import:: it.crs4.most.ehrlib.datatypes EhrDatatype
 
 .. java:import:: it.crs4.most.ehrlib.exceptions InvalidDatatypeException

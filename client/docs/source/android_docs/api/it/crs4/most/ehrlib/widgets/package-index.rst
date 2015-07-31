@@ -7,9 +7,11 @@ it.crs4.most.ehrlib.widgets
    :maxdepth: 1
 
    DatatypeWidget
+   DvBooleanWidget
    DvClusterWidget
    DvCodedTextAsListWidget
    DvCodedTextWidget
    DvQuantityWidget
    DvTextWidget
+   InnerArchetypeWidget
 

@@ -60,7 +60,7 @@ WidgetProvider
 
 .. java:type:: public class WidgetProvider
 
-   A WidgetProvider lets you build a set of visual and iteractive widgets corresponding to a specific OpenEHR Archetype. The Archetype description is specified by a set of json structures (to be provided to the class constructor).
+   A WidgetProvider lets you build a set of visual and interactive widgets corresponding to a specific OpenEHR Archetype. The Archetype description is specified by a set of json structures (to be provided to the class constructor).
 
 Fields
 ------
@@ -88,6 +88,14 @@ _viewport
 
    The _viewport.
 
+clusterWidgetsMap
+^^^^^^^^^^^^^^^^^
+
+.. java:field:: protected Map<String, List<DatatypeWidget<EhrDatatype>>> clusterWidgetsMap
+   :outertype: WidgetProvider
+
+   The cluster widgets map.
+
 defaultLayoutParams
 ^^^^^^^^^^^^^^^^^^^
 
@@ -109,7 +117,19 @@ Constructors
 WidgetProvider
 ^^^^^^^^^^^^^^
 
+.. java:constructor:: public WidgetProvider(Context context, ArchetypeSchemaProvider asp, String archetypeMainClass, String language, String jsonExclude) throws JSONException, InvalidDatatypeException
+   :outertype: WidgetProvider
+
+WidgetProvider
+^^^^^^^^^^^^^^
+
 .. java:constructor:: public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology, String jsonInstances, String jsonLayoutSchema, String language) throws JSONException, InvalidDatatypeException
+   :outertype: WidgetProvider
+
+WidgetProvider
+^^^^^^^^^^^^^^
+
+.. java:constructor:: public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology, String jsonInstances, String jsonLayoutSchema, String language, String jsonExclude) throws JSONException, InvalidDatatypeException
    :outertype: WidgetProvider
 
    Setup a Widget provider representing a specific archetype, according to the specified json datatypes schema , json archetype structure and json ontology.
@@ -119,6 +139,7 @@ WidgetProvider
    :param jsonOntology: - the json ontology (it includes a textual description of each item of the archetype)
    :param jsonInstances: - the initial json structure of the archetype (optionally including initial values)
    :param jsonLayoutSchema: (optional, it can be null) the layout schema containing informations about visual rendering (sections, custom widgets, priorities..)
+   :param jsonExclude: (optional, it can be null) the list of archetype items (i.e their id , like "at0004") to exclude from the viewer
    :param language: - the language code used by the ontology
    :throws InvalidDatatypeException:
    :throws JSONException: the JSON exception
@@ -136,6 +157,12 @@ buildFormView
    :param index: the index of this Form Container
    :return: the FormContainer containing all widgets, ordered by section and item priority in a vertical layout
 
+getClusterWidgets
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public List<DatatypeWidget<EhrDatatype>> getClusterWidgets(String cluster, int itemIndex)
+   :outertype: WidgetProvider
+
 getContext
 ^^^^^^^^^^
 
@@ -145,6 +172,12 @@ getContext
    Get the application context
 
    :return: the application context
+
+getDatatypesSchema
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public JSONObject getDatatypesSchema()
+   :outertype: WidgetProvider
 
 getOntology
 ^^^^^^^^^^^

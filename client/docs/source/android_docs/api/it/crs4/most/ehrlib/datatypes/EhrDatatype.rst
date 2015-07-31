@@ -1,3 +1,5 @@
+.. java:import:: it.crs4.most.ehrlib WidgetProvider
+
 .. java:import:: it.crs4.most.ehrlib.exceptions InvalidDatatypeException
 
 .. java:import:: org.json JSONException
@@ -63,6 +65,14 @@ isCluster
    :outertype: EhrDatatype
 
    :return: \ ``True``\  if this datatype is a container for other datatypes, \ ``False``\  otherwise
+
+isInnerArchetype
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public boolean isInnerArchetype()
+   :outertype: EhrDatatype
+
+   :return: \ ``True``\  if this datatype is an archetype itself \ ``False``\  otherwise
 
 setAttributes
 ^^^^^^^^^^^^^

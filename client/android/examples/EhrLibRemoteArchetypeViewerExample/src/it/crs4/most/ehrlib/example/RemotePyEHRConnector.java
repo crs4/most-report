@@ -1,5 +1,4 @@
-package it.crs4.most.ehrlib.example;
-/*
+/*!
  * Project MOST - Moving Outcomes to Standard Telemedicine Practice
  * http://most.crs4.it/
  *
@@ -8,7 +7,7 @@ package it.crs4.most.ehrlib.example;
  * See license-GPLv2.txt or license-MIT.txt
  */
 
-
+package it.crs4.most.ehrlib.example;
 
 import java.util.HashMap;
 import java.util.Map;

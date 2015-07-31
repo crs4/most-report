@@ -104,6 +104,22 @@ datatype
 
    The datatype.
 
+description
+^^^^^^^^^^^
+
+.. java:field:: protected String description
+   :outertype: DatatypeWidget
+
+   The description.
+
+displayTitle
+^^^^^^^^^^^^
+
+.. java:field:: protected String displayTitle
+   :outertype: DatatypeWidget
+
+   The display title.
+
 toolTip
 ^^^^^^^
 
@@ -114,6 +130,12 @@ toolTip
 
 Constructors
 ------------
+DatatypeWidget
+^^^^^^^^^^^^^^
+
+.. java:constructor:: protected DatatypeWidget()
+   :outertype: DatatypeWidget
+
 DatatypeWidget
 ^^^^^^^^^^^^^^
 
@@ -210,6 +232,12 @@ getView
 
    :return: the view
 
+getWidgetProvider
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public WidgetProvider getWidgetProvider()
+   :outertype: DatatypeWidget
+
 replaceTooltip
 ^^^^^^^^^^^^^^
 
@@ -241,12 +269,13 @@ save
 setOntology
 ^^^^^^^^^^^
 
-.. java:method:: public void setOntology(JSONObject ontology)
+.. java:method:: public void setOntology(JSONObject ontology, String lang)
    :outertype: DatatypeWidget
 
    Sets the ontology.
 
    :param ontology: the new ontology
+   :param lang: the language of the new loaded ontology
 
 setPriority
 ^^^^^^^^^^^
@@ -267,6 +296,14 @@ setVisibility
    set the visibility of this widget.
 
    :param value: the new visibility
+
+setupTooltip
+^^^^^^^^^^^^
+
+.. java:method:: protected void setupTooltip()
+   :outertype: DatatypeWidget
+
+   Setup tooltip.
 
 updateLabelsContent
 ^^^^^^^^^^^^^^^^^^^
