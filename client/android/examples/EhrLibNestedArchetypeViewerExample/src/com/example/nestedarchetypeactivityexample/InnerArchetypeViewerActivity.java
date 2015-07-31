@@ -191,7 +191,9 @@ public class InnerArchetypeViewerActivity extends ActionBarActivity {
 		
 		for (WidgetProvider wp : wps )
 		{ 
-			  ArchetypeFragment af = new ArchetypeFragment(wp);
+			  ArchetypeFragment af = new ArchetypeFragment();
+			  af.setWidgetProvider(wp);
+			  
 			  this.archetypeFragments.add(af);
 		      ft.add(R.id.container, af);
 		}

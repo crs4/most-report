@@ -22,6 +22,8 @@ TemplateProvider
 
 .. java:type:: public class TemplateProvider
 
+   This class represents a visual Archetypes Template, according to the OpenEHR specifications. A template is an ordered list of \ :java:ref:`WidgetProvider`\  , each of them contains the layout of a specific archetype of the template-
+
 Constructors
 ------------
 TemplateProvider
@@ -29,6 +31,14 @@ TemplateProvider
 
 .. java:constructor:: public TemplateProvider(Context ctx, String templateSchema, ArchetypeSchemaProvider archetypeSchemaProvider, String language) throws JSONException
    :outertype: TemplateProvider
+
+   Creates the template, building all the archetypes specified in the provided json schemas.
+
+   :param ctx: the application Context
+   :param templateSchema: the json schema of the template
+   :param archetypeSchemaProvider: the archetype schema provider
+   :param language: the default ontology language
+   :throws JSONException: if an error occurred during the parsing of the json schemas
 
 Methods
 -------
@@ -49,4 +59,6 @@ getWidgetProviders
 
 .. java:method:: public List<WidgetProvider> getWidgetProviders()
    :outertype: TemplateProvider
+
+   Get the list of the widget providers of this template, one for each archetype
 

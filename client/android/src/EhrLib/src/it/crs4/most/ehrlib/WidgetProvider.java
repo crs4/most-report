@@ -127,39 +127,45 @@ private ArchetypeSchemaProvider asp = null;
 
 private String language;
 
-public WidgetProvider(Context context, ArchetypeSchemaProvider asp, String archetypeMainClass, String language , String jsonExclude) throws JSONException, InvalidDatatypeException
-{
-	this.asp = asp;
-	this.context = context;
-	this.language = language;
-	this.datatypesSchema = new JSONObject(asp.getDatatypesSchema(archetypeMainClass));
-	Log.d(TAG, "Loading ontology for archetype class:" + archetypeMainClass);
-	this.jsonOntology = asp.getOntologySchema(archetypeMainClass);
-	this.ontology = getOntology(this.jsonOntology, language);
-	
-	if (asp.getLayoutSchema(archetypeMainClass)!=null)
-		this.jsonLayoutSchema = new JSONObject(asp.getLayoutSchema(archetypeMainClass));
-	
-	if (jsonExclude!=null)
+	/**
+	 * Setup a Widget provider representing a specific archetype, according to the specified Archetype Schema Provider and archetype class name
+	 * 
+	 * @param context get application context
+	 * @param asp the Archetype Schema Provider
+	 * @param archetypeClassName the name of the archetype class to be built (e.g: openEHR-EHR-OBSERVATION.blood_pressure.v1)
+	 * @param language the default ontology language
+	 * @param jsonExclude the json array containing a list of item ids to be excluded from the archetype 
+	 * @throws JSONException
+	 * @throws InvalidDatatypeException
+	 */
+	public WidgetProvider(Context context, ArchetypeSchemaProvider asp, String archetypeClassName, String language , String jsonExclude) throws JSONException, InvalidDatatypeException
 	{
-		this.buildExcludeArray(new JSONArray(jsonExclude));
+		this.asp = asp;
+		this.context = context;
+		this.language = language;
+		this.datatypesSchema = new JSONObject(asp.getDatatypesSchema(archetypeClassName));
+		Log.d(TAG, "Loading ontology for archetype class:" + archetypeClassName);
+		this.jsonOntology = asp.getOntologySchema(archetypeClassName);
+		this.ontology = getOntology(this.jsonOntology, language);
+		
+		if (asp.getLayoutSchema(archetypeClassName)!=null)
+			this.jsonLayoutSchema = new JSONObject(asp.getLayoutSchema(archetypeClassName));
+		
+		if (jsonExclude!=null)
+		{
+			this.buildExcludeArray(new JSONArray(jsonExclude));
+		}
+		
+		// Archetype structure instance
+		this.jsonArchetype = new JSONObject(asp.getAdlStructureSchema(archetypeClassName));
+		this.archetypeInstances =  this.jsonArchetype.getJSONObject("archetype_details");
+		this.archetypeAdlParser = new AdlParser(this.archetypeInstances);
+		
 	}
-	
-	// Archetype structure instance
-	this.jsonArchetype = new JSONObject(asp.getAdlStructureSchema(archetypeMainClass));
-	this.archetypeInstances =  this.jsonArchetype.getJSONObject("archetype_details");
-	this.archetypeAdlParser = new AdlParser(this.archetypeInstances);
-	
-}
 
-public JSONObject getDatatypesSchema() {
-	return datatypesSchema;
-}
-
-public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology, String jsonInstances, String jsonLayoutSchema, String language) throws JSONException, InvalidDatatypeException 
-{ 
-	this(context,jsonDatatypes,  jsonOntology, jsonInstances, jsonLayoutSchema,language, null);
-}
+	public JSONObject getDatatypesSchema() {
+		return datatypesSchema;
+	}
 
 	/**
 	 * Setup a Widget provider representing a specific archetype, according to the specified json datatypes schema , json archetype structure and json ontology.
@@ -167,14 +173,31 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 	 * @param context the application context
 	 * @param jsonDatatypes - the json description of all datatypes used by this archetype, subdivided in sections
 	 * @param jsonOntology - the json ontology (it includes a textual description of each item of the archetype)
-	 * @param jsonInstances - the initial json structure of the archetype (optionally including initial values)
+	 * @param jsonAdlStructure - the initial json structure of the archetype (optionally including initial values)
 	 * @param jsonLayoutSchema (optional, it can be null) the layout schema containing informations about visual rendering (sections, custom widgets, priorities..)
-	 * @param jsonExclude (optional, it can be null) the list of archetype items (i.e their id , like "at0004") to exclude from the viewer
-	 * @param language - the language code used by the ontology
+	 * @param language -  the default language code (any language code included in the ontology json schema) 
 	 * @throws JSONException the JSON exception
 	 * @throws InvalidDatatypeException 
 	 */
-	public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology, String jsonInstances, String jsonLayoutSchema, String language, String jsonExclude) throws JSONException, InvalidDatatypeException {
+	public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology, String jsonAdlStructure, String jsonLayoutSchema, String language) throws JSONException, InvalidDatatypeException 
+	{ 
+		this(context,jsonDatatypes,  jsonOntology, jsonAdlStructure, jsonLayoutSchema,language, null);
+	}
+
+	/**
+	 * Setup a Widget provider representing a specific archetype, according to the specified json datatypes schema , json archetype structure and json ontology.
+	 *
+	 * @param context the application context
+	 * @param jsonDatatypes - the json description of all datatypes used by this archetype, subdivided in sections
+	 * @param jsonOntology - the json ontology (it includes a textual description of each item of the archetype)
+	 * @param jsonAdlStructure - the initial json structure of the archetype (optionally including initial values)
+	 * @param jsonLayoutSchema (optional, it can be null) the layout schema containing informations about visual rendering (sections, custom widgets, priorities..)
+	 * @param jsonExclude (optional, it can be null) the list of archetype items (i.e their id , like "at0004") to exclude from the viewer
+	 * @param language - the default language code (any language code included in the ontology json schema) 
+	 * @throws JSONException - if an error occurred during the parsing of the json schemas
+	 * @throws InvalidDatatypeException 
+	 */
+	public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology, String jsonAdlStructure, String jsonLayoutSchema, String language, String jsonExclude) throws JSONException, InvalidDatatypeException {
 		    
 		    this.context = context;
 			this.datatypesSchema = new JSONObject(jsonDatatypes);
@@ -190,7 +213,7 @@ public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology
 			}
 			
 			// Archetype structure instance
-			this.jsonArchetype = new JSONObject(jsonInstances);
+			this.jsonArchetype = new JSONObject(jsonAdlStructure);
 			this.archetypeInstances =  this.jsonArchetype.getJSONObject("archetype_details");
 			this.archetypeAdlParser = new AdlParser(this.archetypeInstances);
 			

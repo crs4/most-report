@@ -21,6 +21,10 @@ import org.json.JSONObject;
 import android.content.Context;
 import android.util.Log;
 
+/**
+ * This class represents a visual Archetypes Template, according to the OpenEHR specifications.
+ * A template is an ordered list of {@link WidgetProvider} , each of them contains the layout of a specific archetype of the template- 
+ */
 public class TemplateProvider {
 
 	private Context ctx;
@@ -44,6 +48,14 @@ public class TemplateProvider {
 
 	private String id;
 	
+	/**
+	 * Creates the template, building all the archetypes specified in the provided json schemas.
+	 * @param ctx the application Context
+	 * @param templateSchema the json schema of the template
+	 * @param archetypeSchemaProvider the archetype schema provider
+	 * @param language the default ontology language
+	 * @throws JSONException if an error occurred during the parsing of the json schemas
+	 */
 	public TemplateProvider(Context ctx, String templateSchema, ArchetypeSchemaProvider archetypeSchemaProvider, String language) throws JSONException
 	{
 		this.ctx = ctx;
@@ -55,6 +67,10 @@ public class TemplateProvider {
 		this.buildtemplate();
 	}
 	
+	/**
+	 * Get the list of the widget providers of this template, one for each archetype
+	 * @return
+	 */
 	public List<WidgetProvider> getWidgetProviders()
 	{
 		return this.wproviders;

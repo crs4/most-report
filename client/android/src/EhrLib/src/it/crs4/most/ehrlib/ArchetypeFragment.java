@@ -16,15 +16,40 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
+/**
+ * This class allows you to display an Archetype in a Fragment. You just have to provide the {@link WidgetProvider} handling the archetype you want to include to the constructor or, if you prefer,
+ * by using the {@link #setWidgetProvider(WidgetProvider)} method (in this second case, remember to call this method before adding the fragment to the container).
+ * 
+ */
 public class ArchetypeFragment extends Fragment {
 	
 	private WidgetProvider wp;
 	private FormContainer formContainer;
 	
+	/**
+	 * Set the widget provider for this fragment. This method must called BEFORE adding the fragment to itws container.
+	 * @param wp
+	 */
+	public void setWidgetProvider(WidgetProvider wp)
+	{
+		this.wp = wp;
+	}
+	
+	public ArchetypeFragment(){}
+	
+	/**
+	 * Create an Archetype fragment by providing the WidgetProvider
+	 * @param wp
+	 */
 	public ArchetypeFragment(WidgetProvider wp) {
 		this.wp = wp;
 	}
 	
+	/**
+     *
+	 * @return the widget provider of this Archetype Fragment
+	 */
 	public WidgetProvider getwidgetProvider() {
 		return this.wp;
 	}
@@ -41,8 +66,12 @@ public class ArchetypeFragment extends Fragment {
 		return rootView;
 	}
 	
+	/**
+	 * Get the form container of this fragment 
+	 * @return the form container of this archetype fragment
+	 */
 	public FormContainer getFormContainer()
-	{
+	{   
 		return this.formContainer;
 	}
 
