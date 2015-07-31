@@ -19,7 +19,7 @@ import android.view.ViewGroup;
 
 /**
  * This class allows you to display an Archetype in a Fragment. You just have to provide the {@link WidgetProvider} handling the archetype you want to include to the constructor or, if you prefer,
- * by using the {@link #setWidgetProvider(WidgetProvider)} method (in this second case, remember to call this method before adding the fragment to the container).
+ * you can use the {@link #setWidgetProvider(WidgetProvider)} method (in this second case, remember to call this method before adding the fragment to the container).
  * 
  */
 public class ArchetypeFragment extends Fragment {

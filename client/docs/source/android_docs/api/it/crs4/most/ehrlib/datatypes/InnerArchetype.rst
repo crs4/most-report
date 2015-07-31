@@ -14,6 +14,8 @@ InnerArchetype
 
 .. java:type:: public class InnerArchetype extends EhrDatatype
 
+   This class represents an Archetype item included in another one.
+
 Constructors
 ------------
 InnerArchetype
@@ -21,6 +23,12 @@ InnerArchetype
 
 .. java:constructor:: public InnerArchetype(WidgetProvider wp, String path, JSONObject attributes)
    :outertype: InnerArchetype
+
+   Instantiates a new Archetype item.
+
+   :param wp: the Widget Provider of the archetype
+   :param path: the absolute path of the archetype inside the json structure
+   :param attributes:
 
 Methods
 -------
@@ -35,6 +43,8 @@ getArchetypeClass
 
 .. java:method:: public String getArchetypeClass()
    :outertype: InnerArchetype
+
+   :return: the name of the archetype class
 
 getWidgetProvider
 ^^^^^^^^^^^^^^^^^

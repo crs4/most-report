@@ -6,13 +6,21 @@ import it.crs4.most.ehrlib.exceptions.InvalidDatatypeException;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * This class represents an Archetype item included in another one.
+ */
 public class InnerArchetype extends EhrDatatype {
 
 	private String archetypeClass;
 	private WidgetProvider wp;
 	
 	 
-
+    /**
+     * Instantiates a new Archetype item.
+     * @param wp the Widget Provider of the archetype
+     * @param path the absolute path of the archetype inside the json structure
+     * @param attributes
+     */
 	public InnerArchetype(WidgetProvider wp, String path, JSONObject attributes) {
 		this.wp = wp;
 		this.setPath(path);
@@ -35,6 +43,10 @@ public class InnerArchetype extends EhrDatatype {
 		this.archetypeClass = attributes.getString("archetype_class");
 	}
 
+	/**
+	 * 
+	 * @return the name of the archetype class
+	 */
 	public String getArchetypeClass()
 	{
 		return this.archetypeClass;
