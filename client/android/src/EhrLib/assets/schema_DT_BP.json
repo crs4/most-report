@@ -1,0 +1,11 @@
+
+{
+  "DV_QUANTITY" : {
+                "MAGNITUDE" : "double",
+                "UNITS" : "string",
+                "PRECISION" : "integer"
+          }
+          
+    "DV_TEXT" : "string"
+   }
+   

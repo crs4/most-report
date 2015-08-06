@@ -1,0 +1,96 @@
+07-27 16:36:06.352: I/dalvikvm(2897): Could not find method android.view.ViewGroup.onNestedScrollAccepted, referenced from method android.support.v7.internal.widget.ActionBarOverlayLayout.onNestedScrollAccepted
+07-27 16:36:06.352: W/dalvikvm(2897): VFY: unable to resolve virtual method 11375: Landroid/view/ViewGroup;.onNestedScrollAccepted (Landroid/view/View;Landroid/view/View;I)V
+07-27 16:36:06.352: D/dalvikvm(2897): VFY: replacing opcode 0x6f at 0x0000
+07-27 16:36:06.352: I/dalvikvm(2897): Could not find method android.view.ViewGroup.onStopNestedScroll, referenced from method android.support.v7.internal.widget.ActionBarOverlayLayout.onStopNestedScroll
+07-27 16:36:06.352: W/dalvikvm(2897): VFY: unable to resolve virtual method 11381: Landroid/view/ViewGroup;.onStopNestedScroll (Landroid/view/View;)V
+07-27 16:36:06.352: D/dalvikvm(2897): VFY: replacing opcode 0x6f at 0x0000
+07-27 16:36:06.352: I/dalvikvm(2897): Could not find method android.support.v7.internal.widget.ActionBarOverlayLayout.stopNestedScroll, referenced from method android.support.v7.internal.widget.ActionBarOverlayLayout.setHideOnContentScrollEnabled
+07-27 16:36:06.352: W/dalvikvm(2897): VFY: unable to resolve virtual method 9060: Landroid/support/v7/internal/widget/ActionBarOverlayLayout;.stopNestedScroll ()V
+07-27 16:36:06.352: D/dalvikvm(2897): VFY: replacing opcode 0x6e at 0x000e
+07-27 16:36:06.362: I/dalvikvm(2897): Could not find method android.content.res.TypedArray.getChangingConfigurations, referenced from method android.support.v7.internal.widget.TintTypedArray.getChangingConfigurations
+07-27 16:36:06.362: W/dalvikvm(2897): VFY: unable to resolve virtual method 374: Landroid/content/res/TypedArray;.getChangingConfigurations ()I
+07-27 16:36:06.362: D/dalvikvm(2897): VFY: replacing opcode 0x6e at 0x0002
+07-27 16:36:06.362: I/dalvikvm(2897): Could not find method android.content.res.TypedArray.getType, referenced from method android.support.v7.internal.widget.TintTypedArray.getType
+07-27 16:36:06.362: W/dalvikvm(2897): VFY: unable to resolve virtual method 396: Landroid/content/res/TypedArray;.getType (I)I
+07-27 16:36:06.362: D/dalvikvm(2897): VFY: replacing opcode 0x6e at 0x0002
+07-27 16:36:06.392: D/WidgetProvider(2897): Loading ontology for archetype class:openEHR-EHR-SECTION.report_demo_most.v1
+07-27 16:36:06.392: D/WidgetProvider(2897): Reading ontology: {
+07-27 16:36:06.392: D/WidgetProvider(2897): 	"en":{
+07-27 16:36:06.392: D/WidgetProvider(2897): 		"at0000":{
+07-27 16:36:06.392: D/WidgetProvider(2897): 			"text":"Report demo most",
+07-27 16:36:06.392: D/WidgetProvider(2897): 			"description":"DEMO section"
+07-27 16:36:06.392: D/WidgetProvider(2897): 		},
+07-27 16:36:06.392: D/WidgetProvider(2897): 	  "at0001" : { 
+07-27 16:36:06.392: D/WidgetProvider(2897): 			"text":"FAST scan",
+07-27 16:36:06.392: D/WidgetProvider(2897): 			"description":"Focused Assessment with Sonography for Trauma"
+07-27 16:36:06.392: D/WidgetProvider(2897): 	  	},
+07-27 16:36:06.392: D/WidgetProvider(2897): 			
+07-27 16:36:06.392: D/WidgetProvider(2897): 			"at0002" : { 
+07-27 16:36:06.392: D/WidgetProvider(2897): 				"text":"Abdominal scan",
+07-27 16:36:06.392: D/WidgetProvider(2897): 				"description":"Abdomen ultrasound scan"
+07-27 16:36:06.392: D/WidgetProvider(2897): 		  	}
+07-27 16:36:06.392: D/WidgetProvider(2897): 	  	
+07-27 16:36:06.392: D/WidgetProvider(2897): 	},
+07-27 16:36:06.392: D/WidgetProvider(2897): 	"it":{
+07-27 16:36:06.392: D/WidgetProvider(2897): 		"at0000":{
+07-27 16:36:06.392: D/WidgetProvider(2897): 			"text":"Report demo most",
+07-27 16:36:06.392: D/WidgetProvider(2897): 			"description":"Sezione demo"
+07-27 16:36:06.392: D/WidgetProvider(2897): 		},
+07-27 16:36:06.392: D/WidgetProvider(2897): 	  "at0001" : { 
+07-27 16:36:06.392: D/WidgetProvider(2897): 			"text":"Eco FAST",
+07-27 16:36:06.392: D/WidgetProvider(2897): 			"description":"Report esame FAST"
+07-27 16:36:06.392: D/WidgetProvider(2897): 	  	},
+07-27 16:36:06.392: D/WidgetProvider(2897): 			
+07-27 16:36:06.392: D/WidgetProvider(2897): 			"at0002" : { 
+07-27 16:36:06.392: D/WidgetProvider(2897): 				"text":"Ecografia addominale",
+07-27 16:36:06.392: D/WidgetProvider(2897): 				"description":"Report ecografia addominale"
+07-27 16:36:06.392: D/WidgetProvider(2897): 		  	}
+07-27 16:36:06.392: D/WidgetProvider(2897): 	  	
+07-27 16:36:06.392: D/WidgetProvider(2897): 	}
+07-27 16:36:06.392: D/WidgetProvider(2897): }
+07-27 16:36:06.392: D/WidgetProvider(2897): Ontology read ok 
+07-27 16:36:06.392: D/WidgetProvider(2897): Building SECTION:items
+07-27 16:36:06.392: D/WidgetProvider(2897): item data path:items[at0001]
+07-27 16:36:06.392: D/TestAdlParser(2897): JSON IN getObjectByPath:{"items":{"at0002":"ARCHETYPE_NODE","at0001":"ARCHETYPE_NODE"}}
+07-27 16:36:06.392: D/TestAdlParser(2897): LEVELS UP:-2
+07-27 16:36:06.392: D/TestAdlParser(2897): Path:items
+07-27 16:36:06.392: D/TestAdlParser(2897): Path:at0001
+07-27 16:36:06.392: D/TestAdlParser(2897): LAST INDEX:-1
+07-27 16:36:06.392: D/WidgetProvider(2897): creating datatype widgets...
+07-27 16:36:06.392: D/WidgetProvider(2897): ITEM STRUCTURE NAMES:["at0002","at0001"]
+07-27 16:36:06.392: E/WidgetProvider(2897): Error build a datatype widget: org.json.JSONException: No value for at0002
+07-27 16:36:06.392: W/System.err(2897): org.json.JSONException: No value for at0002
+07-27 16:36:06.402: W/System.err(2897): 	at org.json.JSONObject.get(JSONObject.java:355)
+07-27 16:36:06.402: W/System.err(2897): 	at org.json.JSONObject.getJSONObject(JSONObject.java:574)
+07-27 16:36:06.402: W/System.err(2897): 	at it.crs4.most.ehrlib.WidgetProvider.buildDatatypeWidgets(WidgetProvider.java:620)
+07-27 16:36:06.402: W/System.err(2897): 	at it.crs4.most.ehrlib.WidgetProvider.buildSectionWidgets(WidgetProvider.java:576)
+07-27 16:36:06.402: W/System.err(2897): 	at it.crs4.most.ehrlib.WidgetProvider.buildSectionWidgetsMap(WidgetProvider.java:365)
+07-27 16:36:06.402: W/System.err(2897): 	at it.crs4.most.ehrlib.WidgetProvider.buildFormView(WidgetProvider.java:427)
+07-27 16:36:06.402: W/System.err(2897): 	at it.crs4.most.ehrlib.ArchetypeFragment.onCreateView(ArchetypeFragment.java:28)
+07-27 16:36:06.402: W/System.err(2897): 	at android.support.v4.app.Fragment.performCreateView(Fragment.java:1786)
+07-27 16:36:06.402: W/System.err(2897): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:947)
+07-27 16:36:06.402: W/System.err(2897): 	at android.support.v4.app.FragmentManagerImpl.moveToState(FragmentManager.java:1126)
+07-27 16:36:06.402: W/System.err(2897): 	at android.support.v4.app.BackStackRecord.run(BackStackRecord.java:739)
+07-27 16:36:06.402: W/System.err(2897): 	at android.support.v4.app.FragmentManagerImpl.execPendingActions(FragmentManager.java:1489)
+07-27 16:36:06.402: W/System.err(2897): 	at android.support.v4.app.FragmentActivity.onStart(FragmentActivity.java:548)
+07-27 16:36:06.402: W/System.err(2897): 	at android.app.Instrumentation.callActivityOnStart(Instrumentation.java:1171)
+07-27 16:36:06.402: W/System.err(2897): 	at android.app.Activity.performStart(Activity.java:5241)
+07-27 16:36:06.402: W/System.err(2897): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2157)
+07-27 16:36:06.402: W/System.err(2897): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2233)
+07-27 16:36:06.402: W/System.err(2897): 	at android.app.ActivityThread.access$800(ActivityThread.java:135)
+07-27 16:36:06.402: W/System.err(2897): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1196)
+07-27 16:36:06.402: W/System.err(2897): 	at android.os.Handler.dispatchMessage(Handler.java:102)
+07-27 16:36:06.402: W/System.err(2897): 	at android.os.Looper.loop(Looper.java:136)
+07-27 16:36:06.402: W/System.err(2897): 	at android.app.ActivityThread.main(ActivityThread.java:5001)
+07-27 16:36:06.402: W/System.err(2897): 	at java.lang.reflect.Method.invokeNative(Native Method)
+07-27 16:36:06.402: W/System.err(2897): 	at java.lang.reflect.Method.invoke(Method.java:515)
+07-27 16:36:06.402: W/System.err(2897): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:785)
+07-27 16:36:06.402: W/System.err(2897): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:601)
+07-27 16:36:06.402: W/System.err(2897): 	at dalvik.system.NativeStart.main(Native Method)
+07-27 16:36:06.402: D/WidgetProvider(2897): Generating form....
+07-27 16:36:06.402: D/WidgetProvider(2897): FORM TITLE: Report demo most
+07-27 16:36:06.402: D/WidgetProvider(2897): SectionWidgets for section items: []
+07-27 16:36:06.402: D/WidgetProvider(2897): Resetting all widgets...
+07-27 16:36:06.482: I/Adreno-EGL(2897): <qeglDrvAPI_eglInitialize:320>: EGL 1.4 QUALCOMM Build: I0404c4692afb8623f95c43aeb6d5e13ed4b30ddbDate: 11/06/13
+07-27 16:36:06.512: D/OpenGLRenderer(2897): Enabling debug mode 0
+07-27 16:36:06.562: D/dalvikvm(2897): GC_FOR_ALLOC freed 285K, 4% free 9277K/9596K, paused 17ms, total 17ms
