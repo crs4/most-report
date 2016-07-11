@@ -1,15 +1,12 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
-group = 'it.crs4.most.report.ehr'
-version = '1.0'
-
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.0.2"
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
-        minSdkVersion 11
+        minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -24,13 +21,12 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:21.0.+'
+    compile 'com.android.support:appcompat-v7:21.0.2'
     compile 'com.nhaarman.supertooltips:library:3.0.+'
     testCompile 'junit:junit:4.12'
 }
 
 publishing {
-
     repositories {
         maven {
 
@@ -40,10 +36,8 @@ publishing {
     publications {
         aar(MavenPublication) {
             groupId 'it.crs4.most.report.ehr'
-            version = '1.0'
+            version '1.0'
             artifactId 'MOSTEhr'
-
-            // Tell maven to prepare the generated "*.aar" file for publishing
             artifact("build/outputs/aar/MOSTEhr-debug.aar")
 
         }
