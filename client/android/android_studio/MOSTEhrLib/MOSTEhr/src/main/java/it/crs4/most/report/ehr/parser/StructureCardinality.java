@@ -14,9 +14,9 @@ package it.crs4.most.report.ehr.parser;
  * The StructureCardinalityenum represents athe cardinality of a section of an ADL Archetype.
  */
 public enum StructureCardinality {
-	
- 	UNKNOWN,
- 	UNIQUE,
- 	MULTIPLE
+
+    UNKNOWN,
+    UNIQUE,
+    MULTIPLE
 
 }

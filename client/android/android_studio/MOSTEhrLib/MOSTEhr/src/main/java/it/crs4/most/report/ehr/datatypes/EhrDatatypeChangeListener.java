@@ -22,12 +22,12 @@ package it.crs4.most.report.ehr.datatypes;
  * @param <T> the generic datatype extending the {@code EhrDatatype}
  */
 public interface EhrDatatypeChangeListener<T extends EhrDatatype> {
-	
-	/**
-	 * Called when a datatype changed its content.
-	 *
-	 * @param datatype the datatype with the updated value
-	 */
-	public void onEhrDatatypeChanged(T datatype);
+
+    /**
+     * Called when a datatype changed its content.
+     *
+     * @param datatype the datatype with the updated value
+     */
+    public void onEhrDatatypeChanged(T datatype);
 
 }

@@ -9,10 +9,6 @@
 
 package it.crs4.most.report.ehr.widgets;
 
-import java.util.List;
-
-import org.json.JSONObject;
-
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,6 +22,10 @@ import com.nhaarman.supertooltips.ToolTip;
 import com.nhaarman.supertooltips.ToolTipRelativeLayout;
 import com.nhaarman.supertooltips.ToolTipView;
 
+import org.json.JSONObject;
+
+import java.util.List;
+
 import it.crs4.most.report.ehr.R;
 import it.crs4.most.report.ehr.WidgetProvider;
 import it.crs4.most.report.ehr.datatypes.DvCluster;
@@ -35,156 +35,128 @@ import it.crs4.most.report.ehr.exceptions.InvalidDatatypeException;
 
 /**
  * This class represents a visual widget mapped on a  {@link DvCluster} datatype.
- *
  */
-public class DvClusterWidget extends DatatypeWidget<DvCluster>{
+public class DvClusterWidget extends DatatypeWidget<DvCluster> {
 
-	private static final String TAG = "DvClusterWidget";
-	private List<DatatypeWidget<EhrDatatype>> clusterWidgets;
-	private TextView _title;
-	private ToolTipRelativeLayout toolTipRelativeLayout;
-	private ImageView _help;
-	protected ToolTipView myToolTipView;
-	private LinearLayout _clusterLayout;
-   
-	private boolean areWidgetsVisible = false;
-	private ImageView addRemWidgets;
-	
-	/**
-	 * Instantiate a new DvClusterWidget
-	 * 
-	 * @param provider the widget provider
-	 * @param name the name of this widget
-	 * @param path  the path of the {@link DvCluster} mapped on this widget
-	 * @param attributes the attributes of the {@link DvCluster} mapped on this widget
-	 * @param parentIndex the parent index of this widget
-	 */
-	public DvClusterWidget( WidgetProvider provider,  String name , String path, JSONObject attributes, int parentIndex) {
-		super(provider, name, new DvCluster(path, attributes), parentIndex);
-		buildClusterView();
-		updateLabelsContent();
-		
-		_help = (ImageView) _root_view.findViewById(R.id.image_help);
-		
-		toolTipRelativeLayout = (ToolTipRelativeLayout) _root_view.findViewById(R.id.activity_main_tooltipRelativeLayout);
-		
-	    _help.setOnClickListener(new OnClickListener() {
-			
-	  
-          
-			@Override
-			public void onClick(View v) {
-				if (myToolTipView==null)
-				{
-					 myToolTipView = toolTipRelativeLayout.showToolTipForView(toolTip, _help);
-					 //myToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
-				}
-				else
-				{
-					myToolTipView.remove();
-					myToolTipView=null;
-					
-				}
-			}
-		});
-	}
-	
-	
-	
-	private void buildClusterView()
-	{
-		LayoutInflater inflater = (LayoutInflater) _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.dv_cluster, null);
-	
-		_root_view = view;
-	
-		 _clusterLayout = (LinearLayout) _root_view.findViewById(R.id.cluster_container);
-				
-		_title = (TextView) _root_view.findViewById(R.id.txt_title);
-		
-		  
-	 String sectionRef = this.datatype.getSectionName();
-	 
-	 clusterWidgets =   this._widget_provider.getClusterWidgets(sectionRef, 0);
-	 Log.d(TAG, String.format("In DVCLUSTER: Cluster widgets for cluster %s: %s ", sectionRef, clusterWidgets)); 
-	
-	 
-	 addRemWidgets = (ImageView) _root_view.findViewById(R.id.image_toggle_widgets);
-	 addRemWidgets.setOnClickListener(new OnClickListener() {
-		
-		@Override
-		public void onClick(View v) {
-			
-			if (areWidgetsVisible)
-				removeWidgets();
-			else
-				addWidgets();
-			
-		}
-	});
-			 
-	}
+    private static final String TAG = "DvClusterWidget";
+    private boolean mWidgetsVisible = false;
+    private List<DatatypeWidget<EhrDatatype>> mClusterWidgets;
+    private TextView mTitle;
+    private ToolTipRelativeLayout mToolTipLayout;
+    private ImageView mHelp;
+    protected ToolTipView mToolTipView;
+    private LinearLayout mClusterLayout;
+    private ImageView mAddRemWidgets;
 
-	private void addWidgets()
-	{
-		 for( int i = 0; i < clusterWidgets.size(); i++ ) {
-			 _clusterLayout.addView( ( View ) clusterWidgets.get(i).getView() );
-	        }
-		 this.areWidgetsVisible = true;
-		 this.addRemWidgets.setImageDrawable(_context.getResources().getDrawable(android.R.drawable.ic_menu_revert));
-	}
-	
-	private void removeWidgets()
-	{
-		_clusterLayout.removeAllViews();
-		this.areWidgetsVisible = false;
-	    this.addRemWidgets.setImageDrawable(_context.getResources().getDrawable(android.R.drawable.ic_menu_more));
-	}
-	
-	
-	/**
-	 * @see it.crs4.most.report.ehr.datatypes.EhrDatatypeChangeListener#onEhrDatatypeChanged(it.crs4.most.report.ehr.datatypes.EhrDatatype)
-	 */
-	@Override
-	public void onEhrDatatypeChanged(DvCluster datatype) {
-		
-	}
+    /**
+     * Instantiate a new DvClusterWidget
+     *
+     * @param provider    the widget provider
+     * @param name        the name of this widget
+     * @param path        the path of the {@link DvCluster} mapped on this widget
+     * @param attributes  the attributes of the {@link DvCluster} mapped on this widget
+     * @param parentIndex the parent index of this widget
+     */
+    public DvClusterWidget(WidgetProvider provider, String name, String path, JSONObject attributes, int parentIndex) {
+        super(provider, name, new DvCluster(path, attributes), parentIndex);
+        buildClusterView();
+        updateLabelsContent();
 
-	@Override
-	protected void updateLabelsContent() {
-		_title.setText(getDisplayTitle());
-	}
+        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
 
-	@Override
-	protected void replaceTooltip(ToolTip tooltip) {
-		if (myToolTipView!=null)
-		{
-			myToolTipView.remove();
-			myToolTipView = toolTipRelativeLayout.showToolTipForView(toolTip, _help);
-		}
-	}
+        mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
 
-	
-	/**
-	 * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#save()
-	 */
-	@Override
-	public void save() throws InvalidDatatypeException {
-		Log.d(TAG, "Widgets for dv cluster to be updated:" + clusterWidgets.size());
-		 for( int i = 0; i < clusterWidgets.size(); i++ ) {
-			  clusterWidgets.get(i).save();
-	        }
-		
-	}
+        mHelp.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mToolTipView == null) {
+                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+                    //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
+                }
+                else {
+                    mToolTipView.remove();
+                    mToolTipView = null;
 
-	/**
-	 * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#reset()
-	 */
-	@Override
-	public void reset() {
-		for( int i = 0; i < clusterWidgets.size(); i++ ) {
-			  clusterWidgets.get(i).reset();
-	        }
-	}
+                }
+            }
+        });
+    }
 
+
+    private void buildClusterView() {
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        mRootView = inflater.inflate(R.layout.dv_cluster, null);
+        mClusterLayout = (LinearLayout) mRootView.findViewById(R.id.cluster_container);
+        mTitle = (TextView) mRootView.findViewById(R.id.txt_title);
+
+        String sectionRef = mDatatype.getSectionName();
+        mClusterWidgets = mWidgetProvider.getClusterWidgets(sectionRef, 0);
+
+        mAddRemWidgets = (ImageView) mRootView.findViewById(R.id.image_toggle_widgets);
+        mAddRemWidgets.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mWidgetsVisible) {
+                    removeWidgets();
+                }
+                else {
+                    addWidgets();
+                }
+            }
+        });
+    }
+
+    private void addWidgets() {
+        for (int i = 0; i < mClusterWidgets.size(); i++) {
+            mClusterLayout.addView(mClusterWidgets.get(i).getView());
+        }
+        mWidgetsVisible = true;
+        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(android.R.drawable.ic_menu_revert));
+    }
+
+    private void removeWidgets() {
+        mClusterLayout.removeAllViews();
+        mWidgetsVisible = false;
+        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(android.R.drawable.ic_menu_more));
+    }
+
+    /**
+     * @see it.crs4.most.report.ehr.datatypes.EhrDatatypeChangeListener#onEhrDatatypeChanged(it.crs4.most.report.ehr.datatypes.EhrDatatype)
+     */
+    @Override
+    public void onEhrDatatypeChanged(DvCluster datatype) {}
+
+    @Override
+    protected void updateLabelsContent() {
+        mTitle.setText(getDisplayTitle());
+    }
+
+    @Override
+    protected void replaceTooltip(ToolTip tooltip) {
+        if (mToolTipView != null) {
+            mToolTipView.remove();
+            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+        }
+    }
+
+    /**
+     * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#save()
+     */
+    @Override
+    public void save() throws InvalidDatatypeException {
+        for (int i = 0; i < mClusterWidgets.size(); i++) {
+            mClusterWidgets.get(i).save();
+        }
+    }
+
+    /**
+     * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#reset()
+     */
+    @Override
+    public void reset() {
+        for (int i = 0; i < mClusterWidgets.size(); i++) {
+            mClusterWidgets.get(i).reset();
+        }
+    }
 }

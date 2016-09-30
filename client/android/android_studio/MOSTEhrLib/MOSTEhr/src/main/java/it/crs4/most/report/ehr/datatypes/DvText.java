@@ -9,12 +9,12 @@
 
 package it.crs4.most.report.ehr.datatypes;
 
-import it.crs4.most.report.ehr.exceptions.InvalidDatatypeException;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
+import it.crs4.most.report.ehr.exceptions.InvalidDatatypeException;
 
 
 /**
@@ -22,85 +22,89 @@ import android.util.Log;
  */
 public class DvText extends EhrDatatype {
 
-	/** The text. */
-	private String text = "";
-	
-	/** The tag. */
-	private String TAG = "DvText";
-	
-	/**
-	 * Instantiates a new DV_TEXT item.
-	 *
-	 * @param path the path
-	 * @param attributes the attributes
-	 */
-	public DvText(String path, JSONObject attributes)
-	{
-		this.setPath(path);
-		try {
-			this.setAttributes(attributes);
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	
-	@Override
-	protected void setAttributes(JSONObject attributes) throws JSONException {
-	}
+    /**
+     * The text.
+     */
+    private String text = "";
 
-	
-	@Override
-	public void fromJSON(JSONObject data) throws JSONException,
-			InvalidDatatypeException {
-		 
-		if (!data.isNull("text"))
-			this.setText(data.getString("text"));
-		
-	}
+    /**
+     * The tag.
+     */
+    private String TAG = "DvText";
 
-	
-	@Override
-	public JSONObject toJSON() {
-		JSONObject jsonText = new JSONObject();
-		try {
-			String value = String.format("{\"value\": { \"text\" : \"%s\"}}", this.text);
-			Log.d(TAG , "To be converted in JSON:" + value);
-			jsonText = new JSONObject(value);
-			
-			return jsonText;
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-		
-		return null;
-	}
+    /**
+     * Instantiates a new DV_TEXT item.
+     *
+     * @param path       the path
+     * @param attributes the attributes
+     */
+    public DvText(String path, JSONObject attributes) {
+        this.setPath(path);
+        try {
+            this.setAttributes(attributes);
+        }
+        catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
-	/**
-	 * Gets the current text of this DV_TEXT item
-	 *
-	 * @returnc the current text of this DV_TEXT item
-	 */
-	public String getText() {
-		return text;
-	}
 
-	/**
-	 * Sets the text of this DV_TEXT item
-	 *
-	 * @param text the new text
-	 */
-	public void setText(String text) {
-		this.text = text;
-	
-	
-	if (this.datatypeChangeListener!=null)
-	{
-		Log.d(TAG ,"Notifying datatype changes to the DvTextWidget with current value:" + getText());
-		this.datatypeChangeListener.onEhrDatatypeChanged(this);
-	}
-	else
-		Log.d(TAG,"No Listener for notifying datatype changes to the widget");
-	}
+    @Override
+    protected void setAttributes(JSONObject attributes) throws JSONException {
+    }
+
+
+    @Override
+    public void fromJSON(JSONObject data) throws JSONException,
+        InvalidDatatypeException {
+
+        if (!data.isNull("text"))
+            this.setText(data.getString("text"));
+
+    }
+
+
+    @Override
+    public JSONObject toJSON() {
+        JSONObject jsonText = new JSONObject();
+        try {
+            String value = String.format("{\"value\": { \"text\" : \"%s\"}}", this.text);
+            Log.d(TAG, "To be converted in JSON:" + value);
+            jsonText = new JSONObject(value);
+
+            return jsonText;
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    /**
+     * Gets the current text of this DV_TEXT item
+     *
+     * @returnc the current text of this DV_TEXT item
+     */
+    public String getText() {
+        return text;
+    }
+
+    /**
+     * Sets the text of this DV_TEXT item
+     *
+     * @param text the new text
+     */
+    public void setText(String text) {
+        this.text = text;
+
+
+        if (this.datatypeChangeListener != null) {
+            Log.d(TAG, "Notifying datatype changes to the DvTextWidget with current value:" + getText());
+            this.datatypeChangeListener.onEhrDatatypeChanged(this);
+        }
+        else
+            Log.d(TAG, "No Listener for notifying datatype changes to the widget");
+    }
 }

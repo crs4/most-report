@@ -9,15 +9,6 @@
 
 package it.crs4.most.report.ehr.widgets;
 
-import java.util.ArrayList;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.nhaarman.supertooltips.ToolTip;
-import com.nhaarman.supertooltips.ToolTipRelativeLayout;
-import com.nhaarman.supertooltips.ToolTipView;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +19,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.nhaarman.supertooltips.ToolTip;
+import com.nhaarman.supertooltips.ToolTipRelativeLayout;
+import com.nhaarman.supertooltips.ToolTipView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 import it.crs4.most.report.ehr.R;
 import it.crs4.most.report.ehr.WidgetProvider;
 import it.crs4.most.report.ehr.datatypes.DvCodedText;
@@ -36,183 +37,153 @@ import it.crs4.most.report.ehr.exceptions.InvalidDatatypeException;
 /**
  * This class represents a visual widget mapped on a  {@link DvCodedText} datatype. It renders all the options of the {@link DvCodedText} datatype in a Combobox.
  */
-public class DvCodedTextWidget extends DatatypeWidget<DvCodedText>{
+public class DvCodedTextWidget extends DatatypeWidget<DvCodedText> {
 
-	/** The spinner. */
-	private Spinner spinner = null;
-	
-	/** The current selection index. */
-	private int currentSelectionIndex = 0;
-	
-	/** The _help. */
-	private ImageView _help;
-	
-	/** The adapter. */
-	private ArrayAdapter<String> adapter;
-	
-	/** The txt title. */
-	private TextView txtTitle;
-	
-	/** The tool tip relative layout. */
-	private ToolTipRelativeLayout toolTipRelativeLayout;
-	
-	/** The my tool tip view. */
-	private ToolTipView myToolTipView;
-	
-	/**
-	 * Instantiates a new {@link DvCodedTextWidget}
-	 *
-	 * @param provider the widget provider
-	 * @param name the name of this widget
-	 * @param path the path of the {@link DvCodedText} mapped on this widget
-	 * @param attributes the attributes of the {@link DvCodedText} mapped on this widget
-	 * @param parentIndex the parent index
-	 */
-	public DvCodedTextWidget(WidgetProvider provider, String name , String path, JSONObject attributes, int parentIndex) {
-		super(provider, name, new DvCodedText(path, attributes), parentIndex);
-		
-		LayoutInflater inflater = (LayoutInflater) _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.dv_coded_text, null);
-		_root_view = view;
-		
-		txtTitle = (TextView) _root_view.findViewById(R.id.txt_title);
-		this.setupSpinner();
-		
-		this.updateLabelsContent();
-		
-		 
-		
-		 _help = (ImageView) _root_view.findViewById(R.id.image_help);
-			
-			toolTipRelativeLayout = (ToolTipRelativeLayout) _root_view.findViewById(R.id.activity_main_tooltipRelativeLayout);
-			
-		    _help.setOnClickListener(new OnClickListener() {
-				
-		
+    private Spinner mSpinner = null;
+    private int mCurrentSelectionIndex = 0;
+    private ImageView mHelp;
+    private ArrayAdapter<String> mAdapter;
+    private TextView mTxtTitle;
+    private ToolTipRelativeLayout mToolTipLayout;
+    private ToolTipView mToolTipView;
 
-				@Override
-				public void onClick(View v) {
-					if (myToolTipView==null)
-					{
-						 myToolTipView = toolTipRelativeLayout.showToolTipForView(toolTip, _help);
-						 //myToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
-					}
-					else
-					{
-						myToolTipView.remove();
-						myToolTipView=null;
-					}
-				}
-			});
-		    
-	  
-	}
+    /**
+     * Instantiates a new {@link DvCodedTextWidget}
+     *
+     * @param provider    the widget provider
+     * @param name        the name of this widget
+     * @param path        the path of the {@link DvCodedText} mapped on this widget
+     * @param attributes  the attributes of the {@link DvCodedText} mapped on this widget
+     * @param parentIndex the parent index
+     */
+    public DvCodedTextWidget(WidgetProvider provider, String name, String path, JSONObject attributes, int parentIndex) {
+        super(provider, name, new DvCodedText(path, attributes), parentIndex);
 
-	
-	
-	/**
-	 * Gets the options.
-	 *
-	 * @return the options
-	 */
-	private ArrayList<String>  getOptions()
-	{
-		String [] options = getDatatype().getOptions();
-		
-		ArrayList<String> lOptions = new ArrayList<String>();
-		
-		for (int i=0;i<options.length;i++)
-		{
-			try {
-				lOptions.add(_ontology.getJSONObject(options[i]).getString("text"));
-			} catch (JSONException e) {
-				lOptions.add(options[i]);
-				e.printStackTrace();
-			}
-		}
-		return lOptions;
-	}
-	
-	
-	/**
-	 * Setup spinner.
-	 */
-	private void setupSpinner()
-	{
-		
-		this.spinner = (Spinner) _root_view.findViewById(R.id.spinnerState);
-	
-		adapter = new ArrayAdapter<String>(
-        		_context,
-        		R.layout.spinner_item,
-        		getOptions()
-        		);
-		
-		spinner.setAdapter(adapter);
-		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mRootView = inflater.inflate(R.layout.dv_coded_text, null);
 
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {
-				currentSelectionIndex = position;
-			}
+        mTxtTitle = (TextView) mRootView.findViewById(R.id.txt_title);
+        this.setupSpinner();
 
-			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
-			}
-		});
-	}
+        this.updateLabelsContent();
 
-	/**
-	 * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#save()
-	 */
-	@Override
-	public void save() throws InvalidDatatypeException {
-		getDatatype().setSelectedOptionIndex(this.currentSelectionIndex);
-		
-	}
+        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
 
-	/**
-	 * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#reset()
-	 */
-	@Override
-	public void reset() {
-		spinner.setSelection(getDatatype().getSelectedOptionIndex());
-		
-	}
+        mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
 
-	/**
-	 * @see it.crs4.most.report.ehr.datatypes.EhrDatatypeChangeListener#onEhrDatatypeChanged(it.crs4.most.report.ehr.datatypes.EhrDatatype)
-	 */
-	@Override
-	public void onEhrDatatypeChanged(DvCodedText datatype) {
-		reset();
-	}
+        mHelp.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mToolTipView == null) {
+                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+                    //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
+                }
+                else {
+                    mToolTipView.remove();
+                    mToolTipView = null;
+                }
+            }
+        });
+    }
 
 
+    /**
+     * Gets the options.
+     *
+     * @return the options
+     */
+    private ArrayList<String> getOptions() {
+        String[] options = getDatatype().getOptions();
 
-	/* (non-Javadoc)
-	 * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#updateLabelsContent()
-	 */
-	@Override
-	protected void updateLabelsContent() {
-		this.txtTitle.setText(String.format("%s: " , getDisplayTitle()));
-		this.adapter.clear();
-		this.adapter.addAll(getOptions());
-		this.adapter.notifyDataSetChanged();
-	}
-	
-	/* (non-Javadoc)
-	 * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#replaceTooltip(com.nhaarman.supertooltips.ToolTip)
-	 */
-	@Override
-	protected void replaceTooltip(ToolTip tooltip) {
-		if (myToolTipView!=null)
-		{
-			myToolTipView.remove();
-			myToolTipView = toolTipRelativeLayout.showToolTipForView(toolTip, _help);
-		}
-		
-	}
+        ArrayList<String> lOptions = new ArrayList<String>();
 
+        for (int i = 0; i < options.length; i++) {
+            try {
+                lOptions.add(mOntology.getJSONObject(options[i]).getString("text"));
+            }
+            catch (JSONException e) {
+                lOptions.add(options[i]);
+                e.printStackTrace();
+            }
+        }
+        return lOptions;
+    }
+
+
+    /**
+     * Setup spinner.
+     */
+    private void setupSpinner() {
+
+        mSpinner = (Spinner) mRootView.findViewById(R.id.spinnerState);
+
+        mAdapter = new ArrayAdapter<String>(
+            mContext,
+            R.layout.spinner_item,
+            getOptions()
+        );
+
+        mSpinner.setAdapter(mAdapter);
+        mSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                mCurrentSelectionIndex = position;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+    }
+
+    /**
+     * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#save()
+     */
+    @Override
+    public void save() throws InvalidDatatypeException {
+        getDatatype().setSelectedOptionIndex(mCurrentSelectionIndex);
+
+    }
+
+    /**
+     * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#reset()
+     */
+    @Override
+    public void reset() {
+        mSpinner.setSelection(getDatatype().getSelectedOptionIndex());
+
+    }
+
+    /**
+     * @see it.crs4.most.report.ehr.datatypes.EhrDatatypeChangeListener#onEhrDatatypeChanged(it.crs4.most.report.ehr.datatypes.EhrDatatype)
+     */
+    @Override
+    public void onEhrDatatypeChanged(DvCodedText datatype) {
+        reset();
+    }
+
+
+    /* (non-Javadoc)
+     * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#updateLabelsContent()
+     */
+    @Override
+    protected void updateLabelsContent() {
+        mTxtTitle.setText(String.format("%s: ", getDisplayTitle()));
+        mAdapter.clear();
+        mAdapter.addAll(getOptions());
+        mAdapter.notifyDataSetChanged();
+    }
+
+    /* (non-Javadoc)
+     * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#replaceTooltip(com.nhaarman.supertooltips.ToolTip)
+     */
+    @Override
+    protected void replaceTooltip(ToolTip tooltip) {
+        if (mToolTipView != null) {
+            mToolTipView.remove();
+            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+        }
+    }
 }

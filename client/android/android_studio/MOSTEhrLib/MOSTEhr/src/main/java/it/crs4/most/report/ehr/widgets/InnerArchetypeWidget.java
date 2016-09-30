@@ -9,11 +9,6 @@
 
 package it.crs4.most.report.ehr.widgets;
 
-import java.util.List;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,265 +22,239 @@ import com.nhaarman.supertooltips.ToolTip;
 import com.nhaarman.supertooltips.ToolTipRelativeLayout;
 import com.nhaarman.supertooltips.ToolTipView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
+
 import it.crs4.most.report.ehr.FormContainer;
 import it.crs4.most.report.ehr.R;
 import it.crs4.most.report.ehr.WidgetProvider;
-import it.crs4.most.report.ehr.datatypes.DvCluster;
 import it.crs4.most.report.ehr.datatypes.EhrDatatype;
 import it.crs4.most.report.ehr.datatypes.InnerArchetype;
 import it.crs4.most.report.ehr.exceptions.InvalidDatatypeException;
 
-
 /**
  * This class represents a visual widget mapped on a  {@link InnerArchetype} datatype.
- *
  */
-public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype>{
+public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
 
-	private static final String TAG = "InnerArchetypeWidget";
-	private List<DatatypeWidget<EhrDatatype>> archetypeWidgets;
-	private TextView _title;
-	private ToolTipRelativeLayout toolTipRelativeLayout;
-	private ImageView _help;
-	protected ToolTipView myToolTipView;
-	private LinearLayout _archetype_layout;
-   
-	private boolean areWidgetsVisible = false;
-	private ImageView addRemWidgets;
-	private FormContainer formContainer = null;
-	private boolean created = false;
-	private String language = "en";
-	
-	/**
-	 * Instantiate a new InnerArchetypeWidget
-	 * 
-	 * @param provider the widget provider
-	 * @param name the name of this widget
-	 * @param path  the path of the {@link InnerArchetype} mapped on this widget
-	 * @param attributes the attributes of the {@link InnerArchetype} mapped on this widget
-	 * @param parentIndex the parent index of this widget
-	 */
-	public InnerArchetypeWidget( WidgetProvider provider,  String name , String path, JSONObject attributes, int parentIndex) {
-		_widget_provider = provider;
-		_name 		= name;
-	    _context 	= provider.getContext();
-		_ontology   = provider.getOntology();
-		_parent_index = parentIndex;
-		
-		this.datatype = new InnerArchetype(provider, path, attributes);
-		this.datatype.setDatatypeChangeListener(this);
-		
-		this.setupDisplaytitle(true);
-		this.setupDescription(true);
-		
-		super.setupTooltip();
-		
-		buildInnerArchetypeView();
-		updateLabelsContent();
-		
-		_help = (ImageView) _root_view.findViewById(R.id.image_help);
-		
-		toolTipRelativeLayout = (ToolTipRelativeLayout) _root_view.findViewById(R.id.activity_main_tooltipRelativeLayout);
-		
-	    _help.setOnClickListener(new OnClickListener() {
-			
-	  
-          
-			@Override
-			public void onClick(View v) {
-				if (myToolTipView==null)
-				{
-					 myToolTipView = toolTipRelativeLayout.showToolTipForView(toolTip, _help);
-					 //myToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
-				}
-				else
-				{
-					myToolTipView.remove();
-					myToolTipView=null;
-					
-				}
-			}
-		});
-	}
-	
-	
-	/**
-	 * Sets the ontology.
-	 *
-	 * @param ontology the new ontology
-	 */
-	@Override
-	public void setOntology(JSONObject ontology, String language)
-	{
-		this.language = language;
-		
-		this._ontology = ontology;
-		this.setupDescription();
-		this.setupDisplaytitle();
-		
-		this.setupTooltip();
-		this.updateLabelsContent();
-		
-		if (this.created)
-		{
-			this._widget_provider.updateOntologyLanguage(language);
-		}
-		
-	}
-	
-	private void setupDescription() 
-	{
-		this.setupDescription(false);
-	}
-	/**
-	 * Setup description.
-	 */
-	private void setupDescription(boolean firstRequest)
-	{
-		try {
-			if (firstRequest)
-				this.description = _ontology.getJSONObject(_widget_provider.getDatatypesSchema().getString("title")).getString("description"); 
-			else
-			    this.description = _ontology.getJSONObject(_name).getString("description"); 
-			
-		} catch (JSONException e) {
-			Log.e(TAG , "Problems during DESCRIPTION SETUP:" + e.getMessage());
-			e.printStackTrace();
-		}
-	}
-	
-	
-	private void setupDisplaytitle()
-	{
-		this.setupDisplaytitle(false);
-	}
-	
-	/**
-	 * Setup displaytitle.
-	 */
-	private void setupDisplaytitle(boolean firstRequest) {
-		try {
-			if (firstRequest)
-				displayTitle = _ontology.getJSONObject(_widget_provider.getDatatypesSchema().getString("title")).getString("text"); 
-			else
-				displayTitle = _ontology.getJSONObject(_name).getString("text"); 
-			 
-		} catch (JSONException e) {
-			Log.e(TAG,"Error retrieving inner archetype title:" + e.getMessage());
-			Log.d(TAG, "Current ontology:" + _ontology.toString());
-			displayTitle = _name;
-		}
-	}
-	
-	private void buildInnerArchetypeView()
-	{
-		LayoutInflater inflater = (LayoutInflater) _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = inflater.inflate(R.layout.inner_archetype, null);
-	
-		_root_view = view;
-	
-		 _archetype_layout = (LinearLayout) _root_view.findViewById(R.id.archetype_container);
-				
-		_title = (TextView) _root_view.findViewById(R.id.txt_archetype_title);
-		
-	    
-	
-	 
-	 addRemWidgets = (ImageView) _root_view.findViewById(R.id.image_toggle_widgets);
-	 addRemWidgets.setOnClickListener(new OnClickListener() {
-		
-		@Override
-		public void onClick(View v) {
-			
-			if (areWidgetsVisible)
-				removeWidgets();
-			else
-				addWidgets();
-			
-		}
-	});
-			 
-	}
-	
-	private void buildNewArchetypeContainer()
-	{
-		this.formContainer = this._widget_provider.buildFormView(0);
-	    archetypeWidgets =   this.formContainer.getWidgets();
-	    this._widget_provider.updateOntologyLanguage(this.language);
-	}
+    private static final String TAG = "InnerArchetypeWidget";
+    private List<DatatypeWidget<EhrDatatype>> mArchetypeWidgets;
+    private TextView mTitle;
+    private ToolTipRelativeLayout mToolTipLayout;
+    private ImageView mHelp;
+    protected ToolTipView mToolTipView;
+    private LinearLayout mArchetypeLayout;
 
-	private void addWidgets()
-	{   
-		if (this.formContainer==null)
-		{
-			this.buildNewArchetypeContainer();
-			this.created = true;
-		}
-		 _archetype_layout.addView(this.formContainer.getLayout());
-		 this.areWidgetsVisible = true;
-		 this.addRemWidgets.setImageDrawable(_context.getResources().getDrawable(android.R.drawable.ic_menu_revert));
-	}
-	
-	private void removeWidgets()
-	{
-		_archetype_layout.removeAllViews();
-		this.areWidgetsVisible = false;
-	    this.addRemWidgets.setImageDrawable(_context.getResources().getDrawable(android.R.drawable.ic_menu_more));
-	}
-	
-	
-	/**
-	 * @see it.crs4.most.report.ehr.datatypes.EhrDatatypeChangeListener#onEhrDatatypeChanged(it.crs4.most.report.ehr.datatypes.EhrDatatype)
-	 */
-	@Override
-	public void onEhrDatatypeChanged(InnerArchetype datatype) {
-		
-	}
+    private boolean mWidgetsVisible = false;
+    private ImageView mAddRemWidgets;
+    private FormContainer mFormContainer = null;
+    private boolean mCreated = false;
+    private String mLanguage = "en";
 
-	@Override
-	protected void updateLabelsContent() {
-		_title.setText(getDisplayTitle());
-	}
+    /**
+     * Instantiate a new InnerArchetypeWidget
+     *
+     * @param provider    the widget provider
+     * @param name        the name of this widget
+     * @param path        the path of the {@link InnerArchetype} mapped on this widget
+     * @param attributes  the attributes of the {@link InnerArchetype} mapped on this widget
+     * @param parentIndex the parent index of this widget
+     */
+    public InnerArchetypeWidget(WidgetProvider provider, String name, String path, JSONObject attributes, int parentIndex) {
+        mWidgetProvider = provider;
+        mName = name;
+        mContext = provider.getContext();
+        mOntology = provider.getOntology();
+        mParentIndex = parentIndex;
 
-	@Override
-	protected void replaceTooltip(ToolTip tooltip) {
-		if (myToolTipView!=null)
-		{
-			myToolTipView.remove();
-			myToolTipView = toolTipRelativeLayout.showToolTipForView(toolTip, _help);
-		}
-	}
+        mDatatype = new InnerArchetype(provider, path, attributes);
+        mDatatype.setDatatypeChangeListener(this);
 
-	
-	/**
-	 * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#save()
-	 */
-	@Override
-	public void save() throws InvalidDatatypeException {
-		
-		if (archetypeWidgets!=null)
-		{
-			 for( int i = 0; i < archetypeWidgets.size(); i++ ) {
-				  archetypeWidgets.get(i).save();
-		        }
-		}
-		
-		
-	}
+        setupDisplaytitle(true);
+        setupDescription(true);
 
-	/**
-	 * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#reset()
-	 */
-	@Override
-	public void reset() {
-		
-		if (archetypeWidgets!=null)
-		{
-			for( int i = 0; i < archetypeWidgets.size(); i++ ) {
-				  archetypeWidgets.get(i).reset();
-		        }
-		}
-		
-	}
+        super.setupTooltip();
 
+        buildInnerArchetypeView();
+        updateLabelsContent();
+
+        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
+
+        mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
+
+        mHelp.setOnClickListener(new OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+                if (mToolTipView == null) {
+                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+                    //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
+                }
+                else {
+                    mToolTipView.remove();
+                    mToolTipView = null;
+
+                }
+            }
+        });
+    }
+
+
+    /**
+     * Sets the ontology.
+     *
+     * @param ontology the new ontology
+     */
+    @Override
+    public void setOntology(JSONObject ontology, String language) {
+        mLanguage = language;
+
+        mOntology = ontology;
+        setupDescription();
+        setupDisplaytitle();
+
+        setupTooltip();
+        updateLabelsContent();
+
+        if (mCreated) {
+            mWidgetProvider.updateOntologyLanguage(language);
+        }
+
+    }
+
+    private void setupDescription() {
+        setupDescription(false);
+    }
+
+    /**
+     * Setup description.
+     */
+    private void setupDescription(boolean firstRequest) {
+        try {
+            if (firstRequest)
+                mDescription = mOntology.getJSONObject(mWidgetProvider.getDatatypesSchema().getString("title")).getString("description");
+            else
+                mDescription = mOntology.getJSONObject(mName).getString("description");
+
+        }
+        catch (JSONException e) {
+            Log.e(TAG, "Problems during DESCRIPTION SETUP:" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+
+    private void setupDisplaytitle() {
+        setupDisplaytitle(false);
+    }
+
+    /**
+     * Setup displaytitle.
+     */
+    private void setupDisplaytitle(boolean firstRequest) {
+        try {
+            if (firstRequest)
+                mDisplayTitle = mOntology.getJSONObject(mWidgetProvider.getDatatypesSchema().getString("title")).getString("text");
+            else
+                mDisplayTitle = mOntology.getJSONObject(mName).getString("text");
+
+        }
+        catch (JSONException e) {
+            Log.e(TAG, "Error retrieving inner archetype title:" + e.getMessage());
+            Log.d(TAG, "Current ontology:" + mOntology.toString());
+            mDisplayTitle = mName;
+        }
+    }
+
+    private void buildInnerArchetypeView() {
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        mRootView = inflater.inflate(R.layout.inner_archetype, null);
+        mArchetypeLayout = (LinearLayout) mRootView.findViewById(R.id.archetype_container);
+        mTitle = (TextView) mRootView.findViewById(R.id.txt_archetype_title);
+        mAddRemWidgets = (ImageView) mRootView.findViewById(R.id.image_toggle_widgets);
+        mAddRemWidgets.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (mWidgetsVisible) {
+                    removeWidgets();
+                }
+                else {
+                    addWidgets();
+                }
+            }
+        });
+
+    }
+
+    private void buildNewArchetypeContainer() {
+        mFormContainer = mWidgetProvider.buildFormView(0);
+        mArchetypeWidgets = mFormContainer.getWidgets();
+        mWidgetProvider.updateOntologyLanguage(mLanguage);
+    }
+
+    private void addWidgets() {
+        if (mFormContainer == null) {
+            buildNewArchetypeContainer();
+            mCreated = true;
+        }
+        mArchetypeLayout.addView(mFormContainer.getLayout());
+        mWidgetsVisible = true;
+        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(android.R.drawable.ic_menu_revert));
+    }
+
+    private void removeWidgets() {
+        mArchetypeLayout.removeAllViews();
+        mWidgetsVisible = false;
+        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(android.R.drawable.ic_menu_more));
+    }
+
+    /**
+     * @see it.crs4.most.report.ehr.datatypes.EhrDatatypeChangeListener#onEhrDatatypeChanged(it.crs4.most.report.ehr.datatypes.EhrDatatype)
+     */
+    @Override
+    public void onEhrDatatypeChanged(InnerArchetype datatype) {
+
+    }
+
+    @Override
+    protected void updateLabelsContent() {
+        mTitle.setText(getDisplayTitle());
+    }
+
+    @Override
+    protected void replaceTooltip(ToolTip tooltip) {
+        if (mToolTipView != null) {
+            mToolTipView.remove();
+            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+        }
+    }
+
+    /**
+     * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#save()
+     */
+    @Override
+    public void save() throws InvalidDatatypeException {
+        if (mArchetypeWidgets != null) {
+            for (int i = 0; i < mArchetypeWidgets.size(); i++) {
+                mArchetypeWidgets.get(i).save();
+            }
+        }
+    }
+
+    /**
+     * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#reset()
+     */
+    @Override
+    public void reset() {
+        if (mArchetypeWidgets != null) {
+            for (int i = 0; i < mArchetypeWidgets.size(); i++) {
+                mArchetypeWidgets.get(i).reset();
+            }
+        }
+    }
 }
