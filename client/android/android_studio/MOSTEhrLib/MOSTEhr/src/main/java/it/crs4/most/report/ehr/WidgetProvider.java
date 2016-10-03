@@ -59,6 +59,7 @@ public class WidgetProvider {
     private static Map<String, String[]> ehrWidgetsMap = new HashMap<String, String[]>() {
 
         private static final long serialVersionUID = 1L;
+
         {
             put("DV_QUANTITY", new String[]{"it.crs4.most.report.ehr.datatypes.DvQuantity", "it.crs4.most.report.ehr.widgets.DvQuantityWidget"});
             put("DV_TEXT", new String[]{"it.crs4.most.report.ehr.datatypes.DvText", "it.crs4.most.report.ehr.widgets.DvTextWidget"});
@@ -80,119 +81,120 @@ public class WidgetProvider {
     /**
      * The section widgets map.
      */
-    protected Map<String, List<DatatypeWidget<EhrDatatype>>> sectionWidgetsMap;
+    protected Map<String, List<DatatypeWidget<EhrDatatype>>> mSectionWidgetsMap;
 
 
 //- data map, with the "cluster" archetype value as key
     /**
      * The cluster widgets map.
      */
-    protected Map<String, List<DatatypeWidget<EhrDatatype>>> clusterWidgetsMap;
+    protected Map<String, List<DatatypeWidget<EhrDatatype>>> mClusterWidgetsMap;
 
 
 // -- widgets
     /**
-     * The _container.
+     * The container.
      */
-    protected LinearLayout _container;
+    protected LinearLayout mContainer;
 
     /**
-     * The _layout.
+     * The layout.
      */
-    protected LinearLayout _layout;
+    protected LinearLayout mLayout;
 
     /**
-     * The _viewport.
+     * The viewport.
      */
-    protected ScrollView _viewport;
+    protected ScrollView mViewport;
 
     /**
      * The context.
      */
-    private Context context;
+    private Context mContext;
 
 
     /**
      * The datatypes schema.
      */
-    private JSONObject datatypesSchema;
+    private JSONObject mDatatypesSchema;
 
     /**
      * The ontology.
      */
-    private JSONObject ontology;
+    private JSONObject mOntology;
 
     /**
      * The json archetype.
      */
-    private JSONObject jsonArchetype;
+    private JSONObject mJsonArchetype;
 
     /**
      * The archetype instances.
      */
-    private JSONObject archetypeInstances;
+    private JSONObject mArchetypeInstances;
 
     /**
      * The archetype adl parser.
      */
-    private AdlParser archetypeAdlParser = null;
+    private AdlParser mAdlParser = null;
 
     /**
      * The json layout schema.
      */
-    private JSONObject jsonLayoutSchema;
+    private JSONObject mJsonLayoutSchema;
 
     /**
      * The json ontology.
      */
-    private String jsonOntology;
+    private String mJsonOntology;
 
     /**
      * The title view.
      */
-    private TextView titleView;
+    private TextView mTitleView;
 
-    private List<String> excludeArray = new ArrayList<String>();
-    private ArchetypeSchemaProvider asp = null;
+    private List<String> mExcludeArray = new ArrayList<>();
+    private ArchetypeSchemaProvider mSchemaProvider = null;
 
-    private String language;
+    private String mLanguage;
 
     /**
      * Setup a Widget provider representing a specific archetype, according to the specified Archetype Schema Provider and archetype class name
      *
      * @param context            get application context
-     * @param asp                the Archetype Schema Provider
+     * @param archetypeSchemaProvider                the Archetype Schema Provider
      * @param archetypeClassName the name of the archetype class to be built (e.g: openEHR-EHR-OBSERVATION.blood_pressure.v1)
      * @param language           the default ontology language
      * @param jsonExclude        the json array containing a list of item ids to be excluded from the archetype
      * @throws JSONException
      * @throws InvalidDatatypeException
      */
-    public WidgetProvider(Context context, ArchetypeSchemaProvider asp, String archetypeClassName, String language, String jsonExclude) throws JSONException, InvalidDatatypeException {
-        this.asp = asp;
-        this.context = context;
-        this.language = language;
-        this.datatypesSchema = new JSONObject(asp.getDatatypesSchema(archetypeClassName));
+    public WidgetProvider(Context context, ArchetypeSchemaProvider archetypeSchemaProvider, String archetypeClassName,
+                          String language, String jsonExclude) throws JSONException, InvalidDatatypeException {
+        mSchemaProvider = archetypeSchemaProvider;
+        mContext = context;
+        mLanguage = language;
+        mDatatypesSchema = new JSONObject(archetypeSchemaProvider.getDatatypesSchema(archetypeClassName));
         Log.d(TAG, "Loading ontology for archetype class:" + archetypeClassName);
-        this.jsonOntology = asp.getOntologySchema(archetypeClassName);
-        this.ontology = getOntology(this.jsonOntology, language);
+        mJsonOntology = archetypeSchemaProvider.getOntologySchema(archetypeClassName);
+        mOntology = getOntology(mJsonOntology, language);
 
-        if (asp.getLayoutSchema(archetypeClassName) != null)
-            this.jsonLayoutSchema = new JSONObject(asp.getLayoutSchema(archetypeClassName));
+        if (archetypeSchemaProvider.getLayoutSchema(archetypeClassName) != null)
+            mJsonLayoutSchema = new JSONObject(archetypeSchemaProvider.getLayoutSchema(archetypeClassName));
 
         if (jsonExclude != null) {
-            this.buildExcludeArray(new JSONArray(jsonExclude));
+            buildExcludeArray(new JSONArray(jsonExclude));
         }
 
         // Archetype structure instance
-        this.jsonArchetype = new JSONObject(asp.getAdlStructureSchema(archetypeClassName));
-        this.archetypeInstances = this.jsonArchetype.getJSONObject("archetype_details");
-        this.archetypeAdlParser = new AdlParser(this.archetypeInstances);
+        mJsonArchetype = new JSONObject(archetypeSchemaProvider.getAdlStructureSchema(archetypeClassName));
+        mArchetypeInstances = mJsonArchetype.getJSONObject("archetype_details");
+        mAdlParser = new AdlParser(mArchetypeInstances);
 
     }
 
     public JSONObject getDatatypesSchema() {
-        return datatypesSchema;
+        return mDatatypesSchema;
     }
 
     /**
@@ -207,7 +209,8 @@ public class WidgetProvider {
      * @throws JSONException            the JSON exception
      * @throws InvalidDatatypeException
      */
-    public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology, String jsonAdlStructure, String jsonLayoutSchema, String language) throws JSONException, InvalidDatatypeException {
+    public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology, String jsonAdlStructure,
+                          String jsonLayoutSchema, String language) throws JSONException, InvalidDatatypeException {
         this(context, jsonDatatypes, jsonOntology, jsonAdlStructure, jsonLayoutSchema, language, null);
     }
 
@@ -224,38 +227,37 @@ public class WidgetProvider {
      * @throws JSONException            - if an error occurred during the parsing of the json schemas
      * @throws InvalidDatatypeException
      */
-    public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology, String jsonAdlStructure, String jsonLayoutSchema, String language, String jsonExclude) throws JSONException, InvalidDatatypeException {
+    public WidgetProvider(Context context, String jsonDatatypes, String jsonOntology, String jsonAdlStructure,
+                          String jsonLayoutSchema, String language, String jsonExclude) throws JSONException, InvalidDatatypeException {
 
-        this.context = context;
-        this.datatypesSchema = new JSONObject(jsonDatatypes);
-        this.jsonOntology = jsonOntology;
-        this.ontology = getOntology(jsonOntology, language);
+        mContext = context;
+        mDatatypesSchema = new JSONObject(jsonDatatypes);
+        mJsonOntology = jsonOntology;
+        mOntology = getOntology(jsonOntology, language);
 
         if (jsonLayoutSchema != null)
-            this.jsonLayoutSchema = new JSONObject(jsonLayoutSchema);
+            mJsonLayoutSchema = new JSONObject(jsonLayoutSchema);
 
         if (jsonExclude != null) {
-            this.buildExcludeArray(new JSONArray(jsonExclude));
+            buildExcludeArray(new JSONArray(jsonExclude));
         }
 
         // Archetype structure instance
-        this.jsonArchetype = new JSONObject(jsonAdlStructure);
-        this.archetypeInstances = this.jsonArchetype.getJSONObject("archetype_details");
-        this.archetypeAdlParser = new AdlParser(this.archetypeInstances);
+        mJsonArchetype = new JSONObject(jsonAdlStructure);
+        mArchetypeInstances = mJsonArchetype.getJSONObject("archetype_details");
+        mAdlParser = new AdlParser(mArchetypeInstances);
 
     }
-
 
     private void buildExcludeArray(JSONArray jsonExclude) {
         for (int i = 0; i < jsonExclude.length(); i++) {
             try {
-                excludeArray.add(jsonExclude.getString(i));
+                mExcludeArray.add(jsonExclude.getString(i));
             }
             catch (JSONException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-
         }
     }
 
@@ -265,7 +267,7 @@ public class WidgetProvider {
      * @return the application context
      */
     public Context getContext() {
-        return context;
+        return mContext;
     }
 
     /**
@@ -274,7 +276,7 @@ public class WidgetProvider {
      * @return the ontology json schema
      */
     public JSONObject getOntology() {
-        return this.ontology;
+        return mOntology;
     }
 
     /**
@@ -283,24 +285,24 @@ public class WidgetProvider {
      * @param lang the language code (ISO 639-1:2002)
      */
     public void updateOntologyLanguage(String lang) {
-        this.ontology = getOntology(this.jsonOntology, lang);
+        mOntology = getOntology(mJsonOntology, lang);
 
-        this.updateTitleView();
+        updateTitleView();
 
-        String[] sections = sectionWidgetsMap.keySet().toArray(new String[0]);
+        String[] sections = mSectionWidgetsMap.keySet().toArray(new String[0]);
 
         for (String section : sections) {
-            List<DatatypeWidget<EhrDatatype>> sectionWidgets = sectionWidgetsMap.get(section);
+            List<DatatypeWidget<EhrDatatype>> sectionWidgets = mSectionWidgetsMap.get(section);
             for (DatatypeWidget<EhrDatatype> w : sectionWidgets)
-                w.setOntology(this.ontology, lang);
+                w.setOntology(mOntology, lang);
         }
 
-        String[] clusters = clusterWidgetsMap.keySet().toArray(new String[0]);
+        String[] clusters = mClusterWidgetsMap.keySet().toArray(new String[0]);
 
         for (String cluster : clusters) {
-            List<DatatypeWidget<EhrDatatype>> clusterWidgets = clusterWidgetsMap.get(cluster);
+            List<DatatypeWidget<EhrDatatype>> clusterWidgets = mClusterWidgetsMap.get(cluster);
             for (DatatypeWidget<EhrDatatype> w : clusterWidgets)
-                w.setOntology(this.ontology, lang);
+                w.setOntology(mOntology, lang);
         }
 
     }
@@ -318,10 +320,10 @@ public class WidgetProvider {
     private DatatypeWidget<EhrDatatype> buildDatatypeWidget(String datatype, String path, String title, JSONObject attributes, int parentIndex) {
         String widgetClassName = null;
 
-        if (this.jsonLayoutSchema != null) {
+        if (mJsonLayoutSchema != null) {
             try {
-
-                widgetClassName = this.jsonLayoutSchema.getJSONObject(path).isNull("widget") ? null : this.jsonLayoutSchema.getJSONObject(path).getString("widget");
+                widgetClassName = mJsonLayoutSchema.getJSONObject(path).isNull("widget") ? null :
+                    mJsonLayoutSchema.getJSONObject(path).getString("widget");
             }
             catch (JSONException e) {
             }
@@ -352,7 +354,7 @@ public class WidgetProvider {
                 String archetypeName = attributes.getString("archetype_class");
                 Log.d(TAG, "Inner Arechetype Class Name:" + archetypeName);
 
-                wp = new WidgetProvider(this.context, this.asp, archetypeName, language, null);
+                wp = new WidgetProvider(mContext, mSchemaProvider, archetypeName, mLanguage, null);
             }
 
             DatatypeWidget<EhrDatatype> widget = (DatatypeWidget<EhrDatatype>) ctor.newInstance(new Object[]{wp, title, path, attributes, parentIndex});
@@ -404,7 +406,7 @@ public class WidgetProvider {
      */
     public String[] getSections() {
         try {
-            JSONArray jsonSections = this.datatypesSchema.getJSONObject("datatypes").names();
+            JSONArray jsonSections = mDatatypesSchema.getJSONObject("datatypes").names();
             String[] sections = new String[jsonSections.length()];
             for (int i = 0; i < sections.length; i++) {
                 sections[i] = jsonSections.getString(i);
@@ -426,7 +428,7 @@ public class WidgetProvider {
      */
     private String[] getClusters() {
         try {
-            JSONArray jsonClusters = this.datatypesSchema.getJSONObject("clusters").names();
+            JSONArray jsonClusters = mDatatypesSchema.getJSONObject("clusters").names();
             String[] clusters = new String[jsonClusters.length()];
 
             for (int i = 0; i < clusters.length; i++) {
@@ -436,7 +438,7 @@ public class WidgetProvider {
             return clusters;
         }
         catch (JSONException e) {
-            Log.e(TAG, "Error retrieving clusters from json" + this.datatypesSchema);
+            Log.e(TAG, "Error retrieving clusters from json" + mDatatypesSchema);
             e.printStackTrace();
         }
         catch (NullPointerException e) {
@@ -457,13 +459,13 @@ public class WidgetProvider {
         if (sections == null)
             sections = getSections();
 
-        this.sectionWidgetsMap = new HashMap<String, List<DatatypeWidget<EhrDatatype>>>();
+        mSectionWidgetsMap = new HashMap<String, List<DatatypeWidget<EhrDatatype>>>();
         for (String section : sections) {
             List<DatatypeWidget<EhrDatatype>> sectionWidgets = buildSectionWidgets(section, 0);
-            this.sectionWidgetsMap.put(section, sectionWidgets);
+            mSectionWidgetsMap.put(section, sectionWidgets);
         }
 
-        return this.sectionWidgetsMap;
+        return mSectionWidgetsMap;
     }
 
 
@@ -478,18 +480,18 @@ public class WidgetProvider {
         if (clusters == null)
             clusters = getClusters();
 
-        this.clusterWidgetsMap = new HashMap<String, List<DatatypeWidget<EhrDatatype>>>();
+        mClusterWidgetsMap = new HashMap<String, List<DatatypeWidget<EhrDatatype>>>();
 
         // No Clusters
         if (clusters == null)
-            return this.clusterWidgetsMap;
+            return mClusterWidgetsMap;
 
         for (String cluster : clusters) {
             List<DatatypeWidget<EhrDatatype>> clusterWidgets = buildClusterWidgets(cluster, 0);
-            this.clusterWidgetsMap.put(cluster, clusterWidgets);
+            mClusterWidgetsMap.put(cluster, clusterWidgets);
         }
 
-        return this.clusterWidgetsMap;
+        return mClusterWidgetsMap;
     }
 
 
@@ -544,10 +546,10 @@ public class WidgetProvider {
 
         String[] sections = null;
 
-        if (this.jsonLayoutSchema != null) {
+        if (mJsonLayoutSchema != null) {
             JSONArray jsonSections;
             try {
-                jsonSections = this.jsonLayoutSchema.getJSONArray("sections");
+                jsonSections = mJsonLayoutSchema.getJSONArray("sections");
                 sections = new String[jsonSections.length()];
 
                 for (int i = 0; i < sections.length; i++)
@@ -584,15 +586,15 @@ public class WidgetProvider {
         try {
 
             //formTitle = String.format("%s [%s]", ontology.getJSONObject(datatypesSchema.getString("title")).getString("text"), index);
-            formTitle = ontology.getJSONObject(datatypesSchema.getString("title")).getString("text");
+            formTitle = mOntology.getJSONObject(mDatatypesSchema.getString("title")).getString("text");
             Log.d(TAG, "FORM TITLE: " + formTitle);
 
             for (String section : sections) {
-                List<DatatypeWidget<EhrDatatype>> sectionWidgets = this.sectionWidgetsMap.get(section);
+                List<DatatypeWidget<EhrDatatype>> sectionWidgets = mSectionWidgetsMap.get(section);
                 Log.d(TAG, String.format("SectionWidgets for section %s: %s", section, sectionWidgets));
 
-                if (this.jsonLayoutSchema != null) {
-                    Collections.sort(sectionWidgets, new PriorityComparison(this.jsonLayoutSchema));
+                if (mJsonLayoutSchema != null) {
+                    Collections.sort(sectionWidgets, new PriorityComparison(mJsonLayoutSchema));
                 }
 
                 _allWidgets.addAll(sectionWidgets);
@@ -606,29 +608,29 @@ public class WidgetProvider {
         }
 
 
-        _container = new LinearLayout(context);
-        _container.setOrientation(LinearLayout.VERTICAL);
-        _container.setLayoutParams(defaultLayoutParams);
+        mContainer = new LinearLayout(mContext);
+        mContainer.setOrientation(LinearLayout.VERTICAL);
+        mContainer.setLayoutParams(defaultLayoutParams);
 
-        _viewport = new ScrollView(context);
-        _viewport.setLayoutParams(defaultLayoutParams);
+        mViewport = new ScrollView(mContext);
+        mViewport.setLayoutParams(defaultLayoutParams);
 
-        _layout = new LinearLayout(context);
-        _layout.setOrientation(LinearLayout.VERTICAL);
-        _layout.setLayoutParams(defaultLayoutParams);
+        mLayout = new LinearLayout(mContext);
+        mLayout.setOrientation(LinearLayout.VERTICAL);
+        mLayout.setLayoutParams(defaultLayoutParams);
 
 
-        View titleView = buildTitleView(context, formTitle);
-        _layout.addView(titleView);
+        View titleView = buildTitleView(mContext, formTitle);
+        mLayout.addView(titleView);
         for (int i = 0; i < _allWidgets.size(); i++) {
-            _layout.addView((View) _allWidgets.get(i).getView());
+            mLayout.addView((View) _allWidgets.get(i).getView());
         }
 
-        _viewport.addView(_layout);
-        _container.addView(_viewport);
+        mViewport.addView(mLayout);
+        mContainer.addView(mViewport);
 
 
-        FormContainer fc = new FormContainer((ViewGroup) _container, _allWidgets, index);
+        FormContainer fc = new FormContainer((ViewGroup) mContainer, _allWidgets, index);
         Log.d(TAG, "Resetting all widgets...");
         //fc.resetAllWidgets();
         return fc;
@@ -642,15 +644,15 @@ public class WidgetProvider {
      * @return the view
      */
     private View buildTitleView(Context context, String title) {
-        titleView = new TextView(context);
-        titleView.setText(title);
-        titleView.setTextColor(Color.WHITE);
-        titleView.setTextSize(22);
-        titleView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-        titleView.setTypeface(null, Typeface.BOLD);
-        titleView.setGravity(Gravity.CENTER);
+        mTitleView = new TextView(context);
+        mTitleView.setText(title);
+        mTitleView.setTextColor(Color.WHITE);
+        mTitleView.setTextSize(22);
+        mTitleView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+        mTitleView.setTypeface(null, Typeface.BOLD);
+        mTitleView.setGravity(Gravity.CENTER);
 
-        return titleView;
+        return mTitleView;
     }
 
 
@@ -658,10 +660,10 @@ public class WidgetProvider {
      * Update title view.
      */
     private void updateTitleView() {
-        if (titleView != null) {
+        if (mTitleView != null) {
             try {
-                String title = ontology.getJSONObject(datatypesSchema.getString("title")).getString("text");
-                titleView.setText(title);
+                String title = mOntology.getJSONObject(mDatatypesSchema.getString("title")).getString("text");
+                mTitleView.setText(title);
             }
             catch (JSONException e) {
                 // TODO Auto-generated catch block
@@ -672,11 +674,11 @@ public class WidgetProvider {
 
 
     public List<DatatypeWidget<EhrDatatype>> getSectionWidgets(String section, int itemIndex) {
-        List<DatatypeWidget<EhrDatatype>> widgets = sectionWidgetsMap.get(section);
+        List<DatatypeWidget<EhrDatatype>> widgets = mSectionWidgetsMap.get(section);
         if (widgets == null) {
             try {
                 widgets = buildSectionWidgets(section, itemIndex);
-                sectionWidgetsMap.put(section, widgets);
+                mSectionWidgetsMap.put(section, widgets);
             }
             catch (InvalidDatatypeException e) {
                 // TODO Auto-generated catch block
@@ -687,11 +689,11 @@ public class WidgetProvider {
     }
 
     public List<DatatypeWidget<EhrDatatype>> getClusterWidgets(String cluster, int itemIndex) {
-        List<DatatypeWidget<EhrDatatype>> widgets = clusterWidgetsMap.get(cluster);
+        List<DatatypeWidget<EhrDatatype>> widgets = mClusterWidgetsMap.get(cluster);
         if (widgets == null) {
             try {
                 widgets = buildClusterWidgets(cluster, itemIndex);
-                clusterWidgetsMap.put(cluster, widgets);
+                mClusterWidgetsMap.put(cluster, widgets);
             }
             catch (InvalidDatatypeException e) {
                 // TODO Auto-generated catch block
@@ -711,13 +713,13 @@ public class WidgetProvider {
      */
     private List<DatatypeWidget<EhrDatatype>> buildSectionWidgets(String section, int itemIndex) throws InvalidDatatypeException {
         try {
-            JSONObject sectionDatatypes = this.datatypesSchema.getJSONObject("datatypes").getJSONObject(section);
+            JSONObject sectionDatatypes = mDatatypesSchema.getJSONObject("datatypes").getJSONObject(section);
             // Retrieve a path of a datatype used for getting the structure of the "section" structure in an archetype instance
             String sectionDatapath = sectionDatatypes.getJSONObject(sectionDatatypes.names().getString(0)).getString("path");
             Log.d(TAG, "Building SECTION:" + section);
             Log.d(TAG, "item data path:" + sectionDatapath);
             // It contains the structure of the "data" item instances of this archetype
-            AdlStructure sectionStructure = this.archetypeAdlParser.getItemsContainer(sectionDatapath);
+            AdlStructure sectionStructure = mAdlParser.getItemsContainer(sectionDatapath);
             return buildDatatypeWidgets(sectionStructure, sectionDatatypes, itemIndex);
         }
         catch (JSONException e) {
@@ -738,13 +740,13 @@ public class WidgetProvider {
      */
     private List<DatatypeWidget<EhrDatatype>> buildClusterWidgets(String cluster, int itemIndex) throws InvalidDatatypeException {
         try {
-            JSONObject sectionDatatypes = this.datatypesSchema.getJSONObject("clusters").getJSONObject(cluster);
+            JSONObject sectionDatatypes = mDatatypesSchema.getJSONObject("clusters").getJSONObject(cluster);
             // Retrieve a path of a datatype used for getting the structure of the "cluster" structure in an archetype instance
             String sectionDatapath = sectionDatatypes.getJSONObject(sectionDatatypes.names().getString(0)).getString("path");
             Log.d(TAG, "Building CLUSTER:" + cluster);
             Log.d(TAG, "item data path:" + sectionDatapath);
             // It contains the structure of the "data" item instances of this archetype
-            AdlStructure sectionStructure = this.archetypeAdlParser.getItemsContainer(sectionDatapath);
+            AdlStructure sectionStructure = mAdlParser.getItemsContainer(sectionDatapath);
             return buildDatatypeWidgets(sectionStructure, sectionDatatypes, itemIndex);
         }
         catch (JSONException e) {
@@ -784,7 +786,7 @@ public class WidgetProvider {
             for (int i = 0; i < items_structure.names().length(); i++) {
                 String itemTitle = items_structure.names().getString(i);  // es: at0004
                 // Check if this id is in the list of items to be excluded
-                if (this.excludeArray.contains(itemTitle))
+                if (mExcludeArray.contains(itemTitle))
                     continue;
 
                 //String displayTitle = ontology.getJSONObject(itemTitle).getString("text");
@@ -800,9 +802,7 @@ public class WidgetProvider {
 
                 // Fill the field of the widget reading the content from the json data, if existing
                 // The following key exists only if this structure is an item instance, not an item structure
-
                 JSONObject itemContentInfo = items_structure.optJSONObject(itemTitle);
-
 
                 if (itemContentInfo != null) {
                     JSONObject itemContent = itemContentInfo.optJSONObject("value");
@@ -815,8 +815,8 @@ public class WidgetProvider {
                 widgets.add(widget);
 
                 // Ordering cluster widgets
-                if (this.jsonLayoutSchema != null) {
-                    Collections.sort(widgets, new PriorityComparison(this.jsonLayoutSchema));
+                if (mJsonLayoutSchema != null) {
+                    Collections.sort(widgets, new PriorityComparison(mJsonLayoutSchema));
                 }
             }
 
@@ -837,8 +837,8 @@ public class WidgetProvider {
      * @throws JSONException the JSON exception
      */
     public void updateSectionsJsonContent(int index) throws JSONException {
-        updateMapJsonContent(sectionWidgetsMap, index);
-        updateMapJsonContent(clusterWidgetsMap, index);
+        updateMapJsonContent(mSectionWidgetsMap, index);
+        updateMapJsonContent(mClusterWidgetsMap, index);
     }
 
     /**
@@ -867,7 +867,7 @@ public class WidgetProvider {
                 String path = widget.getDatatype().getPath();
                 Log.d(TAG, "\nPATH TO UPDATE: " + path);
                 try {
-                    this.archetypeAdlParser.replaceContent(path, index, widget.getDatatype().toJSON());
+                    mAdlParser.replaceContent(path, index, widget.getDatatype().toJSON());
                 }
                 catch (JSONException je) {
                     Log.e(TAG, "Exception replacing content:" + je.getMessage());
@@ -885,7 +885,7 @@ public class WidgetProvider {
      * @return the JSON object
      */
     public JSONObject toJson() {
-        return this.jsonArchetype;
+        return mJsonArchetype;
     }
 
     /**

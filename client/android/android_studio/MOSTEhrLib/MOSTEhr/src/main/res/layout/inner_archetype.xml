@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:background="#ff004410"
+              android:background="@color/colorBackground"
               android:orientation="vertical">
 
     <LinearLayout
@@ -23,8 +23,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:text="Inner Archetype Viewer"
-            android:textColor="#ff11AA30"
             android:textSize="20sp"
             android:textStyle="bold"/>
 
@@ -54,8 +52,7 @@
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="4dp"
-        android:background="#ff11AA30"/>
+        android:layout_height="4dp"/>
 
 </LinearLayout>
 

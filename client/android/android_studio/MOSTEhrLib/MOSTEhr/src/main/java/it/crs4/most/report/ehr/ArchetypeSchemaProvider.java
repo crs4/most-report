@@ -20,7 +20,6 @@ import java.util.Properties;
 
 /**
  * Utility class that provides a convenient way for getting the json schemas needed for loading an archetype on the ehrViewer.
- *
  */
 public class ArchetypeSchemaProvider {
     private Context context;
@@ -30,9 +29,10 @@ public class ArchetypeSchemaProvider {
     /**
      * Provides default datatypes, layouts and ontology schema for specific archetypes.
      * All available archetype schema must be specified in a property file provided as input argument
-     * @param context the application context
+     *
+     * @param context                the application context
      * @param archetypesPropertyFile the path of the Archetype Property file, containing a list of key-values like <archetype_class_name>=<archetype_folder>
-     * @param schemasRootDir the root dir (under assets folder) containing all archetypes schemaa (note that each subfolder is a folder for a specific archetype. e.g blood_pressure)
+     * @param schemasRootDir         the root dir (under assets folder) containing all archetypes schemaa (note that each subfolder is a folder for a specific archetype. e.g blood_pressure)
      */
     public ArchetypeSchemaProvider(Context context, String archetypesPropertyFile, String schemasRootDir) {
         this.context = context;
@@ -50,6 +50,7 @@ public class ArchetypeSchemaProvider {
 
     /**
      * Get the Layout schema for the specified archetype class, or null if not available
+     *
      * @param archetypeClass the archetype class, (e.g openEHR-EHR-OBSERVATION.blood_pressure.v1)
      * @return the json schema of the default layout, or null if not available
      */
@@ -59,6 +60,7 @@ public class ArchetypeSchemaProvider {
 
     /**
      * Get the ontology schema for the specified archetype class, or null if not available
+     *
      * @param archetypeClass the archetype class, (e.g openEHR-EHR-OBSERVATION.blood_pressure.v1)
      * @return the json schema of the default ontology, or null if not available
      */
@@ -68,6 +70,7 @@ public class ArchetypeSchemaProvider {
 
     /**
      * Get the datatypes schema for the specified archetype class, or null if not available
+     *
      * @param archetypeClass the archetype class, (e.g openEHR-EHR-OBSERVATION.blood_pressure.v1)
      * @return the json schema containing the internal structure of datatypes used for visually representing this specific archetype, or null if not available
      */
@@ -77,6 +80,7 @@ public class ArchetypeSchemaProvider {
 
     /**
      * Get the adl schema for the specified archetype class, or null if not available
+     *
      * @param archetypeClass the archetype class, (e.g openEHR-EHR-OBSERVATION.blood_pressure.v1)
      * @return the json schema representing the internal structure of this specific archetype, or null if not available
      */

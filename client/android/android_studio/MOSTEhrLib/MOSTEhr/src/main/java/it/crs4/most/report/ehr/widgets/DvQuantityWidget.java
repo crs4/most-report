@@ -12,12 +12,14 @@ package it.crs4.most.report.ehr.widgets;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nhaarman.supertooltips.ToolTip;
@@ -26,11 +28,12 @@ import com.nhaarman.supertooltips.ToolTipView;
 
 import org.json.JSONObject;
 
+import java.lang.ref.WeakReference;
+
 import it.crs4.most.report.ehr.R;
 import it.crs4.most.report.ehr.WidgetProvider;
 import it.crs4.most.report.ehr.datatypes.DvQuantity;
 import it.crs4.most.report.ehr.exceptions.InvalidDatatypeException;
-import it.crs4.most.report.ehr.widgets.filters.DvQuantityFilter;
 
 
 /**
@@ -39,10 +42,10 @@ import it.crs4.most.report.ehr.widgets.filters.DvQuantityFilter;
 public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
 
     private static String TAG = "DvQuantityWidget";
-    protected TextView mLabUnity;
-    protected EditText mInput;
-    protected TextView mTitle;
-    protected TextView mTxtValidity;
+    protected TextView mLabUnityText;
+    protected EditText mMagnitudeText;
+    protected TextView mTitleText;
+    //    protected TextView mValidityText;
     private View mHelp;
     private ToolTipView mToolTipView;
     private ToolTipRelativeLayout mToolTipLayout;
@@ -58,20 +61,19 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
      */
     public DvQuantityWidget(WidgetProvider provider, String name, String path, JSONObject attributes, int parentIndex) {
         super(provider, name, new DvQuantity(path, attributes), parentIndex);
-
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.dv_quantity, null);
 
-        mRootView = view;
-        mLabUnity = (TextView) mRootView.findViewById(R.id.txt_units);
-        mTitle = (TextView) mRootView.findViewById(R.id.txt_title);
-        mTxtValidity = (TextView) mRootView.findViewById(R.id.txt_validity);
-        mInput = (EditText) mRootView.findViewById(R.id.txt_magnitude);
+        mRootView = inflater.inflate(R.layout.dv_quantity, null);
+        mTitleText = (TextView) mRootView.findViewById(R.id.txt_title);
+        mMagnitudeText = (EditText) mRootView.findViewById(R.id.txt_magnitude);
+        mLabUnityText = (TextView) mRootView.findViewById(R.id.txt_units);
+//        mValidityText = (TextView) mRootView.findViewById(R.id.txt_validity);
 
-        this.updateLabelsContent();
+        mTitleText.setText(getDisplayTitle());
+        mMagnitudeText.setHint(String.format("%s-%s", mDatatype.getMin(), mDatatype.getMax()));
+        mLabUnityText.setText(String.format("(%s)", mDatatype.getUnits()));
 
-        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
-
+        mHelp = mRootView.findViewById(R.id.image_help);
         mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
 
         mHelp.setOnClickListener(new OnClickListener() {
@@ -86,16 +88,14 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
                 else {
                     mToolTipView.remove();
                     mToolTipView = null;
-
                 }
             }
         });
 
-        Log.d(TAG, "DV QUANTITY VALUE: " + mDatatype.getMagnitude());
-        setupEditingFilters();
+        mMagnitudeText.addTextChangedListener(new MagnitudeTextWatcher(this));
+
         updateWidgetContents();
     }
-
 
     /**
      * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#replaceTooltip(com.nhaarman.supertooltips.ToolTip)
@@ -106,47 +106,37 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
             mToolTipView.remove();
             mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
         }
-
     }
-
 
     /**
      * Update widget contents.
      */
     private void updateWidgetContents() {
-        Log.d(TAG, "CALLED updateWidgetContents with DV QUANTITY VALUE: " + mDatatype.getMagnitude());
-
         if (mContext instanceof Activity) {
             ((Activity) mContext).runOnUiThread(new Runnable() {
-
                 @Override
                 public void run() {
-                    mInput.setText(String.valueOf(mDatatype.getMagnitude()));
-                    mLabUnity.setText(String.format("(%s)", mDatatype.getUnits()));
+                    if (mDatatype.getMagnitude() != null) {
+                        mMagnitudeText.setText(String.valueOf(mDatatype.getMagnitude()));
+                    }
+                    mLabUnityText.setText(String.format("(%s)", mDatatype.getUnits()));
                 }
             });
         }
         else {
-            mInput.setText(String.valueOf(mDatatype.getMagnitude()));
-            mLabUnity.setText(String.format("(%s)", mDatatype.getUnits()));
+            if (mDatatype.getMagnitude() != null) {
+                mMagnitudeText.setText(String.valueOf(mDatatype.getMagnitude()));
+            }
+            mLabUnityText.setText(String.format("(%s)", mDatatype.getUnits()));
         }
-
     }
-
-    /**
-     * Setup editing filters.
-     */
-    private void setupEditingFilters() {
-        DvQuantityFilter filter = new DvQuantityFilter(mInput, mTxtValidity, mDatatype);
-    }
-
 
     /**
      * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#reset()
      */
     @Override
     public void reset() {
-        this.updateWidgetContents();
+        updateWidgetContents();
     }
 
     /**
@@ -159,21 +149,19 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
 
     }
 
-
     /**
      * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#save()
      */
     @Override
     public void save() throws InvalidDatatypeException {
-        String magnitude = mInput.getText().toString().trim();
+        String magnitude = mMagnitudeText.getText().toString().trim();
         try {
-            this.mDatatype.setMagnitude(Double.valueOf(magnitude));
+            mDatatype.setMagnitude(Double.valueOf(magnitude));
         }
         catch (NumberFormatException ex) {
             ex.printStackTrace();
             throw new InvalidDatatypeException("No Double Number specified for magnitude:" + magnitude);
         }
-
     }
 
 
@@ -182,9 +170,46 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
      */
     @Override
     protected void updateLabelsContent() {
+        mTitleText.setText(getDisplayTitle());
+        mLabUnityText.setText(String.format("(%s)", mDatatype.getUnits()));
+    }
 
-        mTitle.setText(getDisplayTitle());
-        mLabUnity.setText(String.format("(%s)", mDatatype.getUnits()));
+    private static class MagnitudeTextWatcher implements TextWatcher {
 
+        WeakReference<DvQuantityWidget> outerRef;
+
+        public MagnitudeTextWatcher(DvQuantityWidget widget) {
+            outerRef = new WeakReference<>(widget);
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            double value;
+            boolean isValid = true;
+            try {
+                value = Double.parseDouble(outerRef.get().mMagnitudeText.getText().toString());
+                isValid = outerRef.get().mDatatype.isValid(value);
+            }
+            catch (NumberFormatException e) {
+                isValid = false;
+            }
+
+            if (isValid) {
+                outerRef.get().mMagnitudeText.setTextColor(Color.BLACK);
+            }
+            else {
+                outerRef.get().mMagnitudeText.setTextColor(Color.RED);
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+        }
     }
 }

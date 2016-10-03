@@ -30,27 +30,27 @@ public class DvQuantity extends EhrDatatype {
     /**
      * The magnitude.
      */
-    private double magnitude = 0;
+    private Double mMagnitude;
 
     /**
      * The units.
      */
-    private String units = "????";
+    private String mUnits = "????";
 
     /**
      * The precision.
      */
-    private int precision = 0;
+    private int mPrecision = 0;
 
     /**
      * The min.
      */
-    private Integer min = null;
+    private Integer mMin = null;
 
     /**
      * The max.
      */
-    private Integer max = null;
+    private Integer mMax = null;
 
 
     /**
@@ -60,10 +60,7 @@ public class DvQuantity extends EhrDatatype {
      * @param attributes the attributes
      */
     public DvQuantity(String path, JSONObject attributes) {
-
-        Log.d(TAG, "ISTANZIATA DV QUANTITY con path:" + path);
-        this.setPath(path);
-
+        setPath(path);
         try {
             setAttributes(attributes);
         }
@@ -73,39 +70,21 @@ public class DvQuantity extends EhrDatatype {
         }
     }
 
-
     @Override
     protected void setAttributes(JSONObject attributes) throws JSONException {
         Log.d(TAG, String.format("Setting datatype attributes: %s", attributes));
-
-		/*
-		 *  "attributes" : {
-	                  			"unit_of_measure": "mm[Hg]",
-	   				  			"precision" : 2,
-	   			       			"range" : {"min" : 10 , "max" :180 }
-	                  			}
-		 */
-
-
-        this.setUnits(attributes.getString("unit_of_measure"));
-        Log.d(TAG, "Set unity:" + this.units);
-        Log.d(TAG, String.format("Calling get unit from %s return: %s", this, this.getUnits()));
-
+        setUnits(attributes.getString("unit_of_measure"));
         if (attributes.has("precision")) {
-            this.precision = attributes.getInt("precision");
+            mPrecision = attributes.getInt("precision");
         }
-
         if (attributes.has("range")) {
             if (attributes.getJSONObject("range").has("min")) {
-                this.setMin(attributes.getJSONObject("range").getInt("min"));
+                setMin(attributes.getJSONObject("range").getInt("min"));
             }
-
             if (attributes.getJSONObject("range").has("max")) {
-                this.setMax(attributes.getJSONObject("range").getInt("max"));
+                setMax(attributes.getJSONObject("range").getInt("max"));
             }
-
         }
-
     }
 
     /**
@@ -115,7 +94,7 @@ public class DvQuantity extends EhrDatatype {
      * @return {@code True}, if ithe calue is valid, {@code False} otherwise
      */
     public boolean isValid(double value) {
-        return ((this.min == null || value >= this.min) && (this.max == null || value <= this.max)); // && getPrecision(value)<=this.precision);
+        return ((mMin == null || value >= mMin) && (mMax == null || value <= mMax)); // && getPrecision(value)<=precision);
     }
 
     /**
@@ -128,7 +107,9 @@ public class DvQuantity extends EhrDatatype {
         String sval = String.valueOf(value);
 
         int decimalIndexOf = sval.indexOf(".");
-        if (decimalIndexOf < 0 || (value - (int) value == 0)) return 0;
+        if (decimalIndexOf < 0 || (value - (int) value == 0)) {
+            return 0;
+        }
         else {
             return sval.substring(decimalIndexOf).length() - 1;
         }
@@ -141,16 +122,18 @@ public class DvQuantity extends EhrDatatype {
      * @return the validity message
      */
     public String getValidityMessage(double value) {
-        if (this.min != null && value < this.min)
-            return String.format("Value too low: %s The MIN value must be %s", value, this.min);
-
-        else if (this.max != null && value > this.max)
-            return String.format("Value too high: %s The MAX value must be %s", value, this.max);
-
-        else if (getPrecision(value) > this.precision) {
-            return String.format("Too many decimal digits for %s:%s (max:%s)", value, getPrecision(value), this.precision);
+        if (mMin != null && value < mMin) {
+            return String.format("Value too low: %s The MIN value is %s", value, mMin);
         }
-        else return String.format("Ok %s", this.getConstraintsInfo());
+        else if (mMax != null && value > mMax) {
+            return String.format("Value too high: %s The MAX value is %s", value, mMax);
+        }
+        else if (getPrecision(value) > mPrecision) {
+            return String.format("Too many decimal digits for %s:%s (max:%s)", value, getPrecision(value), mPrecision);
+        }
+        else {
+            return String.format("Ok %s", getConstraintsInfo());
+        }
     }
 
     /**
@@ -159,13 +142,18 @@ public class DvQuantity extends EhrDatatype {
      * @return the constraints info
      */
     public String getConstraintsInfo() {
-        if (this.min != null && this.max != null)
-            return String.format("(Valid Range: [%s, %s] - Max Precision: %s)", this.min, this.max, this.precision);
-        else if (this.min == null && this.max == null) return String.format("Max Precision: %s", this.precision);
-        else if (this.min != null)
-            return String.format("(Min Value: %s - Max Precision: %s)", this.min, this.precision);
-        else return String.format("(Max Value: %s - Max Precision: %s)", this.max, this.precision);
-
+        if (mMin != null && mMax != null) {
+            return String.format("(Valid Range: [%s, %s] - Max Precision: %s)", mMin, mMax, mPrecision);
+        }
+        else if (mMin == null && mMax == null) {
+            return String.format("Max Precision: %s", mPrecision);
+        }
+        else if (mMin != null) {
+            return String.format("(Min Value: %s - Max Precision: %s)", mMin, mPrecision);
+        }
+        else {
+            return String.format("(Max Value: %s - Max Precision: %s)", mMax, mPrecision);
+        }
     }
 
     /**
@@ -173,8 +161,8 @@ public class DvQuantity extends EhrDatatype {
      *
      * @return the magnitude
      */
-    public double getMagnitude() {
-        return this.magnitude;
+    public Double getMagnitude() {
+        return mMagnitude;
     }
 
     /**
@@ -184,16 +172,18 @@ public class DvQuantity extends EhrDatatype {
      * @throws InvalidDatatypeException if a not valid magnitude value is specified
      */
     public void setMagnitude(double magnitude) throws InvalidDatatypeException {
-        if (this.isValid(magnitude)) {
+        if (isValid(magnitude)) {
             Log.d(TAG, "Magnitude to save:" + magnitude);
-            double factor = Math.pow(10, this.precision);
-            this.magnitude = Math.round(magnitude * factor) / factor;
-            Log.d(TAG, "Magnitude to save after:" + this.magnitude + " [" + this + "]");
+            double factor = Math.pow(10, mPrecision);
+            mMagnitude = Math.round(magnitude * factor) / factor;
+            Log.d(TAG, "Magnitude to save after:" + mMagnitude + " [" + this + "]");
             //
-            if (this.datatypeChangeListener != null)
-                this.datatypeChangeListener.onEhrDatatypeChanged(this);
+            if (datatypeChangeListener != null)
+                datatypeChangeListener.onEhrDatatypeChanged(this);
         }
-        else throw new InvalidDatatypeException(this.getValidityMessage(magnitude));
+        else {
+            throw new InvalidDatatypeException(getValidityMessage(magnitude));
+        }
     }
 
     /**
@@ -202,8 +192,8 @@ public class DvQuantity extends EhrDatatype {
      * @return the current unit of measure
      */
     public String getUnits() {
-        Log.d(TAG, String.format("Calling get unity() from %s return: %s", this, this.units));
-        return this.units;
+        Log.d(TAG, String.format("Calling get unity() from %s return: %s", this, mUnits));
+        return mUnits;
     }
 
     /**
@@ -212,7 +202,7 @@ public class DvQuantity extends EhrDatatype {
      * @param units the new unit of measure
      */
     public void setUnits(String units) {
-        this.units = units;
+        mUnits = units;
     }
 
     /**
@@ -221,7 +211,7 @@ public class DvQuantity extends EhrDatatype {
      * @return the maximum precision
      */
     public int getMaxPrecision() {
-        return this.precision;
+        return mPrecision;
     }
 
     /**
@@ -230,7 +220,7 @@ public class DvQuantity extends EhrDatatype {
      * @param precision the highest precision
      */
     public void setMaxtPrecision(int precision) {
-        this.precision = precision;
+        mPrecision = precision;
     }
 
     /**
@@ -239,7 +229,7 @@ public class DvQuantity extends EhrDatatype {
      * @return the minimum value admitted for this DV_QUANTITY item
      */
     public int getMin() {
-        return this.min;
+        return mMin;
     }
 
     /**
@@ -248,7 +238,7 @@ public class DvQuantity extends EhrDatatype {
      * @param min the minimum value admitted for this DV_QUANTITY item
      */
     public void setMin(int min) {
-        this.min = min;
+        mMin = min;
     }
 
     /**
@@ -257,7 +247,7 @@ public class DvQuantity extends EhrDatatype {
      * @return the maximum value admitted for this DV_QUANTITY item
      */
     public int getMax() {
-        return this.max;
+        return mMax;
     }
 
     /**
@@ -266,50 +256,33 @@ public class DvQuantity extends EhrDatatype {
      * @param max the maximum value admitted for this DV_QUANTITY item
      */
     public void setMax(int max) {
-        this.max = max;
+        mMax = max;
     }
-
 
     @Override
     public void fromJSON(JSONObject content) throws JSONException, InvalidDatatypeException {
-
         if (!content.isNull("magnitude")) {
-            Log.d(TAG, "VALUE OF MAGNITUDE from json:" + content.getDouble("magnitude"));
-            this.setMagnitude(content.getDouble("magnitude"));
+            setMagnitude(content.getDouble("magnitude"));
         }
 
         if (!content.isNull("units")) {
-            this.setUnits(content.getString("units"));
-            Log.d(TAG, "VALUE OF UNITS from json:" + units);
+            setUnits(content.getString("units"));
         }
 
-        if (this.datatypeChangeListener != null) {
-            Log.d(TAG, "Notifying datatype changes to the widget with current value:" + getMagnitude());
-            this.datatypeChangeListener.onEhrDatatypeChanged(this);
+        if (datatypeChangeListener != null) {
+            datatypeChangeListener.onEhrDatatypeChanged(this);
         }
-        else
-            Log.d(TAG, "No Listener for notifying datatype changes to the widget");
-
-
     }
-
 
     @Override
     public JSONObject toJSON() {
-        JSONObject jsonMagnitude = new JSONObject();
         try {
-            String value = String.format("{ \"value\": { \"magnitude\" : %s , \"units\":\"%s\"}}", this.magnitude, this.units);
-            Log.d(TAG, "To be converted in JSON:" + value);
-            Log.d(TAG, "MAGNITUDE To be converted in JSON:" + this.magnitude + " [" + this + "]");
-            jsonMagnitude = new JSONObject(value);
-
-            return jsonMagnitude;
+            String value = String.format("{ \"value\": { \"magnitude\" : %s , \"units\":\"%s\"}}", mMagnitude, mUnits);
+            return new JSONObject(value);
         }
         catch (JSONException e) {
             e.printStackTrace();
         }
-
         return null;
     }
-
 }

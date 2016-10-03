@@ -76,7 +76,6 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster> {
                 else {
                     mToolTipView.remove();
                     mToolTipView = null;
-
                 }
             }
         });

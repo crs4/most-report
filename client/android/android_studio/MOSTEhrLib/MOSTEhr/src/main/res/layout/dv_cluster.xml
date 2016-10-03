@@ -2,13 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:background="#ff004410"
-              android:orientation="vertical"
-    >
+              android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/widget_height"
         android:layout_gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -16,6 +14,8 @@
             android:id="@+id/image_help"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/widget_margin"
             android:src="@android:drawable/ic_menu_info_details"/>
 
         <TextView
@@ -23,8 +23,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/widget_margin"
             android:layout_weight="1"
-            android:textColor="#ffFFA500"
             android:textSize="20sp"
             android:textStyle="bold"/>
 
@@ -32,7 +32,8 @@
             android:id="@+id/image_toggle_widgets"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/widget_margin"
             android:src="@android:drawable/ic_menu_more"/>
 
     </LinearLayout>
@@ -42,8 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
 
     </LinearLayout>

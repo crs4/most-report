@@ -76,35 +76,31 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
         mOntology = provider.getOntology();
         mParentIndex = parent_index;
 
-        this.mDatatype = datatype;
-        this.mDatatype.setDatatypeChangeListener(this);
+        mDatatype = datatype;
+        mDatatype.setDatatypeChangeListener(this);
 
-        this.setupDisplaytitle();
-        this.setupDescription();
-        this.setupTooltip();
+        setupDisplaytitle();
+        setupDescription();
+        setupTooltip();
     }
 
 
     public WidgetProvider getWidgetProvider() {
-        return this.mWidgetProvider;
+        return mWidgetProvider;
     }
 
     /**
      * Setup tooltip.
      */
     protected void setupTooltip() {
-
-        //if (this.toolTip!=null) {}
-
-        this.mToolTip = new ToolTip()
-            .withText(this.getDescription())
+        mToolTip = new ToolTip()
+            .withText(getDescription())
             .withColor(Color.GREEN)
             .withShadow()
             .withTextColor(Color.BLUE)
             .withAnimationType(ToolTip.AnimationType.FROM_TOP);
 
-        this.replaceTooltip(this.mToolTip);
-
+        replaceTooltip(mToolTip);
     }
 
     /**
@@ -113,7 +109,7 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
      * @return the tool tip
      */
     public ToolTip getToolTip() {
-        return this.mToolTip;
+        return mToolTip;
     }
 
     /**
@@ -123,12 +119,12 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
      * @param lang     the language of the new loaded ontology
      */
     public void setOntology(JSONObject ontology, String lang) {
-        this.mOntology = ontology;
-        this.setupDescription();
-        this.setupDisplaytitle();
-        this.setupTooltip();
+        mOntology = ontology;
+        setupDescription();
+        setupDisplaytitle();
+        setupTooltip();
 
-        this.updateLabelsContent();
+        updateLabelsContent();
     }
 
     /**
@@ -150,7 +146,7 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
      * @return the display title
      */
     public String getDisplayTitle() {
-        return this.mDisplayTitle;
+        return mDisplayTitle;
     }
 
     /**
@@ -158,7 +154,7 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
      */
     private void setupDescription() {
         try {
-            this.mDescription = mOntology.getJSONObject(this.mName).getString("description");
+            mDescription = mOntology.getJSONObject(mName).getString("description");
         }
         catch (JSONException e) {
             Log.e(TAG, "Problems during DESCRIPTION SETUP:" + e.getMessage());
@@ -172,7 +168,7 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
      * @return the description
      */
     public String getDescription() {
-        return this.mDescription;
+        return mDescription;
     }
 
 
@@ -182,7 +178,7 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
      * @return the {@link EhrDatatype}
      */
     public T getDatatype() {
-        return this.mDatatype;
+        return mDatatype;
     }
 
 
@@ -198,12 +194,6 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
      * Reset all fields of this widget according to the current underlying datatype value.
      */
     public abstract void reset();
-
-    // -----------------------------------------------
-    //
-    // view
-    //
-    // -----------------------------------------------
 
     /**
      * get the Root View containing this widget's view elements.
@@ -221,7 +211,7 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
      * @return the parent index
      */
     public int getParentIndex() {
-        return this.mParentIndex;
+        return mParentIndex;
     }
 
     /**

@@ -38,7 +38,6 @@ public class Utils {
         //((Activity)ctx).getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
         Resources resources = new Resources(ctx.getAssets(), metrics, conf);
-        String str = resources.getString(resourseId);
-        return str;
+        return resources.getString(resourseId);
     }
 }
