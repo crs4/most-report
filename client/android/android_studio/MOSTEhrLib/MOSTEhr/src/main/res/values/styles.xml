@@ -17,4 +17,19 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="ToolTipStyle">
+        <item name="android:layout_marginLeft">@dimen/widget_margin</item>
+        <!--<item name="android:layout_marginStart">@dimen/widget_margin</item>-->
+        <item name="android:layout_marginRight">@dimen/widget_margin</item>
+        <!--<item name="android:layout_marginEnd">@dimen/widget_margin</item>-->
+    </style>
+
+    <style name="HelpImage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/widget_margin</item>
+        <item name="android:src">@android:drawable/ic_menu_info_details</item>
+    </style>
+
 </resources>

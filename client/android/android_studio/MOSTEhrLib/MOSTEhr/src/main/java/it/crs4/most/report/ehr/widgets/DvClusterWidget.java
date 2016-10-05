@@ -10,7 +10,6 @@
 package it.crs4.most.report.ehr.widgets;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,7 +42,6 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster> {
     private List<DatatypeWidget<EhrDatatype>> mClusterWidgets;
     private TextView mTitle;
     private ToolTipRelativeLayout mToolTipLayout;
-    private ImageView mHelp;
     protected ToolTipView mToolTipView;
     private LinearLayout mClusterLayout;
     private ImageView mAddRemWidgets;
@@ -62,15 +60,13 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster> {
         buildClusterView();
         updateLabelsContent();
 
-        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
-
         mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
 
-        mHelp.setOnClickListener(new OnClickListener() {
+        mTitle.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mToolTipView == null) {
-                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitle);
                     //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
                 }
                 else {
@@ -124,7 +120,8 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster> {
      * @see it.crs4.most.report.ehr.datatypes.EhrDatatypeChangeListener#onEhrDatatypeChanged(it.crs4.most.report.ehr.datatypes.EhrDatatype)
      */
     @Override
-    public void onEhrDatatypeChanged(DvCluster datatype) {}
+    public void onEhrDatatypeChanged(DvCluster datatype) {
+    }
 
     @Override
     protected void updateLabelsContent() {
@@ -135,7 +132,7 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster> {
     protected void replaceTooltip(ToolTip tooltip) {
         if (mToolTipView != null) {
             mToolTipView.remove();
-            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitle);
         }
     }
 

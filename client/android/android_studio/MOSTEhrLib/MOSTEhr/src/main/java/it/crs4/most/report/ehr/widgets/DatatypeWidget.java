@@ -20,6 +20,7 @@ import com.nhaarman.supertooltips.ToolTip;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import it.crs4.most.report.ehr.R;
 import it.crs4.most.report.ehr.WidgetProvider;
 import it.crs4.most.report.ehr.datatypes.EhrDatatype;
 import it.crs4.most.report.ehr.datatypes.EhrDatatypeChangeListener;
@@ -95,9 +96,9 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
     protected void setupTooltip() {
         mToolTip = new ToolTip()
             .withText(getDescription())
-            .withColor(Color.GREEN)
+            .withColor(mContext.getResources().getColor(R.color.colorTooltipBackground))
             .withShadow()
-            .withTextColor(Color.BLUE)
+            .withTextColor(mContext.getResources().getColor(R.color.colorTooltipText))
             .withAnimationType(ToolTip.AnimationType.FROM_TOP);
 
         replaceTooltip(mToolTip);

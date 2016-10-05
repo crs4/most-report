@@ -41,8 +41,7 @@ public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.
     private String TAG = "DvTextWidget";
     private TextView mTxtTitle;
     private EditText mInput;
-    private TextView mTxtValidity;
-    private ImageView mHelp;
+//    private ImageView mHelp;
     private ToolTipView mToolTipView;
     private ToolTipRelativeLayout mToolTipLayout;
 
@@ -61,22 +60,20 @@ public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.
 
         mRootView = inflater.inflate(R.layout.dv_text, null);
         mTxtTitle = (TextView) mRootView.findViewById(R.id.txt_title);
-        mTxtValidity = (TextView) mRootView.findViewById(R.id.txt_validity);
         mInput = (EditText) mRootView.findViewById(R.id.txt_text);
         mInput.setMovementMethod(new ScrollingMovementMethod());
 
         updateLabelsContent();
 
-        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
-
+//        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
         mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
 
-        mHelp.setOnClickListener(new OnClickListener() {
+        mTxtTitle.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 if (mToolTipView == null) {
-                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTxtTitle);
                     //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
                 }
                 else {
@@ -88,13 +85,10 @@ public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.
         });
     }
 
-
     /**
      * Update widget contents.
      */
     private void updateWidgetContents() {
-        Log.d(TAG, "CALLED updateWidgetContents with DV TEXT VALUE: " + mDatatype.getText());
-
         if (mContext instanceof Activity) {
             ((Activity) mContext).runOnUiThread(new Runnable() {
 
@@ -149,7 +143,7 @@ public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.
     protected void replaceTooltip(ToolTip tooltip) {
         if (mToolTipView != null) {
             mToolTipView.remove();
-            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTxtTitle);
         }
 
     }

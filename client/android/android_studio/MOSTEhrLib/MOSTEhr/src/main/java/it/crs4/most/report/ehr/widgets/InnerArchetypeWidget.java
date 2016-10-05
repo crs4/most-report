@@ -43,7 +43,6 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
     private List<DatatypeWidget<EhrDatatype>> mArchetypeWidgets;
     private TextView mTitle;
     private ToolTipRelativeLayout mToolTipLayout;
-    private ImageView mHelp;
     protected ToolTipView mToolTipView;
     private LinearLayout mArchetypeLayout;
 
@@ -80,17 +79,14 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
         buildInnerArchetypeView();
         updateLabelsContent();
 
-        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
-
         mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
-
-        mHelp.setOnClickListener(new OnClickListener() {
+        mTitle.setOnClickListener(new OnClickListener() {
 
 
             @Override
             public void onClick(View v) {
                 if (mToolTipView == null) {
-                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitle);
                     //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
                 }
                 else {
@@ -230,7 +226,7 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
     protected void replaceTooltip(ToolTip tooltip) {
         if (mToolTipView != null) {
             mToolTipView.remove();
-            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitle);
         }
     }
 

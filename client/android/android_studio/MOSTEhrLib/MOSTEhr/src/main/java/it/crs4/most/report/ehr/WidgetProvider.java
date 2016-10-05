@@ -179,9 +179,9 @@ public class WidgetProvider {
         mJsonOntology = archetypeSchemaProvider.getOntologySchema(archetypeClassName);
         mOntology = getOntology(mJsonOntology, language);
 
-        if (archetypeSchemaProvider.getLayoutSchema(archetypeClassName) != null)
+        if (archetypeSchemaProvider.getLayoutSchema(archetypeClassName) != null) {
             mJsonLayoutSchema = new JSONObject(archetypeSchemaProvider.getLayoutSchema(archetypeClassName));
-
+        }
         if (jsonExclude != null) {
             buildExcludeArray(new JSONArray(jsonExclude));
         }
@@ -191,10 +191,6 @@ public class WidgetProvider {
         mArchetypeInstances = mJsonArchetype.getJSONObject("archetype_details");
         mAdlParser = new AdlParser(mArchetypeInstances);
 
-    }
-
-    public JSONObject getDatatypesSchema() {
-        return mDatatypesSchema;
     }
 
     /**
@@ -246,7 +242,33 @@ public class WidgetProvider {
         mJsonArchetype = new JSONObject(jsonAdlStructure);
         mArchetypeInstances = mJsonArchetype.getJSONObject("archetype_details");
         mAdlParser = new AdlParser(mArchetypeInstances);
+    }
 
+//    /**
+//     * Setup a Widget provider representing a specific archetype, according to the specified json datatypes schema , json archetype structure and json ontology.
+//     *
+//     * @param context          the application context
+//     * @param jsonDatatypes    - the json description of all datatypes used by this archetype, subdivided in sections
+//     * @param jsonOntology     - the json ontology (it includes a textual description of each item of the archetype)
+//     * @param jsonAdlStructure - the initial json structure of the archetype (optionally including initial values)
+//     * @param jsonLayoutSchema (optional, it can be null) the layout schema containing informations about visual rendering (sections, custom widgets, priorities..)
+//     * @param jsonExclude      (optional, it can be null) the list of archetype items (i.e their id , like "at0004") to exclude from the viewer
+//     * @param language         - the default language code (any language code included in the ontology json schema)
+//     * @throws JSONException            - if an error occurred during the parsing of the json schemas
+//     * @throws InvalidDatatypeException
+//     */
+//    public WidgetProvider(Context context, String jsonDatatypesFile, String jsonOntologyFile, String jsonAdlStructureFile,
+//                          String jsonLayoutSchemaFile, String language, String jsonExclude) throws JSONException, InvalidDatatypeException {
+//
+//        String jsonDatatypes = parseFileToString(context, jsonDatatypesFile);
+//        String jsonOntology = parseFileToString(context, jsonOntologyFile);
+//        String jsonAdlStructure = parseFileToString(context, jsonAdlStructureFile);
+//        String jsonLayoutSchema = parseFileToString(context, jsonLayoutSchemaFile);
+//        this(context, jsonDatatypes, jsonOntology, jsonAdlStructure, jsonLayoutSchema, language, jsonExclude);
+//    }
+
+    public JSONObject getDatatypesSchema() {
+        return mDatatypesSchema;
     }
 
     private void buildExcludeArray(JSONArray jsonExclude) {
@@ -566,7 +588,7 @@ public class WidgetProvider {
             }
 
         }
-        else
+        else {
             try {
                 buildSectionWidgetsMap(null);
             }
@@ -574,7 +596,7 @@ public class WidgetProvider {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
-
+        }
 
         if (sections == null)
             sections = getSections();

@@ -44,7 +44,6 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText> {
     private static String TAG = "DvCodedTextAsListWidget";
     private int mCurrentSelectionIndex = 0;
     private ListView mListView;
-    private ImageView mHelp;
     private ArrayAdapter<String> mAdapter;
     private TextView mTxtTitle;
     private ToolTipRelativeLayout mToolTipLayout;
@@ -65,27 +64,21 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText> {
         Log.d(TAG, "istanziato DvCodedTextAsListWidget");
 
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.dv_coded_text_listview, null);
-        mRootView = view;
-
-
+        mRootView = inflater.inflate(R.layout.dv_coded_text_listview, null);
         mListView = (ListView) mRootView.findViewById(R.id.list_coded_text);
-
         mTxtTitle = (TextView) mRootView.findViewById(R.id.txt_title);
 
         updateLabelsContent();
 
-        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
-
         mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
 
-        mHelp.setOnClickListener(new OnClickListener() {
+        mTxtTitle.setOnClickListener(new OnClickListener() {
 
 
             @Override
             public void onClick(View v) {
                 if (mToolTipView == null) {
-                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTxtTitle);
                     //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
                 }
                 else {
@@ -96,12 +89,6 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText> {
             }
         });
 
-//		ViewGroup header = (ViewGroup)inflater.inflate(R.layout.dv_coded_text_listview_header, mListView, false);
-//		TextView txtView = (TextView) header.findViewById(R.id.txt_header);
-//		txtView.setText(name);
-//		Log.d(TAG, "Header creato");
-//		mListView.addHeaderView(header, null, false);
-//		Log.d(TAG, "Header aggiunto");
 
         setupListViewAdapter();
     }
@@ -133,7 +120,7 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText> {
      * Setup list view adapter.
      */
     private void setupListViewAdapter() {
-        mAdapter = new ArrayAdapter<String>(
+        mAdapter = new ArrayAdapter<>(
             mContext,
             R.layout.dv_coded_text_listview_row,
             R.id.txt_row,
@@ -191,7 +178,7 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText> {
     protected void replaceTooltip(ToolTip tooltip) {
         if (mToolTipView != null) {
             mToolTipView.remove();
-            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTxtTitle);
         }
 
     }

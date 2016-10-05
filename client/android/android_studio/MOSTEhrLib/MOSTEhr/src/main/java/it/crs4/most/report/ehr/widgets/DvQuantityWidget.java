@@ -46,7 +46,6 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
     protected EditText mMagnitudeText;
     protected TextView mTitleText;
     //    protected TextView mValidityText;
-    private View mHelp;
     private ToolTipView mToolTipView;
     private ToolTipRelativeLayout mToolTipLayout;
 
@@ -73,16 +72,12 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
         mMagnitudeText.setHint(String.format("%s-%s", mDatatype.getMin(), mDatatype.getMax()));
         mLabUnityText.setText(String.format("(%s)", mDatatype.getUnits()));
 
-        mHelp = mRootView.findViewById(R.id.image_help);
         mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
-
-        mHelp.setOnClickListener(new OnClickListener() {
-
-
+        mTitleText.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mToolTipView == null) {
-                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitleText);
                     //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
                 }
                 else {
@@ -104,7 +99,7 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
     protected void replaceTooltip(ToolTip tooltip) {
         if (mToolTipView != null) {
             mToolTipView.remove();
-            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitleText);
         }
     }
 

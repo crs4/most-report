@@ -41,7 +41,7 @@ public class DvCodedTextWidget extends DatatypeWidget<DvCodedText> {
 
     private Spinner mSpinner = null;
     private int mCurrentSelectionIndex = 0;
-    private ImageView mHelp;
+//    private ImageView mHelp;
     private ArrayAdapter<String> mAdapter;
     private TextView mTxtTitle;
     private ToolTipRelativeLayout mToolTipLayout;
@@ -67,15 +67,15 @@ public class DvCodedTextWidget extends DatatypeWidget<DvCodedText> {
 
         this.updateLabelsContent();
 
-        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
+//        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
 
         mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
 
-        mHelp.setOnClickListener(new OnClickListener() {
+        mTxtTitle.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mToolTipView == null) {
-                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTxtTitle);
                     //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
                 }
                 else {
@@ -116,19 +116,11 @@ public class DvCodedTextWidget extends DatatypeWidget<DvCodedText> {
     private void setupSpinner() {
 
         mSpinner = (Spinner) mRootView.findViewById(R.id.spinnerState);
-
-        mAdapter = new ArrayAdapter<String>(
-            mContext,
-            R.layout.spinner_item,
-            getOptions()
-        );
-
+        mAdapter = new ArrayAdapter<>(mContext, R.layout.spinner_item, getOptions());
         mSpinner.setAdapter(mAdapter);
         mSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 mCurrentSelectionIndex = position;
             }
 
@@ -183,7 +175,7 @@ public class DvCodedTextWidget extends DatatypeWidget<DvCodedText> {
     protected void replaceTooltip(ToolTip tooltip) {
         if (mToolTipView != null) {
             mToolTipView.remove();
-            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTxtTitle);
         }
     }
 }
