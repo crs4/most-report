@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorBackground">#FFF</color>
+    <color name="colorBackground">#FFFFFF</color>
     <color name="colorHint">#FFCCCCCC</color>
     <color name="colorStroke">#FFAAAAAA</color>
-    <color name="colorTooltipBackground">#FFAAAAAA</color>
-    <color name="colorTooltipText">#444444</color>
+    <color name="colorTitle">#FFFFFF</color>
+    <color name="colorText">#3498DB</color>
+    <color name="colorTitleArchetype">#2980B9</color>
+    <color name="colorTitleCluster">#3498DB</color>
+    <color name="colorTooltipBackground">#3498DB</color>
+    <color name="colorTooltipText">#FFFFFF</color>
 </resources>

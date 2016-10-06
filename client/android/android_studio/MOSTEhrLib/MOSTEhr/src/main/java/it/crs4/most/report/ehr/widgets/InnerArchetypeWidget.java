@@ -81,8 +81,6 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
 
         mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
         mTitle.setOnClickListener(new OnClickListener() {
-
-
             @Override
             public void onClick(View v) {
                 if (mToolTipView == null) {
@@ -92,7 +90,6 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
                 else {
                     mToolTipView.remove();
                     mToolTipView = null;
-
                 }
             }
         });
@@ -107,18 +104,15 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
     @Override
     public void setOntology(JSONObject ontology, String language) {
         mLanguage = language;
-
         mOntology = ontology;
         setupDescription();
         setupDisplaytitle();
-
         setupTooltip();
         updateLabelsContent();
 
         if (mCreated) {
             mWidgetProvider.updateOntologyLanguage(language);
         }
-
     }
 
     private void setupDescription() {
@@ -142,7 +136,6 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
         }
     }
 
-
     private void setupDisplaytitle() {
         setupDisplaytitle(false);
     }
@@ -152,11 +145,12 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
      */
     private void setupDisplaytitle(boolean firstRequest) {
         try {
-            if (firstRequest)
+            if (firstRequest) {
                 mDisplayTitle = mOntology.getJSONObject(mWidgetProvider.getDatatypesSchema().getString("title")).getString("text");
-            else
+            }
+            else {
                 mDisplayTitle = mOntology.getJSONObject(mName).getString("text");
-
+            }
         }
         catch (JSONException e) {
             Log.e(TAG, "Error retrieving inner archetype title:" + e.getMessage());
@@ -173,7 +167,6 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
         mTitle = (TextView) mRootView.findViewById(R.id.txt_archetype_title);
         mAddRemWidgets = (ImageView) mRootView.findViewById(R.id.image_toggle_widgets);
         mAddRemWidgets.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 if (mWidgetsVisible) {
@@ -184,7 +177,6 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
                 }
             }
         });
-
     }
 
     private void buildNewArchetypeContainer() {
@@ -200,13 +192,13 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
         }
         mArchetypeLayout.addView(mFormContainer.getLayout());
         mWidgetsVisible = true;
-        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(android.R.drawable.ic_menu_revert));
+        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(R.drawable.expand_less_white));
     }
 
     private void removeWidgets() {
         mArchetypeLayout.removeAllViews();
         mWidgetsVisible = false;
-        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(android.R.drawable.ic_menu_more));
+        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(R.drawable.expand_white));
     }
 
     /**

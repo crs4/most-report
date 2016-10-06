@@ -2,33 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:background="@drawable/widget_background"
+              android:background="@color/colorBackground"
               android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/widget_header_height"
         android:layout_gravity="center_vertical"
+        android:background="@color/colorTitleArchetype"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/txt_archetype_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:drawableLeft="@android:drawable/ic_menu_info_details"
-            android:drawableStart="@android:drawable/ic_menu_info_details"
-            android:textSize="@dimen/abc_text_size_medium_material"
-            android:textStyle="bold"/>
+            style="@style/TitleStyleArchetype"/>
 
         <ImageView
             android:id="@+id/image_toggle_widgets"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
             android:contentDescription="@string/expand"
-            android:src="@android:drawable/ic_menu_add"/>
+            android:src="@drawable/expand_white"/>
 
     </LinearLayout>
 
@@ -36,7 +30,6 @@
         android:id="@+id/archetype_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
         android:orientation="vertical">
     </LinearLayout>
 
@@ -48,7 +41,8 @@
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="4dp"/>
+        android:layout_height="1dp"
+        android:background="@color/colorStroke"/>
 
 </LinearLayout>
 

@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.nhaarman.supertooltips.ToolTip;
 import com.nhaarman.supertooltips.ToolTipRelativeLayout;
@@ -35,9 +36,9 @@ import it.crs4.most.report.ehr.exceptions.InvalidDatatypeException;
  */
 public class DvBooleanWidget extends DatatypeWidget<DvBoolean> implements ToolTipView.OnToolTipViewClickedListener {
 
-    private String TAG = "DvTextWidget";
+    private static final String TAG = "DvTextWidget";
+    private TextView mTitleText;
     private CheckBox mChkBoolean;
-    private ImageView mHelp;
     private ToolTipView mToolTipView;
     private ToolTipRelativeLayout mToolTipLayout;
 
@@ -55,17 +56,17 @@ public class DvBooleanWidget extends DatatypeWidget<DvBoolean> implements ToolTi
 
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mRootView = inflater.inflate(R.layout.dv_boolean, null);
+        mTitleText = (TextView) mRootView.findViewById(R.id.txt_title);
         mChkBoolean = (CheckBox) mRootView.findViewById(R.id.check_is_selected);
-
         updateLabelsContent();
 
-        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
+//        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
         mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
-        mHelp.setOnClickListener(new OnClickListener() {
+        mTitleText.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mToolTipView == null) {
-                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitleText);
                 }
                 else {
                     mToolTipView.remove();
@@ -134,7 +135,7 @@ public class DvBooleanWidget extends DatatypeWidget<DvBoolean> implements ToolTi
     protected void replaceTooltip(ToolTip tooltip) {
         if (mToolTipView != null) {
             mToolTipView.remove();
-            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mHelp);
+            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitleText);
         }
     }
 
@@ -143,7 +144,7 @@ public class DvBooleanWidget extends DatatypeWidget<DvBoolean> implements ToolTi
      */
     @Override
     protected void updateLabelsContent() {
-        mChkBoolean.setText(getDisplayTitle());
+        mTitleText.setText(getDisplayTitle());
     }
 
 }

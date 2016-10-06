@@ -2,42 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="@dimen/widget_height"
-              android:background="@drawable/widget_background"
               android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_semi_height"
-        android:orientation="horizontal">
+    <TextView
+        android:id="@+id/txt_title"
+        style="@style/TitleStyle"/>
 
-        <TextView
-            android:id="@+id/txt_title"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="@dimen/widget_margin"
-            android:layout_marginLeft="@dimen/widget_margin"
-            android:layout_marginRight="@dimen/widget_margin"
-            android:layout_marginStart="@dimen/widget_margin"
-            android:drawableLeft="@android:drawable/ic_menu_info_details"
-            android:drawableStart="@android:drawable/ic_menu_info_details"
-            android:gravity="center_vertical"
-            android:textSize="@dimen/abc_text_size_medium_material"
-            android:textStyle="bold"/>
-
-        <Spinner
-            android:id="@+id/spinnerState"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="@dimen/widget_margin"
-            android:layout_marginLeft="@dimen/widget_margin"
-            android:layout_marginRight="@dimen/widget_margin"
-            android:layout_marginStart="@dimen/widget_margin"
-            android:minWidth="200dp"
-            android:textSize="@dimen/abc_text_size_body_1_material">
-        </Spinner>
-    </LinearLayout>
+    <Spinner
+        android:id="@+id/spinnerState"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/widget_body_height"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="@dimen/widget_margin"
+        android:layout_marginLeft="@dimen/widget_margin"
+        android:layout_marginRight="@dimen/widget_margin"
+        android:layout_marginStart="@dimen/widget_margin"
+        android:minWidth="200dp"
+        android:textSize="@dimen/abc_text_size_body_1_material">
+    </Spinner>
 
     <com.nhaarman.supertooltips.ToolTipRelativeLayout
         android:id="@+id/activity_main_tooltipRelativeLayout"
@@ -45,5 +27,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/widget_margin"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorStroke"/>
 
 </LinearLayout>

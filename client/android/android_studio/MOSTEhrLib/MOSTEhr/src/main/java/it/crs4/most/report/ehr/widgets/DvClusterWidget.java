@@ -107,13 +107,13 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster> {
             mClusterLayout.addView(mClusterWidgets.get(i).getView());
         }
         mWidgetsVisible = true;
-        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(android.R.drawable.ic_menu_revert));
+        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(R.drawable.expand_less_white));
     }
 
     private void removeWidgets() {
         mClusterLayout.removeAllViews();
         mWidgetsVisible = false;
-        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(android.R.drawable.ic_menu_more));
+        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(R.drawable.expand_white));
     }
 
     /**

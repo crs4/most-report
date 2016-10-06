@@ -19,17 +19,37 @@
 
     <style name="ToolTipStyle">
         <item name="android:layout_marginLeft">@dimen/widget_margin</item>
-        <!--<item name="android:layout_marginStart">@dimen/widget_margin</item>-->
         <item name="android:layout_marginRight">@dimen/widget_margin</item>
-        <!--<item name="android:layout_marginEnd">@dimen/widget_margin</item>-->
     </style>
 
-    <style name="HelpImage">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">match_parent</item>
+    <style name="TitleStyle">
+        <item name="android:background">@color/colorTitle</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/widget_header_height</item>
         <item name="android:layout_gravity">center_vertical</item>
-        <item name="android:layout_marginLeft">@dimen/widget_margin</item>
-        <item name="android:src">@android:drawable/ic_menu_info_details</item>
+        <item name="android:paddingLeft">@dimen/widget_margin</item>
+        <item name="android:paddingRight">@dimen/widget_margin</item>
+        <item name="android:drawableLeft">@drawable/info_white</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:drawableStart">@drawable/info_white</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/abc_text_size_medium_material</item>
     </style>
+
+    <style name="TitleStyleArchetype" parent="TitleStyle">
+        <item name="android:background">@color/colorTitleArchetype</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="TitleStyleCluster" parent="TitleStyle">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@color/colorTitleCluster</item>
+        <item name="android:layout_width">wrap_content</item>
+
+    </style>
+
 
 </resources>
