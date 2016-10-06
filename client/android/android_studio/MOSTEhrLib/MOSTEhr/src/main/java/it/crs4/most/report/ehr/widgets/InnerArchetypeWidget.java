@@ -14,8 +14,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.nhaarman.supertooltips.ToolTip;
@@ -44,7 +44,7 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
     private TextView mTitle;
     private ToolTipRelativeLayout mToolTipLayout;
     protected ToolTipView mToolTipView;
-    private LinearLayout mArchetypeLayout;
+    private FrameLayout mArchetypeLayout;
 
     private boolean mWidgetsVisible = false;
     private ImageView mAddRemWidgets;
@@ -76,7 +76,24 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
 
         super.setupTooltip();
 
-        buildInnerArchetypeView();
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        mRootView = inflater.inflate(R.layout.inner_archetype, null);
+        mArchetypeLayout = (FrameLayout) mRootView.findViewById(R.id.archetype_container);
+        mTitle = (TextView) mRootView.findViewById(R.id.txt_archetype_title);
+        mAddRemWidgets = (ImageView) mRootView.findViewById(R.id.image_toggle_widgets);
+        mAddRemWidgets.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mWidgetsVisible) {
+                    removeWidgets();
+                }
+                else {
+                    addWidgets();
+                }
+            }
+        });
+
         updateLabelsContent();
 
         mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
@@ -157,26 +174,6 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
             Log.d(TAG, "Current ontology:" + mOntology.toString());
             mDisplayTitle = mName;
         }
-    }
-
-    private void buildInnerArchetypeView() {
-        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        mRootView = inflater.inflate(R.layout.inner_archetype, null);
-        mArchetypeLayout = (LinearLayout) mRootView.findViewById(R.id.archetype_container);
-        mTitle = (TextView) mRootView.findViewById(R.id.txt_archetype_title);
-        mAddRemWidgets = (ImageView) mRootView.findViewById(R.id.image_toggle_widgets);
-        mAddRemWidgets.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mWidgetsVisible) {
-                    removeWidgets();
-                }
-                else {
-                    addWidgets();
-                }
-            }
-        });
     }
 
     private void buildNewArchetypeContainer() {

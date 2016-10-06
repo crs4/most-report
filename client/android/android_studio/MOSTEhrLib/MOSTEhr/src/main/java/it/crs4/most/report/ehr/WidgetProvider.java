@@ -10,12 +10,7 @@
 package it.crs4.most.report.ehr;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ScrollView;
@@ -161,11 +156,11 @@ public class WidgetProvider {
     /**
      * Setup a Widget provider representing a specific archetype, according to the specified Archetype Schema Provider and archetype class name
      *
-     * @param context            get application context
-     * @param archetypeSchemaProvider                the Archetype Schema Provider
-     * @param archetypeClassName the name of the archetype class to be built (e.g: openEHR-EHR-OBSERVATION.blood_pressure.v1)
-     * @param language           the default ontology language
-     * @param jsonExclude        the json array containing a list of item ids to be excluded from the archetype
+     * @param context                 get application context
+     * @param archetypeSchemaProvider the Archetype Schema Provider
+     * @param archetypeClassName      the name of the archetype class to be built (e.g: openEHR-EHR-OBSERVATION.blood_pressure.v1)
+     * @param language                the default ontology language
+     * @param jsonExclude             the json array containing a list of item ids to be excluded from the archetype
      * @throws JSONException
      * @throws InvalidDatatypeException
      */
@@ -379,7 +374,7 @@ public class WidgetProvider {
                 wp = new WidgetProvider(mContext, mSchemaProvider, archetypeName, mLanguage, null);
             }
 
-            DatatypeWidget<EhrDatatype> widget = (DatatypeWidget<EhrDatatype>) ctor.newInstance(new Object[]{wp, title, path, attributes, parentIndex});
+            DatatypeWidget<EhrDatatype> widget = (DatatypeWidget<EhrDatatype>) ctor.newInstance(wp, title, path, attributes, parentIndex);
             return widget;
 
         }
@@ -525,45 +520,13 @@ public class WidgetProvider {
      * @return the FormContainer containing all widgets, ordered by section and item priority in a vertical layout
      */
     public FormContainer buildFormView(int index) {
-
-		/*
-
-		 {
-   			"title" : "at0000",
-   			
-   			"datatypes" : {
-		     "at0004" : {
-                  "path": "/data[at0001]/events[at002]",
-                  "priority" : "0",
-                  "type" : "DV_QUANTITY",
-                  "attributes" : {
-                  			"unit_of_measure": "mm[Hg]",
-   				  			"precision" : 2,
-   			       			"range" : {"min" : 10 , "max" :180 }
-                  			}
-                },
-                
-                 "at0005" : {
-                  "path": "/data[at0001]/events[at002]",
-                  "priority" : "1",
-                  "type" : "DV_QUANTITY",
-                  "attributes" : {
-                  			"unit_of_measure": "mm[Hg]",
-   				  			"precision" : 2,
-   			       			"range" : {"min" : 10 , "max" :180 }
-                  			}
-                }
-            }
-		 */
-
         // Build cluster widgets, needed for sections including them
         try {
             buildClusterWidgetsMap(null);
         }
-        catch (InvalidDatatypeException e2) {
-            Log.e(TAG, String.format("Error building cluster Widget Map:%s", e2.getMessage()));
-            e2.printStackTrace();
-
+        catch (InvalidDatatypeException e) {
+            Log.e(TAG, String.format("Error building cluster Widget Map:%s", e.getMessage()));
+            e.printStackTrace();
         }
 
         String[] sections = null;
@@ -573,10 +536,9 @@ public class WidgetProvider {
             try {
                 jsonSections = mJsonLayoutSchema.getJSONArray("sections");
                 sections = new String[jsonSections.length()];
-
-                for (int i = 0; i < sections.length; i++)
+                for (int i = 0; i < sections.length; i++) {
                     sections[i] = jsonSections.getString(i);
-
+                }
                 buildSectionWidgetsMap(sections);
             }
             catch (JSONException e) {
@@ -586,7 +548,6 @@ public class WidgetProvider {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-
         }
         else {
             try {
@@ -598,15 +559,15 @@ public class WidgetProvider {
             }
         }
 
-        if (sections == null)
+        if (sections == null) {
             sections = getSections();
+        }
 
         Log.d(TAG, "Generating form....");
         String formTitle = "Unknown Form";
-        ArrayList<DatatypeWidget<EhrDatatype>> _allWidgets = new ArrayList<DatatypeWidget<EhrDatatype>>();
+        ArrayList<DatatypeWidget<EhrDatatype>> widgets = new ArrayList<>();
 
         try {
-
             //formTitle = String.format("%s [%s]", ontology.getJSONObject(datatypesSchema.getString("title")).getString("text"), index);
             formTitle = mOntology.getJSONObject(mDatatypesSchema.getString("title")).getString("text");
             Log.d(TAG, "FORM TITLE: " + formTitle);
@@ -618,9 +579,7 @@ public class WidgetProvider {
                 if (mJsonLayoutSchema != null) {
                     Collections.sort(sectionWidgets, new PriorityComparison(mJsonLayoutSchema));
                 }
-
-                _allWidgets.addAll(sectionWidgets);
-
+                widgets.addAll(sectionWidgets);
             }
 
         }
@@ -629,54 +588,19 @@ public class WidgetProvider {
             e.printStackTrace();
         }
 
-
         mContainer = new LinearLayout(mContext);
         mContainer.setOrientation(LinearLayout.VERTICAL);
         mContainer.setLayoutParams(defaultLayoutParams);
 
-        mViewport = new ScrollView(mContext);
-        mViewport.setLayoutParams(defaultLayoutParams);
-
-        mLayout = new LinearLayout(mContext);
-        mLayout.setOrientation(LinearLayout.VERTICAL);
-        mLayout.setLayoutParams(defaultLayoutParams);
-
-
-        View titleView = buildTitleView(mContext, formTitle);
-        mLayout.addView(titleView);
-        for (int i = 0; i < _allWidgets.size(); i++) {
-            mLayout.addView((View) _allWidgets.get(i).getView());
+        for (int i = 0; i < widgets.size(); i++) {
+            mContainer.addView(widgets.get(i).getView());
         }
 
-        mViewport.addView(mLayout);
-        mContainer.addView(mViewport);
-
-
-        FormContainer fc = new FormContainer((ViewGroup) mContainer, _allWidgets, index);
+        FormContainer fc = new FormContainer(mContainer, widgets, index);
         Log.d(TAG, "Resetting all widgets...");
         //fc.resetAllWidgets();
         return fc;
     }
-
-    /**
-     * Builds the title view.
-     *
-     * @param context the context
-     * @param title   the title
-     * @return the view
-     */
-    private View buildTitleView(Context context, String title) {
-        mTitleView = new TextView(context);
-        mTitleView.setText(title);
-        mTitleView.setTextColor(Color.WHITE);
-        mTitleView.setTextSize(22);
-        mTitleView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-        mTitleView.setTypeface(null, Typeface.BOLD);
-        mTitleView.setGravity(Gravity.CENTER);
-
-        return mTitleView;
-    }
-
 
     /**
      * Update title view.
@@ -693,7 +617,6 @@ public class WidgetProvider {
             }
         }
     }
-
 
     public List<DatatypeWidget<EhrDatatype>> getSectionWidgets(String section, int itemIndex) {
         List<DatatypeWidget<EhrDatatype>> widgets = mSectionWidgetsMap.get(section);
