@@ -11,16 +11,9 @@
 package it.crs4.most.report.ehr.widgets;
 
 import android.app.Activity;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.nhaarman.supertooltips.ToolTip;
-import com.nhaarman.supertooltips.ToolTipRelativeLayout;
 import com.nhaarman.supertooltips.ToolTipView;
 
 import org.json.JSONObject;
@@ -34,13 +27,10 @@ import it.crs4.most.report.ehr.exceptions.InvalidDatatypeException;
 /**
  * This class represents a visual widget mapped on a  {@link DvBoolean} datatype.
  */
-public class DvBooleanWidget extends DatatypeWidget<DvBoolean> implements ToolTipView.OnToolTipViewClickedListener {
+public class DvBooleanWidget extends SimpleDatatypeWidget<DvBoolean> implements ToolTipView.OnToolTipViewClickedListener {
 
     private static final String TAG = "DvTextWidget";
-    private TextView mTitleText;
     private CheckBox mChkBoolean;
-    private ToolTipView mToolTipView;
-    private ToolTipRelativeLayout mToolTipLayout;
 
     /**
      * Instantiates a new {@link DvBooleanWidget}
@@ -53,27 +43,8 @@ public class DvBooleanWidget extends DatatypeWidget<DvBoolean> implements ToolTi
      */
     public DvBooleanWidget(WidgetProvider provider, String name, String path, JSONObject attributes, int parentIndex) {
         super(provider, name, new DvBoolean(path, attributes), parentIndex);
-
-        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mRootView = inflater.inflate(R.layout.dv_boolean, null);
-        mTitleText = (TextView) mRootView.findViewById(R.id.txt_title);
         mChkBoolean = (CheckBox) mRootView.findViewById(R.id.check_is_selected);
         updateLabelsContent();
-
-        mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
-        ImageView info = (ImageView) mRootView.findViewById(R.id.image_info);
-        info.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mToolTipView == null) {
-                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitleText);
-                }
-                else {
-                    mToolTipView.remove();
-                    mToolTipView = null;
-                }
-            }
-        });
     }
 
     /**
@@ -82,7 +53,6 @@ public class DvBooleanWidget extends DatatypeWidget<DvBoolean> implements ToolTi
     private void updateWidgetContents() {
         if (mContext instanceof Activity) {
             ((Activity) mContext).runOnUiThread(new Runnable() {
-
                 @Override
                 public void run() {
                     mChkBoolean.setChecked(mDatatype.getValue());
@@ -128,16 +98,16 @@ public class DvBooleanWidget extends DatatypeWidget<DvBoolean> implements ToolTi
 
     }
 
-    /**
-     * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#replaceTooltip(com.nhaarman.supertooltips.ToolTip)
-     */
-    @Override
-    protected void replaceTooltip(ToolTip tooltip) {
-        if (mToolTipView != null) {
-            mToolTipView.remove();
-            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitleText);
-        }
-    }
+//    /**
+//     * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#replaceTooltip(com.nhaarman.supertooltips.ToolTip)
+//     */
+//    @Override
+//    protected void replaceTooltip(ToolTip tooltip) {
+//        if (mToolTipView != null) {
+//            mToolTipView.remove();
+//            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitleText);
+//        }
+//    }
 
     /**
      * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#updateLabelsContent()
@@ -147,4 +117,8 @@ public class DvBooleanWidget extends DatatypeWidget<DvBoolean> implements ToolTi
         mTitleText.setText(getDisplayTitle());
     }
 
+    @Override
+    public int getLayoutResource() {
+        return R.layout.dv_boolean;
+    }
 }

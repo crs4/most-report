@@ -11,13 +11,8 @@
 package it.crs4.most.report.ehr.widgets;
 
 import android.app.Activity;
-import android.content.Context;
 import android.text.method.ScrollingMovementMethod;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nhaarman.supertooltips.ToolTip;
@@ -35,13 +30,10 @@ import it.crs4.most.report.ehr.exceptions.InvalidDatatypeException;
 /**
  * This class represents a visual widget mapped on a  {@link DvText} datatype.
  */
-public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.OnToolTipViewClickedListener {
+public class DvTextWidget extends SimpleDatatypeWidget<DvText> implements ToolTipView.OnToolTipViewClickedListener {
 
     private String TAG = "DvTextWidget";
-    private TextView mTxtTitle;
     private EditText mInput;
-    private ToolTipView mToolTipView;
-    private ToolTipRelativeLayout mToolTipLayout;
 
     /**
      * Instantiates a new {@link DvTextWidget}
@@ -54,30 +46,9 @@ public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.
      */
     public DvTextWidget(WidgetProvider provider, String name, String path, JSONObject attributes, int parentIndex) {
         super(provider, name, new DvText(path, attributes), parentIndex);
-        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        mRootView = inflater.inflate(R.layout.dv_text, null);
-        mTxtTitle = (TextView) mRootView.findViewById(R.id.txt_title);
         mInput = (EditText) mRootView.findViewById(R.id.txt_text);
         mInput.setMovementMethod(new ScrollingMovementMethod());
-
         updateLabelsContent();
-
-        ImageView info = (ImageView) mRootView.findViewById(R.id.image_info);
-        info.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mToolTipView == null) {
-                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTxtTitle);
-                    //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
-                }
-                else {
-                    mToolTipView.remove();
-                    mToolTipView = null;
-                }
-            }
-        });
-        mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
     }
 
     /**
@@ -132,22 +103,15 @@ public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.
     }
 
     /**
-     * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#replaceTooltip(com.nhaarman.supertooltips.ToolTip)
-     */
-    @Override
-    protected void replaceTooltip(ToolTip tooltip) {
-        if (mToolTipView != null) {
-            mToolTipView.remove();
-            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTxtTitle);
-        }
-
-    }
-
-    /**
      * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#updateLabelsContent()
      */
     @Override
     protected void updateLabelsContent() {
-        mTxtTitle.setText(getDisplayTitle());
+        mTitleText.setText(getDisplayTitle());
+    }
+
+    @Override
+    public int getLayoutResource() {
+        return R.layout.dv_text;
     }
 }

@@ -219,7 +219,7 @@ public class DvQuantity extends EhrDatatype {
      *
      * @param precision the highest precision
      */
-    public void setMaxtPrecision(int precision) {
+    public void setMaxPrecision(int precision) {
         mPrecision = precision;
     }
 

@@ -9,20 +9,13 @@
 
 package it.crs4.most.report.ehr.widgets;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.nhaarman.supertooltips.ToolTip;
-import com.nhaarman.supertooltips.ToolTipRelativeLayout;
-import com.nhaarman.supertooltips.ToolTipView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,14 +30,11 @@ import it.crs4.most.report.ehr.exceptions.InvalidDatatypeException;
 /**
  * This class represents a visual widget mapped on a  {@link DvCodedText} datatype. It renders all the options of the {@link DvCodedText} datatype in a Combobox.
  */
-public class DvCodedTextWidget extends DatatypeWidget<DvCodedText> {
+public class DvCodedTextWidget extends SimpleDatatypeWidget<DvCodedText> {
 
-    private Spinner mSpinner = null;
     private int mCurrentSelectionIndex = 0;
+    private Spinner mSpinner = null;
     private ArrayAdapter<String> mAdapter;
-    private TextView mTxtTitle;
-    private ToolTipRelativeLayout mToolTipLayout;
-    private ToolTipView mToolTipView;
 
     /**
      * Instantiates a new {@link DvCodedTextWidget}
@@ -57,58 +47,6 @@ public class DvCodedTextWidget extends DatatypeWidget<DvCodedText> {
      */
     public DvCodedTextWidget(WidgetProvider provider, String name, String path, JSONObject attributes, int parentIndex) {
         super(provider, name, new DvCodedText(path, attributes), parentIndex);
-
-        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mRootView = inflater.inflate(R.layout.dv_coded_text, null);
-        mTxtTitle = (TextView) mRootView.findViewById(R.id.txt_title);
-        setupSpinner();
-        updateLabelsContent();
-
-        mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
-        ImageView info = (ImageView) mRootView.findViewById(R.id.image_info);
-        info.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mToolTipView == null) {
-                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTxtTitle);
-                    //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
-                }
-                else {
-                    mToolTipView.remove();
-                    mToolTipView = null;
-                }
-            }
-        });
-    }
-
-
-    /**
-     * Gets the options.
-     *
-     * @return the options
-     */
-    private ArrayList<String> getOptions() {
-        String[] options = getDatatype().getOptions();
-
-        ArrayList<String> lOptions = new ArrayList<String>();
-
-        for(String option : options) {
-            try {
-                lOptions.add(mOntology.getJSONObject(option).getString("text"));
-            }
-            catch (JSONException e) {
-                lOptions.add(option);
-                e.printStackTrace();
-            }
-        }
-        return lOptions;
-    }
-
-
-    /**
-     * Setup spinner.
-     */
-    private void setupSpinner() {
 
         mSpinner = (Spinner) mRootView.findViewById(R.id.spinnerState);
         mAdapter = new ArrayAdapter<>(mContext, R.layout.spinner_item, getOptions());
@@ -123,6 +61,29 @@ public class DvCodedTextWidget extends DatatypeWidget<DvCodedText> {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+        updateLabelsContent();
+    }
+
+    /**
+     * Gets the options.
+     *
+     * @return the options
+     */
+    private ArrayList<String> getOptions() {
+        String[] options = getDatatype().getOptions();
+
+        ArrayList<String> lOptions = new ArrayList<String>();
+
+        for (String option : options) {
+            try {
+                lOptions.add(mOntology.getJSONObject(option).getString("text"));
+            }
+            catch (JSONException e) {
+                lOptions.add(option);
+                e.printStackTrace();
+            }
+        }
+        return lOptions;
     }
 
     /**
@@ -152,25 +113,19 @@ public class DvCodedTextWidget extends DatatypeWidget<DvCodedText> {
     }
 
 
-    /* (non-Javadoc)
+    /**
      * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#updateLabelsContent()
      */
     @Override
     protected void updateLabelsContent() {
-        mTxtTitle.setText(String.format("%s: ", getDisplayTitle()));
+        mTitleText.setText(String.format("%s: ", getDisplayTitle()));
         mAdapter.clear();
         mAdapter.addAll(getOptions());
         mAdapter.notifyDataSetChanged();
     }
 
-    /* (non-Javadoc)
-     * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#replaceTooltip(com.nhaarman.supertooltips.ToolTip)
-     */
     @Override
-    protected void replaceTooltip(ToolTip tooltip) {
-        if (mToolTipView != null) {
-            mToolTipView.remove();
-            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTxtTitle);
-        }
+    public int getLayoutResource() {
+        return R.layout.dv_coded_text;
     }
 }

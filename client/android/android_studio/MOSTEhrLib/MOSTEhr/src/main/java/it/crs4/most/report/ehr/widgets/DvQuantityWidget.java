@@ -40,14 +40,11 @@ import it.crs4.most.report.ehr.exceptions.InvalidDatatypeException;
 /**
  * This class represents a visual widget mapped on a  {@link DvQuantity} datatype.
  */
-public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
+public class DvQuantityWidget extends SimpleDatatypeWidget<DvQuantity> {
 
     private static String TAG = "DvQuantityWidget";
     private TextView mLabUnityText;
     private EditText mMagnitudeText;
-    private TextView mTitleText;
-    private ToolTipView mToolTipView;
-    private ToolTipRelativeLayout mToolTipLayout;
 
     /**
      * Instantiates a new {@link DvQuantityWidget}
@@ -60,25 +57,6 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
      */
     public DvQuantityWidget(WidgetProvider provider, String name, String path, JSONObject attributes, int parentIndex) {
         super(provider, name, new DvQuantity(path, attributes), parentIndex);
-        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        mRootView = inflater.inflate(R.layout.dv_quantity, null);
-        mTitleText = (TextView) mRootView.findViewById(R.id.txt_title);
-        mTitleText.setText(getDisplayTitle());
-        ImageView info = (ImageView) mRootView.findViewById(R.id.image_info);
-        info.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mToolTipView == null) {
-                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitleText);
-                    //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
-                }
-                else {
-                    mToolTipView.remove();
-                    mToolTipView = null;
-                }
-            }
-        });
 
         mMagnitudeText = (EditText) mRootView.findViewById(R.id.txt_magnitude);
         mMagnitudeText.setHint(String.format("%s-%s", mDatatype.getMin(), mDatatype.getMax()));
@@ -90,17 +68,6 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
         mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
 
         updateWidgetContents();
-    }
-
-    /**
-     * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#replaceTooltip(com.nhaarman.supertooltips.ToolTip)
-     */
-    @Override
-    protected void replaceTooltip(ToolTip tooltip) {
-        if (mToolTipView != null) {
-            mToolTipView.remove();
-            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitleText);
-        }
     }
 
     /**
@@ -159,7 +126,6 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
         }
     }
 
-
     /**
      * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#updateLabelsContent()
      */
@@ -167,6 +133,11 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
     protected void updateLabelsContent() {
         mTitleText.setText(getDisplayTitle());
         mLabUnityText.setText(String.format("(%s)", mDatatype.getUnits()));
+    }
+
+    @Override
+    public int getLayoutResource() {
+        return R.layout.dv_quantity;
     }
 
     private static class MagnitudeTextWatcher implements TextWatcher {

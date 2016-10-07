@@ -39,14 +39,12 @@ import it.crs4.most.report.ehr.exceptions.InvalidDatatypeException;
 /**
  * This class represents a visual widget mapped on a  {@link DvCodedText} datatype. It renders all the options of the {@link DvCodedText} datatype in a ListView.
  */
-public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText> {
+public class DvCodedTextAsListWidget extends SimpleDatatypeWidget<DvCodedText> {
 
     private static String TAG = "DvCodedTextAsListWidget";
     private int mCurrentSelectionIndex = 0;
     private ListView mListView;
     private ArrayAdapter<String> mAdapter;
-    private TextView mTxtTitle;
-    private ToolTipRelativeLayout mToolTipLayout;
     private ToolTipView mToolTipView;
 
     /**
@@ -63,29 +61,20 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText> {
 
         Log.d(TAG, "istanziato DvCodedTextAsListWidget");
 
-        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mRootView = inflater.inflate(R.layout.dv_coded_text_listview, null);
         mListView = (ListView) mRootView.findViewById(R.id.list_coded_text);
-        mTxtTitle = (TextView) mRootView.findViewById(R.id.txt_title);
-        mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
-        ImageView info = (ImageView) mRootView.findViewById(R.id.image_info);
-        info.setOnClickListener(new OnClickListener() {
+        mAdapter = new ArrayAdapter<>(mContext, R.layout.dv_coded_text_listview_row, R.id.txt_row, getOptions());
+        mListView.setAdapter(mAdapter);
+        mListView.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                if (mToolTipView == null) {
-                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTxtTitle);
-                    //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
-                }
-                else {
-                    mToolTipView.remove();
-                    mToolTipView = null;
-
-                }
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mCurrentSelectionIndex = position;
+                mListView.setItemChecked(getDatatype().getSelectedOptionIndex(), false);
+                mListView.setItemChecked(mCurrentSelectionIndex, true);
             }
         });
+        mListView.setSelection(0);
 
         updateLabelsContent();
-        setupListViewAdapter();
     }
 
     /**
@@ -109,24 +98,6 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText> {
         return lOptions;
     }
 
-    /**
-     * Setup list view adapter.
-     */
-    private void setupListViewAdapter() {
-        mAdapter = new ArrayAdapter<>(mContext, R.layout.dv_coded_text_listview_row, R.id.txt_row, getOptions());
-
-        mListView.setAdapter(mAdapter);
-        mListView.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mCurrentSelectionIndex = position;
-                mListView.setItemChecked(getDatatype().getSelectedOptionIndex(), false);
-                mListView.setItemChecked(mCurrentSelectionIndex, true);
-            }
-        });
-
-        mListView.setSelection(0);
-    }
 
     /**
      * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#save()
@@ -156,26 +127,18 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText> {
 
 
     /**
-     * @see {@link it.crs4.most.report.ehr.widgets.DatatypeWidget#replaceTooltip(com.nhaarman.supertooltips.ToolTip)}
-     */
-    @Override
-    protected void replaceTooltip(ToolTip tooltip) {
-        if (mToolTipView != null) {
-            mToolTipView.remove();
-            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTxtTitle);
-        }
-
-    }
-
-    /**
      * @see it.crs4.most.report.ehr.widgets.DatatypeWidget#updateLabelsContent()
      */
     @Override
     protected void updateLabelsContent() {
-        mTxtTitle.setText(getDisplayTitle());
+        mTitleText.setText(getDisplayTitle());
         mAdapter.clear();
         mAdapter.addAll(getOptions());
         mAdapter.notifyDataSetChanged();
     }
 
+    @Override
+    public int getLayoutResource() {
+        return R.layout.dv_coded_text_listview;
+    }
 }

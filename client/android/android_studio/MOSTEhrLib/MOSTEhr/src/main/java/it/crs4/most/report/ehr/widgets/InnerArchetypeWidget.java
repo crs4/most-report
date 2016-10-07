@@ -211,7 +211,7 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
     }
 
     @Override
-    protected void replaceTooltip(ToolTip tooltip) {
+    protected void replaceTooltip() {
         if (mToolTipView != null) {
             mToolTipView.remove();
             mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitleText);

@@ -11,7 +11,6 @@ package it.crs4.most.report.ehr.widgets;
 
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 
@@ -54,8 +53,8 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
     /**
      * Instantiates a new {@link DatatypeWidget} widget.
      *
-     * @param name         the name of this widget
-     * @param datatype     the {@link EhrDatatype} to be handled by this widget
+     * @param name        the name of this widget
+     * @param datatype    the {@link EhrDatatype} to be handled by this widget
      * @param parentIndex the parent_index
      */
     public DatatypeWidget(WidgetProvider provider, String name, T datatype, int parentIndex) {
@@ -79,10 +78,8 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
 
     /**
      * Replace tooltip.
-     *
-     * @param tooltip the tooltip
      */
-    protected abstract void replaceTooltip(ToolTip tooltip);
+    protected abstract void replaceTooltip();
 
     public WidgetProvider getWidgetProvider() {
         return mWidgetProvider;
@@ -98,7 +95,7 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
             .withShadow()
             .withTextColor(mContext.getResources().getColor(R.color.colorTooltipText))
             .withAnimationType(ToolTip.AnimationType.FROM_TOP);
-        replaceTooltip(mToolTip);
+//        replaceTooltip();
     }
 
     /**
