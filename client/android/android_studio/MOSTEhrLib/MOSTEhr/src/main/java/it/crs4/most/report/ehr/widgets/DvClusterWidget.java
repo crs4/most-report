@@ -13,7 +13,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -41,11 +40,10 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster> {
     private static final String TAG = "DvClusterWidget";
     private boolean mWidgetsVisible = false;
     private List<DatatypeWidget<EhrDatatype>> mClusterWidgets;
-    private TextView mTitle;
+    private TextView mTitleText;
     private ToolTipRelativeLayout mToolTipLayout;
-    protected ToolTipView mToolTipView;
+    private ToolTipView mToolTipView;
     private LinearLayout mClusterLayout;
-    private ImageView mAddRemWidgets;
 
     /**
      * Instantiate a new DvClusterWidget
@@ -58,38 +56,12 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster> {
      */
     public DvClusterWidget(WidgetProvider provider, String name, String path, JSONObject attributes, int parentIndex) {
         super(provider, name, new DvCluster(path, attributes), parentIndex);
-        buildClusterView();
-        updateLabelsContent();
 
-        mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
-
-        mTitle.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mToolTipView == null) {
-                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitle);
-                    //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
-                }
-                else {
-                    mToolTipView.remove();
-                    mToolTipView = null;
-                }
-            }
-        });
-    }
-
-    private void buildClusterView() {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
         mRootView = inflater.inflate(R.layout.dv_cluster, null);
         mClusterLayout = (LinearLayout) mRootView.findViewById(R.id.cluster_container);
-        mTitle = (TextView) mRootView.findViewById(R.id.txt_title);
-
-        String sectionRef = mDatatype.getSectionName();
-        mClusterWidgets = mWidgetProvider.getClusterWidgets(sectionRef, 0);
-
-        mAddRemWidgets = (ImageView) mRootView.findViewById(R.id.image_toggle_widgets);
-        mAddRemWidgets.setOnClickListener(new OnClickListener() {
+        mTitleText = (TextView) mRootView.findViewById(R.id.txt_title);
+        mTitleText.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mWidgetsVisible) {
@@ -100,6 +72,26 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster> {
                 }
             }
         });
+
+        String sectionRef = mDatatype.getSectionName();
+        mClusterWidgets = mWidgetProvider.getClusterWidgets(sectionRef, 0);
+
+        mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
+        ImageView info = (ImageView) mRootView.findViewById(R.id.image_info);
+        info.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mToolTipView == null) {
+                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitleText);
+                    //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
+                }
+                else {
+                    mToolTipView.remove();
+                    mToolTipView = null;
+                }
+            }
+        });
+        updateLabelsContent();
     }
 
     private void addWidgets() {
@@ -107,13 +99,13 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster> {
             mClusterLayout.addView(mClusterWidgets.get(i).getView());
         }
         mWidgetsVisible = true;
-        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(R.drawable.expand_less_white));
+        mTitleText.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.expand_less_white, 0);
     }
 
     private void removeWidgets() {
         mClusterLayout.removeAllViews();
         mWidgetsVisible = false;
-        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(R.drawable.expand_white));
+        mTitleText.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.expand_white, 0);
     }
 
     /**
@@ -125,14 +117,14 @@ public class DvClusterWidget extends DatatypeWidget<DvCluster> {
 
     @Override
     protected void updateLabelsContent() {
-        mTitle.setText(getDisplayTitle());
+        mTitleText.setText(getDisplayTitle());
     }
 
     @Override
     protected void replaceTooltip(ToolTip tooltip) {
         if (mToolTipView != null) {
             mToolTipView.remove();
-            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitle);
+            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitleText);
         }
     }
 

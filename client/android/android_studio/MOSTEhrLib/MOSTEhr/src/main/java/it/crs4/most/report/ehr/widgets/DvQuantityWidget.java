@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nhaarman.supertooltips.ToolTip;
@@ -42,10 +43,9 @@ import it.crs4.most.report.ehr.exceptions.InvalidDatatypeException;
 public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
 
     private static String TAG = "DvQuantityWidget";
-    protected TextView mLabUnityText;
-    protected EditText mMagnitudeText;
-    protected TextView mTitleText;
-    //    protected TextView mValidityText;
+    private TextView mLabUnityText;
+    private EditText mMagnitudeText;
+    private TextView mTitleText;
     private ToolTipView mToolTipView;
     private ToolTipRelativeLayout mToolTipLayout;
 
@@ -64,16 +64,9 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
 
         mRootView = inflater.inflate(R.layout.dv_quantity, null);
         mTitleText = (TextView) mRootView.findViewById(R.id.txt_title);
-        mMagnitudeText = (EditText) mRootView.findViewById(R.id.txt_magnitude);
-        mLabUnityText = (TextView) mRootView.findViewById(R.id.txt_units);
-//        mValidityText = (TextView) mRootView.findViewById(R.id.txt_validity);
-
         mTitleText.setText(getDisplayTitle());
-        mMagnitudeText.setHint(String.format("%s-%s", mDatatype.getMin(), mDatatype.getMax()));
-        mLabUnityText.setText(String.format("(%s)", mDatatype.getUnits()));
-
-        mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
-        mTitleText.setOnClickListener(new OnClickListener() {
+        ImageView info = (ImageView) mRootView.findViewById(R.id.image_info);
+        info.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mToolTipView == null) {
@@ -87,7 +80,14 @@ public class DvQuantityWidget extends DatatypeWidget<DvQuantity> {
             }
         });
 
+        mMagnitudeText = (EditText) mRootView.findViewById(R.id.txt_magnitude);
+        mMagnitudeText.setHint(String.format("%s-%s", mDatatype.getMin(), mDatatype.getMax()));
         mMagnitudeText.addTextChangedListener(new MagnitudeTextWatcher(this));
+
+        mLabUnityText = (TextView) mRootView.findViewById(R.id.txt_units);
+        mLabUnityText.setText(String.format("(%s)", mDatatype.getUnits()));
+
+        mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
 
         updateWidgetContents();
     }

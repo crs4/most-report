@@ -40,17 +40,16 @@ import it.crs4.most.report.ehr.exceptions.InvalidDatatypeException;
 public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
 
     private static final String TAG = "InnerArchetypeWidget";
-    private List<DatatypeWidget<EhrDatatype>> mArchetypeWidgets;
-    private TextView mTitle;
-    private ToolTipRelativeLayout mToolTipLayout;
-    protected ToolTipView mToolTipView;
-    private FrameLayout mArchetypeLayout;
 
     private boolean mWidgetsVisible = false;
-    private ImageView mAddRemWidgets;
-    private FormContainer mFormContainer = null;
     private boolean mCreated = false;
     private String mLanguage = "en";
+    private List<DatatypeWidget<EhrDatatype>> mArchetypeWidgets;
+    private TextView mTitleText;
+    private ToolTipRelativeLayout mToolTipLayout;
+    private ToolTipView mToolTipView;
+    private FrameLayout mArchetypeLayout;
+    private FormContainer mFormContainer;
 
     /**
      * Instantiate a new InnerArchetypeWidget
@@ -67,7 +66,6 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
         mContext = provider.getContext();
         mOntology = provider.getOntology();
         mParentIndex = parentIndex;
-
         mDatatype = new InnerArchetype(provider, path, attributes);
         mDatatype.setDatatypeChangeListener(this);
 
@@ -77,12 +75,25 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
         super.setupTooltip();
 
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
         mRootView = inflater.inflate(R.layout.inner_archetype, null);
         mArchetypeLayout = (FrameLayout) mRootView.findViewById(R.id.archetype_container);
-        mTitle = (TextView) mRootView.findViewById(R.id.txt_archetype_title);
-        mAddRemWidgets = (ImageView) mRootView.findViewById(R.id.image_toggle_widgets);
-        mAddRemWidgets.setOnClickListener(new OnClickListener() {
+        ImageView info = (ImageView) mRootView.findViewById(R.id.image_info);
+        info.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mToolTipView == null) {
+                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitleText);
+                    //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
+                }
+                else {
+                    mToolTipView.remove();
+                    mToolTipView = null;
+                }
+            }
+        });
+
+        mTitleText = (TextView) mRootView.findViewById(R.id.txt_archetype_title);
+        mTitleText.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mWidgetsVisible) {
@@ -95,21 +106,7 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
         });
 
         updateLabelsContent();
-
         mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
-        mTitle.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mToolTipView == null) {
-                    mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitle);
-                    //mToolTipView.setOnToolTipViewClickedListener(DvTextWidget.this);
-                }
-                else {
-                    mToolTipView.remove();
-                    mToolTipView = null;
-                }
-            }
-        });
     }
 
 
@@ -142,7 +139,8 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
     private void setupDescription(boolean firstRequest) {
         try {
             if (firstRequest)
-                mDescription = mOntology.getJSONObject(mWidgetProvider.getDatatypesSchema().getString("title")).getString("description");
+                mDescription = mOntology.getJSONObject(mWidgetProvider.getDatatypesSchema()
+                    .getString("title")).getString("description");
             else
                 mDescription = mOntology.getJSONObject(mName).getString("description");
 
@@ -163,7 +161,8 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
     private void setupDisplaytitle(boolean firstRequest) {
         try {
             if (firstRequest) {
-                mDisplayTitle = mOntology.getJSONObject(mWidgetProvider.getDatatypesSchema().getString("title")).getString("text");
+                mDisplayTitle = mOntology.getJSONObject(mWidgetProvider.getDatatypesSchema()
+                    .getString("title")).getString("text");
             }
             else {
                 mDisplayTitle = mOntology.getJSONObject(mName).getString("text");
@@ -189,13 +188,13 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
         }
         mArchetypeLayout.addView(mFormContainer.getLayout());
         mWidgetsVisible = true;
-        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(R.drawable.expand_less_white));
+        mTitleText.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.expand_less_white, 0);
     }
 
     private void removeWidgets() {
         mArchetypeLayout.removeAllViews();
         mWidgetsVisible = false;
-        mAddRemWidgets.setImageDrawable(mContext.getResources().getDrawable(R.drawable.expand_white));
+        mTitleText.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.expand_white, 0);
     }
 
     /**
@@ -208,14 +207,14 @@ public class InnerArchetypeWidget extends DatatypeWidget<InnerArchetype> {
 
     @Override
     protected void updateLabelsContent() {
-        mTitle.setText(getDisplayTitle());
+        mTitleText.setText(getDisplayTitle());
     }
 
     @Override
     protected void replaceTooltip(ToolTip tooltip) {
         if (mToolTipView != null) {
             mToolTipView.remove();
-            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitle);
+            mToolTipView = mToolTipLayout.showToolTipForView(mToolTip, mTitleText);
         }
     }
 

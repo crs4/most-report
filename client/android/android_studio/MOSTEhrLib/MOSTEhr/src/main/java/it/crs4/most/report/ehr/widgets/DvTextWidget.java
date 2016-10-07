@@ -13,7 +13,6 @@ package it.crs4.most.report.ehr.widgets;
 import android.app.Activity;
 import android.content.Context;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -41,7 +40,6 @@ public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.
     private String TAG = "DvTextWidget";
     private TextView mTxtTitle;
     private EditText mInput;
-//    private ImageView mHelp;
     private ToolTipView mToolTipView;
     private ToolTipRelativeLayout mToolTipLayout;
 
@@ -65,11 +63,8 @@ public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.
 
         updateLabelsContent();
 
-//        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
-        mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
-
-        mTxtTitle.setOnClickListener(new OnClickListener() {
-
+        ImageView info = (ImageView) mRootView.findViewById(R.id.image_info);
+        info.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mToolTipView == null) {
@@ -79,10 +74,10 @@ public class DvTextWidget extends DatatypeWidget<DvText> implements ToolTipView.
                 else {
                     mToolTipView.remove();
                     mToolTipView = null;
-
                 }
             }
         });
+        mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
     }
 
     /**

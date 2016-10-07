@@ -41,7 +41,6 @@ public class DvCodedTextWidget extends DatatypeWidget<DvCodedText> {
 
     private Spinner mSpinner = null;
     private int mCurrentSelectionIndex = 0;
-//    private ImageView mHelp;
     private ArrayAdapter<String> mAdapter;
     private TextView mTxtTitle;
     private ToolTipRelativeLayout mToolTipLayout;
@@ -61,17 +60,13 @@ public class DvCodedTextWidget extends DatatypeWidget<DvCodedText> {
 
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mRootView = inflater.inflate(R.layout.dv_coded_text, null);
-
         mTxtTitle = (TextView) mRootView.findViewById(R.id.txt_title);
-        this.setupSpinner();
-
-        this.updateLabelsContent();
-
-//        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
+        setupSpinner();
+        updateLabelsContent();
 
         mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
-
-        mTxtTitle.setOnClickListener(new OnClickListener() {
+        ImageView info = (ImageView) mRootView.findViewById(R.id.image_info);
+        info.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mToolTipView == null) {
@@ -97,12 +92,12 @@ public class DvCodedTextWidget extends DatatypeWidget<DvCodedText> {
 
         ArrayList<String> lOptions = new ArrayList<String>();
 
-        for (int i = 0; i < options.length; i++) {
+        for(String option : options) {
             try {
-                lOptions.add(mOntology.getJSONObject(options[i]).getString("text"));
+                lOptions.add(mOntology.getJSONObject(option).getString("text"));
             }
             catch (JSONException e) {
-                lOptions.add(options[i]);
+                lOptions.add(option);
                 e.printStackTrace();
             }
         }

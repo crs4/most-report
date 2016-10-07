@@ -60,9 +60,9 @@ public class DvBooleanWidget extends DatatypeWidget<DvBoolean> implements ToolTi
         mChkBoolean = (CheckBox) mRootView.findViewById(R.id.check_is_selected);
         updateLabelsContent();
 
-//        mHelp = (ImageView) mRootView.findViewById(R.id.image_help);
         mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
-        mTitleText.setOnClickListener(new OnClickListener() {
+        ImageView info = (ImageView) mRootView.findViewById(R.id.image_info);
+        info.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mToolTipView == null) {

@@ -47,6 +47,31 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
     protected ToolTip mToolTip;
     protected WidgetProvider mWidgetProvider;
 
+    // Nedeed for InnerArchetypeWidget that does not call the super constructor.
+    protected DatatypeWidget() {
+    }
+
+    /**
+     * Instantiates a new {@link DatatypeWidget} widget.
+     *
+     * @param name         the name of this widget
+     * @param datatype     the {@link EhrDatatype} to be handled by this widget
+     * @param parentIndex the parent_index
+     */
+    public DatatypeWidget(WidgetProvider provider, String name, T datatype, int parentIndex) {
+        mWidgetProvider = provider;
+        mName = name;
+        mContext = provider.getContext();
+        mOntology = provider.getOntology();
+        mParentIndex = parentIndex;
+        mDatatype = datatype;
+        mDatatype.setDatatypeChangeListener(this);
+
+        setupDisplaytitle();
+        setupDescription();
+        setupTooltip();
+    }
+
     /**
      * Update the content of the labels of the widget, according to the current ontology language.
      */
@@ -58,33 +83,6 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
      * @param tooltip the tooltip
      */
     protected abstract void replaceTooltip(ToolTip tooltip);
-
-    // Nedeed for InnerArchetypeWidget that does not call the super constructor.
-    protected DatatypeWidget() {
-    }
-
-    /**
-     * Instantiates a new {@link DatatypeWidget} widget.
-     *
-     * @param name         the name of this widget
-     * @param datatype     the {@link EhrDatatype} to be handled by this widget
-     * @param parent_index the parent_index
-     */
-    public DatatypeWidget(WidgetProvider provider, String name, T datatype, int parent_index) {
-        mWidgetProvider = provider;
-        mName = name;
-        mContext = provider.getContext();
-        mOntology = provider.getOntology();
-        mParentIndex = parent_index;
-
-        mDatatype = datatype;
-        mDatatype.setDatatypeChangeListener(this);
-
-        setupDisplaytitle();
-        setupDescription();
-        setupTooltip();
-    }
-
 
     public WidgetProvider getWidgetProvider() {
         return mWidgetProvider;
@@ -100,7 +98,6 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
             .withShadow()
             .withTextColor(mContext.getResources().getColor(R.color.colorTooltipText))
             .withAnimationType(ToolTip.AnimationType.FROM_TOP);
-
         replaceTooltip(mToolTip);
     }
 

@@ -67,14 +67,9 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText> {
         mRootView = inflater.inflate(R.layout.dv_coded_text_listview, null);
         mListView = (ListView) mRootView.findViewById(R.id.list_coded_text);
         mTxtTitle = (TextView) mRootView.findViewById(R.id.txt_title);
-
-        updateLabelsContent();
-
         mToolTipLayout = (ToolTipRelativeLayout) mRootView.findViewById(R.id.activity_main_tooltipRelativeLayout);
-
-        mTxtTitle.setOnClickListener(new OnClickListener() {
-
-
+        ImageView info = (ImageView) mRootView.findViewById(R.id.image_info);
+        info.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mToolTipView == null) {
@@ -89,10 +84,9 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText> {
             }
         });
 
-
+        updateLabelsContent();
         setupListViewAdapter();
     }
-
 
     /**
      * Gets the options.
@@ -101,15 +95,14 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText> {
      */
     private ArrayList<String> getOptions() {
         String[] options = getDatatype().getOptions();
+        ArrayList<String> lOptions = new ArrayList<>();
 
-        ArrayList<String> lOptions = new ArrayList<String>();
-
-        for (int i = 0; i < options.length; i++) {
+        for(String option : options) {
             try {
-                lOptions.add(mOntology.getJSONObject(options[i]).getString("text"));
+                lOptions.add(mOntology.getJSONObject(option).getString("text"));
             }
             catch (JSONException e) {
-                lOptions.add(options[i]);
+                lOptions.add(option);
                 e.printStackTrace();
             }
         }
@@ -120,26 +113,17 @@ public class DvCodedTextAsListWidget extends DatatypeWidget<DvCodedText> {
      * Setup list view adapter.
      */
     private void setupListViewAdapter() {
-        mAdapter = new ArrayAdapter<>(
-            mContext,
-            R.layout.dv_coded_text_listview_row,
-            R.id.txt_row,
-            getOptions()
-        );
+        mAdapter = new ArrayAdapter<>(mContext, R.layout.dv_coded_text_listview_row, R.id.txt_row, getOptions());
 
         mListView.setAdapter(mAdapter);
-
         mListView.setOnItemClickListener(new OnItemClickListener() {
-
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mCurrentSelectionIndex = position;
                 mListView.setItemChecked(getDatatype().getSelectedOptionIndex(), false);
                 mListView.setItemChecked(mCurrentSelectionIndex, true);
             }
         });
-
 
         mListView.setSelection(0);
     }

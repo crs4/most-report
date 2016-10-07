@@ -9,10 +9,14 @@
         android:layout_height="@dimen/widget_body_height"
         android:background="@color/colorTitle">
 
+        <ImageView
+            android:id="@+id/image_info"
+            style="@style/InfoImageStyle"/>
+
         <TextView
             android:id="@+id/txt_title"
-            android:layout_width="wrap_content"
-            style="@style/TitleStyle"/>
+            style="@style/TitleStyle"
+            android:layout_width="wrap_content"/>
 
         <CheckBox
             android:id="@+id/check_is_selected"
