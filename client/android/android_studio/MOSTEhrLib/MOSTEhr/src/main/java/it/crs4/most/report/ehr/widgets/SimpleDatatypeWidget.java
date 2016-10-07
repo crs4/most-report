@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nhaarman.supertooltips.ToolTip;
 import com.nhaarman.supertooltips.ToolTipRelativeLayout;
 import com.nhaarman.supertooltips.ToolTipView;
 
@@ -14,7 +13,7 @@ import it.crs4.most.report.ehr.R;
 import it.crs4.most.report.ehr.WidgetProvider;
 import it.crs4.most.report.ehr.datatypes.EhrDatatype;
 
-public abstract class SimpleDatatypeWidget<T extends EhrDatatype> extends DatatypeWidget<T>  {
+public abstract class SimpleDatatypeWidget<T extends EhrDatatype> extends DatatypeWidget<T> {
     protected ToolTipRelativeLayout mToolTipLayout;
     protected TextView mTitleText;
     protected ToolTipView mToolTipView;

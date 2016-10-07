@@ -716,26 +716,16 @@ public class WidgetProvider {
         Log.d(TAG, "creating datatype widgets...");
 
         ArrayList<DatatypeWidget<EhrDatatype>> widgets = new ArrayList<DatatypeWidget<EhrDatatype>>();
-
-        //_map = new HashMap<String, DatatypeWidget>();
-
-
-        JSONObject items_structure;
-
+        JSONObject itemsStructure;
         try {
             // item_id and datatype
-
-            //items_structure = (JSONObject) datatypes.getJSONArray("items").get(itemIndex);
-            items_structure = dataStructure.getStructure(itemIndex).getJSONObject("items");
-            Log.d(TAG, "ITEM STRUCTURE NAMES:" + items_structure.names());
-            for (int i = 0; i < items_structure.names().length(); i++) {
-                String itemTitle = items_structure.names().getString(i);  // es: at0004
+            itemsStructure = dataStructure.getStructure(itemIndex).getJSONObject("items");
+            Log.d(TAG, "ITEM STRUCTURE NAMES:" + itemsStructure.names());
+            for (int i = 0; i < itemsStructure.names().length(); i++) {
+                String itemTitle = itemsStructure.names().getString(i);  // es: at0004
                 // Check if this id is in the list of items to be excluded
                 if (mExcludeArray.contains(itemTitle))
                     continue;
-
-                //String displayTitle = ontology.getJSONObject(itemTitle).getString("text");
-
                 JSONObject itemStructureInfo = datatypes.getJSONObject(itemTitle);
 
                 String itemType = itemStructureInfo.getString("type"); //  from the datatypes structure Es: DV_TEXT, ARCHETYPE
@@ -747,7 +737,7 @@ public class WidgetProvider {
 
                 // Fill the field of the widget reading the content from the json data, if existing
                 // The following key exists only if this structure is an item instance, not an item structure
-                JSONObject itemContentInfo = items_structure.optJSONObject(itemTitle);
+                JSONObject itemContentInfo = itemsStructure.optJSONObject(itemTitle);
 
                 if (itemContentInfo != null) {
                     JSONObject itemContent = itemContentInfo.optJSONObject("value");

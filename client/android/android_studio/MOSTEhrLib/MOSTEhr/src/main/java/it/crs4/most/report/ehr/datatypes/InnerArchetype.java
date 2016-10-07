@@ -11,21 +11,19 @@ import it.crs4.most.report.ehr.exceptions.InvalidDatatypeException;
  */
 public class InnerArchetype extends EhrDatatype {
 
-    private String archetypeClass;
-    private WidgetProvider wp;
-
+    private String mArchetypeClass;
+    private WidgetProvider mWidgetProvider;
 
     /**
      * Instantiates a new Archetype item.
      *
-     * @param wp         the Widget Provider of the archetype
+     * @param widgetProvider         the Widget Provider of the archetype
      * @param path       the absolute path of the archetype inside the json structure
      * @param attributes
      */
-    public InnerArchetype(WidgetProvider wp, String path, JSONObject attributes) {
-        this.wp = wp;
-        this.setPath(path);
-
+    public InnerArchetype(WidgetProvider widgetProvider, String path, JSONObject attributes) {
+        mWidgetProvider = widgetProvider;
+        setPath(path);
 
         try {
             setAttributes(attributes);
@@ -37,19 +35,19 @@ public class InnerArchetype extends EhrDatatype {
     }
 
     public WidgetProvider getWidgetProvider() {
-        return wp;
+        return mWidgetProvider;
     }
 
     @Override
     protected void setAttributes(JSONObject attributes) throws JSONException {
-        this.archetypeClass = attributes.getString("archetype_class");
+        mArchetypeClass = attributes.getString("archetype_class");
     }
 
     /**
      * @return the name of the archetype class
      */
     public String getArchetypeClass() {
-        return this.archetypeClass;
+        return mArchetypeClass;
     }
 
     @Override
@@ -62,7 +60,7 @@ public class InnerArchetype extends EhrDatatype {
     @Override
     public JSONObject toJSON() {
 
-        return this.wp.toJson();
+        return mWidgetProvider.toJson();
     }
 
     /**

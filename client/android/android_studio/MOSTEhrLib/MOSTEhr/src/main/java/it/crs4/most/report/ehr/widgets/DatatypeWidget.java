@@ -95,7 +95,6 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
             .withShadow()
             .withTextColor(mContext.getResources().getColor(R.color.colorTooltipText))
             .withAnimationType(ToolTip.AnimationType.FROM_TOP);
-//        replaceTooltip();
     }
 
     /**
@@ -125,7 +124,7 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
     /**
      * Setup displaytitle.
      */
-    private void setupDisplaytitle() {
+    protected void setupDisplaytitle() {
         try {
             mDisplayTitle = mOntology.getJSONObject(mName).getString("text");
         }
@@ -147,7 +146,7 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
     /**
      * Setup description.
      */
-    private void setupDescription() {
+    protected void setupDescription() {
         try {
             mDescription = mOntology.getJSONObject(mName).getString("description");
         }
