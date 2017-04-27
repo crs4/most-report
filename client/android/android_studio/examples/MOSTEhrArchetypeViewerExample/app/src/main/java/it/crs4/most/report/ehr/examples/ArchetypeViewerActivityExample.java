@@ -46,36 +46,40 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity {
     /**
      * The Constant LANGUAGE.
      */
-    public static final String LANGUAGE = "es-ar"; // "es-ar"; //
+    public static final String LANGUAGE = "en"; // "es-ar"; //
 
     /**
      * The Constant TAG.
      */
-    public static final String TAG = "ArchetypeViewerActivityExample";
+    public static final String TAG = "ArchetypeViewerActivity";
 
     /**
      * The json datatypes schema.
      */
     private static String JSON_SCHEMA_DATATYPES = "ecg/schema_datatypes_ECG_recording_v1.json";
     private static String JSON_SCHEMA_DATATYPES2 = "blood_pressure/schema_datatypes_blood_pressure_v1.json";
+    private static String JSON_SCHEMA_DATATYPES3 = "report_demo_most/datatypes__report_demo_most.json";
 
     /**
      * The json layout schema.
      */
     private static String JSON_SCHEMA_LAYOUT = "ecg/schema_layout_ECG_recording_v1.json";
     private static String JSON_SCHEMA_LAYOUT2 = "blood_pressure/schema_layout_blood_pressure_v1.json";
+    private static String JSON_SCHEMA_LAYOUT3 = "report_demo_most/layout__report_demo_most.json";
 
     /**
      * The json ontology.
      */
     private static String JSON_SCHEMA_ONTOLOGY = "ecg/schema_ontology_ECG_recording_v1.json";
     private static String JSON_SCHEMA_ONTOLOGY2 = "blood_pressure/schema_ontology_blood_pressure_v1.json";
+    private static String JSON_SCHEMA_ONTOLOGY3 = "report_demo_most/ontology__report_demo_most.json";
 
     /**
      * The json instances.
      */
     private static String JSON_SCHEMA_INSTANCE = "ecg/schema_adl_void_instance_ECG_recording_v1.json";
     private static String JSON_SCHEMA_INSTANCE2 = "blood_pressure/schema_adl_void_instance_blood_pressure_v1.json";
+    private static String JSON_SCHEMA_INSTANCE3 = "report_demo_most/adl_structure__report_demo_most.json";
 
     private ArchetypeViewerFragment archetypeFragment = null;
 
@@ -91,16 +95,6 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity {
                     .add(R.id.container, archetypeFragment)
                     .commit();
         }
-
-    }
-
-    public void loadArchetypeFragment(String datatypes, String ontology, String instances, String schema, String language) {
-
-        Log.d(TAG, "Replacing the fragment....");
-        FragmentManager fm = getSupportFragmentManager();
-
-        ArchetypeViewerFragment f = new ArchetypeViewerFragment(getApplicationContext(), datatypes, ontology, instances, schema, language);
-        fm.beginTransaction().replace(R.id.container, f).commit();
 
     }
 
@@ -169,8 +163,6 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity {
          * The widget provider.
          */
         private WidgetProvider widgetProvider;
-
-
         private String datatypes = null;
         private String ontology = null;
         private String instances = null;
@@ -187,11 +179,11 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity {
 
         public ArchetypeViewerFragment(Context ctx, String datatypes, String ontology, String instances, String schema, String language) {
 
-            this.datatypes = (datatypes == null ? WidgetProvider.parseFileToString(ctx, JSON_SCHEMA_DATATYPES2) : datatypes);
-            this.ontology = (ontology == null ? WidgetProvider.parseFileToString(ctx, JSON_SCHEMA_ONTOLOGY2) : ontology);
-            this.instances = (instances == null ? WidgetProvider.parseFileToString(ctx, JSON_SCHEMA_INSTANCE2) : instances);
-            this.schema = (schema == null ? WidgetProvider.parseFileToString(ctx, JSON_SCHEMA_LAYOUT2) : schema);
-            this.instances = (instances == null ? WidgetProvider.parseFileToString(ctx, JSON_SCHEMA_INSTANCE2) : instances);
+            this.datatypes = (datatypes == null ? WidgetProvider.parseFileToString(ctx, JSON_SCHEMA_DATATYPES3) : datatypes);
+            this.ontology = (ontology == null ? WidgetProvider.parseFileToString(ctx, JSON_SCHEMA_ONTOLOGY3) : ontology);
+            this.instances = (instances == null ? WidgetProvider.parseFileToString(ctx, JSON_SCHEMA_INSTANCE3) : instances);
+            this.schema = (schema == null ? WidgetProvider.parseFileToString(ctx, JSON_SCHEMA_LAYOUT3) : schema);
+
             this.language = (language == null ? LANGUAGE : language);
         }
 
@@ -201,7 +193,8 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity {
                                  Bundle savedInstanceState) {
 
             try {
-                Log.d(TAG, String.format("--->>>> Activity:%s DT:%s,ON:%s, IN:%s. SC: %s, LA:%s", getActivity(), datatypes, ontology, instances, schema, language));
+                Log.d(TAG, String.format("--->>>> Activity:%s DT:%s,ON:%s, IN:%s. SC: %s, LA:%s", getActivity(),
+                    datatypes, ontology, instances, schema, language));
                 widgetProvider = new WidgetProvider(getActivity(),
                         this.datatypes,
                         this.ontology,
@@ -226,7 +219,7 @@ public class ArchetypeViewerActivityExample extends ActionBarActivity {
 
             rootView.addView(buttonsPanel);
 
-            rootView.setBackgroundColor(Color.BLACK);
+//            rootView.setBackgroundColor(Color.BLACK);
             setupButtonsListeners(buttonsPanel);
             return rootView;
         }

@@ -91,9 +91,9 @@ public abstract class DatatypeWidget<T extends EhrDatatype> implements EhrDataty
     protected void setupTooltip() {
         mToolTip = new ToolTip()
             .withText(getDescription())
-            .withColor(mContext.getResources().getColor(R.color.colorTooltipBackground))
+            .withColor(mContext.getResources().getColor(R.color.colorEhrTooltipBackground))
             .withShadow()
-            .withTextColor(mContext.getResources().getColor(R.color.colorTooltipText))
+            .withTextColor(mContext.getResources().getColor(R.color.colorEhrTooltipText))
             .withAnimationType(ToolTip.AnimationType.FROM_TOP);
     }
 

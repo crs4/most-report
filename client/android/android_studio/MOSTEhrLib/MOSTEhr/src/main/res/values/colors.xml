@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorBackground">#FFFFFF</color>
-    <color name="colorHint">#FFCCCCCC</color>
-    <color name="colorStroke">#FFAAAAAA</color>
-    <color name="colorTitle">#FFFFFF</color>
-    <color name="colorText">#3498DB</color>
-    <color name="colorTitleArchetype">#2980B9</color>
-    <color name="colorTitleCluster">#3498DB</color>
-    <color name="colorTooltipBackground">#3498DB</color>
-    <color name="colorTooltipText">#FFFFFF</color>
+    <color name="colorEhrBackground">#FFFFFF</color>
+    <color name="colorEhrHint">#FFCCCCCC</color>
+    <color name="colorEhrStroke">#FFAAAAAA</color>
+    <color name="colorEhrTitleBackground">#FFFFFF</color>
+    <color name="colorEhrTitleText">#3498DB</color>
+    <color name="colorEhrArchetypeTitleBackground">#2980B9</color>
+    <color name="colorEhrArchetypeTitleText">#FFFFFF</color>
+    <color name="colorEhrClusterTitleBackground">#3498DB</color>
+    <color name="colorEhrClusterTitleText">#FFFFFF</color>
+    <color name="colorEhrTooltipBackground">@color/colorEhrTitleText</color>
+    <color name="colorEhrTooltipText">@color/colorEhrTitleBackground</color>
 </resources>

@@ -35,7 +35,7 @@
             android:layout_marginRight="@dimen/widget_margin"
             android:layout_marginStart="@dimen/widget_margin"
             android:inputType="numberDecimal"
-            android:textColorHint="@color/colorHint"
+            android:textColorHint="@color/colorEhrHint"
             android:textSize="@dimen/abc_text_size_body_1_material"/>
 
         <TextView
@@ -61,6 +61,6 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="@color/colorStroke"/>
+        android:background="@color/colorEhrStroke"/>
 
 </LinearLayout>

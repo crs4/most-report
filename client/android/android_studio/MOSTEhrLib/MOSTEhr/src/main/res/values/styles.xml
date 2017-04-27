@@ -29,7 +29,7 @@
         <item name="android:contentDescription">@string/info</item>
         <item name="android:paddingLeft">@dimen/widget_margin</item>
         <item name="android:paddingRight">@dimen/info_image_padding</item>
-        <item name="android:src">@drawable/info_blue</item>
+        <item name="android:src">@drawable/info</item>
     </style>
 
     <style name="InfoImageStyleWhite" parent="InfoImageStyle">
@@ -37,34 +37,34 @@
     </style>
 
     <style name="TitleStyle">
-        <item name="android:background">@color/colorTitle</item>
+        <item name="android:background">@color/colorEhrTitleBackground</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/widget_header_height</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:paddingLeft">@dimen/widget_margin</item>
         <item name="android:paddingRight">@dimen/widget_margin</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textColor">@color/colorEhrTitleText</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">@dimen/abc_text_size_medium_material</item>
     </style>
 
     <style name="TitleStyleArchetype" parent="TitleStyle">
-        <item name="android:background">@color/colorTitleArchetype</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@color/colorEhrArchetypeTitleBackground</item>
         <item name="android:drawableRight">@drawable/expand_white</item>
         <item name="android:drawablePadding">@dimen/info_image_padding</item>
         <item name="android:drawableEnd">@drawable/expand_white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/colorEhrArchetypeTitleText</item>
     </style>
 
     <style name="TitleStyleCluster" parent="TitleStyle">
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:background">@color/colorTitleCluster</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@color/colorEhrClusterTitleBackground</item>
         <item name="android:drawableRight">@drawable/expand_white</item>
         <item name="android:drawablePadding">@dimen/info_image_padding</item>
         <item name="android:drawableEnd">@drawable/expand_white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/colorEhrClusterTitleText</item>
     </style>
 
 

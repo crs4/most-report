@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "it.crs4.most.report.ehr.examples.most_ehr_archetype_viewer"
-        minSdkVersion 11
+        minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -17,7 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    repositories{
+    repositories {
         mavenLocal()
         flatDir {
             dirs '../../../MOSTEhr/MOSTEhrLib/build/outputs/aar/'
@@ -27,7 +27,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile(name: "MOSTEhrLib-debug", ext: "aar")
+    compile name: "MOSTEhr", ext: 'aar', group: 'it.crs4.most.report.ehr', version: '1.0'
     compile 'com.nhaarman.supertooltips:library:3.0.+'
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:21.0.+'

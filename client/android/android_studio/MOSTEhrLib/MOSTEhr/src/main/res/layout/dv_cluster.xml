@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_header_height"
-        android:background="@color/colorTitleCluster"
+        android:background="@color/colorEhrClusterTitleBackground"
         android:orientation="horizontal">
 
         <ImageView
@@ -35,7 +35,7 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:background="@color/colorStroke"/>
+        android:background="@color/colorEhrStroke"/>
 
 </LinearLayout>
 
