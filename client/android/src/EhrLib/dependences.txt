@@ -1,4 +1,0 @@
-
-Dependences (needed for Tooltips Support):
-SuperTooltips :   http://nhaarman.github.io/supertooltips/ (Apache License, Version 2.0)
-NinteOldAndroids:  http://nineoldandroids.com/             (Apache License, Version 2.0)
