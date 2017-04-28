@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="comment_hint">Insert a comment (optional)</string>
+    <string name="selected">Selected?</string>
+    <string name="info">Info</string>
+    <string name="expand">Expand</string>
+</resources>
